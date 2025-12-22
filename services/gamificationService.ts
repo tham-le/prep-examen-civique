@@ -1,8 +1,9 @@
 
-import { UserStats, Badge } from '../types';
+import { UserStats, Badge, ExamResult, Level } from '../types';
 import { BADGES, LEVELS, DEFAULT_USER_STATS } from '../constants';
 
 const STORAGE_KEY = 'objectif_citoyen_stats';
+const EXAM_HISTORY_KEY = 'objectif_citoyen_exam_history';
 
 export const loadUserStats = (): UserStats => {
   try {
@@ -244,4 +245,44 @@ export const getBadgeInfo = (badgeId: string): Badge | undefined => {
 export const getWeakQuestions = (stats: UserStats, allQuestions: any[]): any[] => {
   if (stats.weakQuestions.length === 0) return [];
   return allQuestions.filter(q => stats.weakQuestions.includes(q.id));
+};
+
+// Exam History functions
+export const loadExamHistory = (): ExamResult[] => {
+  try {
+    const saved = localStorage.getItem(EXAM_HISTORY_KEY);
+    if (saved) {
+      return JSON.parse(saved);
+    }
+  } catch (e) {
+    console.warn('Error loading exam history:', e);
+  }
+  return [];
+};
+
+export const saveExamHistory = (history: ExamResult[]): void => {
+  try {
+    // Keep only the last 20 exams
+    const trimmed = history.slice(-20);
+    localStorage.setItem(EXAM_HISTORY_KEY, JSON.stringify(trimmed));
+  } catch (e) {
+    console.warn('Error saving exam history:', e);
+  }
+};
+
+export const addExamResult = (level: Level, score: number, passed: boolean, duration: number): ExamResult => {
+  const result: ExamResult = {
+    id: Date.now().toString(),
+    date: new Date().toISOString(),
+    level,
+    score,
+    passed,
+    duration
+  };
+
+  const history = loadExamHistory();
+  history.push(result);
+  saveExamHistory(history);
+
+  return result;
 };

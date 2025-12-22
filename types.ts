@@ -37,6 +37,15 @@ export interface ExamSession {
   isFinished: boolean;
 }
 
+export interface ExamResult {
+  id: string;
+  date: string;
+  level: Level;
+  score: number;
+  passed: boolean;
+  duration: number; // in seconds
+}
+
 // Gamification Types
 export interface Badge {
   id: string;
@@ -67,4 +76,18 @@ export interface FAQItem {
   question: string;
   answer: string;
   category: string;
+}
+
+export interface OfficialFiche {
+  id: string;
+  title: string;
+  url: string;
+}
+
+export interface FicheCategory {
+  id: string;
+  title: string;
+  icon: string;
+  color: string;
+  fiches: OfficialFiche[];
 }

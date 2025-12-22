@@ -1,5 +1,5 @@
 
-import { Question, Lesson, Badge, FAQItem } from './types';
+import { Question, Lesson, Badge, FAQItem, FicheCategory } from './types';
 
 export const THEMES = [
   { id: 'valeurs', title: 'Principes et valeurs', icon: 'fa-balance-scale', color: 'indigo' },
@@ -106,7 +106,7 @@ const VALEURS_QUESTIONS: Question[] = [
   {
     id: 'v11',
     text: "La liberté d'expression permet de :",
-    options: ["Dire tout ce qu'on veut sans aucune limite", "Exprimer ses opinions dans le respect de la loi", "Insulter les autres librement", "Diffamer sans conséquence"],
+    options: ["S'exprimer sans aucune restriction légale", "Exprimer ses opinions dans le respect de la loi", "Critiquer le gouvernement anonymement", "Publier des informations sans vérification"],
     correctAnswer: 1,
     explanation: "La liberté d'expression est un droit fondamental, mais elle est encadrée par la loi (interdiction de la diffamation, de l'injure, de l'incitation à la haine).",
     category: "valeurs",
@@ -205,7 +205,7 @@ const VALEURS_QUESTIONS: Question[] = [
   {
     id: 'v22',
     text: "La République garantit la liberté de :",
-    options: ["Conscience, d'opinion et d'expression", "Porter des armes", "Ne pas payer d'impôts", "Conduire sans permis"],
+    options: ["Conscience, d'opinion et d'expression", "Circulation sans contrôle aux frontières", "Propriété sans limites", "Commerce sans réglementation"],
     correctAnswer: 0,
     explanation: "La République garantit les libertés fondamentales : conscience, opinion, expression, réunion, association.",
     category: "valeurs",
@@ -325,6 +325,96 @@ const VALEURS_QUESTIONS: Question[] = [
     options: ["Oui, toute pratique religieuse est interdite", "Non, elle garantit la liberté de culte", "Seulement dans les lieux publics", "Seulement pour les fonctionnaires"],
     correctAnswer: 1,
     explanation: "La laïcité garantit la liberté de conscience et le libre exercice des cultes.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v36',
+    text: "À l'école publique, qui peut porter des signes religieux très visibles ?",
+    options: ["Les élèves", "Les enseignants", "Personne", "Tout le monde"],
+    correctAnswer: 2,
+    explanation: "La loi de 2004 interdit le port de signes religieux ostensibles dans les écoles publiques.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v37',
+    text: "Selon le principe de laïcité, que signifie la neutralité de l'État ?",
+    options: ["L'État favorise une religion", "L'État ne reconnaît ni ne finance aucune religion", "L'État interdit toutes les religions", "L'État oblige les citoyens à être athées"],
+    correctAnswer: 1,
+    explanation: "L'État est neutre : il ne reconnaît, ne subventionne ni ne salarie aucun culte.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v38',
+    text: "Que garantit la liberté d'expression ?",
+    options: ["Le droit de tout dire sans limite", "Le droit d'exprimer ses opinions dans le respect de la loi", "Le droit de s'exprimer uniquement par écrit", "Le droit de parole dans les lieux publics uniquement"],
+    correctAnswer: 1,
+    explanation: "La liberté d'expression permet d'exprimer ses opinions, mais elle est limitée par la loi (diffamation, incitation à la haine).",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v39',
+    text: "La répudiation de sa femme est :",
+    options: ["Autorisée en France", "Interdite en France", "Autorisée sous conditions", "Une pratique courante"],
+    correctAnswer: 1,
+    explanation: "La répudiation est interdite en France. Seul le divorce prononcé par un juge est reconnu.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v40',
+    text: "Peut-on brûler publiquement un drapeau français ?",
+    options: ["Oui, c'est un droit", "Non, c'est une infraction", "Oui, lors des manifestations", "Cela dépend des circonstances"],
+    correctAnswer: 1,
+    explanation: "Outrager publiquement le drapeau français est une infraction punie par la loi.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v41',
+    text: "Que fait l'État pour lutter contre les discriminations ?",
+    options: ["Rien", "Il a créé le Défenseur des droits et des lois anti-discrimination", "Il encourage les discriminations", "Il laisse les citoyens se débrouiller"],
+    correctAnswer: 1,
+    explanation: "L'État a mis en place le Défenseur des droits et de nombreuses lois contre les discriminations.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v42',
+    text: "Les impôts permettent de financer les dépenses publiques. Quelle proposition est correcte ?",
+    options: ["Seuls les riches paient des impôts", "Tout le monde contribue selon ses moyens", "Les impôts sont facultatifs", "Seuls les Français paient des impôts"],
+    correctAnswer: 1,
+    explanation: "L'impôt est une contribution obligatoire de tous selon leurs moyens pour financer les services publics.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v43',
+    text: "Qu'est-ce que la liberté d'association ?",
+    options: ["Le droit de créer une entreprise", "Le droit de créer ou rejoindre des associations", "Le droit de manifester", "Le droit de voter"],
+    correctAnswer: 1,
+    explanation: "La liberté d'association permet à toute personne de créer ou adhérer à une association.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v44',
+    text: "Sur quel document peut-on voir Marianne ?",
+    options: ["Le permis de conduire", "Les timbres-poste", "Le passeport uniquement", "Les billets de train"],
+    correctAnswer: 1,
+    explanation: "Marianne figure sur les timbres-poste, dans les mairies et sur de nombreux documents officiels.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v45',
+    text: "Un employeur refuse d'embaucher des femmes dans son entreprise. Que dit la loi ?",
+    options: ["C'est son droit", "C'est une discrimination illégale", "C'est autorisé dans certains secteurs", "La loi ne dit rien"],
+    correctAnswer: 1,
+    explanation: "La discrimination à l'embauche fondée sur le sexe est interdite par la loi.",
     category: "valeurs",
     type: 'multiple-choice'
   }
@@ -648,6 +738,150 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     explanation: "Le Président de la République peut dissoudre l'Assemblée nationale, provoquant de nouvelles élections.",
     category: "institutions",
     type: 'multiple-choice'
+  },
+  {
+    id: 'i36',
+    text: "Quel État a quitté l'Union européenne en 2020 ?",
+    options: ["La Grèce", "Le Royaume-Uni", "La Pologne", "La Suisse"],
+    correctAnswer: 1,
+    explanation: "Le Royaume-Uni a quitté l'Union européenne le 31 janvier 2020 (Brexit).",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i37',
+    text: "En quelle année le traité de Maastricht a-t-il été signé ?",
+    options: ["1957", "1992", "2000", "2007"],
+    correctAnswer: 1,
+    explanation: "Le traité de Maastricht, fondateur de l'Union européenne, a été signé en 1992.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i38',
+    text: "Quelle est la devise de l'Union européenne ?",
+    options: ["Liberté, Égalité, Fraternité", "Unie dans la diversité", "Paix et Prospérité", "Force et Honneur"],
+    correctAnswer: 1,
+    explanation: "La devise de l'Union européenne est « Unie dans la diversité ».",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i39',
+    text: "Quel est l'hymne de l'Union européenne ?",
+    options: ["La Marseillaise", "L'Ode à la Joie", "God Save the King", "L'Internationale"],
+    correctAnswer: 1,
+    explanation: "L'hymne européen est l'Ode à la Joie de Beethoven.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i40',
+    text: "De quelle couleur est le drapeau européen ?",
+    options: ["Rouge et blanc", "Bleu avec des étoiles jaunes", "Vert et blanc", "Noir, rouge et jaune"],
+    correctAnswer: 1,
+    explanation: "Le drapeau européen est bleu avec un cercle de 12 étoiles jaunes.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i41',
+    text: "Où est le siège du Parlement européen ?",
+    options: ["Paris", "Bruxelles", "Strasbourg", "Luxembourg"],
+    correctAnswer: 2,
+    explanation: "Le siège officiel du Parlement européen est à Strasbourg, en France.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i42',
+    text: "Où est le siège de la Commission européenne ?",
+    options: ["Paris", "Bruxelles", "Strasbourg", "Berlin"],
+    correctAnswer: 1,
+    explanation: "La Commission européenne siège à Bruxelles, en Belgique.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i43',
+    text: "Combien de communes existe-t-il environ en France ?",
+    options: ["1 000", "10 000", "35 000", "100 000"],
+    correctAnswer: 2,
+    explanation: "La France compte environ 35 000 communes, ce qui en fait le pays européen avec le plus de communes.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i44',
+    text: "Quel est le rôle principal du département ?",
+    options: ["Voter les lois", "L'action sociale et la gestion des routes", "Diriger l'armée", "Gérer les universités"],
+    correctAnswer: 1,
+    explanation: "Le département gère principalement l'action sociale (RSA, aide à l'enfance) et les routes départementales.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i45',
+    text: "Quel est le rôle principal des communes ?",
+    options: ["Voter les lois nationales", "Gérer les écoles primaires et l'urbanisme", "Diriger la police nationale", "Collecter l'impôt sur le revenu"],
+    correctAnswer: 1,
+    explanation: "Les communes gèrent les écoles primaires, l'urbanisme, l'état civil et les services de proximité.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i46',
+    text: "Qu'est-ce que l'Hôtel de Matignon ?",
+    options: ["La résidence du Président", "La résidence du Premier ministre", "Le siège du Parlement", "Un musée"],
+    correctAnswer: 1,
+    explanation: "L'Hôtel de Matignon est la résidence officielle et le lieu de travail du Premier ministre.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i47',
+    text: "Quel est le rôle du Défenseur des droits ?",
+    options: ["Juger les criminels", "Défendre les droits des citoyens face aux administrations", "Voter les lois", "Commander l'armée"],
+    correctAnswer: 1,
+    explanation: "Le Défenseur des droits est une autorité indépendante qui défend les droits des citoyens face aux administrations.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i48',
+    text: "Depuis quand l'euro est-il la monnaie unique en France ?",
+    options: ["1992", "1999", "2002", "2010"],
+    correctAnswer: 2,
+    explanation: "Les pièces et billets en euros sont utilisés en France depuis le 1er janvier 2002.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i49',
+    text: "Quel traité concerne la construction de l'Union européenne ?",
+    options: ["Le traité de Versailles", "Le traité de Rome", "Le traité de Paris 1815", "Le traité de Westphalie"],
+    correctAnswer: 1,
+    explanation: "Le traité de Rome (1957) a créé la Communauté économique européenne, ancêtre de l'UE.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i50',
+    text: "Quel est le rôle du Premier ministre ?",
+    options: ["Chef de l'État", "Diriger l'action du gouvernement", "Présider le Parlement", "Commander l'armée"],
+    correctAnswer: 1,
+    explanation: "Le Premier ministre dirige l'action du gouvernement et assure l'exécution des lois.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i51',
+    text: "Quel est le rôle du président de la République ?",
+    options: ["Voter les lois", "Garantir le respect de la Constitution et l'indépendance nationale", "Diriger les débats au Parlement", "Gérer les communes"],
+    correctAnswer: 1,
+    explanation: "Le président veille au respect de la Constitution, garantit l'indépendance nationale et l'intégrité du territoire.",
+    category: "institutions",
+    type: 'multiple-choice'
   }
 ];
 
@@ -919,7 +1153,7 @@ const DROITS_QUESTIONS: Question[] = [
   {
     id: 'd30',
     text: "Qu'est-ce que l'aide juridictionnelle ?",
-    options: ["Une amende", "Une aide financière pour payer un avocat", "Un cours de droit", "Une assurance obligatoire"],
+    options: ["Une consultation juridique gratuite", "Une aide financière pour payer un avocat", "Un conseil juridique en ligne", "Une permanence d'avocats bénévoles"],
     correctAnswer: 1,
     explanation: "L'aide juridictionnelle permet aux personnes à faibles revenus d'accéder à la justice gratuitement.",
     category: "droits",
@@ -955,9 +1189,99 @@ const DROITS_QUESTIONS: Question[] = [
   {
     id: 'd35',
     text: "Qu'est-ce que le PACS ?",
-    options: ["Un contrat de travail", "Un contrat d'union civile entre deux personnes", "Un permis de conduire", "Une assurance"],
+    options: ["Un contrat de concubinage notarié", "Un contrat d'union civile entre deux personnes", "Un accord de vie commune sans engagement", "Une convention de partenariat familial"],
     correctAnswer: 1,
     explanation: "Le PACS (Pacte Civil de Solidarité) est un contrat conclu entre deux personnes majeures pour organiser leur vie commune.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd36',
+    text: "Que signifie la dignité humaine ?",
+    options: ["Le droit d'être riche", "Le respect dû à toute personne humaine", "Le droit de vote", "Le droit au travail"],
+    correctAnswer: 1,
+    explanation: "La dignité humaine est le respect fondamental dû à toute personne, quelles que soient ses origines ou sa situation.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd37',
+    text: "Que signifie le droit de manifester ?",
+    options: ["Le droit de casser", "Le droit de se réunir pacifiquement pour exprimer des revendications", "Le droit de bloquer les routes", "Le droit de grève"],
+    correctAnswer: 1,
+    explanation: "Le droit de manifester permet aux citoyens de se réunir pacifiquement pour exprimer leurs opinions.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd38',
+    text: "Qu'est-ce que le droit de grève ?",
+    options: ["Le droit de refuser un poste", "Le droit d'arrêter le travail pour défendre ses intérêts professionnels", "Le droit de changer d'employeur librement", "Le droit de travailler à temps partiel"],
+    correctAnswer: 1,
+    explanation: "Le droit de grève permet aux salariés de cesser collectivement le travail pour défendre leurs revendications.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd39',
+    text: "Que garantit la liberté de la presse ?",
+    options: ["Le droit de publier sans vérification", "Le droit d'informer librement le public", "Le droit de révéler des secrets d'État", "Le droit d'accéder à tous les documents"],
+    correctAnswer: 1,
+    explanation: "La liberté de la presse garantit le droit d'informer et d'être informé, essentiel à la démocratie.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd40',
+    text: "Que prévoit la Charte de l'environnement ?",
+    options: ["Le droit de polluer", "Le droit à un environnement sain et le devoir de le préserver", "L'interdiction des voitures", "La fin de l'industrie"],
+    correctAnswer: 1,
+    explanation: "La Charte de l'environnement (2004) garantit le droit de vivre dans un environnement équilibré et respectueux de la santé.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd41',
+    text: "Que signifie PMA ?",
+    options: ["Procréation Médicalement Assistée", "Protection Maternelle et Assurance", "Prime de Maternité Annuelle", "Programme Médical d'Accompagnement"],
+    correctAnswer: 0,
+    explanation: "La PMA (Procréation Médicalement Assistée) est un ensemble de techniques médicales pour aider à la procréation.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd42',
+    text: "Concernant l'utilisation des réseaux sociaux, quelle proposition est correcte ?",
+    options: ["On peut tout publier sans limite", "On doit respecter les lois contre la diffamation et l'incitation à la haine", "Il n'y a aucune règle", "Seuls les adultes peuvent les utiliser"],
+    correctAnswer: 1,
+    explanation: "Les réseaux sociaux sont soumis aux mêmes lois que les autres médias : interdiction de diffamer, d'inciter à la haine, etc.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd43',
+    text: "Jeter un mégot par terre est :",
+    options: ["Autorisé", "Une infraction passible d'amende", "Toléré en ville", "Légal si personne ne regarde"],
+    correctAnswer: 1,
+    explanation: "Jeter un mégot par terre est passible d'une amende de 68€ minimum.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd44',
+    text: "L'État peut-il limiter les droits et libertés ?",
+    options: ["Non, jamais", "Oui, pour protéger l'ordre public et les droits d'autrui", "Oui, sans raison", "Seulement en temps de guerre"],
+    correctAnswer: 1,
+    explanation: "Les libertés peuvent être limitées pour protéger l'ordre public, la sécurité et les droits d'autrui.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd45',
+    text: "Quel est un exemple d'assistance à personne en danger ?",
+    options: ["Ignorer quelqu'un en difficulté", "Appeler les secours pour une personne blessée", "Filmer un accident", "S'enfuir"],
+    correctAnswer: 1,
+    explanation: "L'assistance à personne en danger est une obligation légale : ne pas aider quelqu'un en péril est un délit.",
     category: "droits",
     type: 'multiple-choice'
   }
@@ -1281,6 +1605,186 @@ const CULTURE_QUESTIONS: Question[] = [
     explanation: "Louis XIV, le Roi-Soleil, a transformé Versailles en résidence royale au XVIIe siècle.",
     category: "culture",
     type: 'multiple-choice'
+  },
+  {
+    id: 'c36',
+    text: "Quel était le surnom de Louis XIV ?",
+    options: ["Le Roi Soleil", "Le Bien-Aimé", "Le Grand", "Le Prudent"],
+    correctAnswer: 0,
+    explanation: "Louis XIV était surnommé le Roi Soleil en raison de son règne éclatant et centralisateur.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c37',
+    text: "Qui était une figure de la Résistance française pendant la Seconde Guerre mondiale ?",
+    options: ["Philippe Pétain", "Jean Moulin", "Pierre Laval", "Charles Maurras"],
+    correctAnswer: 1,
+    explanation: "Jean Moulin était un héros de la Résistance française, mort sous la torture nazie en 1943.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c38',
+    text: "En 1944, qu'est-ce qui a changé pour les femmes ?",
+    options: ["Le droit de travailler", "Le droit de vote", "Le droit au divorce", "Le droit d'hériter"],
+    correctAnswer: 1,
+    explanation: "Les femmes françaises ont obtenu le droit de vote en 1944 et ont voté pour la première fois en 1945.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c39',
+    text: "Quelle organisation internationale a été créée en 1945 après la Seconde Guerre mondiale ?",
+    options: ["L'Union européenne", "L'ONU", "L'OTAN", "L'UNESCO"],
+    correctAnswer: 1,
+    explanation: "L'Organisation des Nations Unies (ONU) a été créée en 1945 pour maintenir la paix mondiale.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c40',
+    text: "Quelle peine a été supprimée en 1981 ?",
+    options: ["La peine de prison", "La peine de mort", "Les travaux forcés", "L'amende"],
+    correctAnswer: 1,
+    explanation: "La peine de mort a été abolie en France en 1981 sous la présidence de François Mitterrand.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c41',
+    text: "Où a eu lieu le débarquement en 1944 ?",
+    options: ["En Provence", "En Normandie", "En Bretagne", "En Aquitaine"],
+    correctAnswer: 1,
+    explanation: "Le débarquement du 6 juin 1944 (D-Day) a eu lieu sur les plages de Normandie.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c42',
+    text: "Quelle est la population approximative de la France en 2025 ?",
+    options: ["45 millions", "55 millions", "68 millions", "80 millions"],
+    correctAnswer: 2,
+    explanation: "La France compte environ 68 millions d'habitants (métropole et outre-mer).",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c43',
+    text: "Quel fleuve traverse Paris ?",
+    options: ["La Loire", "Le Rhône", "La Seine", "La Garonne"],
+    correctAnswer: 2,
+    explanation: "La Seine traverse Paris, divisant la ville en Rive Gauche et Rive Droite.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c44',
+    text: "Quel pays a une frontière terrestre avec la France métropolitaine au nord-est ?",
+    options: ["Les Pays-Bas", "La Belgique", "Le Danemark", "La Pologne"],
+    correctAnswer: 1,
+    explanation: "La Belgique partage une frontière avec le nord-est de la France.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c45',
+    text: "Quelle chaîne de montagnes est située entre la France et l'Espagne ?",
+    options: ["Les Alpes", "Le Jura", "Les Pyrénées", "Les Vosges"],
+    correctAnswer: 2,
+    explanation: "Les Pyrénées forment la frontière naturelle entre la France et l'Espagne.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c46',
+    text: "Qui était Marguerite Yourcenar ?",
+    options: ["Une chanteuse", "Une écrivaine", "Une scientifique", "Une reine"],
+    correctAnswer: 1,
+    explanation: "Marguerite Yourcenar était une écrivaine française, première femme élue à l'Académie française en 1980.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c47',
+    text: "Qui était Auguste Rodin ?",
+    options: ["Un peintre", "Un sculpteur", "Un musicien", "Un architecte"],
+    correctAnswer: 1,
+    explanation: "Auguste Rodin était un sculpteur français célèbre pour 'Le Penseur' et 'Le Baiser'.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c48',
+    text: "Qui était Auguste Renoir ?",
+    options: ["Un sculpteur", "Un musicien", "Un peintre impressionniste", "Un écrivain"],
+    correctAnswer: 2,
+    explanation: "Auguste Renoir était un peintre impressionniste français du XIXe siècle.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c49',
+    text: "Quelle cathédrale célèbre a été en partie détruite par un incendie en 2019 ?",
+    options: ["Notre-Dame de Chartres", "Notre-Dame de Paris", "Notre-Dame de Reims", "Notre-Dame de Strasbourg"],
+    correctAnswer: 1,
+    explanation: "La cathédrale Notre-Dame de Paris a été gravement endommagée par un incendie le 15 avril 2019.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c50',
+    text: "Combien de personnes parlent français dans le monde ?",
+    options: ["50 millions", "150 millions", "300 millions", "500 millions"],
+    correctAnswer: 2,
+    explanation: "Environ 300 millions de personnes parlent français dans le monde (francophonie).",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c51',
+    text: "Quand peut-on visiter gratuitement des lieux culturels en France ?",
+    options: ["Le 1er mai", "Pendant les Journées du patrimoine", "Le 14 juillet uniquement", "Jamais"],
+    correctAnswer: 1,
+    explanation: "Les Journées européennes du patrimoine (septembre) permettent de visiter gratuitement de nombreux sites.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c52',
+    text: "Où habite la majorité des Français ?",
+    options: ["À la campagne", "En ville", "À l'étranger", "Dans les DOM-TOM"],
+    correctAnswer: 1,
+    explanation: "Environ 80% des Français vivent en zone urbaine.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c53',
+    text: "Parmi ces pays, lequel attire le plus de visiteurs chaque année ?",
+    options: ["L'Espagne", "L'Italie", "La France", "Le Royaume-Uni"],
+    correctAnswer: 2,
+    explanation: "La France est le pays le plus visité au monde avec environ 90 millions de touristes par an.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c54',
+    text: "Quelle île française se trouve dans l'océan Indien ?",
+    options: ["La Martinique", "La Guadeloupe", "La Réunion", "Saint-Pierre-et-Miquelon"],
+    correctAnswer: 2,
+    explanation: "La Réunion est un département français situé dans l'océan Indien.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c55',
+    text: "Quelle mer se situe entre la France et l'Angleterre ?",
+    options: ["La mer Méditerranée", "La Manche", "La mer du Nord", "L'océan Atlantique"],
+    correctAnswer: 1,
+    explanation: "La Manche sépare la France de l'Angleterre.",
+    category: "culture",
+    type: 'multiple-choice'
   }
 ];
 
@@ -1345,9 +1849,9 @@ const SOCIETE_QUESTIONS: Question[] = [
   {
     id: 's7',
     text: "Le permis de conduire en France peut être passé à partir de :",
-    options: ["16 ans", "17 ans (conduite accompagnée) ou 18 ans", "21 ans", "15 ans"],
+    options: ["15 ans avec accord parental", "17 ans en conduite accompagnée", "16 ans avec dérogation préfectorale", "18 ans uniquement"],
     correctAnswer: 1,
-    explanation: "La conduite accompagnée est possible dès 15 ans, le permis B à partir de 17 ans.",
+    explanation: "La conduite accompagnée (AAC) permet de passer l'examen dès 17 ans. Sans AAC, c'est à partir de 18 ans.",
     category: "societe",
     type: 'multiple-choice'
   },
@@ -1363,7 +1867,7 @@ const SOCIETE_QUESTIONS: Question[] = [
   {
     id: 's9',
     text: "Le PACS (Pacte Civil de Solidarité) est :",
-    options: ["Un contrat de travail", "Une union civile entre deux personnes", "Un permis de séjour", "Un diplôme"],
+    options: ["Un engagement de cohabitation informel", "Une union civile entre deux personnes", "Un certificat de vie maritale", "Une déclaration de concubinage"],
     correctAnswer: 1,
     explanation: "Le PACS est un contrat entre deux personnes majeures pour organiser leur vie commune.",
     category: "societe",
@@ -1425,10 +1929,10 @@ const SOCIETE_QUESTIONS: Question[] = [
   },
   {
     id: 's16',
-    text: "Le permis de conduire s'obtient à partir de quel âge ?",
-    options: ["16 ans", "17 ans", "18 ans", "21 ans"],
-    correctAnswer: 2,
-    explanation: "Le permis de conduire B peut être obtenu à partir de 18 ans (17 ans en conduite accompagnée).",
+    text: "À quel âge peut-on obtenir le permis de conduire B (voiture) en France ?",
+    options: ["17 ans avec conduite supervisée", "18 ans", "16 ans avec autorisation parentale", "17 ans après formation accélérée"],
+    correctAnswer: 1,
+    explanation: "Le permis B s'obtient à 18 ans. La conduite accompagnée permet de conduire dès 17 ans mais le permis définitif reste délivré à 18 ans.",
     category: "societe",
     type: 'multiple-choice'
   },
@@ -1462,9 +1966,9 @@ const SOCIETE_QUESTIONS: Question[] = [
   {
     id: 's20',
     text: "Qu'est-ce que le compte personnel de formation (CPF) ?",
-    options: ["Un compte bancaire", "Un droit à la formation professionnelle", "Un diplôme", "Une assurance"],
+    options: ["Un crédit d'impôt pour frais de formation", "Un droit à la formation professionnelle", "Une aide financière pour les demandeurs d'emploi", "Un compte épargne pour financer ses études"],
     correctAnswer: 1,
-    explanation: "Le CPF permet à chaque actif d'acquérir des droits à la formation tout au long de sa vie professionnelle.",
+    explanation: "Le CPF permet à toute personne active d'acquérir des droits à la formation utilisables tout au long de sa vie professionnelle.",
     category: "societe",
     type: 'multiple-choice'
   },
@@ -1510,6 +2014,141 @@ const SOCIETE_QUESTIONS: Question[] = [
     options: ["Les parcs uniquement", "Les lieux publics fermés", "Nulle part", "Les restaurants seulement"],
     correctAnswer: 1,
     explanation: "Il est interdit de fumer dans tous les lieux publics fermés et couverts depuis 2007.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's26',
+    text: "Quel mariage est reconnu par l'État ?",
+    options: ["Le mariage religieux uniquement", "Le mariage civil uniquement", "Les deux également", "Aucun"],
+    correctAnswer: 1,
+    explanation: "Seul le mariage civil célébré en mairie est reconnu par l'État français.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's27',
+    text: "En cas de divorce, qui exerce l'autorité parentale ?",
+    options: ["Le père uniquement", "La mère uniquement", "Les deux parents conjointement", "L'État"],
+    correctAnswer: 2,
+    explanation: "En principe, l'autorité parentale reste exercée conjointement par les deux parents après le divorce.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's28',
+    text: "Quelle aide permet aux personnes en difficulté financière d'avoir un avocat ?",
+    options: ["L'aide juridictionnelle", "Le RSA", "La prime d'activité", "L'assurance maladie"],
+    correctAnswer: 0,
+    explanation: "L'aide juridictionnelle permet aux personnes à faibles revenus d'accéder gratuitement à un avocat.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's29',
+    text: "Où peut-on déposer un lave-vaisselle cassé ?",
+    options: ["Dans la rue", "À la déchetterie", "Dans la poubelle normale", "N'importe où"],
+    correctAnswer: 1,
+    explanation: "Les appareils électroménagers doivent être déposés en déchetterie ou repris par le vendeur.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's30',
+    text: "Qui peut demander un congé parental d'éducation ?",
+    options: ["Le père uniquement", "La mère uniquement", "Le père ou la mère", "L'employeur"],
+    correctAnswer: 2,
+    explanation: "Le congé parental d'éducation peut être pris par le père ou la mère pour élever son enfant.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's31',
+    text: "Quelles sont les affaires traitées par le conseil de prud'hommes ?",
+    options: ["Les divorces", "Les litiges entre employeurs et salariés", "Les crimes", "Les délits routiers"],
+    correctAnswer: 1,
+    explanation: "Le conseil de prud'hommes règle les litiges individuels entre salariés et employeurs.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's32',
+    text: "Dans une entreprise, le droit syndical permet :",
+    options: ["De ne pas travailler", "De créer ou adhérer à un syndicat", "De licencier les employés", "De fixer les salaires"],
+    correctAnswer: 1,
+    explanation: "Le droit syndical garantit aux salariés le droit de créer ou d'adhérer à un syndicat de leur choix.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's33',
+    text: "Comment s'appelle le diplôme passé par les élèves à la fin du collège ?",
+    options: ["Le baccalauréat", "Le brevet", "Le CAP", "Le BTS"],
+    correctAnswer: 1,
+    explanation: "Le diplôme national du brevet (DNB) est passé à la fin de la classe de troisième.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's34',
+    text: "Qu'est-ce que l'école maternelle ?",
+    options: ["L'école pour les mères", "L'école pour les enfants de 3 à 6 ans", "L'école primaire", "Le collège"],
+    correctAnswer: 1,
+    explanation: "L'école maternelle accueille les enfants de 3 à 6 ans avant l'entrée à l'école élémentaire.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's35',
+    text: "Qui peut manger à la cantine scolaire ?",
+    options: ["Seulement les bons élèves", "Tous les élèves inscrits", "Seulement les Français", "Seulement ceux qui paient le prix fort"],
+    correctAnswer: 1,
+    explanation: "La cantine est accessible à tous les élèves inscrits, avec des tarifs adaptés aux revenus des familles.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's36',
+    text: "À quel âge commence l'instruction obligatoire des enfants ?",
+    options: ["5 ans", "3 ans", "6 ans", "4 ans"],
+    correctAnswer: 1,
+    explanation: "Depuis 2019, l'instruction est obligatoire à partir de 3 ans en France.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's37',
+    text: "Un enfant inscrit à l'école :",
+    options: ["Peut manquer quand il veut", "Doit y aller régulièrement sauf absence justifiée", "N'a aucune obligation", "Peut choisir ses cours"],
+    correctAnswer: 1,
+    explanation: "La fréquentation régulière de l'école est obligatoire. Les absences doivent être justifiées.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's38',
+    text: "Quand ont lieu les vacances scolaires de Noël ?",
+    options: ["En novembre", "Fin décembre - début janvier", "En février", "En mars"],
+    correctAnswer: 1,
+    explanation: "Les vacances de Noël ont lieu pendant environ deux semaines fin décembre et début janvier.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's39',
+    text: "À l'école, un enfant en situation de handicap :",
+    options: ["Ne peut pas être scolarisé", "A le droit d'être scolarisé comme les autres", "Doit rester à la maison", "Doit aller dans une école spéciale uniquement"],
+    correctAnswer: 1,
+    explanation: "Tout enfant en situation de handicap a le droit d'être inscrit dans l'école la plus proche de son domicile.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's40',
+    text: "Qu'est-ce que le principe de confidentialité dans le domaine de la santé ?",
+    options: ["Le médecin peut tout raconter", "Le secret médical protège les informations sur le patient", "Les dossiers sont publics", "Il n'existe pas"],
+    correctAnswer: 1,
+    explanation: "Le secret médical garantit la confidentialité des informations de santé du patient.",
     category: "societe",
     type: 'multiple-choice'
   }
@@ -1792,6 +2431,76 @@ export const LESSONS: Lesson[] = [
       "Le respect des règles de vie commune est essentiel au vivre-ensemble."
     ],
     quiz: SOCIETE_QUESTIONS.slice(0, 5)
+  }
+];
+
+// ============================================================
+// FICHES OFFICIELLES (liens vers formation-civique.interieur.gouv.fr)
+// ============================================================
+const BASE_URL = 'https://formation-civique.interieur.gouv.fr/fiches-par-thematiques';
+
+export const OFFICIAL_FICHES: FicheCategory[] = [
+  {
+    id: 'valeurs',
+    title: 'Principes et valeurs de la République',
+    icon: 'fa-balance-scale',
+    color: 'indigo',
+    fiches: [
+      { id: 'f1', title: 'La devise de la République', url: `${BASE_URL}/principes-et-valeurs-de-la-republique/devise-et-symboles-de-la-republique/` },
+      { id: 'f2', title: 'Les symboles de la République', url: `${BASE_URL}/principes-et-valeurs-de-la-republique/les-symboles-de-la-republique/` },
+      { id: 'f3', title: 'La laïcité', url: `${BASE_URL}/principes-et-valeurs-de-la-republique/laicite/` },
+      { id: 'f4', title: 'La langue de la République', url: `${BASE_URL}/principes-et-valeurs-de-la-republique/la-langue-de-la-republique/` },
+      { id: 'f5', title: 'Le contrat d\'engagement républicain', url: `${BASE_URL}/principes-et-valeurs-de-la-republique/le-contrat-dengagement-%C3%A0-respecter-les-principes-de-la-republique/le-contrat-engagement-republicain/` },
+    ]
+  },
+  {
+    id: 'institutions',
+    title: 'Système institutionnel et politique',
+    icon: 'fa-landmark',
+    color: 'blue',
+    fiches: [
+      { id: 'f6', title: 'État de droit et séparation des pouvoirs', url: `${BASE_URL}/systeme-institutionnel-et-politique/etat-de-droit-et-separation-des-pouvoirs/` },
+      { id: 'f7', title: 'Démocratie et droit de vote', url: `${BASE_URL}/systeme-institutionnel-et-politique/democratie-et-droit-de-vote/` },
+      { id: 'f8', title: 'Organisation de la République française', url: `${BASE_URL}/systeme-institutionnel-et-politique/organisation-de-la-republique-fran%C3%A7aise/` },
+      { id: 'f9', title: 'Institutions européennes', url: `${BASE_URL}/systeme-institutionnel-et-politique/institutions-europeennes/` },
+    ]
+  },
+  {
+    id: 'droits',
+    title: 'Droits et devoirs',
+    icon: 'fa-handshake-angle',
+    color: 'emerald',
+    fiches: [
+      { id: 'f10', title: 'Droits fondamentaux', url: `${BASE_URL}/droits-et-devoirs/droits-fondamentaux/` },
+      { id: 'f11', title: 'Obligations et devoirs', url: `${BASE_URL}/droits-et-devoirs/obligations-et-devoirs-des-personnes-residant-en-france/` },
+    ]
+  },
+  {
+    id: 'culture',
+    title: 'Histoire, géographie et culture',
+    icon: 'fa-monument',
+    color: 'amber',
+    fiches: [
+      { id: 'f12', title: 'Les régimes politiques depuis 1789', url: `${BASE_URL}/histoire-geographie-et-culture/les-regimes-politiques-depuis-1789/` },
+      { id: 'f13', title: 'La Vème République', url: `${BASE_URL}/histoire-geographie-et-culture/la-cinquieme-republique/` },
+      { id: 'f14', title: 'Les conflits mondiaux', url: `${BASE_URL}/histoire-geographie-et-culture/les-conflits-mondiaux-et-le-nouvel-ordre-mondial/` },
+      { id: 'f15', title: 'Atlas de la France', url: `${BASE_URL}/histoire-geographie-et-culture/atlas-de-la-france/` },
+      { id: 'f16', title: 'La France dans l\'Europe et le monde', url: `${BASE_URL}/histoire-geographie-et-culture/la-france-dans-leurope-et-dans-le-monde/` },
+      { id: 'f17', title: 'Les régions françaises', url: `${BASE_URL}/histoire-geographie-et-culture/les-regions-fran%C3%A7aises/` },
+      { id: 'f18', title: 'Culture', url: `${BASE_URL}/histoire-geographie-et-culture/culture/` },
+    ]
+  },
+  {
+    id: 'societe',
+    title: 'Vivre dans la société française',
+    icon: 'fa-house-user',
+    color: 'rose',
+    fiches: [
+      { id: 'f19', title: 'Santé', url: `${BASE_URL}/vivre-dans-la-societe-fran%C3%A7aise/sante/` },
+      { id: 'f20', title: 'Emploi', url: `${BASE_URL}/vivre-dans-la-societe-fran%C3%A7aise/emploi/` },
+      { id: 'f21', title: 'Parentalité', url: `${BASE_URL}/vivre-dans-la-societe-fran%C3%A7aise/parentalite/` },
+      { id: 'f22', title: 'Démarches administratives', url: `${BASE_URL}/vivre-dans-la-societe-fran%C3%A7aise/demarches-administratives/` },
+    ]
   }
 ];
 

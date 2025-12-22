@@ -6,7 +6,7 @@ import { LessonView } from './components/LessonView';
 import { ExamSimulation } from './components/ExamSimulation';
 import { FAQPage } from './components/FAQPage';
 import { ProfilePage } from './components/ProfilePage';
-import { THEMES } from './constants';
+import { THEMES, ALL_QUESTIONS } from './constants';
 import { UserStats } from './types';
 import { loadUserStats, saveUserStats, checkAndUpdateStreak, getLevelInfo, getXPProgress } from './services/gamificationService';
 
@@ -56,65 +56,65 @@ const App: React.FC = () => {
     <div className="min-h-screen flex flex-col selection:bg-indigo-100 selection:text-indigo-900 dark:selection:bg-indigo-900 dark:selection:text-indigo-100">
       <Header activeTab={activeTab} setActiveTab={setActiveTab} userStats={userStats} darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
 
-      <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
+      <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
         {activeTab === 'home' && (
-          <div className="space-y-16 animate-in fade-in duration-700">
+          <div className="space-y-10">
             {/* User Progress Banner */}
-            <div className="bg-gradient-to-r from-indigo-600 to-purple-600 p-6 rounded-3xl text-white shadow-xl">
-              <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-                <div className="flex items-center space-x-4">
-                  <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center">
-                    <i className={`fas ${levelInfo.icon} text-2xl`}></i>
+            <div className="bg-indigo-600 p-5 rounded-xl text-white">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div className="flex items-center space-x-3">
+                  <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                    <i className={`fas ${levelInfo.icon} text-xl`}></i>
                   </div>
                   <div>
-                    <p className="text-xs font-bold text-white/70 uppercase tracking-widest">Niveau {userStats.level}</p>
-                    <p className="text-xl font-black">{levelInfo.name}</p>
+                    <p className="text-xs text-indigo-200">Niveau {userStats.level}</p>
+                    <p className="text-lg font-bold">{levelInfo.name}</p>
                   </div>
                 </div>
-                <div className="flex-1 max-w-md w-full">
-                  <div className="flex justify-between text-xs font-bold mb-2">
+                <div className="flex-1 max-w-sm w-full">
+                  <div className="flex justify-between text-xs mb-1">
                     <span>{userStats.xp} XP</span>
                     <span>Niveau {userStats.level + 1}</span>
                   </div>
-                  <div className="h-3 bg-white/20 rounded-full overflow-hidden">
+                  <div className="h-2 bg-white/20 rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-amber-400 rounded-full transition-all duration-500"
+                      className="h-full bg-amber-400 rounded-full"
                       style={{ width: `${xpProgress}%` }}
                     ></div>
                   </div>
                 </div>
-                <div className="flex items-center space-x-6 text-center">
+                <div className="flex items-center space-x-4 text-center text-sm">
                   <div>
-                    <p className="text-2xl font-black">{userStats.streak}</p>
-                    <p className="text-xs text-white/70">Jours</p>
+                    <p className="text-xl font-bold">{userStats.streak}</p>
+                    <p className="text-xs text-indigo-200">Jours</p>
                   </div>
-                  <div className="h-8 w-px bg-white/20"></div>
+                  <div className="h-6 w-px bg-white/20"></div>
                   <div>
-                    <p className="text-2xl font-black">{userStats.badges.length}</p>
-                    <p className="text-xs text-white/70">Badges</p>
+                    <p className="text-xl font-bold">{userStats.badges.length}</p>
+                    <p className="text-xs text-indigo-200">Badges</p>
                   </div>
-                  <div className="h-8 w-px bg-white/20"></div>
+                  <div className="h-6 w-px bg-white/20"></div>
                   <div>
-                    <p className="text-2xl font-black">{userStats.totalQuizzes}</p>
-                    <p className="text-xs text-white/70">Quiz</p>
+                    <p className="text-xl font-bold">{userStats.totalQuizzes}</p>
+                    <p className="text-xs text-indigo-200">Quiz</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Bannière Info */}
-            <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 p-4 rounded-2xl flex items-center space-x-4 shadow-sm">
-              <div className="bg-amber-400 dark:bg-amber-500 p-2.5 rounded-xl text-white shadow-lg shadow-amber-200 dark:shadow-amber-900/50">
-                <i className="fas fa-bullhorn animate-bounce"></i>
+            <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 p-4 rounded-lg flex items-center space-x-3">
+              <div className="bg-amber-500 p-2 rounded-md text-white">
+                <i className="fas fa-bullhorn text-sm"></i>
               </div>
               <div className="flex-1">
-                <p className="text-amber-900 dark:text-amber-300 text-xs font-bold uppercase tracking-tight">Réforme Civique 2026</p>
-                <p className="text-amber-800 dark:text-amber-400 text-[11px] leading-tight">Le barème officiel impose désormais 32 bonnes réponses sur 40.</p>
+                <p className="text-amber-900 dark:text-amber-300 text-sm font-medium">Réforme Civique 2026</p>
+                <p className="text-amber-700 dark:text-amber-400 text-xs">Le barème officiel impose désormais 32 bonnes réponses sur 40.</p>
               </div>
               {userStats.totalQuizzes > 0 && (
-                <div className="hidden md:block bg-white dark:bg-slate-800 px-4 py-2 rounded-xl border border-amber-200 dark:border-amber-800 shadow-sm text-center">
-                  <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase">Taux de réussite</p>
-                  <p className="text-sm font-black text-indigo-600 dark:text-indigo-400">
+                <div className="hidden md:block text-right">
+                  <p className="text-xs text-slate-500 dark:text-slate-400">Taux de réussite</p>
+                  <p className="text-lg font-bold text-indigo-600 dark:text-indigo-400">
                     {userStats.totalQuestions > 0
                       ? Math.round((userStats.totalCorrect / userStats.totalQuestions) * 100)
                       : 0}%
@@ -124,61 +124,46 @@ const App: React.FC = () => {
             </div>
 
             {/* Hero Section */}
-            <section className="relative overflow-hidden bg-indigo-900 rounded-[3rem] p-10 md:p-16 text-white shadow-2xl">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/20 blur-[100px] -mr-32 -mt-32 rounded-full"></div>
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-400/10 blur-[100px] -ml-32 -mb-32 rounded-full"></div>
-
-              <div className="relative z-10 grid lg:grid-cols-5 gap-12 items-center">
-                <div className="lg:col-span-3 space-y-8">
-                  <div className="inline-flex items-center space-x-2 bg-white/10 px-4 py-1.5 rounded-full border border-white/20">
-                    <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-indigo-100">175+ questions disponibles</span>
+            <section className="bg-slate-900 rounded-xl p-8 md:p-12 text-white">
+              <div className="grid lg:grid-cols-5 gap-8 items-center">
+                <div className="lg:col-span-3 space-y-6">
+                  <div className="inline-flex items-center space-x-2 bg-white/10 px-3 py-1 rounded text-xs text-indigo-200">
+                    <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
+                    <span>{ALL_QUESTIONS.length} questions disponibles</span>
                   </div>
-                  <h1 className="text-4xl md:text-6xl font-extrabold brand-font leading-tight">
+                  <h1 className="text-3xl md:text-4xl font-bold leading-tight">
                     Réussissez votre <span className="text-amber-400">Intégration</span>
                   </h1>
-                  <p className="text-lg text-indigo-100/80 max-w-xl leading-relaxed font-medium">
+                  <p className="text-slate-300 max-w-xl">
                     Préparez l'examen civique 2026 en toute sérénité avec des outils conçus pour votre réussite.
                   </p>
-                  <div className="flex flex-wrap gap-4 pt-4">
-                    <button onClick={() => startQuiz()} className="bg-white text-indigo-900 px-8 py-4 rounded-2xl font-bold hover:bg-indigo-50 transition shadow-xl flex items-center group active:scale-95">
-                      Quiz Aléatoire <i className="fas fa-random ml-3 text-indigo-300 group-hover:rotate-180 transition-transform duration-500"></i>
+                  <div className="flex flex-wrap gap-3 pt-2">
+                    <button onClick={() => startQuiz()} className="bg-white text-slate-900 px-6 py-3 rounded-lg font-medium hover:bg-slate-100 transition flex items-center">
+                      Quiz Aléatoire <i className="fas fa-random ml-2 text-slate-400"></i>
                     </button>
-                    <button onClick={() => setActiveTab('simulation')} className="bg-indigo-600 border border-indigo-400 text-white px-8 py-4 rounded-2xl font-bold hover:bg-indigo-700 transition shadow-lg active:scale-95">
+                    <button onClick={() => setActiveTab('simulation')} className="bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-indigo-700 transition">
                       Lancer un Examen Blanc
                     </button>
                   </div>
                 </div>
                 <div className="lg:col-span-2 hidden lg:flex justify-center">
-                  <div className="relative group">
-                    <div className="absolute -inset-8 bg-indigo-500/30 blur-3xl rounded-full group-hover:bg-indigo-400/40 transition-colors"></div>
-                    <div className="relative bg-white/5 backdrop-blur-sm p-4 rounded-[2rem] border border-white/10 shadow-2xl rotate-3 group-hover:rotate-0 transition-all duration-700">
-                      <img src="https://flagcdn.com/fr.svg" alt="France" className="w-56 h-auto rounded-xl shadow-lg" />
-                      <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-2xl shadow-xl text-indigo-900">
-                        <i className="fas fa-check-circle text-2xl text-emerald-500"></i>
-                      </div>
-                    </div>
+                  <div className="bg-white/5 p-3 rounded-lg border border-white/10">
+                    <img src="https://flagcdn.com/fr.svg" alt="France" className="w-48 h-auto rounded" />
                   </div>
                 </div>
               </div>
             </section>
 
             {/* Thématiques */}
-            <section className="space-y-10">
-              <div className="flex flex-col md:flex-row justify-between items-end gap-4 border-b border-slate-100 dark:border-slate-800 pb-6">
-                <div className="space-y-2">
-                  <h2 className="text-3xl font-extrabold brand-font text-slate-900 dark:text-white tracking-tight">Révisez par Thématique</h2>
-                  <p className="text-slate-500 dark:text-slate-400 text-sm font-medium">Entraînement ciblé pour une progression constante.</p>
-                </div>
-                <div className="flex space-x-2">
-                  <div className="flex items-center space-x-2 bg-slate-100 dark:bg-slate-800 px-4 py-2 rounded-xl text-slate-500 dark:text-slate-400 text-xs font-bold">
-                    <i className="fas fa-database text-indigo-400"></i>
-                    <span>Base de données complète</span>
-                  </div>
+            <section className="space-y-6">
+              <div className="flex flex-col md:flex-row justify-between items-end gap-4 border-b border-slate-200 dark:border-slate-700 pb-4">
+                <div>
+                  <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Révisez par Thématique</h2>
+                  <p className="text-slate-500 dark:text-slate-400 text-sm">Entraînement ciblé pour une progression constante.</p>
                 </div>
               </div>
 
-              <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
                 {THEMES.map((theme) => {
                   const progress = userStats.themeProgress[theme.id];
                   const percentage = progress ? Math.round((progress.correct / progress.total) * 100) : 0;
@@ -187,31 +172,31 @@ const App: React.FC = () => {
                     <button
                       key={theme.id}
                       onClick={() => startQuiz(theme.id)}
-                      className="bg-white dark:bg-slate-800 p-8 rounded-[2.5rem] border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all group text-center flex flex-col items-center active:scale-95"
+                      className="bg-white dark:bg-slate-800 p-5 rounded-lg border border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-600 transition-colors text-center flex flex-col items-center"
                     >
-                      <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-2xl transition-all shadow-sm group-hover:shadow-lg ${
-                        theme.color === 'indigo' ? 'bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 group-hover:bg-indigo-600 group-hover:text-white group-hover:shadow-indigo-200 dark:group-hover:shadow-indigo-900' :
-                        theme.color === 'blue' ? 'bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white group-hover:shadow-blue-200 dark:group-hover:shadow-blue-900' :
-                        theme.color === 'emerald' ? 'bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 group-hover:bg-emerald-600 group-hover:text-white group-hover:shadow-emerald-200 dark:group-hover:shadow-emerald-900' :
-                        theme.color === 'amber' ? 'bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400 group-hover:bg-amber-600 group-hover:text-white group-hover:shadow-amber-200 dark:group-hover:shadow-amber-900' :
-                        'bg-rose-100 dark:bg-rose-900/50 text-rose-600 dark:text-rose-400 group-hover:bg-rose-600 group-hover:text-white group-hover:shadow-rose-200 dark:group-hover:shadow-rose-900'
+                      <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-3 text-xl ${
+                        theme.color === 'indigo' ? 'bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400' :
+                        theme.color === 'blue' ? 'bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400' :
+                        theme.color === 'emerald' ? 'bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400' :
+                        theme.color === 'amber' ? 'bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400' :
+                        'bg-rose-100 dark:bg-rose-900/50 text-rose-600 dark:text-rose-400'
                       }`}>
                         <i className={`fas ${theme.icon}`}></i>
                       </div>
-                      <h3 className="font-bold text-slate-900 dark:text-white mb-1 leading-tight">{theme.title}</h3>
+                      <h3 className="font-medium text-slate-900 dark:text-white text-sm">{theme.title}</h3>
                       {progress && (
-                        <div className="w-full mt-3">
-                          <div className="h-1.5 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
+                        <div className="w-full mt-2">
+                          <div className="h-1 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
                             <div
-                              className="h-full bg-indigo-500 rounded-full transition-all"
+                              className="h-full bg-indigo-500 rounded-full"
                               style={{ width: `${percentage}%` }}
                             ></div>
                           </div>
-                          <p className="text-[10px] text-slate-400 dark:text-slate-500 mt-1">{percentage}% maîtrisé</p>
+                          <p className="text-xs text-slate-400 dark:text-slate-500 mt-1">{percentage}%</p>
                         </div>
                       )}
                       {!progress && (
-                        <p className="text-[10px] text-slate-400 dark:text-slate-500 uppercase font-black tracking-widest mt-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">Commencer</p>
+                        <p className="text-xs text-slate-400 dark:text-slate-500 mt-2">Commencer</p>
                       )}
                     </button>
                   );
@@ -221,15 +206,15 @@ const App: React.FC = () => {
 
             {/* Weak Questions Section */}
             {userStats.weakQuestions.length > 0 && (
-              <section className="bg-rose-50 dark:bg-rose-900/20 border border-rose-200 dark:border-rose-800 p-8 rounded-3xl">
-                <div className="flex items-center justify-between mb-4">
+              <section className="bg-rose-50 dark:bg-rose-900/20 border border-rose-200 dark:border-rose-700 p-5 rounded-lg">
+                <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-rose-500 rounded-xl flex items-center justify-center text-white">
+                    <div className="w-10 h-10 bg-rose-500 rounded-lg flex items-center justify-center text-white">
                       <i className="fas fa-target"></i>
                     </div>
                     <div>
-                      <h3 className="font-bold text-rose-900 dark:text-rose-300">Points à améliorer</h3>
-                      <p className="text-xs text-rose-600 dark:text-rose-400">{userStats.weakQuestions.length} questions à retravailler</p>
+                      <h3 className="font-medium text-rose-900 dark:text-rose-300">Points à améliorer</h3>
+                      <p className="text-sm text-rose-600 dark:text-rose-400">{userStats.weakQuestions.length} questions à retravailler</p>
                     </div>
                   </div>
                   <button
@@ -237,7 +222,7 @@ const App: React.FC = () => {
                       setSelectedTheme('weak');
                       setActiveTab('quiz');
                     }}
-                    className="bg-rose-500 text-white px-6 py-3 rounded-xl font-bold hover:bg-rose-600 transition active:scale-95"
+                    className="bg-rose-500 text-white px-4 py-2 rounded-lg font-medium hover:bg-rose-600 transition"
                   >
                     Réviser mes points faibles
                   </button>
@@ -247,7 +232,7 @@ const App: React.FC = () => {
           </div>
         )}
 
-        {activeTab === 'study' && <LessonView />}
+        {activeTab === 'study' && <LessonView onStartQuiz={startQuiz} />}
         {activeTab === 'quiz' && (
           <Quiz
             selectedTheme={selectedTheme}
@@ -271,17 +256,16 @@ const App: React.FC = () => {
         )}
       </main>
 
-      <footer className="bg-slate-950 text-white py-20 mt-20 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/5 blur-[120px] rounded-full"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 relative z-10">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-10">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-900/50">
-                <i className="fas fa-graduation-cap text-white"></i>
+      <footer className="bg-slate-900 text-white py-12 mt-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div className="flex items-center space-x-2">
+              <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
+                <i className="fas fa-graduation-cap text-white text-sm"></i>
               </div>
-              <span className="text-2xl font-extrabold brand-font tracking-tight">Objectif<span className="text-indigo-400">Citoyen</span></span>
+              <span className="text-lg font-bold">Objectif<span className="text-indigo-400">Citoyen</span></span>
             </div>
-            <div className="flex space-x-8 text-sm font-bold text-slate-400">
+            <div className="flex flex-wrap justify-center gap-6 text-sm text-slate-400">
               <button onClick={() => setActiveTab('home')} className="hover:text-white transition-colors">Accueil</button>
               <button onClick={() => setActiveTab('study')} className="hover:text-white transition-colors">Parcours</button>
               <button onClick={() => setActiveTab('simulation')} className="hover:text-white transition-colors">Simulation</button>
@@ -291,11 +275,8 @@ const App: React.FC = () => {
           </div>
 
           {/* Source Attribution */}
-          <div className="p-6 bg-indigo-500/10 rounded-2xl border border-indigo-500/20">
-            <div className="flex items-center space-x-2 text-indigo-400 font-bold uppercase tracking-widest text-[10px] mb-3">
-              <i className="fas fa-link"></i>
-              <span>Source des informations</span>
-            </div>
+          <div className="p-4 bg-slate-800 rounded-lg border border-slate-700">
+            <p className="text-xs text-slate-400 mb-2">Source des informations</p>
             <p className="text-sm text-slate-300">
               Les informations relatives à l'examen civique sont issues du site officiel du Ministère de l'Intérieur :{' '}
               <a
@@ -309,26 +290,22 @@ const App: React.FC = () => {
             </p>
           </div>
 
-          <div className="p-10 bg-white/5 rounded-[2.5rem] border border-white/10 text-xs text-slate-400 leading-relaxed space-y-6">
-            <div className="flex items-center space-x-2 text-indigo-400 font-bold uppercase tracking-widest text-[10px]">
-              <i className="fas fa-shield-alt"></i>
-              <span>Transparence et Responsabilité</span>
-            </div>
+          <div className="p-5 bg-slate-800/50 rounded-lg border border-slate-700 text-xs text-slate-400 space-y-3">
+            <p className="text-xs text-slate-500 uppercase">Transparence</p>
             <p>
-              <strong>Objectif Citoyen</strong> est une plateforme pédagogique indépendante éditée à titre privé. Elle n'est en aucun cas affiliée au Ministère de l'Intérieur, à l'OFII ou à tout organisme gouvernemental français. Les contenus proposés sont des aides à la révision basées sur les référentiels publics.
+              <strong>Objectif Citoyen</strong> est une plateforme pédagogique indépendante. Elle n'est pas affiliée au Ministère de l'Intérieur, à l'OFII ou à tout organisme gouvernemental. Les contenus sont des aides à la révision basées sur les référentiels publics.
             </p>
             <p>
-              En utilisant ce site, vous reconnaissez que la réussite aux simulations présentes ne garantit pas l'obtention de l'examen officiel. Les données de progression sont stockées localement sur votre appareil. Aucune information personnelle n'est envoyée à nos serveurs.
+              La réussite aux simulations ne garantit pas l'obtention de l'examen officiel. Les données sont stockées localement sur votre appareil.
             </p>
           </div>
 
-          <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/5 gap-4">
-            <div className="text-slate-600 text-[10px] uppercase font-bold tracking-widest">
-              © 2026 — Plateforme d'entraînement libre à but non lucratif
+          <div className="flex flex-col md:flex-row justify-between items-center pt-6 border-t border-slate-800 gap-4">
+            <div className="text-slate-500 text-xs">
+              © 2026 — Plateforme d'entraînement libre
             </div>
             <div className="flex space-x-4 text-slate-500">
               <i className="fab fa-github hover:text-white cursor-pointer transition-colors"></i>
-              <i className="fab fa-twitter hover:text-white cursor-pointer transition-colors"></i>
             </div>
           </div>
         </div>
