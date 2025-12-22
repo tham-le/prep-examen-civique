@@ -1,0 +1,7 @@
+{
+  "name": "Prép'Examen Civique 2026",
+  "description": "Une plateforme complète pour préparer le nouvel examen civique obligatoire en France dès 2026. Accédez à des fiches de révision, des quiz interactifs et trouvez vos centres d'examen.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
