@@ -17,7 +17,9 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, userSta
   const navItems = [
     { id: 'home', label: 'Accueil', icon: 'fa-home' },
     { id: 'study', label: 'Fiches', icon: 'fa-book-open' },
-    { id: 'simulation', label: 'Examen Blanc', icon: 'fa-file-alt' },
+    { id: 'flashcards', label: 'Flashcards', icon: 'fa-clone' },
+    { id: 'revision', label: 'Révision', icon: 'fa-list-check' },
+    { id: 'simulation', label: 'Examen', icon: 'fa-file-alt' },
     { id: 'faq', label: 'FAQ', icon: 'fa-circle-question' },
   ];
 

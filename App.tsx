@@ -6,6 +6,8 @@ import { LessonView } from './components/LessonView';
 import { ExamSimulation } from './components/ExamSimulation';
 import { FAQPage } from './components/FAQPage';
 import { ProfilePage } from './components/ProfilePage';
+import { Flashcards } from './components/Flashcards';
+import { RevisionMode } from './components/RevisionMode';
 import { THEMES, ALL_QUESTIONS } from './constants';
 import { UserStats } from './types';
 import { loadUserStats, saveUserStats, checkAndUpdateStreak, getLevelInfo, getXPProgress } from './services/gamificationService';
@@ -154,6 +156,53 @@ const App: React.FC = () => {
               </div>
             </section>
 
+            {/* Modes d'apprentissage */}
+            <section className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <button
+                onClick={() => setActiveTab('flashcards')}
+                className="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-amber-300 dark:hover:border-amber-600 transition-colors text-left group"
+              >
+                <div className="w-10 h-10 bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400 rounded-lg flex items-center justify-center mb-3">
+                  <i className="fas fa-clone"></i>
+                </div>
+                <h3 className="font-medium text-slate-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400">Flashcards</h3>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Mémorisez les notions clés</p>
+              </button>
+
+              <button
+                onClick={() => setActiveTab('revision')}
+                className="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-purple-300 dark:hover:border-purple-600 transition-colors text-left group"
+              >
+                <div className="w-10 h-10 bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400 rounded-lg flex items-center justify-center mb-3">
+                  <i className="fas fa-list-check"></i>
+                </div>
+                <h3 className="font-medium text-slate-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400">Mode Révision</h3>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Parcourez toutes les questions</p>
+              </button>
+
+              <button
+                onClick={() => startQuiz()}
+                className="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-emerald-300 dark:hover:border-emerald-600 transition-colors text-left group"
+              >
+                <div className="w-10 h-10 bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 rounded-lg flex items-center justify-center mb-3">
+                  <i className="fas fa-brain"></i>
+                </div>
+                <h3 className="font-medium text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Quiz Pratique</h3>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Testez vos connaissances</p>
+              </button>
+
+              <button
+                onClick={() => setActiveTab('simulation')}
+                className="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-600 transition-colors text-left group"
+              >
+                <div className="w-10 h-10 bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 rounded-lg flex items-center justify-center mb-3">
+                  <i className="fas fa-file-alt"></i>
+                </div>
+                <h3 className="font-medium text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Examen Blanc</h3>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Conditions réelles (45 min)</p>
+              </button>
+            </section>
+
             {/* Thématiques */}
             <section className="space-y-6">
               <div className="flex flex-col md:flex-row justify-between items-end gap-4 border-b border-slate-200 dark:border-slate-700 pb-4">
@@ -233,6 +282,8 @@ const App: React.FC = () => {
         )}
 
         {activeTab === 'study' && <LessonView onStartQuiz={startQuiz} />}
+        {activeTab === 'flashcards' && <Flashcards />}
+        {activeTab === 'revision' && <RevisionMode />}
         {activeTab === 'quiz' && (
           <Quiz
             selectedTheme={selectedTheme}
