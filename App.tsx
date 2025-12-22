@@ -190,11 +190,11 @@ const App: React.FC = () => {
                       className="bg-white dark:bg-slate-800 p-8 rounded-[2.5rem] border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all group text-center flex flex-col items-center active:scale-95"
                     >
                       <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-2xl transition-all shadow-sm group-hover:shadow-lg ${
-                        theme.color === 'indigo' ? 'bg-indigo-50 text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white group-hover:shadow-indigo-200' :
-                        theme.color === 'blue' ? 'bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white group-hover:shadow-blue-200' :
-                        theme.color === 'emerald' ? 'bg-emerald-50 text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white group-hover:shadow-emerald-200' :
-                        theme.color === 'amber' ? 'bg-amber-50 text-amber-600 group-hover:bg-amber-600 group-hover:text-white group-hover:shadow-amber-200' :
-                        'bg-rose-50 text-rose-600 group-hover:bg-rose-600 group-hover:text-white group-hover:shadow-rose-200'
+                        theme.color === 'indigo' ? 'bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 group-hover:bg-indigo-600 group-hover:text-white group-hover:shadow-indigo-200 dark:group-hover:shadow-indigo-900' :
+                        theme.color === 'blue' ? 'bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white group-hover:shadow-blue-200 dark:group-hover:shadow-blue-900' :
+                        theme.color === 'emerald' ? 'bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 group-hover:bg-emerald-600 group-hover:text-white group-hover:shadow-emerald-200 dark:group-hover:shadow-emerald-900' :
+                        theme.color === 'amber' ? 'bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400 group-hover:bg-amber-600 group-hover:text-white group-hover:shadow-amber-200 dark:group-hover:shadow-amber-900' :
+                        'bg-rose-100 dark:bg-rose-900/50 text-rose-600 dark:text-rose-400 group-hover:bg-rose-600 group-hover:text-white group-hover:shadow-rose-200 dark:group-hover:shadow-rose-900'
                       }`}>
                         <i className={`fas ${theme.icon}`}></i>
                       </div>
