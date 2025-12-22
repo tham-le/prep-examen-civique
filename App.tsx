@@ -14,6 +14,21 @@ const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState('home');
   const [selectedTheme, setSelectedTheme] = useState<string | undefined>(undefined);
   const [userStats, setUserStats] = useState<UserStats>(loadUserStats());
+  const [darkMode, setDarkMode] = useState(() => {
+    return localStorage.getItem('darkMode') === 'true';
+  });
+
+  // Toggle dark mode
+  const toggleDarkMode = () => {
+    const newMode = !darkMode;
+    setDarkMode(newMode);
+    localStorage.setItem('darkMode', String(newMode));
+    if (newMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  };
 
   // Load stats and update streak on mount
   useEffect(() => {
@@ -38,8 +53,8 @@ const App: React.FC = () => {
   const xpProgress = getXPProgress(userStats.xp, userStats.level);
 
   return (
-    <div className="min-h-screen flex flex-col selection:bg-indigo-100 selection:text-indigo-900">
-      <Header activeTab={activeTab} setActiveTab={setActiveTab} userStats={userStats} />
+    <div className="min-h-screen flex flex-col selection:bg-indigo-100 selection:text-indigo-900 dark:selection:bg-indigo-900 dark:selection:text-indigo-100">
+      <Header activeTab={activeTab} setActiveTab={setActiveTab} userStats={userStats} darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
 
       <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
         {activeTab === 'home' && (
@@ -88,18 +103,18 @@ const App: React.FC = () => {
             </div>
 
             {/* Bannière Info */}
-            <div className="bg-amber-50 border border-amber-200 p-4 rounded-2xl flex items-center space-x-4 shadow-sm">
-              <div className="bg-amber-400 p-2.5 rounded-xl text-white shadow-lg shadow-amber-200">
+            <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 p-4 rounded-2xl flex items-center space-x-4 shadow-sm">
+              <div className="bg-amber-400 dark:bg-amber-500 p-2.5 rounded-xl text-white shadow-lg shadow-amber-200 dark:shadow-amber-900/50">
                 <i className="fas fa-bullhorn animate-bounce"></i>
               </div>
               <div className="flex-1">
-                <p className="text-amber-900 text-xs font-bold uppercase tracking-tight">Réforme Civique 2026</p>
-                <p className="text-amber-800 text-[11px] leading-tight">Le barème officiel impose désormais 32 bonnes réponses sur 40.</p>
+                <p className="text-amber-900 dark:text-amber-300 text-xs font-bold uppercase tracking-tight">Réforme Civique 2026</p>
+                <p className="text-amber-800 dark:text-amber-400 text-[11px] leading-tight">Le barème officiel impose désormais 32 bonnes réponses sur 40.</p>
               </div>
               {userStats.totalQuizzes > 0 && (
-                <div className="hidden md:block bg-white px-4 py-2 rounded-xl border border-amber-200 shadow-sm text-center">
-                  <p className="text-[10px] font-bold text-slate-400 uppercase">Taux de réussite</p>
-                  <p className="text-sm font-black text-indigo-600">
+                <div className="hidden md:block bg-white dark:bg-slate-800 px-4 py-2 rounded-xl border border-amber-200 dark:border-amber-800 shadow-sm text-center">
+                  <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase">Taux de réussite</p>
+                  <p className="text-sm font-black text-indigo-600 dark:text-indigo-400">
                     {userStats.totalQuestions > 0
                       ? Math.round((userStats.totalCorrect / userStats.totalQuestions) * 100)
                       : 0}%
@@ -117,7 +132,7 @@ const App: React.FC = () => {
                 <div className="lg:col-span-3 space-y-8">
                   <div className="inline-flex items-center space-x-2 bg-white/10 px-4 py-1.5 rounded-full border border-white/20">
                     <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-indigo-100">125 questions disponibles</span>
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-indigo-100">175+ questions disponibles</span>
                   </div>
                   <h1 className="text-4xl md:text-6xl font-extrabold brand-font leading-tight">
                     Réussissez votre <span className="text-amber-400">Intégration</span>
@@ -150,13 +165,13 @@ const App: React.FC = () => {
 
             {/* Thématiques */}
             <section className="space-y-10">
-              <div className="flex flex-col md:flex-row justify-between items-end gap-4 border-b border-slate-100 pb-6">
+              <div className="flex flex-col md:flex-row justify-between items-end gap-4 border-b border-slate-100 dark:border-slate-800 pb-6">
                 <div className="space-y-2">
-                  <h2 className="text-3xl font-extrabold brand-font text-slate-900 tracking-tight">Révisez par Thématique</h2>
-                  <p className="text-slate-500 text-sm font-medium">Entraînement ciblé pour une progression constante.</p>
+                  <h2 className="text-3xl font-extrabold brand-font text-slate-900 dark:text-white tracking-tight">Révisez par Thématique</h2>
+                  <p className="text-slate-500 dark:text-slate-400 text-sm font-medium">Entraînement ciblé pour une progression constante.</p>
                 </div>
                 <div className="flex space-x-2">
-                  <div className="flex items-center space-x-2 bg-slate-100 px-4 py-2 rounded-xl text-slate-500 text-xs font-bold">
+                  <div className="flex items-center space-x-2 bg-slate-100 dark:bg-slate-800 px-4 py-2 rounded-xl text-slate-500 dark:text-slate-400 text-xs font-bold">
                     <i className="fas fa-database text-indigo-400"></i>
                     <span>Base de données complète</span>
                   </div>
@@ -172,7 +187,7 @@ const App: React.FC = () => {
                     <button
                       key={theme.id}
                       onClick={() => startQuiz(theme.id)}
-                      className="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all group text-center flex flex-col items-center active:scale-95"
+                      className="bg-white dark:bg-slate-800 p-8 rounded-[2.5rem] border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all group text-center flex flex-col items-center active:scale-95"
                     >
                       <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-2xl transition-all shadow-sm group-hover:shadow-lg ${
                         theme.color === 'indigo' ? 'bg-indigo-50 text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white group-hover:shadow-indigo-200' :
@@ -183,20 +198,20 @@ const App: React.FC = () => {
                       }`}>
                         <i className={`fas ${theme.icon}`}></i>
                       </div>
-                      <h3 className="font-bold text-slate-900 mb-1 leading-tight">{theme.title}</h3>
+                      <h3 className="font-bold text-slate-900 dark:text-white mb-1 leading-tight">{theme.title}</h3>
                       {progress && (
                         <div className="w-full mt-3">
-                          <div className="h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                          <div className="h-1.5 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
                             <div
                               className="h-full bg-indigo-500 rounded-full transition-all"
                               style={{ width: `${percentage}%` }}
                             ></div>
                           </div>
-                          <p className="text-[10px] text-slate-400 mt-1">{percentage}% maîtrisé</p>
+                          <p className="text-[10px] text-slate-400 dark:text-slate-500 mt-1">{percentage}% maîtrisé</p>
                         </div>
                       )}
                       {!progress && (
-                        <p className="text-[10px] text-slate-400 uppercase font-black tracking-widest mt-2 group-hover:text-indigo-600 transition-colors">Commencer</p>
+                        <p className="text-[10px] text-slate-400 dark:text-slate-500 uppercase font-black tracking-widest mt-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">Commencer</p>
                       )}
                     </button>
                   );
@@ -206,15 +221,15 @@ const App: React.FC = () => {
 
             {/* Weak Questions Section */}
             {userStats.weakQuestions.length > 0 && (
-              <section className="bg-rose-50 border border-rose-200 p-8 rounded-3xl">
+              <section className="bg-rose-50 dark:bg-rose-900/20 border border-rose-200 dark:border-rose-800 p-8 rounded-3xl">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center space-x-3">
                     <div className="w-10 h-10 bg-rose-500 rounded-xl flex items-center justify-center text-white">
                       <i className="fas fa-target"></i>
                     </div>
                     <div>
-                      <h3 className="font-bold text-rose-900">Points à améliorer</h3>
-                      <p className="text-xs text-rose-600">{userStats.weakQuestions.length} questions à retravailler</p>
+                      <h3 className="font-bold text-rose-900 dark:text-rose-300">Points à améliorer</h3>
+                      <p className="text-xs text-rose-600 dark:text-rose-400">{userStats.weakQuestions.length} questions à retravailler</p>
                     </div>
                   </div>
                   <button

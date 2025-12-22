@@ -237,6 +237,96 @@ const VALEURS_QUESTIONS: Question[] = [
     explanation: "La République garantit le libre exercice des cultes et la liberté de conscience pour tous.",
     category: "valeurs",
     type: 'multiple-choice'
+  },
+  {
+    id: 'v26',
+    text: "Quel principe garantit que tous les citoyens sont traités de manière identique par la loi ?",
+    options: ["La liberté", "L'égalité", "La fraternité", "La solidarité"],
+    correctAnswer: 1,
+    explanation: "L'égalité devant la loi signifie que tous les citoyens ont les mêmes droits et devoirs.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v27',
+    text: "La devise 'Liberté, Égalité, Fraternité' date de quelle période ?",
+    options: ["Le Moyen Âge", "La Renaissance", "La Révolution française", "La Cinquième République"],
+    correctAnswer: 2,
+    explanation: "Cette devise est née pendant la Révolution française de 1789.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v28',
+    text: "Qu'est-ce que le suffrage universel ?",
+    options: ["Le vote réservé aux hommes", "Le vote réservé aux propriétaires", "Le droit de vote pour tous les citoyens majeurs", "Le vote obligatoire"],
+    correctAnswer: 2,
+    explanation: "Le suffrage universel permet à tous les citoyens majeurs de voter sans condition de fortune ou de sexe.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v29',
+    text: "Quelle est la couleur centrale du drapeau français ?",
+    options: ["Bleu", "Blanc", "Rouge", "Jaune"],
+    correctAnswer: 1,
+    explanation: "Le drapeau tricolore est composé de trois bandes verticales : bleu, blanc et rouge.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v30',
+    text: "La Marseillaise a été composée en quelle année ?",
+    options: ["1789", "1792", "1848", "1870"],
+    correctAnswer: 1,
+    explanation: "La Marseillaise a été composée en 1792 par Rouget de Lisle à Strasbourg.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v31',
+    text: "Que représente le bonnet phrygien ?",
+    options: ["La royauté", "La liberté", "La guerre", "La religion"],
+    correctAnswer: 1,
+    explanation: "Le bonnet phrygien est un symbole de liberté hérité de l'Antiquité romaine.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v32',
+    text: "Quel est le nom de l'arbre symbole planté lors des fêtes républicaines ?",
+    options: ["Le chêne", "L'arbre de la liberté", "Le platane", "L'olivier"],
+    correctAnswer: 1,
+    explanation: "L'arbre de la liberté est planté traditionnellement pour célébrer la République.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v33',
+    text: "Qui a écrit les paroles de la Marseillaise ?",
+    options: ["Victor Hugo", "Rouget de Lisle", "Napoléon Bonaparte", "Jean-Jacques Rousseau"],
+    correctAnswer: 1,
+    explanation: "Claude Joseph Rouget de Lisle a composé la Marseillaise en 1792.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v34',
+    text: "Quel animal est parfois associé à la République française ?",
+    options: ["L'aigle", "Le lion", "Le coq", "L'ours"],
+    correctAnswer: 2,
+    explanation: "Le coq gaulois est un symbole national français depuis l'Antiquité.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v35',
+    text: "La laïcité interdit-elle de pratiquer sa religion ?",
+    options: ["Oui, toute pratique religieuse est interdite", "Non, elle garantit la liberté de culte", "Seulement dans les lieux publics", "Seulement pour les fonctionnaires"],
+    correctAnswer: 1,
+    explanation: "La laïcité garantit la liberté de conscience et le libre exercice des cultes.",
+    category: "valeurs",
+    type: 'multiple-choice'
   }
 ];
 
@@ -466,6 +556,96 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     options: ["Le Premier ministre", "Le Président de la République", "Le président de l'Assemblée nationale", "Le Garde des Sceaux"],
     correctAnswer: 1,
     explanation: "Le Président de la République préside le Conseil des ministres qui se réunit chaque semaine.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i26',
+    text: "Combien de sénateurs composent le Sénat ?",
+    options: ["348", "577", "150", "250"],
+    correctAnswer: 0,
+    explanation: "Le Sénat compte 348 sénateurs élus au suffrage universel indirect.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i27',
+    text: "Quelle est la durée du mandat d'un sénateur ?",
+    options: ["5 ans", "6 ans", "7 ans", "4 ans"],
+    correctAnswer: 1,
+    explanation: "Les sénateurs sont élus pour un mandat de 6 ans, renouvelé par moitié tous les 3 ans.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i28',
+    text: "Où siège le Sénat ?",
+    options: ["À l'Élysée", "Au Palais Bourbon", "Au Palais du Luxembourg", "À Matignon"],
+    correctAnswer: 2,
+    explanation: "Le Sénat siège au Palais du Luxembourg à Paris.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i29',
+    text: "Qui peut saisir le Conseil constitutionnel pour vérifier la constitutionnalité d'une loi ?",
+    options: ["Tout citoyen directement", "Le Président, le Premier ministre ou 60 députés/sénateurs", "Uniquement le Président", "Les maires"],
+    correctAnswer: 1,
+    explanation: "Le Conseil constitutionnel peut être saisi par le Président, le Premier ministre, les présidents des assemblées ou 60 parlementaires.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i30',
+    text: "Qu'est-ce que la QPC (Question Prioritaire de Constitutionnalité) ?",
+    options: ["Un examen pour devenir juge", "Un moyen pour un citoyen de contester une loi devant le Conseil constitutionnel", "Une question posée au Parlement", "Un vote de confiance"],
+    correctAnswer: 1,
+    explanation: "La QPC permet à tout justiciable de contester la constitutionnalité d'une loi lors d'un procès.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i31',
+    text: "Quel est le rôle du Défenseur des droits ?",
+    options: ["Diriger l'armée", "Veiller au respect des droits et libertés", "Voter les lois", "Nommer les ministres"],
+    correctAnswer: 1,
+    explanation: "Le Défenseur des droits est une autorité indépendante qui veille au respect des droits des citoyens.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i32',
+    text: "Qui nomme les membres du Conseil constitutionnel ?",
+    options: ["Le peuple par référendum", "Le Président et les présidents des assemblées", "Les députés uniquement", "Le Premier ministre"],
+    correctAnswer: 1,
+    explanation: "Les 9 membres sont nommés par le Président de la République et les présidents de l'Assemblée et du Sénat.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i33',
+    text: "Quelle juridiction juge les conflits entre l'administration et les citoyens ?",
+    options: ["Le tribunal judiciaire", "Le Conseil d'État", "La Cour de cassation", "Le tribunal de commerce"],
+    correctAnswer: 1,
+    explanation: "Le Conseil d'État est la plus haute juridiction administrative en France.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i34',
+    text: "Qu'est-ce qu'une ordonnance ?",
+    options: ["Une décision de justice", "Un texte pris par le gouvernement dans le domaine de la loi", "Un discours présidentiel", "Une pétition citoyenne"],
+    correctAnswer: 1,
+    explanation: "Les ordonnances permettent au gouvernement de légiférer temporairement avec l'autorisation du Parlement.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i35',
+    text: "Qui peut dissoudre l'Assemblée nationale ?",
+    options: ["Le Premier ministre", "Le Président de la République", "Le président du Sénat", "Le Conseil constitutionnel"],
+    correctAnswer: 1,
+    explanation: "Le Président de la République peut dissoudre l'Assemblée nationale, provoquant de nouvelles élections.",
     category: "institutions",
     type: 'multiple-choice'
   }
@@ -699,6 +879,87 @@ const DROITS_QUESTIONS: Question[] = [
     explanation: "La Charte de l'environnement de 2004, à valeur constitutionnelle, reconnaît le droit à un environnement sain.",
     category: "droits",
     type: 'multiple-choice'
+  },
+  {
+    id: 'd26',
+    text: "À partir de quel âge peut-on se marier en France ?",
+    options: ["16 ans", "18 ans", "21 ans", "25 ans"],
+    correctAnswer: 1,
+    explanation: "Le mariage est autorisé à partir de 18 ans, la majorité civile.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd27',
+    text: "Le droit de grève est-il reconnu en France ?",
+    options: ["Non, il est interdit", "Oui, c'est un droit constitutionnel", "Seulement dans le privé", "Seulement pour les syndicats"],
+    correctAnswer: 1,
+    explanation: "Le droit de grève est un droit constitutionnel reconnu depuis 1946.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd28',
+    text: "Qu'est-ce que la présomption d'innocence ?",
+    options: ["Être considéré coupable jusqu'à preuve du contraire", "Être considéré innocent jusqu'à condamnation définitive", "Avoir le droit de mentir", "Ne pas avoir besoin d'avocat"],
+    correctAnswer: 1,
+    explanation: "Toute personne est présumée innocente jusqu'à ce que sa culpabilité soit établie par un jugement définitif.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd29',
+    text: "Le travail des enfants est-il autorisé en France ?",
+    options: ["Oui, sans restriction", "Non, interdit avant 16 ans avec quelques exceptions", "Seulement dans l'agriculture", "Oui, à partir de 12 ans"],
+    correctAnswer: 1,
+    explanation: "Le travail des enfants est interdit avant 16 ans, sauf dérogations pour certaines activités encadrées.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd30',
+    text: "Qu'est-ce que l'aide juridictionnelle ?",
+    options: ["Une amende", "Une aide financière pour payer un avocat", "Un cours de droit", "Une assurance obligatoire"],
+    correctAnswer: 1,
+    explanation: "L'aide juridictionnelle permet aux personnes à faibles revenus d'accéder à la justice gratuitement.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd31',
+    text: "Le vote est-il obligatoire en France ?",
+    options: ["Oui, sous peine d'amende", "Non, c'est un droit mais pas une obligation", "Seulement pour les présidentielles", "Oui, pour tous les citoyens"],
+    correctAnswer: 1,
+    explanation: "Le vote est un droit civique mais pas une obligation légale en France.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd32',
+    text: "Qui peut bénéficier de la Sécurité sociale en France ?",
+    options: ["Uniquement les Français", "Toute personne travaillant ou résidant légalement en France", "Uniquement les salariés", "Les riches uniquement"],
+    correctAnswer: 1,
+    explanation: "La Sécurité sociale couvre toutes les personnes travaillant ou résidant légalement en France.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd33',
+    text: "Le service national universel (SNU) est-il obligatoire ?",
+    options: ["Oui, pour tous les jeunes", "Non, il est volontaire", "Seulement pour les garçons", "Oui, à partir de 2025"],
+    correctAnswer: 1,
+    explanation: "Le SNU est actuellement basé sur le volontariat pour les jeunes de 15 à 17 ans.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd35',
+    text: "Qu'est-ce que le PACS ?",
+    options: ["Un contrat de travail", "Un contrat d'union civile entre deux personnes", "Un permis de conduire", "Une assurance"],
+    correctAnswer: 1,
+    explanation: "Le PACS (Pacte Civil de Solidarité) est un contrat conclu entre deux personnes majeures pour organiser leur vie commune.",
+    category: "droits",
+    type: 'multiple-choice'
   }
 ];
 
@@ -930,6 +1191,96 @@ const CULTURE_QUESTIONS: Question[] = [
     explanation: "Notre-Dame de Paris est une cathédrale gothique construite entre 1163 et 1345.",
     category: "culture",
     type: 'multiple-choice'
+  },
+  {
+    id: 'c26',
+    text: "Quel fleuve traverse Paris ?",
+    options: ["La Loire", "Le Rhône", "La Seine", "La Garonne"],
+    correctAnswer: 2,
+    explanation: "La Seine traverse Paris d'est en ouest et divise la ville entre rive droite et rive gauche.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c27',
+    text: "Quelle est la plus longue chaîne de montagnes de France ?",
+    options: ["Les Pyrénées", "Les Alpes", "Le Massif central", "Les Vosges"],
+    correctAnswer: 1,
+    explanation: "Les Alpes françaises s'étendent sur environ 450 km le long de la frontière avec l'Italie et la Suisse.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c28',
+    text: "Napoléon Bonaparte est devenu empereur en quelle année ?",
+    options: ["1789", "1799", "1804", "1815"],
+    correctAnswer: 2,
+    explanation: "Napoléon Bonaparte a été sacré empereur des Français le 2 décembre 1804.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c29',
+    text: "Qui a peint la Joconde, exposée au Louvre ?",
+    options: ["Michel-Ange", "Léonard de Vinci", "Raphaël", "Rembrandt"],
+    correctAnswer: 1,
+    explanation: "La Joconde a été peinte par Léonard de Vinci au début du XVIe siècle.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c30',
+    text: "En quelle année la Première Guerre mondiale a-t-elle pris fin ?",
+    options: ["1914", "1916", "1918", "1945"],
+    correctAnswer: 2,
+    explanation: "L'armistice du 11 novembre 1918 a mis fin à la Première Guerre mondiale.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c31',
+    text: "Quel est le plus grand musée de France ?",
+    options: ["Le musée d'Orsay", "Le Centre Pompidou", "Le Louvre", "Le musée du Quai Branly"],
+    correctAnswer: 2,
+    explanation: "Le musée du Louvre est le plus grand musée d'art au monde.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c32',
+    text: "La Seconde Guerre mondiale s'est terminée en Europe en quelle année ?",
+    options: ["1943", "1944", "1945", "1946"],
+    correctAnswer: 2,
+    explanation: "La capitulation de l'Allemagne nazie le 8 mai 1945 a mis fin à la guerre en Europe.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c33',
+    text: "Quel écrivain français a écrit 'Les Misérables' ?",
+    options: ["Émile Zola", "Victor Hugo", "Gustave Flaubert", "Alexandre Dumas"],
+    correctAnswer: 1,
+    explanation: "Victor Hugo a écrit Les Misérables, publié en 1862.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c34',
+    text: "Combien de départements compte la France métropolitaine ?",
+    options: ["96", "101", "13", "36000"],
+    correctAnswer: 0,
+    explanation: "La France métropolitaine compte 96 départements.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c35',
+    text: "Quel roi a fait construire le château de Versailles ?",
+    options: ["Louis XIII", "Louis XIV", "Louis XV", "Louis XVI"],
+    correctAnswer: 1,
+    explanation: "Louis XIV, le Roi-Soleil, a transformé Versailles en résidence royale au XVIIe siècle.",
+    category: "culture",
+    type: 'multiple-choice'
   }
 ];
 
@@ -1069,6 +1420,96 @@ const SOCIETE_QUESTIONS: Question[] = [
     options: ["3919", "119", "115", "114"],
     correctAnswer: 0,
     explanation: "Le 3919 est le numéro national d'écoute pour les femmes victimes de violences.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's16',
+    text: "Le permis de conduire s'obtient à partir de quel âge ?",
+    options: ["16 ans", "17 ans", "18 ans", "21 ans"],
+    correctAnswer: 2,
+    explanation: "Le permis de conduire B peut être obtenu à partir de 18 ans (17 ans en conduite accompagnée).",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's17',
+    text: "Quelle est la durée légale du travail en France ?",
+    options: ["32 heures", "35 heures", "39 heures", "40 heures"],
+    correctAnswer: 1,
+    explanation: "La durée légale du travail en France est de 35 heures par semaine depuis 2000.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's18',
+    text: "Le SMIC est :",
+    options: ["Un impôt", "Le salaire minimum légal", "Une allocation chômage", "Une taxe locale"],
+    correctAnswer: 1,
+    explanation: "Le SMIC (Salaire Minimum Interprofessionnel de Croissance) est le salaire horaire minimum légal.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's19',
+    text: "Les transports en commun sont gratuits pour qui ?",
+    options: ["Tout le monde", "Les moins de 4 ans", "Les retraités", "Les étudiants"],
+    correctAnswer: 1,
+    explanation: "Les enfants de moins de 4 ans voyagent gratuitement dans les transports en commun.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's20',
+    text: "Qu'est-ce que le compte personnel de formation (CPF) ?",
+    options: ["Un compte bancaire", "Un droit à la formation professionnelle", "Un diplôme", "Une assurance"],
+    correctAnswer: 1,
+    explanation: "Le CPF permet à chaque actif d'acquérir des droits à la formation tout au long de sa vie professionnelle.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's21',
+    text: "Le RSA (Revenu de Solidarité Active) est accessible à partir de :",
+    options: ["18 ans", "21 ans", "25 ans (ou avant avec enfant)", "30 ans"],
+    correctAnswer: 2,
+    explanation: "Le RSA est accessible à partir de 25 ans, ou avant si l'on a des enfants à charge.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's22',
+    text: "L'Assurance maladie rembourse généralement quel pourcentage des frais médicaux ?",
+    options: ["50%", "70%", "100%", "30%"],
+    correctAnswer: 1,
+    explanation: "L'Assurance maladie rembourse généralement 70% des frais médicaux (taux normal).",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's23',
+    text: "Le tri sélectif concerne quel type de poubelle généralement jaune ?",
+    options: ["Les déchets alimentaires", "Les emballages recyclables", "Le verre", "Les déchets médicaux"],
+    correctAnswer: 1,
+    explanation: "La poubelle jaune est destinée aux emballages recyclables (plastique, carton, métal).",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's24',
+    text: "Un logement social (HLM) est attribué en fonction de :",
+    options: ["L'âge uniquement", "Les revenus du foyer", "La nationalité", "Le lieu de naissance"],
+    correctAnswer: 1,
+    explanation: "Les logements sociaux sont attribués en fonction des revenus et de la composition du foyer.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's25',
+    text: "En France, fumer est interdit dans :",
+    options: ["Les parcs uniquement", "Les lieux publics fermés", "Nulle part", "Les restaurants seulement"],
+    correctAnswer: 1,
+    explanation: "Il est interdit de fumer dans tous les lieux publics fermés et couverts depuis 2007.",
     category: "societe",
     type: 'multiple-choice'
   }
