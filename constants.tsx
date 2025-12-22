@@ -1323,6 +1323,34 @@ export const LESSONS: Lesson[] = [
       "Le droit de grève est un droit constitutionnel."
     ],
     quiz: DROITS_QUESTIONS.slice(0, 5)
+  },
+  {
+    id: 'l4',
+    title: 'Histoire et Culture de France',
+    category: 'Culture',
+    icon: 'fa-book',
+    content: [
+      "La Révolution française de 1789 a mis fin à la monarchie absolue.",
+      "La Déclaration des Droits de l'Homme et du Citoyen date du 26 août 1789.",
+      "La France compte 13 régions métropolitaines et 5 régions d'outre-mer.",
+      "Le patrimoine culturel français est inscrit au patrimoine mondial de l'UNESCO.",
+      "La langue française est la langue officielle de la République."
+    ],
+    quiz: CULTURE_QUESTIONS.slice(0, 5)
+  },
+  {
+    id: 'l5',
+    title: 'Vivre en Société',
+    category: 'Société',
+    icon: 'fa-users',
+    content: [
+      "La laïcité garantit la liberté de conscience et la neutralité de l'État.",
+      "L'égalité femmes-hommes est un principe constitutionnel.",
+      "Le système de santé français repose sur la Sécurité sociale depuis 1945.",
+      "L'accès aux services publics est un droit pour tous les résidents.",
+      "Le respect des règles de vie commune est essentiel au vivre-ensemble."
+    ],
+    quiz: SOCIETE_QUESTIONS.slice(0, 5)
   }
 ];
 
