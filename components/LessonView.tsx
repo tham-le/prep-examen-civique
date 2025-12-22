@@ -7,13 +7,13 @@ export const LessonView: React.FC = () => {
   const [selectedLesson, setSelectedLesson] = useState<Lesson | null>(null);
   const [quizMode, setQuizMode] = useState(false);
   const [quizFinished, setQuizFinished] = useState(false);
-  const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
+  const [selectedAnswers, setSelectedAnswers] = useState<Record<string, number>>({});
 
   if (selectedLesson) {
     return (
       <div className="max-w-3xl mx-auto space-y-6 animate-in fade-in slide-in-from-bottom-4">
         <button 
-          onClick={() => { setSelectedLesson(null); setQuizMode(false); setQuizFinished(false); setSelectedAnswer(null); }}
+          onClick={() => { setSelectedLesson(null); setQuizMode(false); setQuizFinished(false); setSelectedAnswers({}); }}
           className="text-blue-600 font-bold flex items-center hover:underline"
         >
           <i className="fas fa-chevron-left mr-2"></i> Retour aux leçons
@@ -56,43 +56,48 @@ export const LessonView: React.FC = () => {
             ) : (
               <div className="space-y-8">
                 <h3 className="text-xl font-bold text-center">Quiz de fin de leçon</h3>
-                {selectedLesson.quiz.map((q, idx) => (
-                  <div key={q.id} className="space-y-6">
-                    <p className="text-lg font-medium text-gray-800">{q.text}</p>
-                    <div className="grid gap-3">
-                      {q.options.map((opt, oIdx) => (
-                        <button
-                          key={oIdx}
-                          disabled={selectedAnswer !== null}
-                          onClick={() => setSelectedAnswer(oIdx)}
-                          className={`w-full text-left p-4 rounded-xl border-2 transition-all ${
-                            selectedAnswer === null 
-                              ? 'border-gray-100 bg-gray-50 hover:border-blue-600'
-                              : oIdx === q.correctAnswer
-                                ? 'border-green-500 bg-green-50 text-green-800'
-                                : selectedAnswer === oIdx
-                                  ? 'border-red-500 bg-red-50 text-red-800'
-                                  : 'border-gray-50 bg-white opacity-40'
-                          }`}
-                        >
-                          <div className="flex items-center justify-between">
-                            <span>{opt}</span>
-                            {selectedAnswer !== null && oIdx === q.correctAnswer && <i className="fas fa-check-circle text-green-500"></i>}
-                          </div>
-                        </button>
-                      ))}
-                    </div>
-                    {selectedAnswer !== null && (
-                      <div className="p-4 bg-blue-50 border border-blue-100 rounded-xl">
-                        <p className="text-sm text-blue-800"><span className="font-bold">Note :</span> {q.explanation}</p>
+                {selectedLesson.quiz.map((q, idx) => {
+                  const selectedAnswer = selectedAnswers[q.id];
+                  const hasAnswered = selectedAnswer !== undefined;
+
+                  return (
+                    <div key={q.id} className="space-y-6">
+                      <p className="text-lg font-medium text-gray-800">{q.text}</p>
+                      <div className="grid gap-3">
+                        {q.options.map((opt, oIdx) => (
+                          <button
+                            key={oIdx}
+                            disabled={hasAnswered}
+                            onClick={() => setSelectedAnswers(prev => ({ ...prev, [q.id]: oIdx }))}
+                            className={`w-full text-left p-4 rounded-xl border-2 transition-all ${
+                              !hasAnswered
+                                ? 'border-gray-100 bg-gray-50 hover:border-blue-600'
+                                : oIdx === q.correctAnswer
+                                  ? 'border-green-500 bg-green-50 text-green-800'
+                                  : selectedAnswer === oIdx
+                                    ? 'border-red-500 bg-red-50 text-red-800'
+                                    : 'border-gray-50 bg-white opacity-40'
+                            }`}
+                          >
+                            <div className="flex items-center justify-between">
+                              <span>{opt}</span>
+                              {hasAnswered && oIdx === q.correctAnswer && <i className="fas fa-check-circle text-green-500"></i>}
+                            </div>
+                          </button>
+                        ))}
                       </div>
-                    )}
-                  </div>
-                ))}
+                      {hasAnswered && (
+                        <div className="p-4 bg-blue-50 border border-blue-100 rounded-xl">
+                          <p className="text-sm text-blue-800"><span className="font-bold">Note :</span> {q.explanation}</p>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
                 
-                {selectedAnswer !== null && (
-                  <button 
-                    onClick={() => { setSelectedLesson(null); setQuizMode(false); setQuizFinished(false); setSelectedAnswer(null); }}
+                {Object.keys(selectedAnswers).length === selectedLesson.quiz.length && (
+                  <button
+                    onClick={() => { setSelectedLesson(null); setQuizMode(false); setQuizFinished(false); setSelectedAnswers({}); }}
                     className="w-full bg-gray-900 text-white py-4 rounded-2xl font-bold hover:bg-black transition"
                   >
                     Terminer la leçon
