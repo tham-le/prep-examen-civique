@@ -4,6 +4,29 @@ import { Question, Level, UserStats } from '../types';
 import { OFFICIAL_DB } from '../constants';
 import { processExamResult, getBadgeInfo, addExamResult } from '../services/gamificationService';
 
+// Shuffle an array using Fisher-Yates algorithm
+const shuffleArray = <T,>(array: T[]): T[] => {
+  const result = [...array];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+};
+
+// Shuffle answer options and return new question with updated correctAnswer
+const shuffleQuestionOptions = (question: Question): Question => {
+  const correctOption = question.options[question.correctAnswer];
+  const shuffledOptions = shuffleArray(question.options);
+  const newCorrectAnswer = shuffledOptions.indexOf(correctOption);
+
+  return {
+    ...question,
+    options: shuffledOptions,
+    correctAnswer: newCorrectAnswer
+  };
+};
+
 interface ExamSimulationProps {
   onStatsUpdate: (stats: UserStats) => void;
   userStats: UserStats;
@@ -44,7 +67,8 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({ onStatsUpdate, u
       simulated = [...simulated, ...shuffled];
     }
 
-    setQuestions(simulated.slice(0, 40));
+    // Shuffle questions and randomize answer order for each
+    setQuestions(simulated.slice(0, 40).map(shuffleQuestionOptions));
     setAnswers({});
     setCurrentIdx(0);
     setTimeLeft(2700);

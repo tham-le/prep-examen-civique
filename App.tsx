@@ -8,6 +8,8 @@ import { FAQPage } from './components/FAQPage';
 import { ProfilePage } from './components/ProfilePage';
 import { Flashcards } from './components/Flashcards';
 import { RevisionMode } from './components/RevisionMode';
+import { InstallPrompt } from './components/InstallPrompt';
+import { Onboarding } from './components/Onboarding';
 import { THEMES, ALL_QUESTIONS } from './constants';
 import { UserStats } from './types';
 import { loadUserStats, saveUserStats, checkAndUpdateStreak, getLevelInfo, getXPProgress } from './services/gamificationService';
@@ -18,6 +20,9 @@ const App: React.FC = () => {
   const [userStats, setUserStats] = useState<UserStats>(loadUserStats());
   const [darkMode, setDarkMode] = useState(() => {
     return localStorage.getItem('darkMode') === 'true';
+  });
+  const [showOnboarding, setShowOnboarding] = useState(() => {
+    return localStorage.getItem('objectif_citoyen_onboarding_complete') !== 'true';
   });
 
   // Toggle dark mode
@@ -303,6 +308,7 @@ const App: React.FC = () => {
           <ProfilePage
             userStats={userStats}
             onStatsUpdate={handleStatsUpdate}
+            onShowTutorial={() => setShowOnboarding(true)}
           />
         )}
       </main>
@@ -361,6 +367,12 @@ const App: React.FC = () => {
           </div>
         </div>
       </footer>
+
+      <InstallPrompt />
+
+      {showOnboarding && (
+        <Onboarding onComplete={() => setShowOnboarding(false)} />
+      )}
     </div>
   );
 };

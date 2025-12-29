@@ -4,6 +4,29 @@ import { OFFICIAL_DB, THEMES, ALL_QUESTIONS } from '../constants';
 import { Question, UserStats } from '../types';
 import { processQuizResult, getBadgeInfo } from '../services/gamificationService';
 
+// Shuffle an array using Fisher-Yates algorithm
+const shuffleArray = <T,>(array: T[]): T[] => {
+  const result = [...array];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+};
+
+// Shuffle answer options and return new question with updated correctAnswer
+const shuffleQuestionOptions = (question: Question): Question => {
+  const correctOption = question.options[question.correctAnswer];
+  const shuffledOptions = shuffleArray(question.options);
+  const newCorrectAnswer = shuffledOptions.indexOf(correctOption);
+
+  return {
+    ...question,
+    options: shuffledOptions,
+    correctAnswer: newCorrectAnswer
+  };
+};
+
 interface QuizProps {
   selectedTheme?: string;
   onExit: () => void;
@@ -38,10 +61,11 @@ export const Quiz: React.FC<QuizProps> = ({ selectedTheme, onExit, onStatsUpdate
       pool = [...ALL_QUESTIONS];
     }
 
-    // Shuffle and select up to 10 questions
+    // Shuffle questions and randomize answer order for each
     const shuffled = [...pool]
       .sort(() => 0.5 - Math.random())
-      .slice(0, 10);
+      .slice(0, 10)
+      .map(shuffleQuestionOptions);
 
     setQuestions(shuffled);
     setCurrentIdx(0);

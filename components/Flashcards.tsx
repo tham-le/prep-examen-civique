@@ -82,24 +82,11 @@ export const Flashcards: React.FC = () => {
     return matchesCategory && matchesKnown;
   });
 
-  useEffect(() => {
-    setCurrentIdx(0);
-    setFlipped(false);
-  }, [category, showKnown]);
-
-  useEffect(() => {
-    // Load known cards from localStorage
-    const saved = localStorage.getItem('objectif_citoyen_known_cards');
-    if (saved) {
-      setKnownCards(new Set(JSON.parse(saved)));
-    }
-  }, []);
+  const currentCard = filteredCards[currentIdx];
 
   const saveKnownCards = (cards: Set<string>) => {
     localStorage.setItem('objectif_citoyen_known_cards', JSON.stringify([...cards]));
   };
-
-  const currentCard = filteredCards[currentIdx];
 
   const nextCard = () => {
     setFlipped(false);
@@ -117,14 +104,26 @@ export const Flashcards: React.FC = () => {
 
   const markAsKnown = () => {
     if (currentCard) {
-      const newKnown = new Set(knownCards);
-      if (knownCards.has(currentCard.id)) {
+      const newKnown = new Set<string>(knownCards);
+      const wasKnown = knownCards.has(currentCard.id);
+
+      if (wasKnown) {
         newKnown.delete(currentCard.id);
       } else {
         newKnown.add(currentCard.id);
       }
       setKnownCards(newKnown);
       saveKnownCards(newKnown);
+
+      // Auto-advance to next card when marking as known (not when unmarking)
+      if (!wasKnown && filteredCards.length > 1) {
+        setTimeout(() => {
+          setFlipped(false);
+          setTimeout(() => {
+            setCurrentIdx((prev) => (prev + 1) % filteredCards.length);
+          }, 150);
+        }, 300);
+      }
     }
   };
 
@@ -134,6 +133,38 @@ export const Flashcards: React.FC = () => {
       localStorage.removeItem('objectif_citoyen_known_cards');
     }
   };
+
+  useEffect(() => {
+    setCurrentIdx(0);
+    setFlipped(false);
+  }, [category, showKnown]);
+
+  useEffect(() => {
+    // Load known cards from localStorage
+    const saved = localStorage.getItem('objectif_citoyen_known_cards');
+    if (saved) {
+      setKnownCards(new Set(JSON.parse(saved) as string[]));
+    }
+  }, []);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowRight') {
+        nextCard();
+      } else if (e.key === 'ArrowLeft') {
+        prevCard();
+      } else if (e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault();
+        setFlipped((f) => !f);
+      } else if (e.key === 'k' || e.key === 'K') {
+        markAsKnown();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  });
 
   if (filteredCards.length === 0) {
     return (
@@ -280,7 +311,7 @@ export const Flashcards: React.FC = () => {
 
       {/* Keyboard hint */}
       <p className="text-center text-xs text-slate-400 dark:text-slate-500">
-        Utilisez les touches <kbd className="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded">←</kbd> <kbd className="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded">→</kbd> pour naviguer, <kbd className="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded">Espace</kbd> pour retourner
+        <kbd className="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded">←</kbd> <kbd className="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded">→</kbd> naviguer · <kbd className="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded">Espace</kbd> retourner · <kbd className="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded">K</kbd> je connais
       </p>
 
       {/* Reset button */}

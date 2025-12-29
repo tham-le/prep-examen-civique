@@ -417,6 +417,96 @@ const VALEURS_QUESTIONS: Question[] = [
     explanation: "La discrimination à l'embauche fondée sur le sexe est interdite par la loi.",
     category: "valeurs",
     type: 'multiple-choice'
+  },
+  {
+    id: 'v46',
+    text: "Quel est l'arbre symbole de la République française ?",
+    options: ["Le chêne", "L'olivier", "Le sapin", "Le platane"],
+    correctAnswer: 0,
+    explanation: "Le chêne représente la force et la pérennité de la République. Les arbres de la liberté plantés depuis 1789 sont souvent des chênes.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v47',
+    text: "Le faisceau de licteur est un symbole représentant :",
+    options: ["La guerre", "L'unité et la force du peuple", "La monarchie", "La religion"],
+    correctAnswer: 1,
+    explanation: "Le faisceau de licteur symbolise l'union fait la force : des baguettes liées ensemble sont plus difficiles à briser qu'une seule.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v48',
+    text: "Quel jour est la Journée de la laïcité ?",
+    options: ["Le 14 juillet", "Le 9 décembre", "Le 1er mai", "Le 11 novembre"],
+    correctAnswer: 1,
+    explanation: "Le 9 décembre commémore la loi de 1905 sur la séparation des Églises et de l'État.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v49',
+    text: "Que signifie le principe d'indivisibilité de la République ?",
+    options: ["La France ne peut pas être divisée en régions", "La loi s'applique de la même façon sur tout le territoire", "Les citoyens ne peuvent pas quitter le pays", "Le Président ne peut pas démissionner"],
+    correctAnswer: 1,
+    explanation: "L'indivisibilité signifie que la souveraineté est unique et que la loi s'applique uniformément sur tout le territoire français.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v50',
+    text: "La France métropolitaine comprend :",
+    options: ["La France continentale uniquement", "La France continentale et la Corse", "Tous les territoires français", "L'Europe entière"],
+    correctAnswer: 1,
+    explanation: "La France métropolitaine comprend le territoire continental européen et l'île de Corse.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v51',
+    text: "Qu'est-ce que le préambule de la Constitution de 1946 garantit ?",
+    options: ["Le droit de propriété uniquement", "Des droits économiques et sociaux", "Le droit de vote des femmes uniquement", "La liberté religieuse uniquement"],
+    correctAnswer: 1,
+    explanation: "Le préambule de 1946 proclame des droits économiques et sociaux : droit au travail, à la protection sociale, à l'éducation, etc.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v52',
+    text: "La solidarité nationale s'exprime notamment par :",
+    options: ["Le bénévolat obligatoire", "Le système de protection sociale", "Les dons aux associations uniquement", "Le service militaire"],
+    correctAnswer: 1,
+    explanation: "La solidarité nationale s'exprime par le système de Sécurité sociale, les aides sociales et la redistribution des richesses.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v53',
+    text: "La République garantit la liberté de la presse. Cela signifie :",
+    options: ["Les journaux sont gratuits", "Les médias peuvent publier des informations sans censure préalable", "Seul l'État peut publier des journaux", "Les journalistes n'ont aucune responsabilité"],
+    correctAnswer: 1,
+    explanation: "La liberté de la presse permet aux médias de publier sans autorisation préalable, dans le respect de la loi (pas de diffamation, etc.).",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v54',
+    text: "Quel est le principe fondamental qui garantit le droit de vote ?",
+    options: ["Le suffrage universel", "Le suffrage censitaire", "Le suffrage indirect", "Le tirage au sort"],
+    correctAnswer: 0,
+    explanation: "Le suffrage universel garantit que tous les citoyens majeurs peuvent voter, sans condition de fortune ou d'éducation.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v55',
+    text: "La Charte de l'environnement de 2004 a été intégrée à :",
+    options: ["Le Code civil", "La Constitution", "Le Code pénal", "Le Code du travail"],
+    correctAnswer: 1,
+    explanation: "La Charte de l'environnement a été adossée à la Constitution en 2005, donnant valeur constitutionnelle à la protection de l'environnement.",
+    category: "valeurs",
+    type: 'multiple-choice'
   }
 ];
 
@@ -882,6 +972,87 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     explanation: "Le président veille au respect de la Constitution, garantit l'indépendance nationale et l'intégrité du territoire.",
     category: "institutions",
     type: 'multiple-choice'
+  },
+  {
+    id: 'i52',
+    text: "Qu'est-ce que la motion de censure ?",
+    options: ["Une loi sur la presse", "Un moyen pour l'Assemblée nationale de renverser le gouvernement", "Un discours du Président", "Une sanction contre un député"],
+    correctAnswer: 1,
+    explanation: "La motion de censure permet à l'Assemblée nationale de mettre en cause la responsabilité du gouvernement et de le renverser.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i53',
+    text: "Combien de sénateurs siègent au Sénat ?",
+    options: ["348", "577", "150", "200"],
+    correctAnswer: 0,
+    explanation: "Le Sénat compte 348 sénateurs élus au suffrage universel indirect pour 6 ans.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i54',
+    text: "Qu'est-ce que la navette parlementaire ?",
+    options: ["Un transport pour les députés", "L'aller-retour d'un texte entre l'Assemblée et le Sénat", "Une commission d'enquête", "Un vote électronique"],
+    correctAnswer: 1,
+    explanation: "La navette parlementaire désigne les allers-retours d'un projet de loi entre les deux chambres jusqu'à l'adoption d'un texte identique.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i55',
+    text: "Qui préside le Conseil des ministres ?",
+    options: ["Le Premier ministre", "Le président de la République", "Le président du Sénat", "Le ministre de l'Intérieur"],
+    correctAnswer: 1,
+    explanation: "Le président de la République préside le Conseil des ministres qui se réunit chaque semaine à l'Élysée.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i56',
+    text: "Qu'est-ce que la décentralisation ?",
+    options: ["La concentration des pouvoirs à Paris", "Le transfert de compétences de l'État vers les collectivités locales", "La suppression des régions", "Le contrôle de l'État sur les communes"],
+    correctAnswer: 1,
+    explanation: "La décentralisation est le transfert de compétences de l'État vers les collectivités territoriales (communes, départements, régions).",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i57',
+    text: "Quel tribunal juge les crimes les plus graves ?",
+    options: ["Le tribunal correctionnel", "La cour d'assises", "Le tribunal de commerce", "Le conseil de prud'hommes"],
+    correctAnswer: 1,
+    explanation: "La cour d'assises juge les crimes (meurtres, viols, etc.). Elle est composée de magistrats professionnels et de jurés populaires.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i58',
+    text: "Qu'est-ce que le Défenseur des droits ?",
+    options: ["Un avocat gratuit", "Une autorité indépendante protégeant les droits des citoyens", "Un juge spécialisé", "Un ministre"],
+    correctAnswer: 1,
+    explanation: "Le Défenseur des droits est une autorité constitutionnelle indépendante chargée de défendre les droits des citoyens face aux administrations.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i59',
+    text: "Combien de régions compte la France métropolitaine ?",
+    options: ["22", "13", "18", "10"],
+    correctAnswer: 1,
+    explanation: "Depuis 2016, la France métropolitaine compte 13 régions, auxquelles s'ajoutent 5 régions d'outre-mer.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i60',
+    text: "Qui nomme les ministres ?",
+    options: ["Le Parlement", "Le président de la République sur proposition du Premier ministre", "Les citoyens par référendum", "Le Conseil constitutionnel"],
+    correctAnswer: 1,
+    explanation: "Les ministres sont nommés par le président de la République sur proposition du Premier ministre.",
+    category: "institutions",
+    type: 'multiple-choice'
   }
 ];
 
@@ -1282,6 +1453,87 @@ const DROITS_QUESTIONS: Question[] = [
     options: ["Ignorer quelqu'un en difficulté", "Appeler les secours pour une personne blessée", "Filmer un accident", "S'enfuir"],
     correctAnswer: 1,
     explanation: "L'assistance à personne en danger est une obligation légale : ne pas aider quelqu'un en péril est un délit.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd46',
+    text: "Quel est le salaire minimum légal en France ?",
+    options: ["Le RSA", "Le SMIC", "Le salaire médian", "Il n'y en a pas"],
+    correctAnswer: 1,
+    explanation: "Le SMIC (Salaire Minimum Interprofessionnel de Croissance) est le salaire minimum légal en France, réévalué chaque année.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd47',
+    text: "À partir de quel âge peut-on travailler en France ?",
+    options: ["14 ans", "16 ans", "18 ans", "12 ans"],
+    correctAnswer: 1,
+    explanation: "L'âge minimum pour travailler est 16 ans (fin de l'obligation scolaire), avec des exceptions pour l'apprentissage dès 15 ans.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd48',
+    text: "Le congé maternité est-il obligatoire en France ?",
+    options: ["Non, c'est facultatif", "Oui, au minimum 8 semaines", "Seulement pour le premier enfant", "Uniquement dans le secteur public"],
+    correctAnswer: 1,
+    explanation: "Le congé maternité comprend une période obligatoire d'au moins 8 semaines, dont 6 après l'accouchement.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd49',
+    text: "Qu'est-ce que le droit d'asile ?",
+    options: ["Le droit de construire un abri", "La protection accordée aux personnes persécutées dans leur pays", "Le droit au logement social", "Le droit de voyager librement"],
+    correctAnswer: 1,
+    explanation: "Le droit d'asile permet à une personne persécutée dans son pays d'obtenir une protection en France.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd50',
+    text: "Quelle est la durée légale du travail par semaine ?",
+    options: ["32 heures", "35 heures", "39 heures", "40 heures"],
+    correctAnswer: 1,
+    explanation: "La durée légale du travail est de 35 heures par semaine depuis 2000, les heures au-delà sont des heures supplémentaires.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd51',
+    text: "Le droit à l'éducation est-il gratuit en France ?",
+    options: ["Non, l'école est payante", "Oui, l'école publique est gratuite et obligatoire", "Seulement au primaire", "Uniquement pour les Français"],
+    correctAnswer: 1,
+    explanation: "L'école publique est gratuite, laïque et obligatoire de 3 à 16 ans pour tous les enfants résidant en France.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd52',
+    text: "Le casier judiciaire contient :",
+    options: ["Les notes scolaires", "Les condamnations pénales d'une personne", "Les dettes bancaires", "Les arrêts maladie"],
+    correctAnswer: 1,
+    explanation: "Le casier judiciaire est un fichier informatisé qui recense les condamnations pénales d'une personne.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd53',
+    text: "Qu'est-ce que la présomption d'innocence ?",
+    options: ["Tout accusé est coupable jusqu'à preuve du contraire", "Tout accusé est innocent jusqu'à ce que sa culpabilité soit prouvée", "Un accusé doit prouver son innocence", "Le juge décide seul de la culpabilité"],
+    correctAnswer: 1,
+    explanation: "La présomption d'innocence est un principe fondamental : toute personne est considérée innocente tant qu'elle n'a pas été jugée coupable.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd54',
+    text: "Combien de jours de congés payés minimum un salarié a-t-il par an ?",
+    options: ["20 jours", "25 jours ouvrés (5 semaines)", "30 jours", "15 jours"],
+    correctAnswer: 1,
+    explanation: "Tout salarié a droit à 2,5 jours ouvrables de congés payés par mois travaillé, soit 5 semaines (25 jours ouvrés) par an.",
     category: "droits",
     type: 'multiple-choice'
   }
@@ -1785,6 +2037,96 @@ const CULTURE_QUESTIONS: Question[] = [
     explanation: "La Manche sépare la France de l'Angleterre.",
     category: "culture",
     type: 'multiple-choice'
+  },
+  {
+    id: 'c56',
+    text: "Quel événement commémore-t-on le 11 novembre ?",
+    options: ["La Révolution française", "L'armistice de 1918", "La Libération de Paris", "La fête du Travail"],
+    correctAnswer: 1,
+    explanation: "Le 11 novembre commémore l'armistice de 1918 qui a mis fin à la Première Guerre mondiale.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c57',
+    text: "Qu'est-ce que le Panthéon ?",
+    options: ["Un stade", "Un monument où reposent les grands personnages de l'histoire de France", "Un musée d'art moderne", "Une église"],
+    correctAnswer: 1,
+    explanation: "Le Panthéon à Paris est le lieu où sont inhumées les personnalités ayant marqué l'histoire de France.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c58',
+    text: "Qui a écrit « Les Misérables » ?",
+    options: ["Émile Zola", "Victor Hugo", "Gustave Flaubert", "Alexandre Dumas"],
+    correctAnswer: 1,
+    explanation: "« Les Misérables » est un roman de Victor Hugo publié en 1862, œuvre majeure de la littérature française.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c59',
+    text: "Quel roi a fait construire le château de Versailles ?",
+    options: ["Louis XIV", "Louis XVI", "François Ier", "Napoléon Ier"],
+    correctAnswer: 0,
+    explanation: "Louis XIV, le Roi-Soleil, a fait construire le château de Versailles où il a installé la cour en 1682.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c60',
+    text: "Quel est le plus long fleuve de France ?",
+    options: ["La Seine", "Le Rhône", "La Loire", "La Garonne"],
+    correctAnswer: 2,
+    explanation: "La Loire est le plus long fleuve de France avec 1 006 km, elle se jette dans l'océan Atlantique.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c61',
+    text: "Qui était Jeanne d'Arc ?",
+    options: ["Une reine de France", "Une héroïne de la guerre de Cent Ans", "Une révolutionnaire", "Une scientifique"],
+    correctAnswer: 1,
+    explanation: "Jeanne d'Arc est une héroïne française du XVe siècle qui a mené les armées françaises contre les Anglais pendant la guerre de Cent Ans.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c62',
+    text: "Quel est le plus haut sommet de France ?",
+    options: ["Le mont Ventoux", "Le mont Blanc", "Le Pic du Midi", "La Montagne Sainte-Victoire"],
+    correctAnswer: 1,
+    explanation: "Le mont Blanc culmine à 4 807 mètres dans les Alpes, c'est le plus haut sommet d'Europe occidentale.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c63',
+    text: "Quel musée abrite la Joconde ?",
+    options: ["Le musée d'Orsay", "Le Centre Pompidou", "Le Louvre", "Le musée Rodin"],
+    correctAnswer: 2,
+    explanation: "La Joconde, chef-d'œuvre de Léonard de Vinci, est exposée au musée du Louvre à Paris.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c64',
+    text: "Qu'est-ce que la Résistance pendant la Seconde Guerre mondiale ?",
+    options: ["L'armée officielle française", "Les mouvements de lutte contre l'occupation allemande", "Un parti politique", "Une entreprise"],
+    correctAnswer: 1,
+    explanation: "La Résistance désigne l'ensemble des mouvements et réseaux qui ont lutté contre l'occupation allemande de 1940 à 1944.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c65',
+    text: "Quel événement a eu lieu le 8 mai 1945 ?",
+    options: ["Le début de la Seconde Guerre mondiale", "La fin de la Seconde Guerre mondiale en Europe", "La Révolution française", "La création de l'Union européenne"],
+    correctAnswer: 1,
+    explanation: "Le 8 mai 1945 marque la victoire des Alliés et la fin de la Seconde Guerre mondiale en Europe.",
+    category: "culture",
+    type: 'multiple-choice'
   }
 ];
 
@@ -2149,6 +2491,96 @@ const SOCIETE_QUESTIONS: Question[] = [
     options: ["Le médecin peut tout raconter", "Le secret médical protège les informations sur le patient", "Les dossiers sont publics", "Il n'existe pas"],
     correctAnswer: 1,
     explanation: "Le secret médical garantit la confidentialité des informations de santé du patient.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's41',
+    text: "Qu'est-ce que le tri sélectif ?",
+    options: ["Trier ses vêtements", "Séparer les déchets recyclables des autres", "Choisir ses amis", "Sélectionner ses courses"],
+    correctAnswer: 1,
+    explanation: "Le tri sélectif consiste à séparer les déchets selon leur nature (verre, plastique, papier, etc.) pour permettre leur recyclage.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's42',
+    text: "Qu'est-ce que la CAF ?",
+    options: ["Une banque", "La Caisse d'Allocations Familiales", "Une école", "Un hôpital"],
+    correctAnswer: 1,
+    explanation: "La CAF (Caisse d'Allocations Familiales) verse les allocations familiales et aides sociales (APL, RSA, etc.).",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's43',
+    text: "Le permis de conduire français est valable :",
+    options: ["5 ans", "10 ans", "15 ans", "À vie"],
+    correctAnswer: 2,
+    explanation: "Le permis de conduire au format carte est valable 15 ans (pour les catégories voiture/moto légères).",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's44',
+    text: "Qu'est-ce que Pôle emploi (France Travail) ?",
+    options: ["Une entreprise privée", "Le service public de l'emploi en France", "Une agence de voyage", "Un syndicat"],
+    correctAnswer: 1,
+    explanation: "France Travail (anciennement Pôle emploi) est le service public de l'emploi qui accompagne les demandeurs d'emploi.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's45',
+    text: "Quel document permet de justifier son domicile ?",
+    options: ["La carte d'identité", "Une facture d'électricité ou de téléphone récente", "Le permis de conduire", "Une photo"],
+    correctAnswer: 1,
+    explanation: "Les factures de services (électricité, gaz, téléphone, etc.) de moins de 3 mois servent de justificatif de domicile.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's46',
+    text: "À quelle vitesse maximale peut-on rouler sur autoroute en France ?",
+    options: ["110 km/h", "120 km/h", "130 km/h", "150 km/h"],
+    correctAnswer: 2,
+    explanation: "La vitesse maximale autorisée sur autoroute est de 130 km/h (110 km/h par temps de pluie).",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's47',
+    text: "Qu'est-ce qu'un contrat de travail CDI ?",
+    options: ["Un contrat à durée déterminée", "Un contrat à durée indéterminée", "Un contrat d'intérim", "Un stage"],
+    correctAnswer: 1,
+    explanation: "Le CDI (Contrat à Durée Indéterminée) est un contrat de travail sans date de fin prévue.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's48',
+    text: "Qu'est-ce que le compte personnel de formation (CPF) ?",
+    options: ["Un compte bancaire", "Un droit à la formation professionnelle tout au long de la vie", "Un réseau social", "Un diplôme"],
+    correctAnswer: 1,
+    explanation: "Le CPF permet à chaque actif de cumuler des droits à la formation utilisables tout au long de sa carrière.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's49',
+    text: "En France, le port de la ceinture de sécurité est :",
+    options: ["Recommandé mais pas obligatoire", "Obligatoire à l'avant uniquement", "Obligatoire pour tous les passagers", "Facultatif sur autoroute"],
+    correctAnswer: 2,
+    explanation: "Le port de la ceinture de sécurité est obligatoire pour tous les occupants d'un véhicule, à l'avant comme à l'arrière.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's50',
+    text: "Qu'est-ce que la mutuelle santé ?",
+    options: ["L'assurance maladie obligatoire", "Une assurance complémentaire qui rembourse les frais non couverts par la Sécu", "Un hôpital", "Un médecin"],
+    correctAnswer: 1,
+    explanation: "La mutuelle est une assurance complémentaire santé qui rembourse tout ou partie des frais non pris en charge par la Sécurité sociale.",
     category: "societe",
     type: 'multiple-choice'
   }

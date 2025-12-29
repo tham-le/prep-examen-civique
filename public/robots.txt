@@ -1,0 +1,6 @@
+# Robots.txt for Objectif Citoyen
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://objectif-citoyen.fr/sitemap.xml

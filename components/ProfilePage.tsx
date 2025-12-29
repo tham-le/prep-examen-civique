@@ -21,9 +21,10 @@ const getBadgeColorClasses = (color: string, isUnlocked: boolean) => {
 interface ProfilePageProps {
   userStats: UserStats;
   onStatsUpdate: (stats: UserStats) => void;
+  onShowTutorial?: () => void;
 }
 
-export const ProfilePage: React.FC<ProfilePageProps> = ({ userStats, onStatsUpdate }) => {
+export const ProfilePage: React.FC<ProfilePageProps> = ({ userStats, onStatsUpdate, onShowTutorial }) => {
   const [examHistory, setExamHistory] = useState<ExamResult[]>([]);
 
   useEffect(() => {
@@ -285,8 +286,17 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ userStats, onStatsUpda
         </div>
       </div>
 
-      {/* Reset Button */}
-      <div className="text-center pt-4">
+      {/* Actions */}
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+        {onShowTutorial && (
+          <button
+            onClick={onShowTutorial}
+            className="text-sm text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+          >
+            <i className="fas fa-graduation-cap mr-2"></i>
+            Revoir le tutoriel
+          </button>
+        )}
         <button
           onClick={resetStats}
           className="text-sm text-slate-400 dark:text-slate-500 hover:text-rose-500 dark:hover:text-rose-400 transition-colors"
