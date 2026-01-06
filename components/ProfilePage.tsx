@@ -286,6 +286,30 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ userStats, onStatsUpda
         </div>
       </div>
 
+      {/* Support */}
+      <div className="bg-gradient-to-r from-rose-50 to-orange-50 dark:from-rose-900/20 dark:to-orange-900/20 p-5 rounded-xl border border-rose-200 dark:border-rose-800">
+        <div className="flex flex-col sm:flex-row items-center gap-4">
+          <div className="w-12 h-12 bg-rose-100 dark:bg-rose-900/50 text-rose-500 dark:text-rose-400 rounded-xl flex items-center justify-center flex-shrink-0">
+            <i className="fas fa-heart text-xl"></i>
+          </div>
+          <div className="text-center sm:text-left flex-1">
+            <h3 className="font-medium text-slate-900 dark:text-white mb-1">Ce projet vous aide ?</h3>
+            <p className="text-sm text-slate-600 dark:text-slate-400">
+              Cette application est et restera <strong>100% gratuite</strong>. Un petit tip permet de continuer à l'améliorer.
+            </p>
+          </div>
+          <a
+            href="https://en.tipeee.com/objectif-citoyen/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-rose-500 hover:bg-rose-600 text-white px-5 py-2.5 rounded-lg font-medium transition-colors flex items-center flex-shrink-0"
+          >
+            <i className="fas fa-hand-holding-heart mr-2"></i>
+            Soutenir
+          </a>
+        </div>
+      </div>
+
       {/* Actions */}
       <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
         {onShowTutorial && (

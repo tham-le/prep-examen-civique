@@ -117,12 +117,12 @@ export const Flashcards: React.FC = () => {
 
       // Auto-advance to next card when marking as known (not when unmarking)
       if (!wasKnown && filteredCards.length > 1) {
+        // Immediately flip back to front, then advance after delay
+        setFlipped(false);
+        const nextLength = filteredCards.length;
         setTimeout(() => {
-          setFlipped(false);
-          setTimeout(() => {
-            setCurrentIdx((prev) => (prev + 1) % filteredCards.length);
-          }, 150);
-        }, 300);
+          setCurrentIdx((prev) => (prev + 1) % nextLength);
+        }, 350);
       }
     }
   };

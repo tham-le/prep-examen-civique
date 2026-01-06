@@ -75,6 +75,18 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, userSta
               <span className="font-medium">{userStats.xp} XP</span>
             </div>
 
+            {/* Support link */}
+            <a
+              href="https://en.tipeee.com/objectif-citoyen/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-9 h-9 rounded-md bg-rose-50 dark:bg-rose-900/30 text-rose-500 dark:text-rose-400 hover:bg-rose-100 dark:hover:bg-rose-900/50 flex items-center justify-center transition-colors"
+              title="Soutenir le projet"
+              aria-label="Soutenir le projet sur Tipeee"
+            >
+              <i className="fas fa-heart text-sm" aria-hidden="true"></i>
+            </a>
+
             {/* Dark mode toggle */}
             <button
               onClick={toggleDarkMode}

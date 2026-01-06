@@ -361,8 +361,29 @@ const App: React.FC = () => {
             <div className="text-slate-500 text-xs">
               © 2026 — Plateforme d'entraînement libre
             </div>
-            <div className="flex space-x-4 text-slate-500">
-              <i className="fab fa-github hover:text-white cursor-pointer transition-colors"></i>
+            <div className="flex items-center space-x-4 text-slate-500">
+              <a
+                href="https://en.tipeee.com/objectif-citoyen/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-rose-400 transition-colors flex items-center text-xs"
+              >
+                <i className="fas fa-heart mr-1"></i> Soutenir
+              </a>
+              <a
+                href="https://github.com/tham-le/prep-examen-civique/issues"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors flex items-center text-xs"
+              >
+                <i className="fab fa-github mr-1"></i> Feedback
+              </a>
+              <a
+                href="mailto:objectifcitoyen2026@gmail.com"
+                className="hover:text-white transition-colors flex items-center text-xs"
+              >
+                <i className="fas fa-envelope mr-1"></i> Contact
+              </a>
             </div>
           </div>
         </div>
