@@ -1,5 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
+import { UserStats } from '../types';
+import { reviewItem, isMastered, countDue } from '../services/spacedRepetition';
 
 interface Flashcard {
   id: string;
@@ -69,24 +71,29 @@ const FLASHCARDS: Flashcard[] = [
 
 const CATEGORIES = ['Tous', 'Symboles', 'Dates', 'Institutions', 'Valeurs', 'Droits', 'Vie quotidienne', 'Examen'];
 
-export const Flashcards: React.FC = () => {
+interface FlashcardsProps {
+  userStats: UserStats;
+  onStatsUpdate: (stats: UserStats) => void;
+}
+
+export const Flashcards: React.FC<FlashcardsProps> = ({ userStats, onStatsUpdate }) => {
   const [currentIdx, setCurrentIdx] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [category, setCategory] = useState('Tous');
-  const [knownCards, setKnownCards] = useState<Set<string>>(new Set());
-  const [showKnown, setShowKnown] = useState(true);
+  const [hideMastered, setHideMastered] = useState(false);
+
+  const mastery = userStats.flashcardMastery;
+  const allIds = FLASHCARDS.map(c => c.id);
+  const dueCount = countDue(mastery, allIds);
+  const masteredCount = FLASHCARDS.filter(card => isMastered(mastery, card.id)).length;
 
   const filteredCards = FLASHCARDS.filter(card => {
     const matchesCategory = category === 'Tous' || card.category === category;
-    const matchesKnown = showKnown || !knownCards.has(card.id);
-    return matchesCategory && matchesKnown;
+    const matchesMastered = !hideMastered || !isMastered(mastery, card.id);
+    return matchesCategory && matchesMastered;
   });
 
   const currentCard = filteredCards[currentIdx];
-
-  const saveKnownCards = (cards: Set<string>) => {
-    localStorage.setItem('objectif_citoyen_known_cards', JSON.stringify([...cards]));
-  };
 
   const nextCard = () => {
     setFlipped(false);
@@ -102,50 +109,31 @@ export const Flashcards: React.FC = () => {
     }, 150);
   };
 
-  const markAsKnown = () => {
-    if (currentCard) {
-      const newKnown = new Set<string>(knownCards);
-      const wasKnown = knownCards.has(currentCard.id);
+  // Records a review in the Leitner box system, then advances to the next card.
+  const reviewCard = (correct: boolean) => {
+    if (!currentCard) return;
+    const nextMastery = reviewItem(mastery, currentCard.id, correct);
+    onStatsUpdate({ ...userStats, flashcardMastery: nextMastery });
 
-      if (wasKnown) {
-        newKnown.delete(currentCard.id);
-      } else {
-        newKnown.add(currentCard.id);
-      }
-      setKnownCards(newKnown);
-      saveKnownCards(newKnown);
-
-      // Auto-advance to next card when marking as known (not when unmarking)
-      if (!wasKnown && filteredCards.length > 1) {
-        // Immediately flip back to front, then advance after delay
-        setFlipped(false);
-        const nextLength = filteredCards.length;
-        setTimeout(() => {
-          setCurrentIdx((prev) => (prev + 1) % nextLength);
-        }, 350);
-      }
+    setFlipped(false);
+    const nextLength = filteredCards.length;
+    if (nextLength > 1) {
+      setTimeout(() => {
+        setCurrentIdx((prev) => (prev + 1) % nextLength);
+      }, 200);
     }
   };
 
   const resetProgress = () => {
-    if (window.confirm('Réinitialiser toutes les cartes comme "à revoir" ?')) {
-      setKnownCards(new Set());
-      localStorage.removeItem('objectif_citoyen_known_cards');
+    if (window.confirm('Réinitialiser la progression de toutes les cartes ?')) {
+      onStatsUpdate({ ...userStats, flashcardMastery: {} });
     }
   };
 
   useEffect(() => {
     setCurrentIdx(0);
     setFlipped(false);
-  }, [category, showKnown]);
-
-  useEffect(() => {
-    // Load known cards from localStorage
-    const saved = localStorage.getItem('objectif_citoyen_known_cards');
-    if (saved) {
-      setKnownCards(new Set(JSON.parse(saved) as string[]));
-    }
-  }, []);
+  }, [category, hideMastered]);
 
   // Keyboard navigation
   useEffect(() => {
@@ -158,7 +146,9 @@ export const Flashcards: React.FC = () => {
         e.preventDefault();
         setFlipped((f) => !f);
       } else if (e.key === 'k' || e.key === 'K') {
-        markAsKnown();
+        reviewCard(true);
+      } else if (e.key === 'j' || e.key === 'J') {
+        reviewCard(false);
       }
     };
 
@@ -173,9 +163,9 @@ export const Flashcards: React.FC = () => {
           <i className="fas fa-check text-2xl"></i>
         </div>
         <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Toutes les cartes sont maîtrisées !</h2>
-        <p className="text-slate-500 dark:text-slate-400 mb-4">Dans cette catégorie, vous avez marqué toutes les cartes comme connues.</p>
+        <p className="text-slate-500 dark:text-slate-400 mb-4">Dans cette catégorie, vous avez maîtrisé toutes les cartes.</p>
         <button
-          onClick={() => setShowKnown(true)}
+          onClick={() => setHideMastered(false)}
           className="text-indigo-600 dark:text-indigo-400 hover:underline"
         >
           Afficher toutes les cartes
@@ -192,6 +182,11 @@ export const Flashcards: React.FC = () => {
         <p className="text-slate-500 dark:text-slate-400 text-sm">
           Mémorisez les notions clés avec la répétition espacée
         </p>
+        {dueCount > 0 && (
+          <p className="inline-block text-xs text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-900/20 px-3 py-1 rounded">
+            {dueCount} carte{dueCount > 1 ? 's' : ''} à revoir aujourd'hui
+          </p>
+        )}
       </div>
 
       {/* Category filter */}
@@ -220,15 +215,15 @@ export const Flashcards: React.FC = () => {
           <label className="flex items-center space-x-2 text-slate-500 dark:text-slate-400">
             <input
               type="checkbox"
-              checked={!showKnown}
-              onChange={() => setShowKnown(!showKnown)}
+              checked={hideMastered}
+              onChange={() => setHideMastered(!hideMastered)}
               className="rounded text-indigo-600"
             />
-            <span>Masquer les cartes connues</span>
+            <span>Masquer les cartes maîtrisées</span>
           </label>
           <span className="text-emerald-600 dark:text-emerald-400">
             <i className="fas fa-check-circle mr-1"></i>
-            {knownCards.size} maîtrisées
+            {masteredCount} maîtrisées
           </span>
         </div>
       </div>
@@ -289,15 +284,22 @@ export const Flashcards: React.FC = () => {
 
         <div className="flex space-x-3">
           <button
-            onClick={markAsKnown}
+            onClick={() => reviewCard(false)}
+            className="px-4 py-2 rounded-lg font-medium transition-colors flex items-center bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-rose-50 dark:hover:bg-rose-900/20 hover:text-rose-600 dark:hover:text-rose-400"
+          >
+            <i className="fas fa-rotate-left mr-2"></i>
+            À revoir
+          </button>
+          <button
+            onClick={() => reviewCard(true)}
             className={`px-4 py-2 rounded-lg font-medium transition-colors flex items-center ${
-              currentCard && knownCards.has(currentCard.id)
+              currentCard && isMastered(mastery, currentCard.id)
                 ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400'
                 : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 hover:text-emerald-600 dark:hover:text-emerald-400'
             }`}
           >
-            <i className={`fas ${currentCard && knownCards.has(currentCard.id) ? 'fa-check-circle' : 'fa-circle'} mr-2`}></i>
-            {currentCard && knownCards.has(currentCard.id) ? 'Maîtrisée' : 'Je connais'}
+            <i className={`fas ${currentCard && isMastered(mastery, currentCard.id) ? 'fa-check-circle' : 'fa-circle'} mr-2`}></i>
+            {currentCard && isMastered(mastery, currentCard.id) ? 'Maîtrisée' : 'Je savais'}
           </button>
         </div>
 
@@ -311,11 +313,11 @@ export const Flashcards: React.FC = () => {
 
       {/* Keyboard hint */}
       <p className="text-center text-xs text-slate-400 dark:text-slate-500">
-        <kbd className="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded">←</kbd> <kbd className="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded">→</kbd> naviguer · <kbd className="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded">Espace</kbd> retourner · <kbd className="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded">K</kbd> je connais
+        <kbd className="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded">←</kbd> <kbd className="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded">→</kbd> naviguer · <kbd className="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded">Espace</kbd> retourner · <kbd className="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded">K</kbd> je savais · <kbd className="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded">J</kbd> à revoir
       </p>
 
       {/* Reset button */}
-      {knownCards.size > 0 && (
+      {Object.keys(mastery).length > 0 && (
         <div className="text-center">
           <button
             onClick={resetProgress}

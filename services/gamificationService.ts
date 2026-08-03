@@ -1,6 +1,7 @@
 
-import { UserStats, Badge, ExamResult, Level } from '../types';
+import { UserStats, Badge, ExamResult } from '../types';
 import { BADGES, LEVELS, DEFAULT_USER_STATS } from '../constants';
+import { reviewItems } from './spacedRepetition';
 
 const STORAGE_KEY = 'objectif_citoyen_stats';
 const EXAM_HISTORY_KEY = 'objectif_citoyen_exam_history';
@@ -173,19 +174,9 @@ export const processQuizResult = (
     };
   }
 
-  // Track weak/strong questions
+  // Update spaced-repetition state for every question seen this session
   if (questionIds && correctIds) {
-    const wrongIds = questionIds.filter(id => !correctIds.includes(id));
-
-    // Add wrong answers to weak questions (avoid duplicates, max 50)
-    const newWeak = [...new Set([...updatedStats.weakQuestions, ...wrongIds])].slice(-50);
-
-    // Add correct answers to strong questions (avoid duplicates, max 50)
-    const newStrong = [...new Set([...updatedStats.strongQuestions, ...correctIds])].slice(-50);
-
-    // Remove from weak if now strong
-    updatedStats.weakQuestions = newWeak.filter(id => !correctIds.includes(id));
-    updatedStats.strongQuestions = newStrong;
+    updatedStats.questionMastery = reviewItems(updatedStats.questionMastery, questionIds, correctIds);
   }
 
   // Check for new badges
@@ -202,7 +193,9 @@ export const processExamResult = (
   stats: UserStats,
   score: number,
   passed: boolean,
-  timeRemaining: number
+  timeRemaining: number,
+  questionIds?: string[],
+  correctIds?: string[]
 ): { stats: UserStats; newBadges: string[]; xpGained: number; leveledUp: boolean } => {
   const xpPerCorrect = 15;
   const passBonus = passed ? 200 : 0;
@@ -228,6 +221,11 @@ export const processExamResult = (
     updatedStats.badges = [...updatedStats.badges, 'fast_exam'];
   }
 
+  // Update spaced-repetition state for every question seen this exam
+  if (questionIds && correctIds) {
+    updatedStats.questionMastery = reviewItems(updatedStats.questionMastery, questionIds, correctIds);
+  }
+
   // Check for new badges
   const newBadges = checkBadges(updatedStats);
   updatedStats.badges = [...new Set([...updatedStats.badges, ...newBadges])];
@@ -240,11 +238,6 @@ export const processExamResult = (
 
 export const getBadgeInfo = (badgeId: string): Badge | undefined => {
   return BADGES.find(b => b.id === badgeId);
-};
-
-export const getWeakQuestions = (stats: UserStats, allQuestions: any[]): any[] => {
-  if (stats.weakQuestions.length === 0) return [];
-  return allQuestions.filter(q => stats.weakQuestions.includes(q.id));
 };
 
 // Exam History functions
@@ -270,11 +263,10 @@ export const saveExamHistory = (history: ExamResult[]): void => {
   }
 };
 
-export const addExamResult = (level: Level, score: number, passed: boolean, duration: number): ExamResult => {
+export const addExamResult = (score: number, passed: boolean, duration: number): ExamResult => {
   const result: ExamResult = {
     id: Date.now().toString(),
     date: new Date().toISOString(),
-    level,
     score,
     passed,
     duration

@@ -1,5 +1,5 @@
 
-import { Question, Lesson, Badge, FAQItem, FicheCategory } from './types';
+import { Question, Lesson, Badge, FAQItem, FicheCategory, SRSMap } from './types';
 
 export const THEMES = [
   { id: 'valeurs', title: 'Principes et valeurs', icon: 'fa-balance-scale', color: 'indigo' },
@@ -2697,9 +2697,7 @@ export const OFFICIAL_DB: Record<string, Question[]> = {
   institutions: INSTITUTIONS_QUESTIONS,
   droits: DROITS_QUESTIONS,
   culture: CULTURE_QUESTIONS,
-  societe: [...SOCIETE_QUESTIONS, ...SCENARIO_QUESTIONS],
-  CSP: ALL_QUESTIONS.filter(q => !q.difficulty || q.difficulty <= 2),
-  CR: ALL_QUESTIONS
+  societe: [...SOCIETE_QUESTIONS, ...SCENARIO_QUESTIONS]
 };
 
 // ============================================================
@@ -2770,7 +2768,7 @@ export const FAQ_DATA: FAQItem[] = [
   },
   {
     question: "Quelle est la différence entre le niveau CSP et CR ?",
-    answer: "Le niveau CR (Carte de Résident) comporte des questions de difficulté supérieure par rapport au niveau CSP (Carte de Séjour Pluriannuelle).",
+    answer: "Les 5 thématiques officielles sont les mêmes pour la carte de séjour pluriannuelle (CSP) et la carte de résident (CR). Notre banque de questions n'est pas répartie par niveau de difficulté ; pour les modalités exactes propres à chaque titre de séjour, consultez le site du Ministère de l'Intérieur.",
     category: "Niveaux"
   },
   {
@@ -2948,7 +2946,7 @@ export const DEFAULT_USER_STATS = {
   perfectScores: 0,
   examsPassed: 0,
   badges: [] as string[],
-  weakQuestions: [] as string[],
-  strongQuestions: [] as string[],
+  questionMastery: {} as SRSMap,
+  flashcardMastery: {} as SRSMap,
   themeProgress: {} as Record<string, { correct: number; total: number }>
 };

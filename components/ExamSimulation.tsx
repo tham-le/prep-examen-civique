@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Question, Level, UserStats } from '../types';
-import { OFFICIAL_DB } from '../constants';
+import { Question, UserStats } from '../types';
+import { ALL_QUESTIONS } from '../constants';
 import { processExamResult, getBadgeInfo, addExamResult } from '../services/gamificationService';
 
 // Shuffle an array using Fisher-Yates algorithm
@@ -33,7 +33,6 @@ interface ExamSimulationProps {
 }
 
 export const ExamSimulation: React.FC<ExamSimulationProps> = ({ onStatsUpdate, userStats }) => {
-  const [level, setLevel] = useState<Level>('CSP');
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentIdx, setCurrentIdx] = useState(0);
   const [answers, setAnswers] = useState<Record<string, number>>({});
@@ -45,6 +44,8 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({ onStatsUpdate, u
   const [xpGained, setXpGained] = useState(0);
   const [newBadges, setNewBadges] = useState<string[]>([]);
   const [leveledUp, setLeveledUp] = useState(false);
+  const [showOnlyMistakes, setShowOnlyMistakes] = useState(true);
+  const [expandedReview, setExpandedReview] = useState<Set<string>>(new Set());
   const timerRef = useRef<number | null>(null);
 
   // Cleanup timer on unmount
@@ -58,7 +59,7 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({ onStatsUpdate, u
 
   const startSimulation = async () => {
     setLoading(true);
-    const pool = OFFICIAL_DB[level];
+    const pool = ALL_QUESTIONS;
     let simulated: Question[] = [];
 
     // Create a pool with enough questions by repeating if necessary
@@ -76,6 +77,8 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({ onStatsUpdate, u
     setXpGained(0);
     setNewBadges([]);
     setLeveledUp(false);
+    setExpandedReview(new Set());
+    setShowOnlyMistakes(true);
     setStarted(true);
     setLoading(false);
 
@@ -103,10 +106,14 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({ onStatsUpdate, u
     const duration = 2700 - timeLeft; // Time spent in seconds
 
     // Save to exam history
-    addExamResult(level, score, passed, duration);
+    addExamResult(score, passed, duration);
 
-    // Process gamification
-    const result = processExamResult(userStats, score, passed, timeLeft);
+    // Process gamification and feed mistakes into spaced repetition, same as Quiz mode
+    const questionIds = questions.map(q => q.id);
+    const correctIds = questions
+      .filter((q, idx) => answers[`${q.id}_${idx}`] === q.correctAnswer)
+      .map(q => q.id);
+    const result = processExamResult(userStats, score, passed, timeLeft, questionIds, correctIds);
     setXpGained(result.xpGained);
     setNewBadges(result.newBadges);
     setLeveledUp(result.leveledUp);
@@ -174,17 +181,6 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({ onStatsUpdate, u
         ))}
       </div>
 
-      <div className="flex p-1 bg-slate-100 dark:bg-slate-700 rounded-lg">
-        <button onClick={() => setLevel('CSP')} className={`flex-1 py-3 rounded-md font-medium transition-colors text-sm ${level === 'CSP' ? 'bg-white dark:bg-slate-600 text-indigo-700 dark:text-indigo-300' : 'text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300'}`}>
-          Niveau CSP
-          <span className="block text-xs text-slate-400 dark:text-slate-500 mt-0.5">Carte de Séjour Pluriannuelle</span>
-        </button>
-        <button onClick={() => setLevel('CR')} className={`flex-1 py-3 rounded-md font-medium transition-colors text-sm ${level === 'CR' ? 'bg-white dark:bg-slate-600 text-indigo-700 dark:text-indigo-300' : 'text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300'}`}>
-          Niveau CR
-          <span className="block text-xs text-slate-400 dark:text-slate-500 mt-0.5">Carte de Résident</span>
-        </button>
-      </div>
-
       {/* User's exam history */}
       {userStats.examsPassed > 0 && (
         <div className="bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-200 dark:border-emerald-700 p-3 rounded-lg">
@@ -205,7 +201,27 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({ onStatsUpdate, u
     const score = questions.reduce((acc, q, idx) => acc + (answers[`${q.id}_${idx}`] === q.correctAnswer ? 1 : 0), 0);
     const passed = score >= 32;
 
+    const wrongIds = questions
+      .filter((q, idx) => answers[`${q.id}_${idx}`] !== q.correctAnswer)
+      .map(q => q.id);
+    const reviewQuestions = showOnlyMistakes
+      ? questions.filter(q => wrongIds.includes(q.id))
+      : questions;
+
+    const toggleReviewItem = (questionId: string) => {
+      setExpandedReview(prev => {
+        const next = new Set(prev);
+        if (next.has(questionId)) {
+          next.delete(questionId);
+        } else {
+          next.add(questionId);
+        }
+        return next;
+      });
+    };
+
     return (
+      <div className="space-y-6">
       <div className="max-w-xl mx-auto space-y-6">
         <div className={`p-8 rounded-xl text-center border ${passed ? 'bg-emerald-50 dark:bg-emerald-900/20 border-emerald-200 dark:border-emerald-700' : 'bg-rose-50 dark:bg-rose-900/20 border-rose-200 dark:border-rose-700'}`}>
           {/* XP Gained */}
@@ -265,6 +281,95 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({ onStatsUpdate, u
             <button onClick={resetExam} className="bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 px-6 py-3 rounded-lg font-medium hover:bg-slate-200 dark:hover:bg-slate-600 transition">Retour</button>
           </div>
         </div>
+      </div>
+
+      {/* Correction: per-question review, fed back into spaced repetition */}
+      <div className="max-w-2xl mx-auto space-y-3">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-3">
+          <h3 className="text-lg font-bold text-slate-900 dark:text-white">
+            Correction ({wrongIds.length} erreur{wrongIds.length > 1 ? 's' : ''} sur 40)
+          </h3>
+          {wrongIds.length > 0 && (
+            <div className="flex p-1 bg-slate-100 dark:bg-slate-800 rounded-lg text-sm">
+              <button
+                onClick={() => setShowOnlyMistakes(true)}
+                className={`px-3 py-1.5 rounded-md font-medium transition-colors ${showOnlyMistakes ? 'bg-white dark:bg-slate-700 text-indigo-700 dark:text-indigo-300' : 'text-slate-500 dark:text-slate-400'}`}
+              >
+                Erreurs uniquement
+              </button>
+              <button
+                onClick={() => setShowOnlyMistakes(false)}
+                className={`px-3 py-1.5 rounded-md font-medium transition-colors ${!showOnlyMistakes ? 'bg-white dark:bg-slate-700 text-indigo-700 dark:text-indigo-300' : 'text-slate-500 dark:text-slate-400'}`}
+              >
+                Les 40 questions
+              </button>
+            </div>
+          )}
+        </div>
+
+        {reviewQuestions.length === 0 && (
+          <div className="text-center py-8 text-emerald-600 dark:text-emerald-400">
+            <i className="fas fa-check-circle text-2xl mb-2"></i>
+            <p>Aucune erreur, sans faute !</p>
+          </div>
+        )}
+
+        <div className="space-y-2">
+          {reviewQuestions.map((q) => {
+            const idx = questions.indexOf(q);
+            const userAnswer = answers[`${q.id}_${idx}`];
+            const isCorrect = userAnswer === q.correctAnswer;
+            const isExpanded = expandedReview.has(q.id);
+
+            return (
+              <div
+                key={q.id}
+                className={`bg-white dark:bg-slate-800 rounded-xl border overflow-hidden ${
+                  isCorrect ? 'border-slate-200 dark:border-slate-700' : 'border-rose-200 dark:border-rose-800'
+                }`}
+              >
+                <button
+                  onClick={() => toggleReviewItem(q.id)}
+                  className="w-full p-4 text-left flex items-start justify-between hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors"
+                >
+                  <div className="flex-1 pr-4 flex items-start">
+                    <span className={`w-5 h-5 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 text-white text-xs ${
+                      isCorrect ? 'bg-emerald-500' : 'bg-rose-500'
+                    }`}>
+                      <i className={`fas ${isCorrect ? 'fa-check' : 'fa-times'}`}></i>
+                    </span>
+                    <span className="text-slate-900 dark:text-white">{q.text}</span>
+                  </div>
+                  <i className={`fas fa-chevron-${isExpanded ? 'up' : 'down'} text-slate-400 dark:text-slate-500 mt-1`}></i>
+                </button>
+
+                {isExpanded && (
+                  <div className="px-4 pb-4 space-y-3 border-t border-slate-100 dark:border-slate-700">
+                    {!isCorrect && (
+                      <div className="pt-3">
+                        <p className="text-xs text-slate-500 dark:text-slate-400 mb-2 uppercase tracking-wide">Votre réponse</p>
+                        <div className="p-3 rounded-lg bg-rose-50 dark:bg-rose-900/30 border border-rose-200 dark:border-rose-800 text-rose-800 dark:text-rose-300">
+                          {userAnswer !== undefined ? q.options[userAnswer] : 'Non répondu'}
+                        </div>
+                      </div>
+                    )}
+                    <div className={!isCorrect ? '' : 'pt-3'}>
+                      <p className="text-xs text-slate-500 dark:text-slate-400 mb-2 uppercase tracking-wide">Bonne réponse</p>
+                      <div className="p-3 rounded-lg bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300">
+                        {q.options[q.correctAnswer]}
+                      </div>
+                    </div>
+                    <div className="p-3 bg-indigo-50 dark:bg-indigo-900/30 rounded-lg border border-indigo-100 dark:border-indigo-800">
+                      <p className="text-xs text-indigo-600 dark:text-indigo-400 mb-1 uppercase tracking-wide">Explication</p>
+                      <p className="text-sm text-indigo-900 dark:text-indigo-300">{q.explanation}</p>
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
       </div>
     );
   }

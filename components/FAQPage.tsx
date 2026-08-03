@@ -1,10 +1,37 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FAQ_DATA } from '../constants';
+
+const FAQ_SCHEMA_ID = 'faq-page-schema';
 
 export const FAQPage: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [activeCategory, setActiveCategory] = useState<string>('all');
+
+  useEffect(() => {
+    const schema = {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: FAQ_DATA.map(item => ({
+        '@type': 'Question',
+        name: item.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.answer,
+        },
+      })),
+    };
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.id = FAQ_SCHEMA_ID;
+    script.textContent = JSON.stringify(schema);
+    document.head.appendChild(script);
+
+    return () => {
+      document.getElementById(FAQ_SCHEMA_ID)?.remove();
+    };
+  }, []);
 
   const categories = ['all', ...new Set(FAQ_DATA.map(item => item.category))];
 
@@ -78,7 +105,7 @@ export const FAQPage: React.FC = () => {
       </div>
 
       {/* Official Resources */}
-      <div className="bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/30 dark:to-purple-900/30 p-8 rounded-3xl border border-indigo-100 dark:border-indigo-800">
+      <div className="bg-indigo-50 dark:bg-indigo-900/30 p-8 rounded-3xl border border-indigo-100 dark:border-indigo-800">
         <div className="flex items-start space-x-4">
           <div className="w-12 h-12 bg-indigo-600 text-white rounded-2xl flex items-center justify-center flex-shrink-0">
             <i className="fas fa-external-link-alt"></i>

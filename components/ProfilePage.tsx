@@ -200,9 +200,6 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ userStats, onStatsUpda
                   <div>
                     <p className="text-sm font-medium text-slate-900 dark:text-white">
                       {exam.score}/40
-                      <span className="text-xs text-slate-500 dark:text-slate-400 ml-2">
-                        ({exam.level})
-                      </span>
                     </p>
                     <p className="text-xs text-slate-500 dark:text-slate-400">
                       {formatDate(exam.date)}
@@ -287,7 +284,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ userStats, onStatsUpda
       </div>
 
       {/* Support */}
-      <div className="bg-gradient-to-r from-rose-50 to-orange-50 dark:from-rose-900/20 dark:to-orange-900/20 p-5 rounded-xl border border-rose-200 dark:border-rose-800">
+      <div className="bg-rose-50 dark:bg-rose-900/20 p-5 rounded-xl border border-rose-200 dark:border-rose-800">
         <div className="flex flex-col sm:flex-row items-center gap-4">
           <div className="w-12 h-12 bg-rose-100 dark:bg-rose-900/50 text-rose-500 dark:text-rose-400 rounded-xl flex items-center justify-center flex-shrink-0">
             <i className="fas fa-heart text-xl"></i>

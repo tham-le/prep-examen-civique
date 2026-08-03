@@ -3,6 +3,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { OFFICIAL_DB, THEMES, ALL_QUESTIONS } from '../constants';
 import { Question, UserStats } from '../types';
 import { processQuizResult, getBadgeInfo } from '../services/gamificationService';
+import { getDueIds } from '../services/spacedRepetition';
 
 // Shuffle an array using Fisher-Yates algorithm
 const shuffleArray = <T,>(array: T[]): T[] => {
@@ -52,8 +53,9 @@ export const Quiz: React.FC<QuizProps> = ({ selectedTheme, onExit, onStatsUpdate
     let pool: Question[] = [];
 
     if (selectedTheme === 'weak') {
-      // Load weak questions for spaced repetition
-      pool = ALL_QUESTIONS.filter(q => userStats.weakQuestions.includes(q.id));
+      // Questions previously missed and due for spaced-repetition review
+      const dueIds = getDueIds(userStats.questionMastery, ALL_QUESTIONS.map(q => q.id));
+      pool = ALL_QUESTIONS.filter(q => dueIds.includes(q.id));
     } else if (selectedTheme) {
       pool = OFFICIAL_DB[selectedTheme] || [];
     } else {
@@ -78,7 +80,7 @@ export const Quiz: React.FC<QuizProps> = ({ selectedTheme, onExit, onStatsUpdate
     setXpGained(0);
     setNewBadges([]);
     setLeveledUp(false);
-  }, [selectedTheme, userStats.weakQuestions]);
+  }, [selectedTheme, userStats.questionMastery]);
 
   // Initial load - only run when selectedTheme changes, not when userStats changes
   useEffect(() => {

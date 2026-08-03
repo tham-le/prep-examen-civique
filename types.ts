@@ -1,6 +1,4 @@
 
-export type Level = 'CSP' | 'CR';
-
 export interface Question {
   id: string;
   text: string;
@@ -9,9 +7,16 @@ export interface Question {
   explanation: string;
   type?: 'multiple-choice' | 'scenario';
   category?: string;
-  level?: Level;
   difficulty?: 1 | 2 | 3;
 }
+
+// Leitner-style spaced repetition state for a single item (question or flashcard).
+export interface SRSState {
+  box: number;
+  dueAt: number;
+}
+
+export type SRSMap = Record<string, SRSState>;
 
 export interface Lesson {
   id: string;
@@ -40,7 +45,6 @@ export interface ExamSession {
 export interface ExamResult {
   id: string;
   date: string;
-  level: Level;
   score: number;
   passed: boolean;
   duration: number; // in seconds
@@ -67,8 +71,8 @@ export interface UserStats {
   perfectScores: number;
   examsPassed: number;
   badges: string[];
-  weakQuestions: string[];
-  strongQuestions: string[];
+  questionMastery: SRSMap;
+  flashcardMastery: SRSMap;
   themeProgress: Record<string, { correct: number; total: number }>;
 }
 
