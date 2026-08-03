@@ -18,7 +18,7 @@ const STEPS: Step[] = [
     icon: 'fa-flag',
     iconBg: 'bg-blue-700',
     title: 'Bienvenue sur Objectif Citoyen',
-    description: 'Préparez l\'examen civique 2026 pour la naturalisation française. 306 questions officielles, 100% gratuit, 100% hors-ligne.',
+    description: 'Préparez l\'examen civique 2026 pour la naturalisation française. 310 questions officielles, 100% gratuit, 100% hors-ligne.',
     features: [
       { icon: 'fa-check', text: 'Basé sur les 5 thématiques officielles' },
       { icon: 'fa-check', text: 'Aucune inscription requise' },

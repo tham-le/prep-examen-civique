@@ -1053,6 +1053,45 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     explanation: "Les ministres sont nommés par le président de la République sur proposition du Premier ministre.",
     category: "institutions",
     type: 'multiple-choice'
+  },
+  {
+    id: 'i61',
+    text: "Combien de mandats consécutifs un Président de la République peut-il exercer au maximum ?",
+    options: ["Un seul", "Deux", "Trois", "Il n'y a pas de limite"],
+    correctAnswer: 1,
+    explanation: "Depuis la révision constitutionnelle de 2008, le Président de la République ne peut exercer plus de deux mandats consécutifs.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i62',
+    text: "Que permet l'article 49.3 de la Constitution au Gouvernement ?",
+    options: ["De dissoudre l'Assemblée nationale", "De faire adopter un texte de loi sans vote, sauf motion de censure des députés", "D'organiser un référendum", "De nommer directement les préfets"],
+    correctAnswer: 1,
+    explanation: "L'article 49 alinéa 3 permet au Gouvernement d'engager sa responsabilité pour faire adopter un texte sans vote ; les députés peuvent alors renverser le Gouvernement par une motion de censure.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  // The next two answers are current officeholders, not fixed civic facts.
+  // They will go stale whenever the president or prime minister changes and
+  // need to be updated then (verified true as of 2026).
+  {
+    id: 'i63',
+    text: "Qui est l'actuel président de la République française (en 2026) ?",
+    options: ["Nicolas Sarkozy", "François Hollande", "Emmanuel Macron", "Jacques Chirac"],
+    correctAnswer: 2,
+    explanation: "Emmanuel Macron est Président de la République depuis 2017, réélu en 2022 pour un second mandat.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i64',
+    text: "Qui est l'actuel Premier ministre (en 2026) ?",
+    options: ["Michel Barnier", "François Bayrou", "Gabriel Attal", "Sébastien Lecornu"],
+    correctAnswer: 3,
+    explanation: "Sébastien Lecornu est Premier ministre depuis septembre 2025.",
+    category: "institutions",
+    type: 'multiple-choice'
   }
 ];
 
