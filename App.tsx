@@ -23,7 +23,7 @@ const RevisionMode = lazy(() => import('./components/RevisionMode').then(m => ({
 
 const RouteLoadingFallback: React.FC = () => (
   <div className="flex justify-center py-20">
-    <div className="w-10 h-10 border-3 border-indigo-600 border-t-transparent rounded-full animate-spin"></div>
+    <div className="w-10 h-10 border-3 border-sapphire-600 border-t-transparent rounded-full animate-spin"></div>
   </div>
 );
 
@@ -44,14 +44,14 @@ const HomePage: React.FC<HomePageProps> = ({ userStats }) => {
   return (
     <div className="space-y-10">
       {/* User Progress Banner */}
-      <div className="bg-indigo-600 p-5 rounded-xl text-white">
+      <div className="bg-sapphire-600 p-5 rounded-xl text-white">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center space-x-3">
             <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
               <i className={`fas ${levelInfo.icon} text-xl`}></i>
             </div>
             <div>
-              <p className="text-xs text-indigo-200">Niveau {userStats.level}</p>
+              <p className="text-xs text-sapphire-200">Niveau {userStats.level}</p>
               <p className="text-lg font-bold">{levelInfo.name}</p>
             </div>
           </div>
@@ -70,17 +70,17 @@ const HomePage: React.FC<HomePageProps> = ({ userStats }) => {
           <div className="flex items-center space-x-4 text-center text-sm">
             <div>
               <p className="text-xl font-bold">{userStats.streak}</p>
-              <p className="text-xs text-indigo-200">Jours</p>
+              <p className="text-xs text-sapphire-200">Jours</p>
             </div>
             <div className="h-6 w-px bg-white/20"></div>
             <div>
               <p className="text-xl font-bold">{userStats.badges.length}</p>
-              <p className="text-xs text-indigo-200">Badges</p>
+              <p className="text-xs text-sapphire-200">Badges</p>
             </div>
             <div className="h-6 w-px bg-white/20"></div>
             <div>
               <p className="text-xl font-bold">{userStats.totalQuizzes}</p>
-              <p className="text-xs text-indigo-200">Quiz</p>
+              <p className="text-xs text-sapphire-200">Quiz</p>
             </div>
           </div>
         </div>
@@ -98,7 +98,7 @@ const HomePage: React.FC<HomePageProps> = ({ userStats }) => {
         {userStats.totalQuizzes > 0 && (
           <div className="hidden md:block text-right">
             <p className="text-xs text-slate-500 dark:text-slate-400">Taux de réussite</p>
-            <p className="text-lg font-bold text-indigo-600 dark:text-indigo-400">
+            <p className="text-lg font-bold text-sapphire-600 dark:text-sapphire-400">
               {userStats.totalQuestions > 0
                 ? Math.round((userStats.totalCorrect / userStats.totalQuestions) * 100)
                 : 0}%
@@ -111,7 +111,7 @@ const HomePage: React.FC<HomePageProps> = ({ userStats }) => {
       <section className="bg-slate-900 rounded-xl p-8 md:p-12 text-white">
         <div className="grid lg:grid-cols-5 gap-8 items-center">
           <div className="lg:col-span-3 space-y-6">
-            <div className="inline-flex items-center space-x-2 bg-white/10 px-3 py-1 rounded text-xs text-indigo-200">
+            <div className="inline-flex items-center space-x-2 bg-white/10 px-3 py-1 rounded text-xs text-sapphire-200">
               <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
               <span>{ALL_QUESTIONS.length} questions disponibles</span>
             </div>
@@ -125,7 +125,7 @@ const HomePage: React.FC<HomePageProps> = ({ userStats }) => {
               <button onClick={() => startQuiz()} className="bg-white text-slate-900 px-6 py-3 rounded-lg font-medium hover:bg-slate-100 transition flex items-center">
                 Quiz Aléatoire <i className="fas fa-random ml-2 text-slate-400"></i>
               </button>
-              <button onClick={() => navigate('/examen-blanc')} className="bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-indigo-700 transition">
+              <button onClick={() => navigate('/examen-blanc')} className="bg-sapphire-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-sapphire-700 transition">
                 Lancer un Examen Blanc
               </button>
             </div>
@@ -175,12 +175,12 @@ const HomePage: React.FC<HomePageProps> = ({ userStats }) => {
 
         <Link
           to="/examen-blanc"
-          className="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-600 transition-colors text-left group"
+          className="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-sapphire-300 dark:hover:border-sapphire-600 transition-colors text-left group"
         >
-          <div className="w-10 h-10 bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 rounded-lg flex items-center justify-center mb-3">
+          <div className="w-10 h-10 bg-sapphire-100 dark:bg-sapphire-900/50 text-sapphire-600 dark:text-sapphire-400 rounded-lg flex items-center justify-center mb-3">
             <i className="fas fa-file-alt"></i>
           </div>
-          <h3 className="font-medium text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Examen Blanc</h3>
+          <h3 className="font-medium text-slate-900 dark:text-white group-hover:text-sapphire-600 dark:group-hover:text-sapphire-400">Examen Blanc</h3>
           <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Conditions réelles (45 min)</p>
         </Link>
       </section>
@@ -203,10 +203,10 @@ const HomePage: React.FC<HomePageProps> = ({ userStats }) => {
               <button
                 key={theme.id}
                 onClick={() => startQuiz(theme.id)}
-                className="bg-white dark:bg-slate-800 p-5 rounded-lg border border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-600 transition-colors text-center flex flex-col items-center"
+                className="bg-white dark:bg-slate-800 p-5 rounded-lg border border-slate-200 dark:border-slate-700 hover:border-sapphire-300 dark:hover:border-sapphire-600 transition-colors text-center flex flex-col items-center"
               >
                 <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-3 text-xl ${
-                  theme.color === 'indigo' ? 'bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400' :
+                  theme.color === 'sapphire' ? 'bg-sapphire-100 dark:bg-sapphire-900/50 text-sapphire-600 dark:text-sapphire-400' :
                   theme.color === 'blue' ? 'bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400' :
                   theme.color === 'emerald' ? 'bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400' :
                   theme.color === 'amber' ? 'bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400' :
@@ -219,7 +219,7 @@ const HomePage: React.FC<HomePageProps> = ({ userStats }) => {
                   <div className="w-full mt-2">
                     <div className="h-1 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
                       <div
-                        className="h-full bg-indigo-500 rounded-full"
+                        className="h-full bg-sapphire-500 rounded-full"
                         style={{ width: `${percentage}%` }}
                       ></div>
                     </div>
@@ -357,7 +357,7 @@ const App: React.FC = () => {
 
   return (
     <BrowserRouter>
-      <div className="min-h-screen flex flex-col selection:bg-indigo-100 selection:text-indigo-900 dark:selection:bg-indigo-900 dark:selection:text-indigo-100">
+      <div className="min-h-screen flex flex-col selection:bg-sapphire-100 selection:text-sapphire-900 dark:selection:bg-sapphire-900 dark:selection:text-sapphire-100">
         <Header userStats={userStats} darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
 
         <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
@@ -373,7 +373,7 @@ const App: React.FC = () => {
             <div className="flex flex-col md:flex-row justify-between items-center gap-6">
               <Link to="/" className="flex items-center space-x-2">
                 <Logo className="w-8 h-8" />
-                <span className="text-lg font-bold">Objectif<span className="text-indigo-400">Citoyen</span></span>
+                <span className="text-lg font-bold">Objectif<span className="text-sapphire-400">Citoyen</span></span>
               </Link>
               <div className="flex flex-wrap justify-center gap-6 text-sm text-slate-400">
                 <Link to="/" className="hover:text-white transition-colors">Accueil</Link>
@@ -393,7 +393,7 @@ const App: React.FC = () => {
                   href="https://formation-civique.interieur.gouv.fr/examen-civique/informations-g%C3%A9n%C3%A9rales-sur-lexamen-civique/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-indigo-400 hover:text-indigo-300 underline"
+                  className="text-sapphire-400 hover:text-sapphire-300 underline"
                 >
                   formation-civique.interieur.gouv.fr
                 </a>

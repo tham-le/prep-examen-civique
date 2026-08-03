@@ -151,7 +151,7 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({ onStatsUpdate, u
 
   if (loading) return (
     <div className="flex flex-col items-center justify-center py-20">
-      <div className="w-12 h-12 border-3 border-indigo-600 border-t-transparent rounded-full animate-spin"></div>
+      <div className="w-12 h-12 border-3 border-sapphire-600 border-t-transparent rounded-full animate-spin"></div>
       <h2 className="mt-6 text-lg font-medium text-slate-800 dark:text-slate-200">Préparation de l'examen...</h2>
       <p className="text-slate-400 dark:text-slate-500 text-sm mt-1">Mélange des questions</p>
     </div>
@@ -159,7 +159,7 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({ onStatsUpdate, u
 
   if (!started) return (
     <div className="max-w-xl mx-auto bg-white dark:bg-slate-800 p-8 rounded-xl border border-slate-200 dark:border-slate-700 text-center space-y-8">
-      <div className="w-16 h-16 bg-indigo-600 text-white rounded-xl flex items-center justify-center mx-auto">
+      <div className="w-16 h-16 bg-sapphire-600 text-white rounded-xl flex items-center justify-center mx-auto">
         <i className="fas fa-file-contract text-2xl"></i>
       </div>
       <div className="space-y-2">
@@ -174,7 +174,7 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({ onStatsUpdate, u
           { label: 'Réussite', value: '32/40', icon: 'fa-check-double' },
         ].map((item, i) => (
           <div key={i} className="p-4 bg-slate-50 dark:bg-slate-700/50 rounded-lg border border-slate-100 dark:border-slate-600">
-            <i className={`fas ${item.icon} text-indigo-500 mb-2 text-sm`}></i>
+            <i className={`fas ${item.icon} text-sapphire-500 mb-2 text-sm`}></i>
             <div className="text-slate-900 dark:text-white font-bold text-lg">{item.value}</div>
             <div className="text-xs text-slate-400 dark:text-slate-500">{item.label}</div>
           </div>
@@ -191,7 +191,7 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({ onStatsUpdate, u
         </div>
       )}
 
-      <button onClick={startSimulation} className="w-full bg-indigo-600 text-white py-4 rounded-lg font-medium hover:bg-indigo-700 transition flex items-center justify-center">
+      <button onClick={startSimulation} className="w-full bg-sapphire-600 text-white py-4 rounded-lg font-medium hover:bg-sapphire-700 transition flex items-center justify-center">
         Lancer le chronomètre <i className="fas fa-arrow-right ml-3"></i>
       </button>
     </div>
@@ -226,7 +226,7 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({ onStatsUpdate, u
         <div className={`p-8 rounded-xl text-center border ${passed ? 'bg-emerald-50 dark:bg-emerald-900/20 border-emerald-200 dark:border-emerald-700' : 'bg-rose-50 dark:bg-rose-900/20 border-rose-200 dark:border-rose-700'}`}>
           {/* XP Gained */}
           {xpGained > 0 && (
-            <div className="bg-indigo-600 text-white px-4 py-2 rounded-lg inline-block mb-4">
+            <div className="bg-sapphire-600 text-white px-4 py-2 rounded-lg inline-block mb-4">
               <i className="fas fa-star mr-2"></i>
               +{xpGained} XP
             </div>
@@ -273,7 +273,7 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({ onStatsUpdate, u
           )}
 
           <div className="mt-8 flex flex-col sm:flex-row justify-center gap-3">
-            <button onClick={startSimulation} className="bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-indigo-700 transition">Réessayer</button>
+            <button onClick={startSimulation} className="bg-sapphire-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-sapphire-700 transition">Réessayer</button>
             <button onClick={() => shareResult(passed, score)} className="bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-slate-700 dark:text-slate-200 px-6 py-3 rounded-lg font-medium hover:bg-slate-50 dark:hover:bg-slate-600 transition flex items-center justify-center">
               <i className={`fas ${copySuccess ? 'fa-check text-emerald-500' : 'fa-share-nodes'} mr-2`}></i>
               {copySuccess ? 'Copié' : 'Partager'}
@@ -293,13 +293,13 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({ onStatsUpdate, u
             <div className="flex p-1 bg-slate-100 dark:bg-slate-800 rounded-lg text-sm">
               <button
                 onClick={() => setShowOnlyMistakes(true)}
-                className={`px-3 py-1.5 rounded-md font-medium transition-colors ${showOnlyMistakes ? 'bg-white dark:bg-slate-700 text-indigo-700 dark:text-indigo-300' : 'text-slate-500 dark:text-slate-400'}`}
+                className={`px-3 py-1.5 rounded-md font-medium transition-colors ${showOnlyMistakes ? 'bg-white dark:bg-slate-700 text-sapphire-700 dark:text-sapphire-300' : 'text-slate-500 dark:text-slate-400'}`}
               >
                 Erreurs uniquement
               </button>
               <button
                 onClick={() => setShowOnlyMistakes(false)}
-                className={`px-3 py-1.5 rounded-md font-medium transition-colors ${!showOnlyMistakes ? 'bg-white dark:bg-slate-700 text-indigo-700 dark:text-indigo-300' : 'text-slate-500 dark:text-slate-400'}`}
+                className={`px-3 py-1.5 rounded-md font-medium transition-colors ${!showOnlyMistakes ? 'bg-white dark:bg-slate-700 text-sapphire-700 dark:text-sapphire-300' : 'text-slate-500 dark:text-slate-400'}`}
               >
                 Les 40 questions
               </button>
@@ -359,9 +359,9 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({ onStatsUpdate, u
                         {q.options[q.correctAnswer]}
                       </div>
                     </div>
-                    <div className="p-3 bg-indigo-50 dark:bg-indigo-900/30 rounded-lg border border-indigo-100 dark:border-indigo-800">
-                      <p className="text-xs text-indigo-600 dark:text-indigo-400 mb-1 uppercase tracking-wide">Explication</p>
-                      <p className="text-sm text-indigo-900 dark:text-indigo-300">{q.explanation}</p>
+                    <div className="p-3 bg-sapphire-50 dark:bg-sapphire-900/30 rounded-lg border border-sapphire-100 dark:border-sapphire-800">
+                      <p className="text-xs text-sapphire-600 dark:text-sapphire-400 mb-1 uppercase tracking-wide">Explication</p>
+                      <p className="text-sm text-sapphire-900 dark:text-sapphire-300">{q.explanation}</p>
                     </div>
                   </div>
                 )}
@@ -382,7 +382,7 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({ onStatsUpdate, u
         <div className="flex items-center space-x-6">
           <div className="text-center">
             <p className="text-xs text-slate-400 dark:text-slate-500">Temps</p>
-            <p className={`text-lg font-bold tabular-nums ${timeLeft < 300 ? 'text-rose-600' : 'text-indigo-600 dark:text-indigo-400'}`}>{formatTime(timeLeft)}</p>
+            <p className={`text-lg font-bold tabular-nums ${timeLeft < 300 ? 'text-rose-600' : 'text-sapphire-600 dark:text-sapphire-400'}`}>{formatTime(timeLeft)}</p>
           </div>
           <div className="h-8 w-px bg-slate-200 dark:bg-slate-700"></div>
           <div className="text-center">
@@ -391,7 +391,7 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({ onStatsUpdate, u
           </div>
         </div>
         <div className="hidden sm:block w-32 bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
-          <div className="bg-indigo-600 h-full transition-all" style={{ width: `${((currentIdx + 1) / 40) * 100}%` }}></div>
+          <div className="bg-sapphire-600 h-full transition-all" style={{ width: `${((currentIdx + 1) / 40) * 100}%` }}></div>
         </div>
       </div>
 
@@ -409,14 +409,14 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({ onStatsUpdate, u
               key={idx}
               onClick={() => handleSelect(idx)}
               aria-pressed={answers[`${current.id}_${currentIdx}`] === idx}
-              className={`w-full text-left p-4 rounded-lg border transition-colors flex items-center justify-between focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${
+              className={`w-full text-left p-4 rounded-lg border transition-colors flex items-center justify-between focus:outline-none focus-visible:ring-2 focus-visible:ring-sapphire-500 ${
                 answers[`${current.id}_${currentIdx}`] === idx
-                  ? 'border-indigo-500 bg-indigo-50 dark:bg-indigo-900/30'
+                  ? 'border-sapphire-500 bg-sapphire-50 dark:bg-sapphire-900/30'
                   : 'border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-700/50 hover:bg-white dark:hover:bg-slate-700 hover:border-slate-300 dark:hover:border-slate-600'
               }`}
             >
-              <span className={`${answers[`${current.id}_${currentIdx}`] === idx ? 'text-indigo-900 dark:text-indigo-300' : 'text-slate-600 dark:text-slate-300'}`}>{opt}</span>
-              <div className={`w-5 h-5 rounded-full border-2 transition-colors flex items-center justify-center ${answers[`${current.id}_${currentIdx}`] === idx ? 'bg-indigo-600 border-indigo-600' : 'border-slate-300 dark:border-slate-600'}`} aria-hidden="true">
+              <span className={`${answers[`${current.id}_${currentIdx}`] === idx ? 'text-sapphire-900 dark:text-sapphire-300' : 'text-slate-600 dark:text-slate-300'}`}>{opt}</span>
+              <div className={`w-5 h-5 rounded-full border-2 transition-colors flex items-center justify-center ${answers[`${current.id}_${currentIdx}`] === idx ? 'bg-sapphire-600 border-sapphire-600' : 'border-slate-300 dark:border-slate-600'}`} aria-hidden="true">
                 {answers[`${current.id}_${currentIdx}`] === idx && <i className="fas fa-check text-xs text-white"></i>}
               </div>
             </button>
@@ -427,7 +427,7 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({ onStatsUpdate, u
           <button
             disabled={currentIdx === 0}
             onClick={() => setCurrentIdx(i => i - 1)}
-            className="text-slate-400 dark:text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-400 disabled:opacity-0 transition-colors flex items-center space-x-2"
+            className="text-slate-400 dark:text-slate-500 hover:text-sapphire-600 dark:hover:text-sapphire-400 disabled:opacity-0 transition-colors flex items-center space-x-2"
           >
             <i className="fas fa-arrow-left text-xs"></i>
             <span>Précédent</span>
@@ -435,7 +435,7 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({ onStatsUpdate, u
 
           <button
             onClick={() => currentIdx === 39 ? finishExam() : setCurrentIdx(i => i + 1)}
-            className="bg-indigo-600 text-white px-6 py-2.5 rounded-lg font-medium hover:bg-indigo-700 transition flex items-center"
+            className="bg-sapphire-600 text-white px-6 py-2.5 rounded-lg font-medium hover:bg-sapphire-700 transition flex items-center"
           >
             {currentIdx === 39 ? 'Valider' : 'Suivant'}
             <i className={`fas ${currentIdx === 39 ? 'fa-flag-checkered' : 'fa-arrow-right'} ml-2 text-sm`}></i>

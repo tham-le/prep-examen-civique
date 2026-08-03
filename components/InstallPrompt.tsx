@@ -77,7 +77,7 @@ export const InstallPrompt: React.FC = () => {
   return (
     <div className="fixed bottom-4 left-4 right-4 md:left-auto md:right-4 md:w-96 bg-white dark:bg-slate-800 rounded-xl shadow-2xl border border-slate-200 dark:border-slate-700 p-4 z-50 animate-slide-up">
       <div className="flex items-start space-x-3">
-        <div className="w-12 h-12 bg-indigo-600 rounded-xl flex items-center justify-center flex-shrink-0">
+        <div className="w-12 h-12 bg-sapphire-600 rounded-xl flex items-center justify-center flex-shrink-0">
           <i className="fas fa-graduation-cap text-white text-lg"></i>
         </div>
         <div className="flex-1 min-w-0">
@@ -101,10 +101,10 @@ export const InstallPrompt: React.FC = () => {
 
       {isIOS ? (
         <div className="mt-3 flex items-center justify-center space-x-2 text-xs text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-700/50 rounded-lg p-2">
-          <i className="fas fa-share-from-square text-indigo-500"></i>
+          <i className="fas fa-share-from-square text-sapphire-500"></i>
           <span>Partager</span>
           <i className="fas fa-arrow-right text-slate-300 dark:text-slate-600"></i>
-          <i className="fas fa-plus-square text-indigo-500"></i>
+          <i className="fas fa-plus-square text-sapphire-500"></i>
           <span>Écran d'accueil</span>
         </div>
       ) : (
@@ -117,7 +117,7 @@ export const InstallPrompt: React.FC = () => {
           </button>
           <button
             onClick={handleInstall}
-            className="flex-1 px-3 py-2 text-xs font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg transition flex items-center justify-center space-x-1"
+            className="flex-1 px-3 py-2 text-xs font-medium text-white bg-sapphire-600 hover:bg-sapphire-700 rounded-lg transition flex items-center justify-center space-x-1"
           >
             <i className="fas fa-download"></i>
             <span>Installer</span>

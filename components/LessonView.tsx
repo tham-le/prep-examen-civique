@@ -9,7 +9,7 @@ interface LessonViewProps {
 // Helper function for category colors
 const getCategoryColorClasses = (color: string) => {
   switch (color) {
-    case 'indigo': return 'bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400';
+    case 'sapphire': return 'bg-sapphire-100 dark:bg-sapphire-900/50 text-sapphire-600 dark:text-sapphire-400';
     case 'blue': return 'bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400';
     case 'emerald': return 'bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400';
     case 'amber': return 'bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400';
@@ -20,7 +20,7 @@ const getCategoryColorClasses = (color: string) => {
 
 const getButtonColorClasses = (color: string) => {
   switch (color) {
-    case 'indigo': return 'bg-indigo-600 hover:bg-indigo-700';
+    case 'sapphire': return 'bg-sapphire-600 hover:bg-sapphire-700';
     case 'blue': return 'bg-blue-600 hover:bg-blue-700';
     case 'emerald': return 'bg-emerald-600 hover:bg-emerald-700';
     case 'amber': return 'bg-amber-600 hover:bg-amber-700';
@@ -41,7 +41,7 @@ export const LessonView: React.FC<LessonViewProps> = ({ onStartQuiz }) => {
           href="https://formation-civique.interieur.gouv.fr/fiches-par-thematiques/"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center text-xs text-indigo-600 dark:text-indigo-400 hover:underline"
+          className="inline-flex items-center text-xs text-sapphire-600 dark:text-sapphire-400 hover:underline"
         >
           <i className="fas fa-external-link-alt mr-1"></i>
           Voir toutes les fiches sur le site officiel
@@ -81,10 +81,10 @@ export const LessonView: React.FC<LessonViewProps> = ({ onStartQuiz }) => {
                   rel="noopener noreferrer"
                   className="flex items-center justify-between p-4 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors group"
                 >
-                  <span className="text-slate-700 dark:text-slate-300 text-sm group-hover:text-indigo-600 dark:group-hover:text-indigo-400">
+                  <span className="text-slate-700 dark:text-slate-300 text-sm group-hover:text-sapphire-600 dark:group-hover:text-sapphire-400">
                     {fiche.title}
                   </span>
-                  <i className="fas fa-external-link-alt text-xs text-slate-400 dark:text-slate-500 group-hover:text-indigo-500"></i>
+                  <i className="fas fa-external-link-alt text-xs text-slate-400 dark:text-slate-500 group-hover:text-sapphire-500"></i>
                 </a>
               ))}
             </div>
@@ -99,7 +99,7 @@ export const LessonView: React.FC<LessonViewProps> = ({ onStartQuiz }) => {
           href="https://formation-civique.interieur.gouv.fr/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-indigo-500 hover:underline"
+          className="text-sapphire-500 hover:underline"
         >
           formation-civique.interieur.gouv.fr
         </a>

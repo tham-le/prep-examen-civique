@@ -2,7 +2,7 @@
 import { Question, Lesson, Badge, FAQItem, FicheCategory, SRSMap } from './types';
 
 export const THEMES = [
-  { id: 'valeurs', title: 'Principes et valeurs', icon: 'fa-balance-scale', color: 'indigo' },
+  { id: 'valeurs', title: 'Principes et valeurs', icon: 'fa-balance-scale', color: 'sapphire' },
   { id: 'institutions', title: 'Système institutionnel', icon: 'fa-landmark', color: 'blue' },
   { id: 'droits', title: 'Droits et devoirs', icon: 'fa-handshake-angle', color: 'emerald' },
   { id: 'culture', title: 'Histoire et Culture', icon: 'fa-monument', color: 'amber' },
@@ -2869,7 +2869,7 @@ export const BADGES: Badge[] = [
   { id: 'exam_passed', name: 'Admis', description: 'Réussir un examen blanc (32/40)', icon: 'fa-award', color: 'amber' },
   { id: 'exam_master', name: 'Expert', description: 'Réussir 3 examens blancs', icon: 'fa-crown', color: 'yellow' },
   { id: 'quiz_10', name: 'Entraîné', description: 'Compléter 10 quiz', icon: 'fa-dumbbell', color: 'slate' },
-  { id: 'quiz_50', name: 'Champion', description: 'Compléter 50 quiz', icon: 'fa-trophy', color: 'indigo' },
+  { id: 'quiz_50', name: 'Champion', description: 'Compléter 50 quiz', icon: 'fa-trophy', color: 'sapphire' },
   { id: 'score_80', name: 'Performant', description: 'Obtenir 80% de moyenne globale', icon: 'fa-chart-line', color: 'green' },
   { id: 'fast_exam', name: 'Rapide', description: 'Terminer un examen en moins de 20 minutes', icon: 'fa-bolt', color: 'cyan' }
 ];
@@ -3030,7 +3030,7 @@ export const OFFICIAL_FICHES: FicheCategory[] = [
     id: 'valeurs',
     title: 'Principes et valeurs de la République',
     icon: 'fa-balance-scale',
-    color: 'indigo',
+    color: 'sapphire',
     fiches: [
       { id: 'f1', title: 'La devise de la République', url: `${BASE_URL}/principes-et-valeurs-de-la-republique/devise-et-symboles-de-la-republique/` },
       { id: 'f2', title: 'Les symboles de la République', url: `${BASE_URL}/principes-et-valeurs-de-la-republique/les-symboles-de-la-republique/` },

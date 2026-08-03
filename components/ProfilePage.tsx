@@ -10,7 +10,7 @@ const getBadgeColorClasses = (color: string, isUnlocked: boolean) => {
   switch (color) {
     case 'amber': return 'bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400';
     case 'emerald': return 'bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400';
-    case 'indigo': return 'bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400';
+    case 'sapphire': return 'bg-sapphire-100 dark:bg-sapphire-900/50 text-sapphire-600 dark:text-sapphire-400';
     case 'purple': return 'bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400';
     case 'rose': return 'bg-rose-100 dark:bg-rose-900/50 text-rose-600 dark:text-rose-400';
     case 'blue': return 'bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400';
@@ -60,13 +60,13 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ userStats, onStatsUpda
   return (
     <div className="max-w-3xl mx-auto space-y-6">
       {/* Profile Header */}
-      <div className="bg-indigo-600 p-6 rounded-xl text-white">
+      <div className="bg-sapphire-600 p-6 rounded-xl text-white">
         <div className="flex flex-col md:flex-row items-center gap-6">
           <div className="w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center">
             <i className={`fas ${levelInfo.icon} text-2xl`}></i>
           </div>
           <div className="text-center md:text-left flex-1">
-            <p className="text-sm text-indigo-200 mb-1">Niveau {userStats.level}</p>
+            <p className="text-sm text-sapphire-200 mb-1">Niveau {userStats.level}</p>
             <h1 className="text-2xl font-bold mb-2">{levelInfo.name}</h1>
             <div className="max-w-xs">
               <div className="flex justify-between text-xs mb-1">
@@ -85,7 +85,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ userStats, onStatsUpda
             <div className="text-center bg-white/10 px-4 py-2 rounded-lg">
               <i className="fas fa-fire text-orange-400"></i>
               <p className="text-lg font-bold">{userStats.streak}</p>
-              <p className="text-xs text-indigo-200">Jours</p>
+              <p className="text-xs text-sapphire-200">Jours</p>
             </div>
           )}
         </div>
@@ -94,7 +94,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ userStats, onStatsUpda
       {/* Stats Grid */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
         <div className="bg-white dark:bg-slate-800 p-4 rounded-lg border border-slate-200 dark:border-slate-700 text-center">
-          <div className="w-10 h-10 bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 rounded-lg flex items-center justify-center mx-auto mb-2">
+          <div className="w-10 h-10 bg-sapphire-100 dark:bg-sapphire-900/50 text-sapphire-600 dark:text-sapphire-400 rounded-lg flex items-center justify-center mx-auto mb-2">
             <i className="fas fa-brain text-sm"></i>
           </div>
           <p className="text-xl font-bold text-slate-900 dark:text-white">{userStats.totalQuizzes}</p>
@@ -126,7 +126,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ userStats, onStatsUpda
       {/* Theme Progress */}
       <div className="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700">
         <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center">
-          <i className="fas fa-chart-pie text-indigo-500 dark:text-indigo-400 mr-2 text-sm"></i>
+          <i className="fas fa-chart-pie text-sapphire-500 dark:text-sapphire-400 mr-2 text-sm"></i>
           Progression par thème
         </h2>
         <div className="space-y-3">
@@ -138,7 +138,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ userStats, onStatsUpda
             return (
               <div key={theme.id} className="flex items-center space-x-3">
                 <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 text-sm ${
-                  theme.color === 'indigo' ? 'bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400' :
+                  theme.color === 'sapphire' ? 'bg-sapphire-100 dark:bg-sapphire-900/50 text-sapphire-600 dark:text-sapphire-400' :
                   theme.color === 'blue' ? 'bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400' :
                   theme.color === 'emerald' ? 'bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400' :
                   theme.color === 'amber' ? 'bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400' :
@@ -156,7 +156,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ userStats, onStatsUpda
                   <div className="h-1.5 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
                     <div
                       className={`h-full rounded-full ${
-                        theme.color === 'indigo' ? 'bg-indigo-500' :
+                        theme.color === 'sapphire' ? 'bg-sapphire-500' :
                         theme.color === 'blue' ? 'bg-blue-500' :
                         theme.color === 'emerald' ? 'bg-emerald-500' :
                         theme.color === 'amber' ? 'bg-amber-500' :
@@ -269,9 +269,9 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ userStats, onStatsUpda
                 key={level.level}
                 className={`flex items-center space-x-2 px-3 py-1.5 rounded-lg border text-sm ${
                   isCurrent
-                    ? 'bg-indigo-600 text-white border-indigo-600'
+                    ? 'bg-sapphire-600 text-white border-sapphire-600'
                     : isCurrentOrBelow
-                    ? 'bg-indigo-50 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 border-indigo-200 dark:border-indigo-700'
+                    ? 'bg-sapphire-50 dark:bg-sapphire-900/50 text-sapphire-600 dark:text-sapphire-400 border-sapphire-200 dark:border-sapphire-700'
                     : 'bg-slate-50 dark:bg-slate-700 text-slate-400 dark:text-slate-500 border-slate-200 dark:border-slate-600'
                 }`}
               >
@@ -312,7 +312,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ userStats, onStatsUpda
         {onShowTutorial && (
           <button
             onClick={onShowTutorial}
-            className="text-sm text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+            className="text-sm text-slate-500 dark:text-slate-400 hover:text-sapphire-600 dark:hover:text-sapphire-400 transition-colors"
           >
             <i className="fas fa-graduation-cap mr-2"></i>
             Revoir le tutoriel

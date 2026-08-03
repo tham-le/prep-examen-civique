@@ -210,7 +210,7 @@ export const RevisionMode: React.FC<RevisionModeProps> = ({ userStats }) => {
           onClick={() => { setSelectedTheme(null); setShuffled(false); }}
           className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
             selectedTheme === null
-              ? 'bg-indigo-600 text-white'
+              ? 'bg-sapphire-600 text-white'
               : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'
           }`}
         >
@@ -224,7 +224,7 @@ export const RevisionMode: React.FC<RevisionModeProps> = ({ userStats }) => {
               onClick={() => { setSelectedTheme(theme.id); setShuffled(false); }}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center ${
                 selectedTheme === theme.id
-                  ? 'bg-indigo-600 text-white'
+                  ? 'bg-sapphire-600 text-white'
                   : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'
               }`}
             >
@@ -273,7 +273,7 @@ export const RevisionMode: React.FC<RevisionModeProps> = ({ userStats }) => {
             placeholder="Rechercher une question..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-sapphire-500"
           />
         </div>
         <div className="flex gap-2">
@@ -311,7 +311,7 @@ export const RevisionMode: React.FC<RevisionModeProps> = ({ userStats }) => {
         </span>
         {themeInfo && (
           <span className={`px-2 py-1 rounded text-xs ${
-            themeInfo.color === 'indigo' ? 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400' :
+            themeInfo.color === 'sapphire' ? 'bg-sapphire-100 dark:bg-sapphire-900/30 text-sapphire-600 dark:text-sapphire-400' :
             themeInfo.color === 'blue' ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400' :
             themeInfo.color === 'emerald' ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400' :
             themeInfo.color === 'amber' ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400' :
@@ -343,7 +343,7 @@ export const RevisionMode: React.FC<RevisionModeProps> = ({ userStats }) => {
               id={`revision-q-${index}`}
               className={`bg-white dark:bg-slate-800 rounded-xl border overflow-hidden transition-all ${
                 isFocused
-                  ? 'border-indigo-500 ring-2 ring-indigo-200 dark:ring-indigo-800'
+                  ? 'border-sapphire-500 ring-2 ring-sapphire-200 dark:ring-sapphire-800'
                   : STATUS_BORDER_CLASS[status]
               }`}
             >
@@ -385,12 +385,12 @@ export const RevisionMode: React.FC<RevisionModeProps> = ({ userStats }) => {
                   </div>
 
                   {/* Explanation */}
-                  <div className="p-4 bg-indigo-50 dark:bg-indigo-900/30 rounded-lg border border-indigo-100 dark:border-indigo-800">
+                  <div className="p-4 bg-sapphire-50 dark:bg-sapphire-900/30 rounded-lg border border-sapphire-100 dark:border-sapphire-800">
                     <div className="flex items-start space-x-3">
-                      <i className="fas fa-lightbulb text-indigo-500 dark:text-indigo-400 mt-0.5"></i>
+                      <i className="fas fa-lightbulb text-sapphire-500 dark:text-sapphire-400 mt-0.5"></i>
                       <div>
-                        <p className="text-xs text-indigo-600 dark:text-indigo-400 mb-1 uppercase tracking-wide">Explication</p>
-                        <p className="text-sm text-indigo-900 dark:text-indigo-300">{question.explanation}</p>
+                        <p className="text-xs text-sapphire-600 dark:text-sapphire-400 mb-1 uppercase tracking-wide">Explication</p>
+                        <p className="text-sm text-sapphire-900 dark:text-sapphire-300">{question.explanation}</p>
                       </div>
                     </div>
                   </div>
@@ -400,7 +400,7 @@ export const RevisionMode: React.FC<RevisionModeProps> = ({ userStats }) => {
                     <div className="flex justify-end pt-2">
                       <button
                         onClick={() => goToNext(index)}
-                        className="px-4 py-2 rounded-lg bg-indigo-600 text-white text-sm font-medium hover:bg-indigo-700 transition-colors"
+                        className="px-4 py-2 rounded-lg bg-sapphire-600 text-white text-sm font-medium hover:bg-sapphire-700 transition-colors"
                       >
                         Suivante <i className="fas fa-arrow-right ml-2"></i>
                       </button>

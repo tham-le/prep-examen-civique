@@ -3,6 +3,23 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* Brand primary: a true, deep blue ("sapphire"), replacing indigo, which
+   reads as purple. Kept one weight darker/richer than Tailwind's own blue
+   scale at every stop so it stays visually distinct from the Institutions
+   theme, which already uses plain blue-*. */
+@theme {
+  --color-sapphire-50: #eff6ff;
+  --color-sapphire-100: #dbeafe;
+  --color-sapphire-200: #bfdbfe;
+  --color-sapphire-300: #93c5fd;
+  --color-sapphire-400: #3b82f6;
+  --color-sapphire-500: #2563eb;
+  --color-sapphire-600: #1d4ed8;
+  --color-sapphire-700: #1e40af;
+  --color-sapphire-800: #1e3a8a;
+  --color-sapphire-900: #172554;
+}
+
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
   -webkit-tap-highlight-color: transparent;

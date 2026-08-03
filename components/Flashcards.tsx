@@ -166,7 +166,7 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ userStats, onStatsUpdate
         <p className="text-slate-500 dark:text-slate-400 mb-4">Dans cette catégorie, vous avez maîtrisé toutes les cartes.</p>
         <button
           onClick={() => setHideMastered(false)}
-          className="text-indigo-600 dark:text-indigo-400 hover:underline"
+          className="text-sapphire-600 dark:text-sapphire-400 hover:underline"
         >
           Afficher toutes les cartes
         </button>
@@ -197,7 +197,7 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ userStats, onStatsUpdate
             onClick={() => setCategory(cat)}
             className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
               category === cat
-                ? 'bg-indigo-600 text-white'
+                ? 'bg-sapphire-600 text-white'
                 : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'
             }`}
           >
@@ -217,7 +217,7 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ userStats, onStatsUpdate
               type="checkbox"
               checked={hideMastered}
               onChange={() => setHideMastered(!hideMastered)}
-              className="rounded text-indigo-600"
+              className="rounded text-sapphire-600"
             />
             <span>Masquer les cartes maîtrisées</span>
           </label>
@@ -247,7 +247,7 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ userStats, onStatsUpdate
             className="absolute inset-0 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-8 flex flex-col items-center justify-center backface-hidden"
             style={{ backfaceVisibility: 'hidden' }}
           >
-            <span className="text-xs text-indigo-600 dark:text-indigo-400 mb-4 px-2 py-1 bg-indigo-50 dark:bg-indigo-900/30 rounded">
+            <span className="text-xs text-sapphire-600 dark:text-sapphire-400 mb-4 px-2 py-1 bg-sapphire-50 dark:bg-sapphire-900/30 rounded">
               {currentCard?.category}
             </span>
             <p className="text-lg text-center text-slate-900 dark:text-white font-medium">
@@ -260,13 +260,13 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ userStats, onStatsUpdate
 
           {/* Back */}
           <div
-            className="absolute inset-0 bg-indigo-600 rounded-xl p-8 flex flex-col items-center justify-center"
+            className="absolute inset-0 bg-sapphire-600 rounded-xl p-8 flex flex-col items-center justify-center"
             style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
           >
             <p className="text-lg text-center text-white font-medium whitespace-pre-line">
               {currentCard?.back}
             </p>
-            <p className="text-xs text-indigo-200 mt-6">
+            <p className="text-xs text-sapphire-200 mt-6">
               <i className="fas fa-hand-pointer mr-1"></i> Cliquez pour retourner
             </p>
           </div>
@@ -305,7 +305,7 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ userStats, onStatsUpdate
 
         <button
           onClick={nextCard}
-          className="w-12 h-12 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 transition-colors flex items-center justify-center"
+          className="w-12 h-12 rounded-lg bg-sapphire-600 text-white hover:bg-sapphire-700 transition-colors flex items-center justify-center"
         >
           <i className="fas fa-chevron-right"></i>
         </button>

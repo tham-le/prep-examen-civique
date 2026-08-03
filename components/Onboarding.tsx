@@ -27,7 +27,7 @@ const STEPS: Step[] = [
   },
   {
     icon: 'fa-graduation-cap',
-    iconBg: 'bg-indigo-600',
+    iconBg: 'bg-sapphire-600',
     title: '4 Modes d\'Apprentissage',
     description: 'Choisissez la méthode qui vous convient le mieux.',
     features: [
@@ -118,7 +118,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
         {/* Progress bar */}
         <div className="h-1 bg-slate-100 dark:bg-slate-700">
           <div
-            className="h-full bg-indigo-600 transition-all duration-500"
+            className="h-full bg-sapphire-600 transition-all duration-500"
             style={{ width: `${((currentStep + 1) / STEPS.length) * 100}%` }}
           />
         </div>
@@ -155,7 +155,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
             <div className="space-y-3 text-left bg-slate-50 dark:bg-slate-700/50 rounded-xl p-4 mb-6">
               {step.features.map((feature, idx) => (
                 <div key={idx} className="flex items-start space-x-3">
-                  <div className="w-5 h-5 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-5 h-5 rounded-full bg-sapphire-100 dark:bg-sapphire-900/50 text-sapphire-600 dark:text-sapphire-400 flex items-center justify-center flex-shrink-0 mt-0.5">
                     <i className={`fas ${feature.icon} text-xs`}></i>
                   </div>
                   <span className="text-sm text-slate-700 dark:text-slate-300">{feature.text}</span>
@@ -172,9 +172,9 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
                 onClick={() => setCurrentStep(idx)}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
                   idx === currentStep
-                    ? 'w-6 bg-indigo-600'
+                    ? 'w-6 bg-sapphire-600'
                     : idx < currentStep
-                      ? 'bg-indigo-300 dark:bg-indigo-700'
+                      ? 'bg-sapphire-300 dark:bg-sapphire-700'
                       : 'bg-slate-200 dark:bg-slate-600'
                 }`}
               />
@@ -195,8 +195,8 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
               onClick={handleNext}
               className={`flex-1 px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
                 isLastStep
-                  ? 'bg-indigo-600 text-white hover:bg-indigo-700 shadow-lg shadow-indigo-500/25'
-                  : 'bg-indigo-600 text-white hover:bg-indigo-700'
+                  ? 'bg-sapphire-600 text-white hover:bg-sapphire-700 shadow-lg shadow-sapphire-500/25'
+                  : 'bg-sapphire-600 text-white hover:bg-sapphire-700'
               }`}
             >
               {isLastStep ? (
@@ -209,7 +209,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
         </div>
 
         {/* Decorative elements */}
-        <div className="absolute -top-10 -left-10 w-32 h-32 bg-indigo-500/10 rounded-full blur-2xl" />
+        <div className="absolute -top-10 -left-10 w-32 h-32 bg-sapphire-500/10 rounded-full blur-2xl" />
         <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl" />
       </div>
     </div>

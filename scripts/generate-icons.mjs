@@ -19,3 +19,10 @@ for (const { file, size } of targets) {
     .toFile(path.join(iconsDir, file));
   console.log(`Generated ${file} (${size}x${size})`);
 }
+
+const ogImageSource = path.join(iconsDir, 'og-image.svg');
+await sharp(ogImageSource)
+  .resize(1200, 630)
+  .png()
+  .toFile(path.join(iconsDir, 'og-image.png'));
+console.log('Generated og-image.png (1200x630)');

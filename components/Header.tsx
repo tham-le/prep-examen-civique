@@ -25,9 +25,9 @@ export const Header: React.FC<HeaderProps> = ({ userStats, darkMode, toggleDarkM
   ];
 
   const navLinkClass = (isActive: boolean) =>
-    `px-3 py-2 rounded-md font-medium text-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${
+    `px-3 py-2 rounded-md font-medium text-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sapphire-500 ${
       isActive
-        ? 'bg-indigo-50 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400'
+        ? 'bg-sapphire-50 dark:bg-sapphire-900/50 text-sapphire-600 dark:text-sapphire-400'
         : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'
     }`;
 
@@ -39,7 +39,7 @@ export const Header: React.FC<HeaderProps> = ({ userStats, darkMode, toggleDarkM
           <NavLink to="/" className="flex items-center space-x-2" end>
             <Logo className="w-9 h-9" />
             <span className="text-lg font-bold hidden sm:block dark:text-white">
-              Objectif<span className="text-indigo-600 dark:text-indigo-400">Citoyen</span>
+              Objectif<span className="text-sapphire-600 dark:text-sapphire-400">Citoyen</span>
             </span>
           </NavLink>
 
@@ -69,7 +69,7 @@ export const Header: React.FC<HeaderProps> = ({ userStats, darkMode, toggleDarkM
             )}
 
             {/* XP indicator */}
-            <div className="hidden sm:flex items-center space-x-1 text-indigo-600 dark:text-indigo-400 px-2 py-1 text-sm">
+            <div className="hidden sm:flex items-center space-x-1 text-sapphire-600 dark:text-sapphire-400 px-2 py-1 text-sm">
               <i className="fas fa-star text-xs"></i>
               <span className="font-medium">{userStats.xp} XP</span>
             </div>
@@ -89,7 +89,7 @@ export const Header: React.FC<HeaderProps> = ({ userStats, darkMode, toggleDarkM
             {/* Dark mode toggle */}
             <button
               onClick={toggleDarkMode}
-              className="w-9 h-9 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 flex items-center justify-center transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+              className="w-9 h-9 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 flex items-center justify-center transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sapphire-500"
               title={darkMode ? 'Mode clair' : 'Mode sombre'}
               aria-label={darkMode ? 'Activer le mode clair' : 'Activer le mode sombre'}
             >
@@ -101,9 +101,9 @@ export const Header: React.FC<HeaderProps> = ({ userStats, darkMode, toggleDarkM
               to="/profil"
               aria-label="Mon profil"
               className={({ isActive }) =>
-                `flex items-center space-x-2 px-3 py-1.5 rounded-md transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${
+                `flex items-center space-x-2 px-3 py-1.5 rounded-md transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sapphire-500 ${
                   isActive
-                    ? 'bg-indigo-600 text-white'
+                    ? 'bg-sapphire-600 text-white'
                     : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
                 }`
               }
@@ -124,8 +124,8 @@ export const Header: React.FC<HeaderProps> = ({ userStats, darkMode, toggleDarkM
               to={item.path}
               end={item.path === '/'}
               className={({ isActive }) =>
-                `flex flex-col items-center py-2 px-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${
-                  isActive ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-500 dark:text-slate-400'
+                `flex flex-col items-center py-2 px-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-sapphire-500 ${
+                  isActive ? 'text-sapphire-600 dark:text-sapphire-400' : 'text-slate-500 dark:text-slate-400'
                 }`
               }
             >
