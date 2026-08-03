@@ -16,7 +16,7 @@ interface Step {
 const STEPS: Step[] = [
   {
     icon: 'fa-flag',
-    iconBg: 'bg-gradient-to-br from-blue-600 via-white to-red-600',
+    iconBg: 'bg-blue-700',
     title: 'Bienvenue sur Objectif Citoyen',
     description: 'Préparez l\'examen civique 2026 pour la naturalisation française. 125 questions officielles, 100% gratuit, 100% hors-ligne.',
     features: [
@@ -63,7 +63,7 @@ const STEPS: Step[] = [
   },
   {
     icon: 'fa-rocket',
-    iconBg: 'bg-gradient-to-br from-indigo-600 to-purple-600',
+    iconBg: 'bg-purple-600',
     title: 'Prêt à Commencer ?',
     description: 'Vous êtes prêt à débuter votre préparation. Bonne chance !',
     features: [
@@ -195,7 +195,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
               onClick={handleNext}
               className={`flex-1 px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
                 isLastStep
-                  ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white hover:from-indigo-700 hover:to-purple-700 shadow-lg shadow-indigo-500/25'
+                  ? 'bg-indigo-600 text-white hover:bg-indigo-700 shadow-lg shadow-indigo-500/25'
                   : 'bg-indigo-600 text-white hover:bg-indigo-700'
               }`}
             >

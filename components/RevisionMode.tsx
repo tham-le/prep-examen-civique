@@ -195,7 +195,7 @@ export const RevisionMode: React.FC = () => {
         </div>
         <div className="h-2 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
           <div
-            className="h-full bg-gradient-to-r from-indigo-500 to-emerald-500 rounded-full transition-all duration-500"
+            className="h-full bg-indigo-500 rounded-full transition-all duration-500"
             style={{ width: `${progressPercent}%` }}
           ></div>
         </div>
