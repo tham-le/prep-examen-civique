@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { reviewItem, reviewItems, isMastered, isDueForReview, getDueIds, countDue, MAX_BOX } from './spacedRepetition';
+import { reviewItem, reviewItems, isMastered, isDueForReview, getDueIds, countDue, getItemStatus, selectSessionItems, MAX_BOX } from './spacedRepetition';
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 const NOW = 1_000_000_000_000;
@@ -109,5 +109,62 @@ describe('getDueIds / countDue', () => {
 
     expect(getDueIds(map, ids, NOW)).toEqual(['wrong']);
     expect(countDue(map, ids, NOW)).toBe(1);
+  });
+});
+
+describe('getItemStatus', () => {
+  it('classifies an unseen item as never-attempted', () => {
+    expect(getItemStatus({}, 'q1', NOW)).toBe('never-attempted');
+  });
+
+  it('classifies a wrong answer as due', () => {
+    const map = reviewItem({}, 'q1', false, NOW);
+    expect(getItemStatus(map, 'q1', NOW)).toBe('due');
+  });
+
+  it('classifies a correct answer not yet due as learning', () => {
+    const map = reviewItem({}, 'q1', true, NOW);
+    expect(getItemStatus(map, 'q1', NOW)).toBe('learning');
+  });
+
+  it('classifies an item that reached MAX_BOX as mastered, even if its dueAt is in the past', () => {
+    let map: Record<string, { box: number; dueAt: number }> = {};
+    for (let i = 0; i <= MAX_BOX; i++) {
+      map = reviewItem(map, 'q1', true, NOW);
+    }
+    expect(getItemStatus(map, 'q1', NOW + 999 * DAY_MS)).toBe('mastered');
+  });
+});
+
+describe('selectSessionItems', () => {
+  const item = (id: string) => ({ id });
+
+  it('fills the session with never-attempted items first when there are enough', () => {
+    const pool = [item('a'), item('b'), item('c'), item('d')];
+    const map = reviewItem({}, 'a', true, NOW); // 'a' has been seen, learning
+    const session = selectSessionItems(pool, map, 2, NOW);
+    expect(session.every(q => q.id !== 'a')).toBe(true);
+  });
+
+  it('prioritizes due items over already-learned ones when there are not enough unseen items', () => {
+    const pool = [item('learned'), item('due')];
+    let map = reviewItem({}, 'learned', true, NOW); // learning, not due yet
+    map = reviewItem(map, 'due', false, NOW); // wrong answer, due now
+    const session = selectSessionItems(pool, map, 1, NOW);
+    expect(session[0].id).toBe('due');
+  });
+
+  it('falls back to already-learned items to fill the session once new and due items run out', () => {
+    const pool = [item('learned')];
+    const map = reviewItem({}, 'learned', true, NOW);
+    const session = selectSessionItems(pool, map, 5, NOW);
+    expect(session).toHaveLength(1);
+    expect(session[0].id).toBe('learned');
+  });
+
+  it('caps the session at the requested size', () => {
+    const pool = [item('a'), item('b'), item('c')];
+    const session = selectSessionItems(pool, {}, 2, NOW);
+    expect(session).toHaveLength(2);
   });
 });

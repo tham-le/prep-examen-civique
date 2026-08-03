@@ -1,28 +1,55 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { THEMES, ALL_QUESTIONS, OFFICIAL_DB } from '../constants';
-import { Question } from '../types';
+import { Question, UserStats } from '../types';
+import { getItemStatus, ItemStatus } from '../services/spacedRepetition';
 
-export const RevisionMode: React.FC = () => {
+type StatusFilter = 'all' | 'due' | 'mastered' | 'never-attempted';
+
+const STATUS_LABEL: Record<ItemStatus, string> = {
+  'never-attempted': 'Jamais vue',
+  due: 'À revoir',
+  learning: 'En cours',
+  mastered: 'Maîtrisée',
+};
+
+const STATUS_BADGE_CLASS: Record<ItemStatus, string> = {
+  'never-attempted': 'bg-slate-100 dark:bg-slate-700 text-slate-400 dark:text-slate-500',
+  due: 'bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-400',
+  learning: 'bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400',
+  mastered: 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400',
+};
+
+const STATUS_BORDER_CLASS: Record<ItemStatus, string> = {
+  'never-attempted': 'border-slate-200 dark:border-slate-700',
+  due: 'border-rose-200 dark:border-rose-800',
+  learning: 'border-amber-200 dark:border-amber-800',
+  mastered: 'border-emerald-200 dark:border-emerald-800',
+};
+
+const STATUS_ICON: Record<ItemStatus, string> = {
+  'never-attempted': 'fa-circle',
+  due: 'fa-rotate-left',
+  learning: 'fa-hourglass-half',
+  mastered: 'fa-check',
+};
+
+interface RevisionModeProps {
+  userStats: UserStats;
+}
+
+export const RevisionMode: React.FC<RevisionModeProps> = ({ userStats }) => {
+  const navigate = useNavigate();
   const [selectedTheme, setSelectedTheme] = useState<string | null>(null);
+  const [statusFilter, setStatusFilter] = useState<StatusFilter>('all');
   const [expandedQuestions, setExpandedQuestions] = useState<Set<string>>(new Set());
-  const [reviewedQuestions, setReviewedQuestions] = useState<Set<string>>(new Set());
   const [searchQuery, setSearchQuery] = useState('');
   const [shuffled, setShuffled] = useState(false);
   const [shuffledOrder, setShuffledOrder] = useState<string[]>([]);
   const [focusedIndex, setFocusedIndex] = useState<number>(-1);
 
-  // Load reviewed questions from localStorage
-  useEffect(() => {
-    const saved = localStorage.getItem('objectif_citoyen_reviewed_questions');
-    if (saved) {
-      setReviewedQuestions(new Set(JSON.parse(saved) as string[]));
-    }
-  }, []);
-
-  const saveReviewedQuestions = (questions: Set<string>) => {
-    localStorage.setItem('objectif_citoyen_reviewed_questions', JSON.stringify([...questions]));
-  };
+  const mastery = userStats.questionMastery;
 
   const getQuestionsForTheme = (themeId: string): Question[] => {
     return OFFICIAL_DB[themeId] || [];
@@ -38,43 +65,20 @@ export const RevisionMode: React.FC = () => {
     setExpandedQuestions(newExpanded);
   };
 
-  const toggleReviewed = (questionId: string, e: React.MouseEvent) => {
-    e.stopPropagation();
-    const newReviewed = new Set<string>(reviewedQuestions);
-    if (newReviewed.has(questionId)) {
-      newReviewed.delete(questionId);
-    } else {
-      newReviewed.add(questionId);
-    }
-    setReviewedQuestions(newReviewed);
-    saveReviewedQuestions(newReviewed);
-  };
-
-  const markAsReviewedAndNext = (questionId: string, index: number) => {
-    // Mark as reviewed
-    const newReviewed = new Set<string>(reviewedQuestions);
-    newReviewed.add(questionId);
-    setReviewedQuestions(newReviewed);
-    saveReviewedQuestions(newReviewed);
-
-    // Collapse current and expand next
-    const newExpanded = new Set<string>(expandedQuestions);
-    newExpanded.delete(questionId);
-
+  const goToNext = (index: number) => {
     if (index < filteredQuestions.length - 1) {
-      const nextQuestion = filteredQuestions[index + 1];
-      newExpanded.add(nextQuestion.id);
+      const current = filteredQuestions[index];
+      const next = filteredQuestions[index + 1];
+      const newExpanded = new Set(expandedQuestions);
+      newExpanded.delete(current.id);
+      newExpanded.add(next.id);
+      setExpandedQuestions(newExpanded);
       setFocusedIndex(index + 1);
     }
-    setExpandedQuestions(newExpanded);
   };
 
   const expandAll = () => {
-    const questions = selectedTheme ? getQuestionsForTheme(selectedTheme) : ALL_QUESTIONS;
-    const filtered = searchQuery
-      ? questions.filter(q => q.text.toLowerCase().includes(searchQuery.toLowerCase()))
-      : questions;
-    setExpandedQuestions(new Set(filtered.map(q => q.id)));
+    setExpandedQuestions(new Set(filteredQuestions.map(q => q.id)));
   };
 
   const collapseAll = () => {
@@ -99,13 +103,6 @@ export const RevisionMode: React.FC = () => {
     setExpandedQuestions(new Set());
   };
 
-  const resetProgress = () => {
-    if (window.confirm('Réinitialiser la progression de révision ?')) {
-      setReviewedQuestions(new Set());
-      localStorage.removeItem('objectif_citoyen_reviewed_questions');
-    }
-  };
-
   // Get questions based on theme
   let questions = selectedTheme ? getQuestionsForTheme(selectedTheme) : ALL_QUESTIONS;
 
@@ -118,7 +115,7 @@ export const RevisionMode: React.FC = () => {
   }
 
   // Apply search filter
-  const filteredQuestions = searchQuery
+  const searchedQuestions = searchQuery
     ? questions.filter(q =>
         q.text.toLowerCase().includes(searchQuery.toLowerCase()) ||
         q.options[q.correctAnswer].toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -126,14 +123,20 @@ export const RevisionMode: React.FC = () => {
       )
     : questions;
 
+  // Status counts computed before the status filter itself is applied, so the
+  // filter chips always show how many questions each filter would reveal.
+  const masteredCount = searchedQuestions.filter(q => getItemStatus(mastery, q.id) === 'mastered').length;
+  const dueCount = searchedQuestions.filter(q => getItemStatus(mastery, q.id) === 'due').length;
+  const neverCount = searchedQuestions.filter(q => getItemStatus(mastery, q.id) === 'never-attempted').length;
+
+  const filteredQuestions = statusFilter === 'all'
+    ? searchedQuestions
+    : searchedQuestions.filter(q => getItemStatus(mastery, q.id) === statusFilter);
+
   const themeInfo = THEMES.find(t => t.id === selectedTheme);
-  const reviewedCount = filteredQuestions.filter(q => reviewedQuestions.has(q.id)).length;
-  const progressPercent = filteredQuestions.length > 0
-    ? Math.round((reviewedCount / filteredQuestions.length) * 100)
-    : 0;
 
   // Keyboard navigation
-  useEffect(() => {
+  React.useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (filteredQuestions.length === 0) return;
 
@@ -148,18 +151,6 @@ export const RevisionMode: React.FC = () => {
         if (focusedIndex >= 0 && focusedIndex < filteredQuestions.length) {
           toggleQuestion(filteredQuestions[focusedIndex].id);
         }
-      } else if (e.key === 'r' || e.key === 'R') {
-        if (focusedIndex >= 0 && focusedIndex < filteredQuestions.length) {
-          const q = filteredQuestions[focusedIndex];
-          const newReviewed = new Set<string>(reviewedQuestions);
-          if (newReviewed.has(q.id)) {
-            newReviewed.delete(q.id);
-          } else {
-            newReviewed.add(q.id);
-          }
-          setReviewedQuestions(newReviewed);
-          saveReviewedQuestions(newReviewed);
-        }
       }
     };
 
@@ -168,12 +159,19 @@ export const RevisionMode: React.FC = () => {
   });
 
   // Scroll focused item into view
-  useEffect(() => {
+  React.useEffect(() => {
     if (focusedIndex >= 0) {
       const element = document.getElementById(`revision-q-${focusedIndex}`);
       element?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
   }, [focusedIndex]);
+
+  const STATUS_FILTERS: { id: StatusFilter; label: string; count: number }[] = [
+    { id: 'all', label: `Toutes (${searchedQuestions.length})`, count: searchedQuestions.length },
+    { id: 'due', label: `À revoir (${dueCount})`, count: dueCount },
+    { id: 'mastered', label: `Maîtrisées (${masteredCount})`, count: masteredCount },
+    { id: 'never-attempted', label: `Jamais vues (${neverCount})`, count: neverCount },
+  ];
 
   return (
     <div className="max-w-4xl mx-auto space-y-6">
@@ -185,28 +183,25 @@ export const RevisionMode: React.FC = () => {
         </p>
       </div>
 
-      {/* Progress bar */}
+      {/* Progress bar: driven by real quiz/exam mastery, not a manual checkbox */}
       <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4">
         <div className="flex items-center justify-between mb-2">
           <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
-            Progression: {reviewedCount} / {filteredQuestions.length} questions révisées
+            Maîtrisées : {masteredCount} / {searchedQuestions.length}
           </span>
-          <span className="text-sm font-bold text-indigo-600 dark:text-indigo-400">{progressPercent}%</span>
+          <span className="text-sm font-bold text-emerald-600 dark:text-emerald-400">
+            {searchedQuestions.length > 0 ? Math.round((masteredCount / searchedQuestions.length) * 100) : 0}%
+          </span>
         </div>
         <div className="h-2 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
           <div
-            className="h-full bg-indigo-500 rounded-full transition-all duration-500"
-            style={{ width: `${progressPercent}%` }}
+            className="h-full bg-emerald-500 rounded-full transition-all duration-500"
+            style={{ width: `${searchedQuestions.length > 0 ? (masteredCount / searchedQuestions.length) * 100 : 0}%` }}
           ></div>
         </div>
-        {reviewedCount > 0 && (
-          <button
-            onClick={resetProgress}
-            className="text-xs text-slate-400 hover:text-rose-500 mt-2"
-          >
-            <i className="fas fa-redo mr-1"></i>Réinitialiser
-          </button>
-        )}
+        <p className="text-xs text-slate-400 dark:text-slate-500 mt-2">
+          La maîtrise vient de vos réponses en Quiz et en Examen Blanc, pas d'une simple lecture.
+        </p>
       </div>
 
       {/* Theme selector */}
@@ -239,6 +234,35 @@ export const RevisionMode: React.FC = () => {
           );
         })}
       </div>
+
+      {/* Status filter */}
+      <div className="flex flex-wrap justify-center gap-2">
+        {STATUS_FILTERS.map(f => (
+          <button
+            key={f.id}
+            onClick={() => setStatusFilter(f.id)}
+            className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
+              statusFilter === f.id
+                ? 'bg-slate-800 dark:bg-slate-200 text-white dark:text-slate-900'
+                : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'
+            }`}
+          >
+            {f.label}
+          </button>
+        ))}
+      </div>
+
+      {dueCount > 0 && (statusFilter === 'due' || statusFilter === 'all') && (
+        <div className="flex justify-center">
+          <button
+            onClick={() => navigate('/quiz?theme=weak')}
+            className="text-xs text-rose-600 dark:text-rose-400 hover:underline"
+          >
+            <i className="fas fa-arrow-right mr-1"></i>
+            Réviser ces {dueCount} question{dueCount > 1 ? 's' : ''} dans un Quiz
+          </button>
+        </div>
+      )}
 
       {/* Search and controls */}
       <div className="flex flex-col sm:flex-row gap-3">
@@ -303,16 +327,15 @@ export const RevisionMode: React.FC = () => {
       <p className="text-center text-xs text-slate-400 dark:text-slate-500">
         <kbd className="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded">↑</kbd>{' '}
         <kbd className="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded">↓</kbd> naviguer ·{' '}
-        <kbd className="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded">Entrée</kbd> ouvrir ·{' '}
-        <kbd className="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded">R</kbd> marquer révisé
+        <kbd className="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded">Entrée</kbd> ouvrir
       </p>
 
       {/* Questions list */}
       <div className="space-y-3">
         {filteredQuestions.map((question, index) => {
           const isExpanded = expandedQuestions.has(question.id);
-          const isReviewed = reviewedQuestions.has(question.id);
           const isFocused = focusedIndex === index;
+          const status = getItemStatus(mastery, question.id);
 
           return (
             <div
@@ -321,9 +344,7 @@ export const RevisionMode: React.FC = () => {
               className={`bg-white dark:bg-slate-800 rounded-xl border overflow-hidden transition-all ${
                 isFocused
                   ? 'border-indigo-500 ring-2 ring-indigo-200 dark:ring-indigo-800'
-                  : isReviewed
-                    ? 'border-emerald-200 dark:border-emerald-800'
-                    : 'border-slate-200 dark:border-slate-700'
+                  : STATUS_BORDER_CLASS[status]
               }`}
             >
               {/* Question header */}
@@ -332,12 +353,11 @@ export const RevisionMode: React.FC = () => {
                 className="w-full p-4 text-left flex items-start justify-between hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors"
               >
                 <div className="flex-1 pr-4 flex items-start">
-                  <span className={`text-xs mr-3 mt-1 px-2 py-0.5 rounded ${
-                    isReviewed
-                      ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400'
-                      : 'bg-slate-100 dark:bg-slate-700 text-slate-400 dark:text-slate-500'
-                  }`}>
-                    {isReviewed ? <i className="fas fa-check"></i> : `#${index + 1}`}
+                  <span
+                    title={STATUS_LABEL[status]}
+                    className={`text-xs mr-3 mt-1 px-2 py-0.5 rounded flex items-center gap-1 flex-shrink-0 ${STATUS_BADGE_CLASS[status]}`}
+                  >
+                    <i className={`fas ${STATUS_ICON[status]}`}></i>
                   </span>
                   <span className="text-slate-900 dark:text-white">{question.text}</span>
                 </div>
@@ -347,8 +367,14 @@ export const RevisionMode: React.FC = () => {
               {/* Expanded content - simplified: just answer + explanation */}
               {isExpanded && (
                 <div className="px-4 pb-4 space-y-3 border-t border-slate-100 dark:border-slate-700">
+                  <div className="pt-3 flex items-center gap-2">
+                    <span className={`text-xs px-2 py-0.5 rounded ${STATUS_BADGE_CLASS[status]}`}>
+                      {STATUS_LABEL[status]}
+                    </span>
+                  </div>
+
                   {/* Correct answer */}
-                  <div className="pt-3">
+                  <div>
                     <p className="text-xs text-slate-500 dark:text-slate-400 mb-2 uppercase tracking-wide">Réponse</p>
                     <div className="p-4 rounded-lg bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-200 dark:border-emerald-800">
                       <span className="flex items-center text-emerald-800 dark:text-emerald-300 font-medium">
@@ -369,29 +395,17 @@ export const RevisionMode: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Action buttons */}
-                  <div className="flex justify-between items-center pt-2">
-                    <button
-                      onClick={(e) => toggleReviewed(question.id, e)}
-                      className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                        isReviewed
-                          ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400'
-                          : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 hover:text-emerald-600'
-                      }`}
-                    >
-                      <i className={`fas ${isReviewed ? 'fa-check-circle' : 'fa-circle'} mr-2`}></i>
-                      {isReviewed ? 'Révisée' : 'Marquer comme révisée'}
-                    </button>
-
-                    {index < filteredQuestions.length - 1 && (
+                  {/* Navigation */}
+                  {index < filteredQuestions.length - 1 && (
+                    <div className="flex justify-end pt-2">
                       <button
-                        onClick={() => markAsReviewedAndNext(question.id, index)}
+                        onClick={() => goToNext(index)}
                         className="px-4 py-2 rounded-lg bg-indigo-600 text-white text-sm font-medium hover:bg-indigo-700 transition-colors"
                       >
                         Suivante <i className="fas fa-arrow-right ml-2"></i>
                       </button>
-                    )}
-                  </div>
+                    </div>
+                  )}
                 </div>
               )}
             </div>

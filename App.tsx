@@ -301,7 +301,7 @@ const AppRoutes: React.FC<AppRoutesProps> = ({ userStats, onStatsUpdate, onShowT
         <Route path="/" element={<HomePage userStats={userStats} />} />
         <Route path="/fiches" element={<LessonPage />} />
         <Route path="/flashcards" element={<Flashcards userStats={userStats} onStatsUpdate={onStatsUpdate} />} />
-        <Route path="/revision" element={<RevisionMode />} />
+        <Route path="/revision" element={<RevisionMode userStats={userStats} />} />
         <Route path="/quiz" element={<QuizPage userStats={userStats} onStatsUpdate={onStatsUpdate} />} />
         <Route path="/examen-blanc" element={<ExamSimulation onStatsUpdate={onStatsUpdate} userStats={userStats} />} />
         <Route path="/faq" element={<FAQPage />} />

@@ -3,7 +3,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { OFFICIAL_DB, THEMES, ALL_QUESTIONS } from '../constants';
 import { Question, UserStats } from '../types';
 import { processQuizResult, getBadgeInfo } from '../services/gamificationService';
-import { getDueIds } from '../services/spacedRepetition';
+import { getDueIds, selectSessionItems } from '../services/spacedRepetition';
 
 // Shuffle an array using Fisher-Yates algorithm
 const shuffleArray = <T,>(array: T[]): T[] => {
@@ -63,10 +63,9 @@ export const Quiz: React.FC<QuizProps> = ({ selectedTheme, onExit, onStatsUpdate
       pool = [...ALL_QUESTIONS];
     }
 
-    // Shuffle questions and randomize answer order for each
-    const shuffled = [...pool]
-      .sort(() => 0.5 - Math.random())
-      .slice(0, 10)
+    // Prioritize never-seen and due questions over ones already mastered,
+    // then randomize answer order for each
+    const shuffled = selectSessionItems(pool, userStats.questionMastery, 10)
       .map(shuffleQuestionOptions);
 
     setQuestions(shuffled);
