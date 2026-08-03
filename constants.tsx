@@ -2127,6 +2127,123 @@ const CULTURE_QUESTIONS: Question[] = [
     explanation: "Le 8 mai 1945 marque la victoire des Alliés et la fin de la Seconde Guerre mondiale en Europe.",
     category: "culture",
     type: 'multiple-choice'
+  },
+  {
+    id: 'c66',
+    text: "En quelle année la Première République a-t-elle été proclamée ?",
+    options: ["1789", "1792", "1804", "1848"],
+    correctAnswer: 1,
+    explanation: "La Première République est proclamée le 22 septembre 1792, après l'abolition de la royauté par la Convention nationale.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c67',
+    text: "La Deuxième République a été proclamée en quelle année ?",
+    options: ["1830", "1848", "1852", "1870"],
+    correctAnswer: 1,
+    explanation: "La Deuxième République est proclamée en 1848, après la révolution de février qui renverse le roi Louis-Philippe.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c68',
+    text: "La Troisième République a débuté en quelle année ?",
+    options: ["1848", "1852", "1870", "1940"],
+    correctAnswer: 2,
+    explanation: "La Troisième République est proclamée le 4 septembre 1870, après la chute du Second Empire.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c69',
+    text: "Quel régime politique a existé en France de 1940 à 1944 ?",
+    options: ["La Quatrième République", "Le régime de Vichy", "La Troisième République", "Le Gouvernement provisoire"],
+    correctAnswer: 1,
+    explanation: "Après l'armistice de juin 1940, le régime de Vichy, dirigé par le maréchal Pétain, collabore avec l'Allemagne nazie jusqu'à la Libération en 1944.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c70',
+    text: "La Quatrième République a été proclamée en quelle année ?",
+    options: ["1944", "1946", "1958", "1962"],
+    correctAnswer: 1,
+    explanation: "La Quatrième République est proclamée en 1946, après l'adoption de sa Constitution par référendum.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c71',
+    text: "En quelle année la loi légalisant l'interruption volontaire de grossesse (IVG) a-t-elle été adoptée ?",
+    options: ["1965", "1975", "1981", "1999"],
+    correctAnswer: 1,
+    explanation: "La loi du 17 janvier 1975, portée par Simone Veil, légalise l'interruption volontaire de grossesse.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c72',
+    text: "Que fait le Code civil de 1804, aussi appelé Code Napoléon ?",
+    options: ["Il unifie les règles de droit civil sur tout le territoire français", "Il instaure la séparation des Églises et de l'État", "Il crée la Sécurité sociale", "Il abolit la peine de mort"],
+    correctAnswer: 0,
+    explanation: "Promulgué en 1804 sous Napoléon Bonaparte, le Code civil unifie et modernise le droit civil, remplaçant la diversité des coutumes locales.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c73',
+    text: "Combien de jours fériés légaux existe-t-il en France ?",
+    options: ["8", "9", "11", "13"],
+    correctAnswer: 2,
+    explanation: "Le Code du travail fixe 11 jours fériés légaux en France, dont le 1er janvier, le 1er mai et le 25 décembre.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c74',
+    text: "Que célèbre-t-on en France le 1er mai ?",
+    options: ["La Fête nationale", "La Fête du Travail", "L'Armistice de 1918", "La Toussaint"],
+    correctAnswer: 1,
+    explanation: "Le 1er mai est la Fête du Travail, seul jour férié dont le chômage est obligatoire pour la plupart des salariés.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c75',
+    text: "Que célèbre le jour férié du 15 août en France ?",
+    options: ["L'Assomption", "La Pentecôte", "L'Ascension", "La Toussaint"],
+    correctAnswer: 0,
+    explanation: "Le 15 août correspond à la fête catholique de l'Assomption, jour férié en France.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c76',
+    text: "En quelle année l'Algérie a-t-elle accédé à l'indépendance ?",
+    options: ["1954", "1958", "1962", "1968"],
+    correctAnswer: 2,
+    explanation: "L'indépendance de l'Algérie est proclamée en juillet 1962, après les accords d'Évian signés en mars de la même année.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c77',
+    text: "Le traité de Rome, qui crée la Communauté économique européenne (CEE), a été signé en quelle année ?",
+    options: ["1945", "1951", "1957", "1992"],
+    correctAnswer: 2,
+    explanation: "Signé en 1957 par six pays dont la France, le traité de Rome crée la Communauté économique européenne, ancêtre de l'Union européenne.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c78',
+    text: "Que désigne le terme « la Shoah » ?",
+    options: ["Un traité de paix signé après la Première Guerre mondiale", "Le génocide des Juifs perpétré par le régime nazi pendant la Seconde Guerre mondiale", "Un mouvement de résistance française", "La reconstruction économique de la France après 1945"],
+    correctAnswer: 1,
+    explanation: "La Shoah désigne le génocide des Juifs d'Europe perpétré par le régime nazi et ses collaborateurs pendant la Seconde Guerre mondiale.",
+    category: "culture",
+    type: 'multiple-choice'
   }
 ];
 

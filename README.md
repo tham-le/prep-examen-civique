@@ -4,7 +4,7 @@ Une plateforme gratuite et open source pour préparer le nouvel examen civique f
 
 ## Fonctionnalités
 
-- **293 questions** couvrant les 5 thématiques officielles
+- **306 questions** couvrant les 5 thématiques officielles
 - **Examen blanc** en conditions réelles (40 questions, 45 minutes)
 - **Système de gamification** (XP, niveaux, 12 badges)
 - **Révision intelligente** (spaced repetition des points faibles)
