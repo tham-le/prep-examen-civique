@@ -1,14 +1,7 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route, Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { Header } from './components/Header';
-import { Quiz } from './components/Quiz';
-import { LessonView } from './components/LessonView';
-import { ExamSimulation } from './components/ExamSimulation';
-import { FAQPage } from './components/FAQPage';
-import { ProfilePage } from './components/ProfilePage';
-import { Flashcards } from './components/Flashcards';
-import { RevisionMode } from './components/RevisionMode';
 import { InstallPrompt } from './components/InstallPrompt';
 import { Onboarding } from './components/Onboarding';
 import { Logo } from './components/Logo';
@@ -17,6 +10,22 @@ import { THEMES, ALL_QUESTIONS } from './constants';
 import { UserStats } from './types';
 import { loadUserStats, saveUserStats, checkAndUpdateStreak, getLevelInfo, getXPProgress } from './services/gamificationService';
 import { countDue } from './services/spacedRepetition';
+
+// Code split per route: only the home page ships eagerly, everything else
+// loads on first visit to that route.
+const Quiz = lazy(() => import('./components/Quiz').then(m => ({ default: m.Quiz })));
+const LessonView = lazy(() => import('./components/LessonView').then(m => ({ default: m.LessonView })));
+const ExamSimulation = lazy(() => import('./components/ExamSimulation').then(m => ({ default: m.ExamSimulation })));
+const FAQPage = lazy(() => import('./components/FAQPage').then(m => ({ default: m.FAQPage })));
+const ProfilePage = lazy(() => import('./components/ProfilePage').then(m => ({ default: m.ProfilePage })));
+const Flashcards = lazy(() => import('./components/Flashcards').then(m => ({ default: m.Flashcards })));
+const RevisionMode = lazy(() => import('./components/RevisionMode').then(m => ({ default: m.RevisionMode })));
+
+const RouteLoadingFallback: React.FC = () => (
+  <div className="flex justify-center py-20">
+    <div className="w-10 h-10 border-3 border-indigo-600 border-t-transparent rounded-full animate-spin"></div>
+  </div>
+);
 
 interface HomePageProps {
   userStats: UserStats;
@@ -287,25 +296,27 @@ const AppRoutes: React.FC<AppRoutesProps> = ({ userStats, onStatsUpdate, onShowT
   usePageMeta();
 
   return (
-    <Routes>
-      <Route path="/" element={<HomePage userStats={userStats} />} />
-      <Route path="/fiches" element={<LessonPage />} />
-      <Route path="/flashcards" element={<Flashcards userStats={userStats} onStatsUpdate={onStatsUpdate} />} />
-      <Route path="/revision" element={<RevisionMode />} />
-      <Route path="/quiz" element={<QuizPage userStats={userStats} onStatsUpdate={onStatsUpdate} />} />
-      <Route path="/examen-blanc" element={<ExamSimulation onStatsUpdate={onStatsUpdate} userStats={userStats} />} />
-      <Route path="/faq" element={<FAQPage />} />
-      <Route
-        path="/profil"
-        element={
-          <ProfilePage
-            userStats={userStats}
-            onStatsUpdate={onStatsUpdate}
-            onShowTutorial={onShowTutorial}
-          />
-        }
-      />
-    </Routes>
+    <Suspense fallback={<RouteLoadingFallback />}>
+      <Routes>
+        <Route path="/" element={<HomePage userStats={userStats} />} />
+        <Route path="/fiches" element={<LessonPage />} />
+        <Route path="/flashcards" element={<Flashcards userStats={userStats} onStatsUpdate={onStatsUpdate} />} />
+        <Route path="/revision" element={<RevisionMode />} />
+        <Route path="/quiz" element={<QuizPage userStats={userStats} onStatsUpdate={onStatsUpdate} />} />
+        <Route path="/examen-blanc" element={<ExamSimulation onStatsUpdate={onStatsUpdate} userStats={userStats} />} />
+        <Route path="/faq" element={<FAQPage />} />
+        <Route
+          path="/profil"
+          element={
+            <ProfilePage
+              userStats={userStats}
+              onStatsUpdate={onStatsUpdate}
+              onShowTutorial={onShowTutorial}
+            />
+          }
+        />
+      </Routes>
+    </Suspense>
   );
 };
 

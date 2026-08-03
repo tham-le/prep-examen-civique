@@ -11,7 +11,7 @@ const SITE_URL = 'https://objectif-citoyen.fr';
 const PAGE_META: Record<string, PageMeta> = {
   '/': {
     title: "Objectif Citoyen - Réussir l'Examen Civique 2026",
-    description: "Préparez gratuitement le nouvel examen civique 2026 avec notre simulateur officiel, nos quiz thématiques et nos fiches de révision interactives. 125 questions, 5 thèmes officiels.",
+    description: "Préparez gratuitement le nouvel examen civique 2026 avec notre simulateur officiel, nos quiz thématiques et nos fiches de révision interactives. 293 questions, 5 thèmes officiels.",
   },
   '/quiz': {
     title: "Quiz Examen Civique 2026 par Thème | Objectif Citoyen",
@@ -27,7 +27,7 @@ const PAGE_META: Record<string, PageMeta> = {
   },
   '/revision': {
     title: "Mode Révision - Toutes les Questions | Objectif Citoyen",
-    description: "Parcourez l'intégralité des 125 questions officielles de l'examen civique pour une révision complète.",
+    description: "Parcourez l'intégralité des 293 questions officielles de l'examen civique pour une révision complète.",
   },
   '/examen-blanc': {
     title: "Examen Blanc Civique 2026 - Simulation Officielle | Objectif Citoyen",
