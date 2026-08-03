@@ -16,6 +16,7 @@ export const Header: React.FC<HeaderProps> = ({ userStats, darkMode, toggleDarkM
 
   const navItems = [
     { path: '/', label: 'Accueil', icon: 'fa-home' },
+    { path: '/quiz', label: 'Quiz', icon: 'fa-brain' },
     { path: '/fiches', label: 'Fiches', icon: 'fa-book-open' },
     { path: '/flashcards', label: 'Flashcards', icon: 'fa-clone' },
     { path: '/revision', label: 'Révision', icon: 'fa-list-check' },
