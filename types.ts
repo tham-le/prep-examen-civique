@@ -1,4 +1,6 @@
 
+export type ExamLevel = 'cr' | 'csp';
+
 export interface Question {
   id: string;
   text: string;
@@ -7,6 +9,8 @@ export interface Question {
   explanation: string;
   type?: 'multiple-choice' | 'scenario';
   category?: string;
+  // Only in the exam list of this residence permit; no level means both
+  level?: ExamLevel;
   difficulty?: 1 | 2 | 3;
 }
 
@@ -73,6 +77,8 @@ export interface UserStats {
   questionMastery: SRSMap;
   flashcardMastery: SRSMap;
   themeProgress: Record<string, { correct: number; total: number }>;
+  examLevel?: ExamLevel;
+  examDate?: string;
 }
 
 export interface FAQItem {

@@ -2,6 +2,8 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import React, { act } from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
+import { ALL_QUESTIONS } from './constants';
+import { forLevel } from './services/examLevel';
 
 (globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true;
 
@@ -27,5 +29,23 @@ describe('App', () => {
 
     const saved = JSON.parse(localStorage.getItem('objectif_citoyen_stats') ?? '{}');
     expect(Object.keys(saved.flashcardMastery ?? {})).toHaveLength(1);
+  });
+
+  it('narrows the question count to the chosen level and remembers it', async () => {
+    window.history.pushState({}, '', '/');
+    const container = document.createElement('div');
+    await act(async () => {
+      createRoot(container).render(<App />);
+    });
+    expect(container.textContent).toContain(`${ALL_QUESTIONS.length} questions sur les 5 thèmes`);
+
+    const csp = Array.from(container.querySelectorAll('button')).find(b => b.textContent === 'CSP');
+    await act(async () => {
+      csp!.click();
+    });
+    const expected = forLevel(ALL_QUESTIONS, 'csp').length;
+    expect(expected).toBeLessThan(ALL_QUESTIONS.length);
+    expect(container.textContent).toContain(`${expected} questions sur les 5 thèmes`);
+    expect(JSON.parse(localStorage.getItem('objectif_citoyen_stats') ?? '{}').examLevel).toBe('csp');
   });
 });

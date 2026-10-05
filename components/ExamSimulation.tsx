@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Question, UserStats } from '../types';
 import { ALL_QUESTIONS, OFFICIAL_DB, THEMES } from '../constants';
 import { buildExam } from '../services/examComposition';
+import { forLevel } from '../services/examLevel';
 import { processExamResult, getBadgeInfo, addExamResult, loadExamHistory } from '../services/gamificationService';
 
 // Shuffle an array using Fisher-Yates algorithm
@@ -61,8 +62,8 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({ onStatsUpdate, u
   const startSimulation = async () => {
     setLoading(true);
     const exam = buildExam(
-      THEMES.map(t => OFFICIAL_DB[t.id].filter(q => q.type !== 'scenario')),
-      ALL_QUESTIONS.filter(q => q.type === 'scenario')
+      THEMES.map(t => forLevel(OFFICIAL_DB[t.id], userStats.examLevel).filter(q => q.type !== 'scenario')),
+      forLevel(ALL_QUESTIONS, userStats.examLevel).filter(q => q.type === 'scenario')
     );
 
     // Randomize answer order for each question

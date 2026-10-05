@@ -1,8 +1,9 @@
 
 import React, { useState, useEffect } from 'react';
-import { UserStats } from '../types';
+import { ExamLevel, UserStats } from '../types';
 import { reviewItem, isMastered, countDue, selectSessionItems } from '../services/spacedRepetition';
 import { ALL_QUESTIONS, THEMES } from '../constants';
+import { forLevel } from '../services/examLevel';
 
 interface Flashcard {
   id: string;
@@ -10,6 +11,7 @@ interface Flashcard {
   front: string;
   back: string;
   detail?: string;
+  level?: ExamLevel;
 }
 
 const CURATED_CARDS: Flashcard[] = [
@@ -91,6 +93,7 @@ export const FLASHCARDS: Flashcard[] = [
     front: q.text,
     back: q.options[q.correctAnswer],
     detail: q.explanation,
+    level: q.level,
   })),
 ];
 
@@ -109,7 +112,7 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ userStats, onStatsUpdate
 
   const mastery = userStats.flashcardMastery;
   // New and due cards first; the order is fixed for the visit so cards do not jump after a review
-  const [ordered] = useState(() => selectSessionItems(FLASHCARDS, userStats.flashcardMastery, FLASHCARDS.length));
+  const [ordered] = useState(() => selectSessionItems(forLevel(FLASHCARDS, userStats.examLevel), userStats.flashcardMastery, FLASHCARDS.length));
   const allIds = FLASHCARDS.map(c => c.id);
   const dueCount = countDue(mastery, allIds);
   const masteredCount = FLASHCARDS.filter(card => isMastered(mastery, card.id)).length;

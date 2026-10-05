@@ -1,7 +1,8 @@
 
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { THEMES, ALL_QUESTIONS, OFFICIAL_DB } from '../constants';
+import { THEMES, ALL_QUESTIONS as BANK, OFFICIAL_DB } from '../constants';
+import { forLevel } from '../services/examLevel';
 import { Question, UserStats } from '../types';
 import { getItemStatus, ItemStatus } from '../services/spacedRepetition';
 
@@ -53,9 +54,10 @@ export const RevisionMode: React.FC<RevisionModeProps> = ({ userStats }) => {
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
   const mastery = userStats.questionMastery;
+  const ALL_QUESTIONS = forLevel(BANK, userStats.examLevel);
 
   const getQuestionsForTheme = (themeId: string): Question[] => {
-    return OFFICIAL_DB[themeId] || [];
+    return forLevel(OFFICIAL_DB[themeId] || [], userStats.examLevel);
   };
 
   const toggleQuestion = (questionId: string) => {

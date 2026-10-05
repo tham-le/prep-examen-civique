@@ -47,6 +47,7 @@ const VALEURS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Le drapeau tricolore bleu, blanc, rouge est l'emblème national. Le bleu et le rouge sont les couleurs de Paris, le blanc représentait la monarchie.",
     category: "valeurs",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -56,6 +57,7 @@ const VALEURS_QUESTIONS: Question[] = [
     correctAnswer: 0,
     explanation: "L'égalité signifie que tous les citoyens sont égaux devant la loi, sans distinction d'origine, de race ou de religion.",
     category: "valeurs",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -335,6 +337,7 @@ const VALEURS_QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "La loi de 2004 interdit le port de signes religieux ostensibles dans les écoles publiques.",
     category: "valeurs",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -344,6 +347,7 @@ const VALEURS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "L'État est neutre : il ne reconnaît, ne subventionne ni ne salarie aucun culte.",
     category: "valeurs",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -353,6 +357,7 @@ const VALEURS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "La liberté d'expression permet d'exprimer ses opinions, mais elle est limitée par la loi (diffamation, incitation à la haine).",
     category: "valeurs",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -362,6 +367,7 @@ const VALEURS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "La répudiation est interdite en France. Seul le divorce prononcé par un juge est reconnu.",
     category: "valeurs",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -371,6 +377,7 @@ const VALEURS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Outrager publiquement le drapeau français est une infraction punie par la loi.",
     category: "valeurs",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -380,6 +387,7 @@ const VALEURS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "L'État a mis en place le Défenseur des droits et de nombreuses lois contre les discriminations.",
     category: "valeurs",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -389,6 +397,7 @@ const VALEURS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "L'impôt est une contribution obligatoire de tous selon leurs moyens pour financer les services publics.",
     category: "valeurs",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -407,6 +416,7 @@ const VALEURS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Marianne figure sur les timbres-poste, dans les mairies et sur de nombreux documents officiels.",
     category: "valeurs",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -416,6 +426,7 @@ const VALEURS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "La discrimination à l'embauche fondée sur le sexe est interdite par la loi.",
     category: "valeurs",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -515,6 +526,7 @@ const VALEURS_QUESTIONS: Question[] = [
     correctAnswer: 0,
     explanation: "Voter, être candidat, adhérer à une association ou être juré sont des formes de participation citoyenne à la vie du pays.",
     category: "valeurs",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -524,6 +536,7 @@ const VALEURS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Le titre de séjour est le document qui autorise une personne étrangère à résider en France.",
     category: "valeurs",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -533,6 +546,7 @@ const VALEURS_QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "La liberté d'aller et venir est un droit fondamental. Elle s'exerce dans le respect de la loi et de la propriété privée.",
     category: "valeurs",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -542,6 +556,7 @@ const VALEURS_QUESTIONS: Question[] = [
     correctAnswer: 3,
     explanation: "Les sites officiels de l'État (adresse en .gouv.fr) affichent le bloc-marque « République française » avec Marianne et la devise.",
     category: "valeurs",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -551,6 +566,7 @@ const VALEURS_QUESTIONS: Question[] = [
     correctAnswer: 0,
     explanation: "Le refrain de la Marseillaise dit : « Aux armes, citoyens ! Formez vos bataillons ».",
     category: "valeurs",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -560,6 +576,7 @@ const VALEURS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Le premier couplet de la Marseillaise commence par : « Allons enfants de la patrie, le jour de gloire est arrivé ! ».",
     category: "valeurs",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -569,6 +586,7 @@ const VALEURS_QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "La liberté individuelle protège chacun contre l'arbitraire. Elle s'arrête là où commencent les droits des autres et où la loi l'interdit.",
     category: "valeurs",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -587,6 +605,7 @@ const VALEURS_QUESTIONS: Question[] = [
     correctAnswer: 0,
     explanation: "L'école est mixte et l'éducation physique fait partie du programme. Seul un motif médical peut dispenser un élève.",
     category: "valeurs",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -641,6 +660,7 @@ const VALEURS_QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "Le service public repose sur l'égalité, la neutralité et la continuité. Chaque usager a droit à un traitement égal, et les agents publics traitent chaque demande de la même façon. En retour, l'usager ne peut pas choisir son agent, exiger d'être servi en premier, ni demander un traitement d'exception pour un motif religieux. Il doit respecter les règles de la mairie et faire preuve de civisme envers le personnel.",
     category: "valeurs",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -650,6 +670,7 @@ const VALEURS_QUESTIONS: Question[] = [
     correctAnswer: 3,
     explanation: "Tous les agents publics doivent rester neutres et ne pas montrer leurs convictions religieuses dans l'exercice de leurs fonctions.",
     category: "valeurs",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -659,6 +680,7 @@ const VALEURS_QUESTIONS: Question[] = [
     correctAnswer: 0,
     explanation: "La liberté de conscience inclut le droit de changer de religion ou de la quitter.",
     category: "valeurs",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -668,6 +690,7 @@ const VALEURS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Dans les écoles, collèges et lycées publics, les élèves ne peuvent pas porter de signes ou de tenues qui manifestent ostensiblement une appartenance religieuse.",
     category: "valeurs",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -677,6 +700,7 @@ const VALEURS_QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "L'article 1er ajoute que la France assure l'égalité devant la loi de tous les citoyens et respecte toutes les croyances.",
     category: "valeurs",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -686,6 +710,7 @@ const VALEURS_QUESTIONS: Question[] = [
     correctAnswer: 3,
     explanation: "« Liberté, Égalité, Fraternité » est inscrite sur les bâtiments publics comme les mairies et les écoles.",
     category: "valeurs",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -695,6 +720,7 @@ const VALEURS_QUESTIONS: Question[] = [
     correctAnswer: 0,
     explanation: "Une association réunit des personnes pour un projet commun (sport, culture, entraide) dans un but non lucratif.",
     category: "valeurs",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -704,6 +730,7 @@ const VALEURS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Le drapeau bleu, blanc, rouge est l'emblème national.",
     category: "valeurs",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -713,6 +740,7 @@ const VALEURS_QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "Chaque 14 juillet, un défilé militaire descend les Champs-Élysées à Paris devant le président de la République.",
     category: "valeurs",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -731,6 +759,7 @@ const VALEURS_QUESTIONS: Question[] = [
     correctAnswer: 0,
     explanation: "L'instruction est obligatoire pour tous les enfants. Une raison religieuse ne permet pas de refuser l'école.",
     category: "valeurs",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -740,6 +769,7 @@ const VALEURS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "L'égalité entre les femmes et les hommes interdit la discrimination à l'embauche. Les exceptions sont très limitées.",
     category: "valeurs",
+    level: 'csp',
     type: 'multiple-choice'
   }
 ];
@@ -854,6 +884,7 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Le préfet représente l'État dans le département et veille à l'application des lois.",
     category: "institutions",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -1025,6 +1056,7 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Le Défenseur des droits est une autorité indépendante qui veille au respect des droits des citoyens.",
     category: "institutions",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -1061,6 +1093,7 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Le Royaume-Uni a quitté l'Union européenne le 31 janvier 2020 (Brexit).",
     category: "institutions",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -1097,6 +1130,7 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Le drapeau européen est bleu avec un cercle de 12 étoiles jaunes.",
     category: "institutions",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -1106,6 +1140,7 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "Le siège officiel du Parlement européen est à Strasbourg, en France.",
     category: "institutions",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -1115,6 +1150,7 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "La Commission européenne siège à Bruxelles, en Belgique.",
     category: "institutions",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -1142,6 +1178,7 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Les communes gèrent les écoles primaires, l'urbanisme, l'état civil et les services de proximité.",
     category: "institutions",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -1151,6 +1188,7 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "L'Hôtel de Matignon est la résidence officielle et le lieu de travail du Premier ministre.",
     category: "institutions",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -1160,6 +1198,7 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "Les pièces et billets en euros sont utilisés en France depuis le 1er janvier 2002.",
     category: "institutions",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -1169,6 +1208,7 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Le traité de Rome (1957) a créé la Communauté économique européenne, ancêtre de l'UE.",
     category: "institutions",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -1187,6 +1227,7 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Le président veille au respect de la Constitution, garantit l'indépendance nationale et l'intégrité du territoire.",
     category: "institutions",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -1307,6 +1348,7 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "L'État de droit limite le pouvoir par la loi et protège les droits et libertés de chacun.",
     category: "institutions",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -1316,6 +1358,7 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     correctAnswer: 3,
     explanation: "Le président n'a pas d'impunité totale. L'article 67 de la Constitution le protège pendant son mandat : il ne peut pas être arrêté, entendu ni poursuivi par les juridictions ordinaires, et les enquêtes sont suspendues. Elles peuvent reprendre un mois après la fin de ses fonctions, quand il redevient un justiciable ordinaire. Pendant le mandat, seul le Parlement réuni en Haute Cour peut le destituer, en cas de manquement à ses devoirs manifestement incompatible avec son mandat (article 68).",
     category: "institutions",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -1325,6 +1368,7 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     correctAnswer: 0,
     explanation: "L'article 6 de la Déclaration de 1789 dit que la loi est l'expression de la volonté générale.",
     category: "institutions",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -1334,6 +1378,7 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Les conseillers municipaux sont élus pour 6 ans. Le maire est élu par le conseil municipal pour la même durée.",
     category: "institutions",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -1343,6 +1388,7 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "Le vote est personnel, mais un électeur absent peut donner une procuration. Celui qui la donne est le mandant, celui qui vote à sa place est le mandataire. Le mandataire doit être inscrit sur les listes électorales, mais pas forcément dans la même commune. Il ne peut recevoir qu'une seule procuration établie en France. Le jour du vote, il va au bureau de vote du mandant avec sa propre pièce d'identité, sans la carte électorale du mandant. La demande se fait sur maprocuration.gouv.fr, puis l'identité est confirmée avec une application ou dans un commissariat ou une gendarmerie.",
     category: "institutions",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -1352,6 +1398,7 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     correctAnswer: 3,
     explanation: "La France est organisée en communes, départements et régions, qui sont des collectivités territoriales.",
     category: "institutions",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -1361,6 +1408,7 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     correctAnswer: 0,
     explanation: "La séparation des pouvoirs évite les abus : chaque pouvoir limite les autres.",
     category: "institutions",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -1487,6 +1535,7 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "Dans une démocratie, les citoyens choisissent leurs dirigeants par des élections libres.",
     category: "institutions",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -1496,6 +1545,7 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     correctAnswer: 3,
     explanation: "La loi s'impose à tous. Pour la changer, on peut voter, manifester ou s'engager dans une association.",
     category: "institutions",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -1505,6 +1555,7 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     correctAnswer: 0,
     explanation: "La loi s'applique à tous : citoyens, étrangers, dirigeants et institutions.",
     category: "institutions",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -1514,6 +1565,7 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "L'autorité judiciaire, composée des juges, applique la loi et rend la justice.",
     category: "institutions",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -1523,6 +1575,7 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "Les juges détiennent le pouvoir judiciaire.",
     category: "institutions",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -1532,6 +1585,7 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     correctAnswer: 3,
     explanation: "Les magistrats, juges et procureurs, exercent l'autorité judiciaire. Ils sont indépendants.",
     category: "institutions",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -1541,6 +1595,7 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     correctAnswer: 0,
     explanation: "Les élections législatives servent à élire les 577 députés de l'Assemblée nationale.",
     category: "institutions",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -1550,6 +1605,7 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Les sénateurs sont élus pour 6 ans par des grands électeurs. Le Sénat est renouvelé par moitié tous les 3 ans.",
     category: "institutions",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -1559,6 +1615,7 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "Les citoyens élisent les conseillers municipaux. Le conseil municipal élit ensuite le maire.",
     category: "institutions",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -1568,6 +1625,7 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     correctAnswer: 3,
     explanation: "Le président de la République est élu au suffrage universel direct.",
     category: "institutions",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -1577,6 +1635,7 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     correctAnswer: 0,
     explanation: "On peut voter à partir de 18 ans, âge de la majorité civile.",
     category: "institutions",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -1604,6 +1663,7 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     correctAnswer: 3,
     explanation: "Les députés votent la loi, votent le budget et contrôlent l'action du Gouvernement.",
     category: "institutions",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -1613,6 +1673,7 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     correctAnswer: 0,
     explanation: "Le palais de l'Élysée, à Paris, est la résidence et le lieu de travail du président de la République.",
     category: "institutions",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -1640,6 +1701,7 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     correctAnswer: 3,
     explanation: "L'Union européenne compte 27 États membres depuis le départ du Royaume-Uni en 2020.",
     category: "institutions",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -1649,6 +1711,7 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     correctAnswer: 0,
     explanation: "L'euro est la monnaie de la France depuis 2002.",
     category: "institutions",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -1658,6 +1721,7 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Les députés européens sont élus au suffrage universel direct par les citoyens de l'Union.",
     category: "institutions",
+    level: 'csp',
     type: 'multiple-choice'
   }
 ];
@@ -1961,6 +2025,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Le PACS (Pacte Civil de Solidarité) est un contrat conclu entre deux personnes majeures pour organiser leur vie commune.",
     category: "droits",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -1970,6 +2035,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "La dignité humaine est le respect fondamental dû à toute personne, quelles que soient ses origines ou sa situation.",
     category: "droits",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -1979,6 +2045,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Le droit de manifester permet aux citoyens de se réunir pacifiquement pour exprimer leurs opinions.",
     category: "droits",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -1988,6 +2055,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Le droit de grève permet aux salariés de cesser collectivement le travail pour défendre leurs revendications.",
     category: "droits",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -1997,6 +2065,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "La liberté de la presse garantit le droit d'informer et d'être informé, essentiel à la démocratie.",
     category: "droits",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2006,6 +2075,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "La Charte de l'environnement (2004) garantit le droit de vivre dans un environnement équilibré et respectueux de la santé.",
     category: "droits",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2015,6 +2085,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 0,
     explanation: "La PMA (Procréation Médicalement Assistée) est un ensemble de techniques médicales pour aider à la procréation.",
     category: "droits",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2033,6 +2104,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Jeter un mégot par terre est passible d'une amende de 68€ minimum.",
     category: "droits",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2042,6 +2114,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Les libertés peuvent être limitées pour protéger l'ordre public, la sécurité et les droits d'autrui.",
     category: "droits",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2051,6 +2124,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "L'assistance à personne en danger est une obligation légale : ne pas aider quelqu'un en péril est un délit.",
     category: "droits",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2087,6 +2161,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Le droit d'asile permet à une personne persécutée dans son pays d'obtenir une protection en France.",
     category: "droits",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2096,6 +2171,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "La durée légale du travail est de 35 heures par semaine depuis 2000, les heures au-delà sont des heures supplémentaires.",
     category: "droits",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -2141,6 +2217,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 3,
     explanation: "La PMA (procréation médicalement assistée) fait référence à la liberté de fonder une famille et de choisir de devenir parent. Depuis la loi de bioéthique de 2021, elle est ouverte aux couples formés d'un homme et d'une femme, aux couples de femmes et aux femmes non mariées. Son accès est encadré par la loi.",
     category: "droits",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2150,6 +2227,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 0,
     explanation: "Une liberté peut être limitée par la loi pour protéger l'ordre public, la sécurité ou les droits des autres.",
     category: "droits",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2186,6 +2264,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 0,
     explanation: "C'est la première phrase de l'article 1er de la Déclaration de 1789.",
     category: "droits",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2195,6 +2274,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "L'IVG est autorisée en France depuis la loi Veil de 1975. Elle est possible jusqu'à 14 semaines de grossesse et la liberté d'y recourir est inscrite dans la Constitution depuis 2024.",
     category: "droits",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2204,6 +2284,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "La Constitution organise les institutions et affirme les droits et libertés fondamentaux.",
     category: "droits",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2213,6 +2294,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 3,
     explanation: "La Constitution est la norme la plus élevée. Sa révision demande une procédure particulière : un vote du Parlement réuni en Congrès à la majorité des 3/5, ou un référendum.",
     category: "droits",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2240,6 +2322,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "C'est la femme enceinte qui décide, majeure ou mineure. Elle fait la demande elle-même.",
     category: "droits",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2249,6 +2332,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 3,
     explanation: "Les femmes votent en France depuis 1944. Elles ont voté pour la première fois en 1945.",
     category: "droits",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2258,6 +2342,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 0,
     explanation: "Trier ses déchets permet leur recyclage et protège l'environnement.",
     category: "droits",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2267,6 +2352,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Payer ses impôts selon ses revenus est une obligation. Voter est un droit, pas une obligation.",
     category: "droits",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2276,6 +2362,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "Toute personne présente sur le territoire doit respecter la loi. La JDC et le vote concernent les citoyens français.",
     category: "droits",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2285,6 +2372,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 3,
     explanation: "La loi punit l'injure, la diffamation, l'incitation à la haine, la discrimination et l'apologie du terrorisme.",
     category: "droits",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2303,6 +2391,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Chacun doit porter assistance à une personne en danger, en alertant les secours quand on ne peut pas intervenir sans risque.",
     category: "droits",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2312,6 +2401,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "Les forces de l'ordre agissent au nom de la loi. On doit leur obéir, et on peut contester ensuite une décision injuste.",
     category: "droits",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2330,6 +2420,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 0,
     explanation: "Interdire de fumer dans les lieux publics protège la santé de tous.",
     category: "droits",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2339,6 +2430,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "La police nationale et la gendarmerie nationale assurent la sécurité et l'ordre public.",
     category: "droits",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2357,6 +2449,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 3,
     explanation: "Le meurtre et le viol sont des crimes, jugés par la cour d'assises. Le vol est un délit.",
     category: "droits",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2366,6 +2459,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 0,
     explanation: "Le vol est un délit, jugé par le tribunal correctionnel. Le stationnement gênant et le tapage nocturne sont des contraventions.",
     category: "droits",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2375,6 +2469,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Le dépôt sauvage de déchets est puni d'une amende. Le tri protège l'environnement.",
     category: "droits",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2384,6 +2479,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "La Constitution de la Ve République date de 1958.",
     category: "droits",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -2393,6 +2489,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 3,
     explanation: "La Constitution de 1958 garantit les droits et libertés, avec la Déclaration de 1789 et le préambule de 1946 auxquels elle renvoie.",
     category: "droits",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -2411,6 +2508,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "La liberté d'expression est un droit fondamental garanti par la Déclaration de 1789.",
     category: "droits",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -2420,6 +2518,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "Toute personne accusée peut être assistée par un avocat et se défendre. C'est le droit à la défense.",
     category: "droits",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -2447,6 +2546,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "On ne peut être marié qu'avec une seule personne à la fois. La bigamie est un délit.",
     category: "droits",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -2456,6 +2556,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "Réduire ses déchets protège l'environnement. C'est un devoir de chaque citoyen.",
     category: "droits",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -2465,6 +2566,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 3,
     explanation: "On réduit ses déchets en évitant le gaspillage, en réparant, en réutilisant et en triant.",
     category: "droits",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -2474,6 +2576,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 0,
     explanation: "Porter assistance à une personne en danger est une obligation. On protège les lieux, on alerte les secours et on aide sans se mettre en danger.",
     category: "droits",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -2483,6 +2586,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Les citoyens français ont des droits civiques comme voter et être élus. Ils ont aussi des devoirs.",
     category: "droits",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -2492,6 +2596,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "Celui qui enfreint la loi risque une sanction décidée par un juge.",
     category: "droits",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -2510,6 +2615,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 0,
     explanation: "Il existe trois sortes d'infractions : la contravention, le délit et le crime.",
     category: "droits",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -2519,6 +2625,7 @@ const DROITS_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "La traite des êtres humains est un crime. Elle consiste à recruter, transporter ou héberger des personnes pour les exploiter.",
     category: "droits",
+    level: 'csp',
     type: 'multiple-choice'
   }
 ];
@@ -2732,6 +2839,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "La Seine traverse Paris d'est en ouest et divise la ville entre rive droite et rive gauche.",
     category: "culture",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2813,6 +2921,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 0,
     explanation: "Louis XIV était surnommé le Roi Soleil en raison de son règne éclatant et centralisateur.",
     category: "culture",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2822,6 +2931,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Jean Moulin était un héros de la Résistance française, mort sous la torture nazie en 1943.",
     category: "culture",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2831,6 +2941,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Les femmes françaises ont obtenu le droit de vote en 1944 et ont voté pour la première fois en 1945.",
     category: "culture",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2840,6 +2951,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "L'Organisation des Nations Unies (ONU) a été créée en 1945 pour maintenir la paix mondiale.",
     category: "culture",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2849,6 +2961,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "La peine de mort a été abolie en France en 1981 sous la présidence de François Mitterrand.",
     category: "culture",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2858,6 +2971,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Le débarquement du 6 juin 1944 (D-Day) a eu lieu sur les plages de Normandie.",
     category: "culture",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2867,6 +2981,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "La France compte environ 68 millions d'habitants (métropole et outre-mer).",
     category: "culture",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2876,6 +2991,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "La Belgique partage une frontière avec le nord-est de la France.",
     category: "culture",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2894,6 +3010,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Marguerite Yourcenar était une écrivaine française, première femme élue à l'Académie française en 1980.",
     category: "culture",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2903,6 +3020,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Auguste Rodin était un sculpteur français célèbre pour 'Le Penseur' et 'Le Baiser'.",
     category: "culture",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2912,6 +3030,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "Auguste Renoir était un peintre impressionniste français du XIXe siècle.",
     category: "culture",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2921,6 +3040,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "La cathédrale Notre-Dame de Paris a été gravement endommagée par un incendie le 15 avril 2019.",
     category: "culture",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2930,6 +3050,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "Environ 300 millions de personnes parlent français dans le monde (francophonie).",
     category: "culture",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2939,6 +3060,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Les Journées européennes du patrimoine (septembre) permettent de visiter gratuitement de nombreux sites.",
     category: "culture",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2948,6 +3070,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Environ 80% des Français vivent en zone urbaine.",
     category: "culture",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2957,6 +3080,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "La France est le pays le plus visité au monde avec environ 90 millions de touristes par an.",
     category: "culture",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2966,6 +3090,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "La Réunion est un département français situé dans l'océan Indien.",
     category: "culture",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -2975,6 +3100,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "La Manche sépare la France de l'Angleterre.",
     category: "culture",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -3200,6 +3326,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 0,
     explanation: "Marianne est la figure qui symbolise la République française.",
     category: "culture",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -3209,6 +3336,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Le 18 juin 1940, depuis Londres, le général de Gaulle appelle les Français à continuer le combat.",
     category: "culture",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -3227,6 +3355,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 3,
     explanation: "Un référendum a adopté ce mode d'élection en 1962. La première élection a eu lieu en 1965.",
     category: "culture",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -3236,6 +3365,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 0,
     explanation: "Le traité de Paris de 1951 crée la CECA entre six pays, pour mettre en commun la production de charbon et d'acier.",
     category: "culture",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -3245,6 +3375,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "La loi d'abolition a été votée en 1981 sous la présidence de François Mitterrand, sur proposition du garde des Sceaux Robert Badinter.",
     category: "culture",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -3263,6 +3394,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 3,
     explanation: "La plupart des anciennes colonies françaises sont en Afrique. Beaucoup sont devenues indépendantes autour de 1960.",
     category: "culture",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -3290,6 +3422,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "L'activité économique se concentre en Île-de-France, qui produit près de 30 % du PIB, avec Paris et le quartier d'affaires de La Défense (sièges d'entreprises, finance, recherche). Les grandes métropoles comptent aussi : Lyon (chimie, pharmacie, industrie), Toulouse (aéronautique et spatial), Marseille (grand port, commerce). Nantes, Bordeaux, Rennes et Lille se développent. L'industrie est présente autour de Lyon, dans le Grand Est, les Hauts-de-France et l'Ouest. L'agriculture est forte dans le Bassin parisien, en Bretagne et en Nouvelle-Aquitaine.",
     category: "culture",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -3299,6 +3432,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 3,
     explanation: "L'Île-de-France compte plus de 12 millions d'habitants, soit près d'un Français sur cinq.",
     category: "culture",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -3308,6 +3442,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 0,
     explanation: "Paris, Lyon, Marseille, Toulouse, Lille, Bordeaux, Nice, Nantes, Strasbourg ou Montpellier sont parmi les plus grandes métropoles.",
     category: "culture",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -3317,6 +3452,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Paris est le département qui reçoit le plus de touristes, grâce à la tour Eiffel, au Louvre et à Notre-Dame. Viennent ensuite notamment la Seine-et-Marne (Disneyland Paris), les Alpes-Maritimes et les Bouches-du-Rhône, pour le tourisme du littoral et des villes du Sud. Par habitant, la Corse-du-Sud est souvent en tête.",
     category: "culture",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -3335,6 +3471,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 3,
     explanation: "Selon l'Organisation internationale de la Francophonie, le français est la 5e langue la plus parlée au monde, après l'anglais, le chinois, l'hindi et l'espagnol.",
     category: "culture",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -3353,6 +3490,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Claude Debussy est un compositeur français, auteur de Clair de lune.",
     category: "culture",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -3380,6 +3518,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 0,
     explanation: "Louis Pasteur est un scientifique français, inventeur du vaccin contre la rage.",
     category: "culture",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -3389,6 +3528,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "La France vit sous la Ve République depuis la Constitution de 1958.",
     category: "culture",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -3398,6 +3538,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "Les lois de Jules Ferry, en 1881 et 1882, ont rendu l'école primaire gratuite, laïque et obligatoire.",
     category: "culture",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -3407,6 +3548,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 3,
     explanation: "La Seconde Guerre mondiale a duré de 1939 à 1945.",
     category: "culture",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -3425,6 +3567,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "L'esclavage a été aboli définitivement par le décret du 27 avril 1848, grâce notamment à Victor Schœlcher.",
     category: "culture",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -3434,6 +3577,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "La gratuité de l'école primaire publique date de la loi du 16 juin 1881.",
     category: "culture",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -3452,6 +3596,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 0,
     explanation: "Charles de Gaulle a fait adopter la Constitution de 1958 et il a été le premier président de la Ve République.",
     category: "culture",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -3461,6 +3606,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "La Constitution de la Ve République, toujours en vigueur, a été adoptée en 1958.",
     category: "culture",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -3497,6 +3643,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "La France métropolitaine est située en Europe de l'Ouest.",
     category: "culture",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -3506,6 +3653,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "La Martinique est un département d'outre-mer, comme la Guadeloupe, la Guyane, La Réunion et Mayotte.",
     category: "culture",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -3524,6 +3672,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 0,
     explanation: "Marseille et Nice sont des villes françaises au bord de la Méditerranée.",
     category: "culture",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -3533,6 +3682,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "La Corse est une île française de la mer Méditerranée.",
     category: "culture",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -3551,6 +3701,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 3,
     explanation: "Molière est un dramaturge français, auteur de comédies comme Le Malade imaginaire et L'Avare.",
     category: "culture",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -3560,6 +3711,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 0,
     explanation: "Charles Baudelaire est l'auteur du recueil de poèmes Les Fleurs du mal.",
     category: "culture",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -3569,6 +3721,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "George Sand est le pseudonyme de l'écrivaine Aurore Dupin, auteure de La Mare au diable.",
     category: "culture",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -3578,6 +3731,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "Simone de Beauvoir est l'auteure du Deuxième Sexe, une œuvre majeure du féminisme.",
     category: "culture",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -3587,6 +3741,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 3,
     explanation: "Albert Camus est l'auteur de L'Étranger. Il a reçu le prix Nobel de littérature en 1957.",
     category: "culture",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -3596,6 +3751,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 0,
     explanation: "Paul Cézanne est un peintre français né à Aix-en-Provence.",
     category: "culture",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -3605,6 +3761,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Marc Chagall est un peintre né dans l'Empire russe, devenu français en 1937.",
     category: "culture",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -3614,6 +3771,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "Joséphine Baker, née aux États-Unis et devenue française, a été résistante. Elle est entrée au Panthéon en 2021.",
     category: "culture",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -3641,6 +3799,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Jean de La Fontaine est connu pour ses Fables, comme Le Corbeau et le Renard.",
     category: "culture",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -3650,6 +3809,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "La tour Eiffel a été construite pour l'Exposition universelle de 1889 à Paris.",
     category: "culture",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -3659,6 +3819,7 @@ const CULTURE_QUESTIONS: Question[] = [
     correctAnswer: 3,
     explanation: "Noël est célébré le 25 décembre. C'est un jour férié en France.",
     category: "culture",
+    level: 'csp',
     type: 'multiple-choice'
   }
 ];
@@ -3890,6 +4051,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Seul le mariage civil célébré en mairie est reconnu par l'État français.",
     category: "societe",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -3899,6 +4061,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "En principe, l'autorité parentale reste exercée conjointement par les deux parents après le divorce.",
     category: "societe",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -3908,6 +4071,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 0,
     explanation: "L'aide juridictionnelle permet aux personnes à faibles revenus d'accéder gratuitement à un avocat.",
     category: "societe",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -3917,6 +4081,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Les appareils électroménagers doivent être déposés en déchetterie ou repris par le vendeur.",
     category: "societe",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -3926,6 +4091,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "Le congé parental d'éducation peut être pris par le père ou la mère pour élever son enfant.",
     category: "societe",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -3935,6 +4101,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Le conseil de prud'hommes règle les litiges individuels entre salariés et employeurs.",
     category: "societe",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -3944,6 +4111,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Le droit syndical garantit aux salariés le droit de créer ou d'adhérer à un syndicat de leur choix.",
     category: "societe",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -3953,6 +4121,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Le diplôme national du brevet (DNB) est passé à la fin de la classe de troisième.",
     category: "societe",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -3962,6 +4131,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "L'école maternelle accueille les enfants de 3 à 6 ans avant l'entrée à l'école élémentaire.",
     category: "societe",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -3971,6 +4141,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "La cantine est accessible à tous les élèves inscrits, avec des tarifs adaptés aux revenus des familles.",
     category: "societe",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -3980,6 +4151,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Depuis 2019, l'instruction est obligatoire à partir de 3 ans en France.",
     category: "societe",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -3989,6 +4161,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "La fréquentation régulière de l'école est obligatoire. Les absences doivent être justifiées.",
     category: "societe",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -3998,6 +4171,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Les vacances de Noël ont lieu pendant environ deux semaines fin décembre et début janvier.",
     category: "societe",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -4007,6 +4181,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Tout enfant en situation de handicap a le droit d'être inscrit dans l'école la plus proche de son domicile.",
     category: "societe",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -4016,6 +4191,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Le secret médical garantit la confidentialité des informations de santé du patient.",
     category: "societe",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -4106,6 +4282,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 3,
     explanation: "Pour l'école maternelle et élémentaire, l'inscription se fait d'abord à la mairie, puis auprès de la directrice ou du directeur de l'école.",
     category: "societe",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -4115,6 +4292,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 0,
     explanation: "La naissance se déclare à l'état civil de la mairie du lieu de naissance, dans les 5 jours.",
     category: "societe",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -4124,6 +4302,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Le contrat de location d'un logement doit être écrit et signé par le bailleur et le locataire.",
     category: "societe",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -4142,6 +4321,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 3,
     explanation: "La contraception est accessible à toutes et à tous. Pour les mineures, elle est confidentielle et gratuite.",
     category: "societe",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -4151,6 +4331,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 0,
     explanation: "Toute personne qui réside en France de manière stable et régulière doit être affiliée à l'Assurance maladie, et l'inscription est gratuite. À la naissance en France, l'immatriculation est automatique. Un salarié du privé est inscrit par son employeur. Sans employeur ou pour une première inscription, il faut envoyer à sa caisse (CPAM) le formulaire Cerfa 15763*02 avec les pièces justificatives (identité, domicile, RIB). Les étudiants étrangers s'inscrivent en ligne sur etudiant-etranger.ameli.fr.",
     category: "societe",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -4160,6 +4341,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Toute heure travaillée au-delà de la durée légale (35 heures par semaine) ou de celle du contrat est une heure supplémentaire (temps plein) ou complémentaire (temps partiel). Elle est payée avec une majoration ou compensée par du repos, selon les accords de l'entreprise. Pour un temps plein, l'employeur peut en principe demander des heures supplémentaires dans la limite du contingent annuel, et un refus injustifié peut être une faute. Il doit respecter les durées maximales (10 heures par jour, 48 heures par semaine) et les temps de repos obligatoires.",
     category: "societe",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -4169,6 +4351,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "Il faut avoir travaillé une durée minimale, être à la recherche d'un emploi et inscrit à France Travail, en général après une perte d'emploi involontaire.",
     category: "societe",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -4178,6 +4361,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 3,
     explanation: "Les parents élisent leurs représentants au conseil d'école ou au conseil d'administration, et ils sont informés de la scolarité de leur enfant.",
     category: "societe",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -4187,6 +4371,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 0,
     explanation: "Les violences et les insultes envers le personnel de l'école sont punies par la loi.",
     category: "societe",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -4196,6 +4381,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Les motifs valables sont par exemple la maladie, le décès d'un proche ou une difficulté de transport imprévue. Les parents doivent prévenir l'école.",
     category: "societe",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -4205,6 +4391,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "Refuser d'inscrire son enfant à l'école après une mise en demeure est puni de 6 mois d'emprisonnement et de 7 500 euros d'amende (article 227-17-1 du Code pénal).",
     category: "societe",
+    level: 'cr',
     type: 'multiple-choice'
   },
   {
@@ -4214,6 +4401,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 3,
     explanation: "Un véhicule doit être assuré (assurance obligatoire) et immatriculé pour circuler.",
     category: "societe",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -4223,6 +4411,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 0,
     explanation: "Le travail non déclaré prive le salarié de protection sociale. Il est sanctionné.",
     category: "societe",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -4232,6 +4421,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Le salaire ne peut pas être inférieur au SMIC. Il doit être le même pour un travail de valeur égale, sans discrimination.",
     category: "societe",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -4241,6 +4431,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "France Travail accompagne les demandeurs d'emploi, qui doivent s'y inscrire.",
     category: "societe",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -4250,6 +4441,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 3,
     explanation: "France Travail aide les demandeurs d'emploi à trouver un travail et à être indemnisés.",
     category: "societe",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -4259,6 +4451,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 0,
     explanation: "Une personne étrangère en situation régulière peut créer son entreprise si son titre de séjour l'autorise à travailler.",
     category: "societe",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -4268,6 +4461,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Les femmes et les hommes ont les mêmes droits pour créer une entreprise.",
     category: "societe",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -4277,6 +4471,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "L'Assurance maladie rembourse une partie des frais de santé. Avec la carte Vitale, le remboursement est automatique.",
     category: "societe",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -4286,6 +4481,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 3,
     explanation: "Les numéros d'urgence comme le 15, le 17, le 18 et le 112 sont gratuits et joignables 24 heures sur 24.",
     category: "societe",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -4295,6 +4491,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 0,
     explanation: "Pour un problème de santé non urgent, on consulte d'abord son médecin traitant.",
     category: "societe",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -4304,6 +4501,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "Le médecin traitant est le médecin que l'on choisit pour assurer le suivi de sa santé.",
     category: "societe",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -4313,6 +4511,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "Les urgences sont réservées aux situations graves. En cas de doute, on peut appeler le 15 (SAMU) ou le 112.",
     category: "societe",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -4322,6 +4521,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 3,
     explanation: "Les vaccinations obligatoires protègent chacun et évitent la propagation des maladies dans la population.",
     category: "societe",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -4331,6 +4531,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 0,
     explanation: "L'autorité parentale est un ensemble de droits et de devoirs des parents, dans l'intérêt de l'enfant, jusqu'à sa majorité.",
     category: "societe",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -4340,6 +4541,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: "L'instruction est obligatoire pour tous les enfants de 3 à 16 ans résidant en France, quelle que soit leur nationalité.",
     category: "societe",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -4349,6 +4551,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 2,
     explanation: "Le baccalauréat est le diplôme qui conclut les études au lycée.",
     category: "societe",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -4358,6 +4561,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 3,
     explanation: "Après l'école élémentaire, les élèves entrent au collège, puis vont au lycée.",
     category: "societe",
+    level: 'csp',
     type: 'multiple-choice'
   },
   {
@@ -4367,6 +4571,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     correctAnswer: 0,
     explanation: "Tout enfant a droit à l'école. Des classes d'accueil aident les élèves allophones à apprendre le français.",
     category: "societe",
+    level: 'csp',
     type: 'multiple-choice'
   }
 ];

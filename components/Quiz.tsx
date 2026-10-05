@@ -4,6 +4,7 @@ import { OFFICIAL_DB, THEMES, ALL_QUESTIONS } from '../constants';
 import { Question, UserStats } from '../types';
 import { processQuizResult, getBadgeInfo } from '../services/gamificationService';
 import { getDueIds, reviewItem, selectSessionItems } from '../services/spacedRepetition';
+import { forLevel } from '../services/examLevel';
 
 // Shuffle an array using Fisher-Yates algorithm
 const shuffleArray = <T,>(array: T[]): T[] => {
@@ -53,13 +54,14 @@ export const Quiz: React.FC<QuizProps> = ({ selectedTheme, onExit, onStatsUpdate
 
     if (selectedTheme === 'weak') {
       // Questions previously missed and due for spaced-repetition review
-      const dueIds = getDueIds(userStats.questionMastery, ALL_QUESTIONS.map(q => q.id));
-      pool = ALL_QUESTIONS.filter(q => dueIds.includes(q.id));
+      const available = forLevel(ALL_QUESTIONS, userStats.examLevel);
+      const dueIds = getDueIds(userStats.questionMastery, available.map(q => q.id));
+      pool = available.filter(q => dueIds.includes(q.id));
     } else if (selectedTheme) {
-      pool = OFFICIAL_DB[selectedTheme] || [];
+      pool = forLevel(OFFICIAL_DB[selectedTheme] || [], userStats.examLevel);
     } else {
       // Mix from all categories for global review
-      pool = [...ALL_QUESTIONS];
+      pool = forLevel(ALL_QUESTIONS, userStats.examLevel);
     }
 
     // Prioritize never-seen and due questions over ones already mastered,

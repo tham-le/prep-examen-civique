@@ -7,9 +7,11 @@ import { Onboarding } from './components/Onboarding';
 import { Logo } from './components/Logo';
 import { usePageMeta } from './hooks/usePageMeta';
 import { THEMES, ALL_QUESTIONS } from './constants';
-import { UserStats } from './types';
+import { ExamLevel, UserStats } from './types';
 import { loadUserStats, saveUserStats, checkAndUpdateStreak, loadExamHistory } from './services/gamificationService';
 import { countDue } from './services/spacedRepetition';
+import { forLevel } from './services/examLevel';
+import { daysUntil, masteredCount } from './services/readiness';
 
 // Code split per route: only the home page ships eagerly, everything else
 // loads on first visit to that route.
@@ -29,10 +31,17 @@ const RouteLoadingFallback: React.FC = () => (
 
 interface HomePageProps {
   userStats: UserStats;
+  onStatsUpdate: (stats: UserStats) => void;
 }
 
 const TILE = 'block bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 text-left transition-colors hover:border-sapphire-400 dark:hover:border-sapphire-500';
 const ICON_BOX = 'w-11 h-11 rounded-xl flex items-center justify-center bg-sapphire-100 dark:bg-sapphire-900/50 text-sapphire-600 dark:text-sapphire-400';
+
+const LEVELS: { value: ExamLevel | undefined; label: string }[] = [
+  { value: undefined, label: 'Tous' },
+  { value: 'csp', label: 'CSP' },
+  { value: 'cr', label: 'CR' },
+];
 
 const MODES = [
   { to: '/quiz', icon: 'fa-brain', title: 'Quiz', text: '10 questions, corrigées au fur et à mesure' },
@@ -41,13 +50,17 @@ const MODES = [
   { to: '/fiches', icon: 'fa-book-open', title: 'Fiches officielles', text: 'Les cours du ministère' },
 ];
 
-const HomePage: React.FC<HomePageProps> = ({ userStats }) => {
+const HomePage: React.FC<HomePageProps> = ({ userStats, onStatsUpdate }) => {
   const navigate = useNavigate();
-  const dueCount = countDue(userStats.questionMastery, ALL_QUESTIONS.map(q => q.id));
+  const questions = forLevel(ALL_QUESTIONS, userStats.examLevel);
+  const dueCount = countDue(userStats.questionMastery, questions.map(q => q.id));
   const recentExams = loadExamHistory().slice(-3);
   const average = recentExams.length
     ? Math.round(recentExams.reduce((sum, e) => sum + e.score, 0) / recentExams.length)
     : null;
+
+  const mastered = masteredCount(userStats.questionMastery, questions.map(q => q.id));
+  const daysLeft = userStats.examDate ? daysUntil(userStats.examDate) : null;
 
   const startQuiz = (themeId?: string) => {
     navigate(themeId ? `/quiz?theme=${themeId}` : '/quiz');
@@ -55,12 +68,13 @@ const HomePage: React.FC<HomePageProps> = ({ userStats }) => {
 
   return (
     <div className="space-y-12">
-      <section className="space-y-6 max-w-2xl">
+      <section className="grid lg:grid-cols-5 gap-8 items-start">
+        <div className="lg:col-span-3 space-y-6">
         <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white">
           Préparez l'examen civique
         </h1>
         <p className="text-lg text-slate-600 dark:text-slate-300">
-          {ALL_QUESTIONS.length} questions sur les 5 thèmes officiels. L'examen compte 40 questions, dure 45 minutes et demande 32 bonnes réponses.
+          {questions.length} questions sur les 5 thèmes officiels. L'examen compte 40 questions, dure 45 minutes et demande 32 bonnes réponses.
         </p>
         <div className="flex flex-wrap gap-3">
           {dueCount > 0 ? (
@@ -75,6 +89,57 @@ const HomePage: React.FC<HomePageProps> = ({ userStats }) => {
           <button onClick={() => navigate('/examen-blanc')} className="bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-white px-6 py-3 rounded-xl font-semibold hover:border-sapphire-400 transition-colors">
             Examen blanc
           </button>
+        </div>
+        </div>
+
+        <div className="lg:col-span-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 space-y-6">
+        <div className="space-y-2" role="group" aria-label="Titre de séjour visé">
+          <p className="text-sm font-medium text-slate-700 dark:text-slate-300">Votre examen</p>
+          <div className="inline-flex p-1 bg-slate-100 dark:bg-slate-700 rounded-xl text-sm">
+            {LEVELS.map(({ value, label }) => (
+              <button
+                key={label}
+                onClick={() => onStatsUpdate({ ...userStats, examLevel: value })}
+                aria-pressed={userStats.examLevel === value}
+                className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+                  userStats.examLevel === value
+                    ? 'bg-white dark:bg-slate-700 text-sapphire-700 dark:text-sapphire-300'
+                    : 'text-slate-600 dark:text-slate-400'
+                }`}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+          <p className="text-xs text-slate-500 dark:text-slate-400">CSP : carte de séjour pluriannuelle. CR : carte de résident.</p>
+        </div>
+
+        <div className="space-y-4">
+          <div>
+            <div className="flex justify-between text-sm text-slate-700 dark:text-slate-300 mb-1">
+              <span>Questions maîtrisées</span>
+              <span className="tabular-nums">{mastered} / {questions.length}</span>
+            </div>
+            <div className="h-2 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
+              <div className="h-full bg-sapphire-500 rounded-full" style={{ width: `${questions.length ? (mastered / questions.length) * 100 : 0}%` }}></div>
+            </div>
+          </div>
+          <div className="flex flex-wrap items-center gap-3 text-sm text-slate-700 dark:text-slate-300">
+            <label htmlFor="exam-date">Date de l'examen</label>
+            <input
+              id="exam-date"
+              type="date"
+              value={userStats.examDate ?? ''}
+              onChange={e => onStatsUpdate({ ...userStats, examDate: e.target.value || undefined })}
+              className="px-3 py-1.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800"
+            />
+            {daysLeft !== null && (
+              <span className="font-semibold">
+                {daysLeft > 1 ? `dans ${daysLeft} jours` : daysLeft === 1 ? 'demain' : daysLeft === 0 ? "aujourd'hui" : 'date passée'}
+              </span>
+            )}
+          </div>
+        </div>
         </div>
       </section>
 
@@ -177,7 +242,7 @@ const AppRoutes: React.FC<AppRoutesProps> = ({ userStats, onStatsUpdate, onShowT
   return (
     <Suspense fallback={<RouteLoadingFallback />}>
       <Routes>
-        <Route path="/" element={<HomePage userStats={userStats} />} />
+        <Route path="/" element={<HomePage userStats={userStats} onStatsUpdate={onStatsUpdate} />} />
         <Route path="/fiches" element={<LessonPage />} />
         <Route path="/flashcards" element={<Flashcards userStats={userStats} onStatsUpdate={onStatsUpdate} />} />
         <Route path="/revision" element={<RevisionMode userStats={userStats} />} />
