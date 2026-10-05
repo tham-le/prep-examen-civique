@@ -1326,6 +1326,375 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     explanation: "Sébastien Lecornu est Premier ministre depuis septembre 2025.",
     category: "institutions",
     type: 'multiple-choice'
+  },
+  {
+    id: 'i65',
+    text: "Qu'est-ce que l'État de droit ?",
+    options: ["Un État où le président décide seul", "Un État où la loi s'applique à tous, y compris à ceux qui gouvernent", "Un État sans tribunaux", "Un État où la loi ne s'applique qu'aux citoyens"],
+    correctAnswer: 1,
+    explanation: "Dans un État de droit, tout le monde est soumis à la loi, y compris l'État lui-même. Les juges contrôlent le respect des règles.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i66',
+    text: "Que garantit l'État de droit ?",
+    options: ["Le pouvoir absolu du gouvernement", "La suppression des tribunaux", "La protection des droits et des libertés de chacun face à l'État et aux autres", "L'égalité des salaires"],
+    correctAnswer: 2,
+    explanation: "L'État de droit limite le pouvoir par la loi et protège les droits et libertés de chacun.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i67',
+    text: "Le président de la République a commis un crime. Quelle proposition est correcte ?",
+    options: ["Il ne peut jamais être jugé", "Il est jugé uniquement par ses ministres", "Il est jugé uniquement par le maire de Paris", "Nul n'est au-dessus de la loi : il peut être jugé, selon une procédure particulière"],
+    correctAnswer: 3,
+    explanation: "Le président n'est pas au-dessus de la loi. Pendant son mandat il bénéficie d'une procédure spéciale, et il peut être destitué par le Parlement réuni en Haute Cour.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i68',
+    text: "La loi est l'expression de :",
+    options: ["La volonté générale", "La volonté du président", "L'opinion des juges", "La volonté du gouvernement seul"],
+    correctAnswer: 0,
+    explanation: "L'article 6 de la Déclaration de 1789 dit que la loi est l'expression de la volonté générale.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i69',
+    text: "Quelle est la durée du mandat du conseil municipal et du maire ?",
+    options: ["4 ans", "6 ans", "5 ans", "7 ans"],
+    correctAnswer: 1,
+    explanation: "Les conseillers municipaux sont élus pour 6 ans. Le maire est élu par le conseil municipal pour la même durée.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i70',
+    text: "Une personne peut-elle voter à la place d'une autre ?",
+    options: ["Non, c'est interdit dans tous les cas", "Oui, il suffit de présenter sa carte d'identité", "Oui, uniquement par procuration, établie à l'avance", "Oui, mais seulement pour les élections municipales"],
+    correctAnswer: 2,
+    explanation: "Le vote est personnel. Un électeur absent peut toutefois donner une procuration à une personne de confiance inscrite sur les listes.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i71',
+    text: "Quelle est l'organisation administrative de la France ?",
+    options: ["Provinces et comtés", "Cantons et États", "Länder et districts", "Communes, départements et régions"],
+    correctAnswer: 3,
+    explanation: "La France est organisée en communes, départements et régions, qui sont des collectivités territoriales.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i72',
+    text: "Pourquoi séparer les trois pouvoirs dans une démocratie ?",
+    options: ["Pour éviter qu'une seule personne ou un seul organe concentre tous les pouvoirs", "Pour réduire le nombre de ministres", "Pour faire des économies", "Pour que les citoyens ne votent plus"],
+    correctAnswer: 0,
+    explanation: "La séparation des pouvoirs évite les abus : chaque pouvoir limite les autres.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i73',
+    text: "Qui sanctionne l'auteur d'un vol ?",
+    options: ["Le président de la République", "Un juge (le pouvoir judiciaire)", "Le maire", "Le Parlement"],
+    correctAnswer: 1,
+    explanation: "Seuls les juges et les tribunaux peuvent condamner l'auteur d'une infraction.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i74',
+    text: "Que se passe-t-il si un ministre ne respecte pas la loi ?",
+    options: ["Rien, il est protégé par son statut", "Il est puni uniquement par le président", "Il peut être poursuivi et jugé, comme tout citoyen", "Il doit seulement changer de ministère"],
+    correctAnswer: 2,
+    explanation: "Un ministre n'est pas au-dessus de la loi. Pour les actes faits dans l'exercice de ses fonctions, il est jugé par la Cour de justice de la République.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i75',
+    text: "Combien de députés composent l'Assemblée nationale ?",
+    options: ["348", "925", "400", "577"],
+    correctAnswer: 3,
+    explanation: "L'Assemblée nationale compte 577 députés élus pour 5 ans au suffrage universel direct.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i76',
+    text: "Qui peut voter aux élections en France ?",
+    options: ["Tout citoyen français majeur inscrit sur les listes électorales", "Tous les habitants de plus de 16 ans", "Uniquement les personnes qui travaillent", "Toutes les personnes résidant en France, quelle que soit leur nationalité"],
+    correctAnswer: 0,
+    explanation: "Pour voter aux élections nationales, il faut être français, majeur, jouir de ses droits civiques et être inscrit sur les listes électorales.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i77',
+    text: "La séparation des pouvoirs est un principe fondamental. Quels sont les trois pouvoirs concernés ?",
+    options: ["Politique, économique et religieux", "Législatif, exécutif et judiciaire", "National, régional et local", "Militaire, civil et médiatique"],
+    correctAnswer: 1,
+    explanation: "Le pouvoir législatif fait la loi, l'exécutif l'applique et le judiciaire juge.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i78',
+    text: "Est-ce que le président de la République a tous les pouvoirs ?",
+    options: ["Oui, il fait les lois seul", "Oui, il juge les crimes", "Non, ses pouvoirs sont limités par la Constitution, le Parlement et la justice", "Oui, pendant les 5 ans de son mandat"],
+    correctAnswer: 2,
+    explanation: "Le président a des pouvoirs importants mais la loi est votée par le Parlement et la justice est indépendante.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i79',
+    text: "Quelle condition est nécessaire pour voter aux élections ?",
+    options: ["Avoir un diplôme", "Payer des impôts", "Avoir un emploi", "Être inscrit sur les listes électorales"],
+    correctAnswer: 3,
+    explanation: "L'inscription sur les listes électorales est obligatoire pour voter. Elle se fait en mairie ou en ligne.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i80',
+    text: "Le Parlement est composé :",
+    options: ["De l'Assemblée nationale et du Sénat", "Du président et du Premier ministre", "Du Conseil constitutionnel et du Conseil d'État", "Des maires et des préfets"],
+    correctAnswer: 0,
+    explanation: "Le Parlement français est composé de deux chambres : l'Assemblée nationale et le Sénat.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i81',
+    text: "Quel État n'est pas membre de l'Union européenne ?",
+    options: ["L'Italie", "La Suisse", "La Belgique", "L'Espagne"],
+    correctAnswer: 1,
+    explanation: "La Suisse ne fait pas partie de l'Union européenne.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i82',
+    text: "Quand célèbre-t-on la journée de l'Europe ?",
+    options: ["Le 8 mai", "Le 14 juillet", "Le 9 mai", "Le 11 novembre"],
+    correctAnswer: 2,
+    explanation: "La journée de l'Europe est célébrée le 9 mai, en souvenir de la déclaration de Robert Schuman en 1950.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i83',
+    text: "À quelle fréquence les élections européennes sont-elles organisées ?",
+    options: ["Tous les 2 ans", "Tous les 6 ans", "Tous les 10 ans", "Tous les 5 ans"],
+    correctAnswer: 3,
+    explanation: "Les députés européens sont élus au suffrage universel direct tous les 5 ans.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i84',
+    text: "Quelle condition est nécessaire pour voter aux élections européennes ?",
+    options: ["Être citoyen de l'Union européenne, majeur et inscrit sur les listes électorales", "Habiter à Strasbourg", "Parler plusieurs langues", "Avoir voyagé dans un autre pays de l'Union"],
+    correctAnswer: 0,
+    explanation: "En France, les citoyens européens résidant en France peuvent aussi voter aux européennes s'ils sont inscrits sur une liste électorale complémentaire.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i85',
+    text: "Quel pays est un pays fondateur de l'Union européenne ?",
+    options: ["L'Espagne", "L'Italie", "Le Royaume-Uni", "La Pologne"],
+    correctAnswer: 1,
+    explanation: "Six pays ont fondé la construction européenne : la France, l'Allemagne, l'Italie, la Belgique, les Pays-Bas et le Luxembourg.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i86',
+    text: "Les dirigeants sont élus par les citoyens dans :",
+    options: ["Une dictature", "Une monarchie absolue", "Une démocratie", "Une théocratie"],
+    correctAnswer: 2,
+    explanation: "Dans une démocratie, les citoyens choisissent leurs dirigeants par des élections libres.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i87',
+    text: "A-t-on le droit de ne pas respecter une loi ?",
+    options: ["Oui, si on n'est pas d'accord", "Oui, si on est étranger", "Oui, si personne ne le voit", "Non, la loi s'applique à tous"],
+    correctAnswer: 3,
+    explanation: "La loi s'impose à tous. Pour la changer, on peut voter, manifester ou s'engager dans une association.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i88',
+    text: "Qui doit respecter la loi ?",
+    options: ["Toutes les personnes présentes sur le territoire, y compris les dirigeants", "Seulement les citoyens français", "Seulement les adultes", "Seulement les personnes qui votent"],
+    correctAnswer: 0,
+    explanation: "La loi s'applique à tous : citoyens, étrangers, dirigeants et institutions.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i89',
+    text: "Quel est le rôle de l'autorité judiciaire ?",
+    options: ["Voter les lois", "Faire respecter la loi et juger les litiges et les infractions", "Gouverner le pays", "Collecter les impôts"],
+    correctAnswer: 1,
+    explanation: "L'autorité judiciaire, composée des juges, applique la loi et rend la justice.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i90',
+    text: "Quel pouvoir détient un juge ? Le pouvoir :",
+    options: ["Législatif", "Exécutif", "Judiciaire", "Municipal"],
+    correctAnswer: 2,
+    explanation: "Les juges détiennent le pouvoir judiciaire.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i91',
+    text: "L'autorité judiciaire est exercée par :",
+    options: ["Les députés", "Les ministres", "Les maires", "Les juges et les magistrats"],
+    correctAnswer: 3,
+    explanation: "Les magistrats, juges et procureurs, exercent l'autorité judiciaire. Ils sont indépendants.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i92',
+    text: "Qui est élu lors des élections législatives ?",
+    options: ["Les députés", "Le président de la République", "Les sénateurs", "Les maires"],
+    correctAnswer: 0,
+    explanation: "Les élections législatives servent à élire les 577 députés de l'Assemblée nationale.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i93',
+    text: "Quand sont élus les sénateurs ?",
+    options: ["Tous les 5 ans, en même temps que le président", "Pour 6 ans, avec un renouvellement de la moitié du Sénat tous les 3 ans", "Tous les 2 ans", "Chaque année"],
+    correctAnswer: 1,
+    explanation: "Les sénateurs sont élus pour 6 ans par des grands électeurs. Le Sénat est renouvelé par moitié tous les 3 ans.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i94',
+    text: "Qui est élu lors des élections municipales ?",
+    options: ["Le président de la République", "Les députés", "Les conseillers municipaux, qui élisent ensuite le maire", "Le préfet"],
+    correctAnswer: 2,
+    explanation: "Les citoyens élisent les conseillers municipaux. Le conseil municipal élit ensuite le maire.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i95',
+    text: "Qui est élu lors des élections présidentielles ?",
+    options: ["Le Premier ministre", "Les députés", "Le maire de Paris", "Le président de la République"],
+    correctAnswer: 3,
+    explanation: "Le président de la République est élu au suffrage universel direct.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i96',
+    text: "À partir de quel âge a-t-on le droit de voter ?",
+    options: ["18 ans", "16 ans", "21 ans", "25 ans"],
+    correctAnswer: 0,
+    explanation: "On peut voter à partir de 18 ans, âge de la majorité civile.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i97',
+    text: "Pour combien de temps sont élus les députés ?",
+    options: ["4 ans", "5 ans", "6 ans", "7 ans"],
+    correctAnswer: 1,
+    explanation: "Les députés sont élus pour 5 ans, sauf dissolution de l'Assemblée.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i98',
+    text: "Concernant les partis politiques, quelle proposition est correcte ?",
+    options: ["Il n'y a qu'un seul parti autorisé", "Ils doivent être autorisés par le préfet", "Ils se forment et exercent leur activité librement, dans le respect de la Constitution", "Ils sont réservés aux hommes"],
+    correctAnswer: 2,
+    explanation: "L'article 4 de la Constitution garantit la liberté des partis politiques, qui doivent respecter les principes de la démocratie.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i99',
+    text: "Quel est le rôle des députés ?",
+    options: ["Rendre la justice", "Diriger les communes", "Commander l'armée", "Voter les lois et contrôler le Gouvernement"],
+    correctAnswer: 3,
+    explanation: "Les députés votent la loi, votent le budget et contrôlent l'action du Gouvernement.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i100',
+    text: "Qui réside au palais de l'Élysée ?",
+    options: ["Le président de la République", "Le Premier ministre", "Le président du Sénat", "Le maire de Paris"],
+    correctAnswer: 0,
+    explanation: "Le palais de l'Élysée, à Paris, est la résidence et le lieu de travail du président de la République.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i101',
+    text: "Combien y a-t-il de départements en France ?",
+    options: ["96", "101", "50", "27"],
+    correctAnswer: 1,
+    explanation: "La France compte 101 départements : 96 en métropole et 5 en outre-mer.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i102',
+    text: "Quel est le rôle du Parlement ?",
+    options: ["Appliquer les lois", "Juger les crimes", "Voter les lois et contrôler le Gouvernement", "Diriger les écoles"],
+    correctAnswer: 2,
+    explanation: "Le Parlement, composé de l'Assemblée nationale et du Sénat, vote la loi et contrôle l'action du Gouvernement.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i103',
+    text: "Combien d'États font partie de l'Union européenne au 1er janvier 2025 ?",
+    options: ["28", "15", "35", "27"],
+    correctAnswer: 3,
+    explanation: "L'Union européenne compte 27 États membres depuis le départ du Royaume-Uni en 2020.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i104',
+    text: "Quelle est la monnaie utilisée en France ?",
+    options: ["L'euro", "Le franc", "Le dollar", "La livre"],
+    correctAnswer: 0,
+    explanation: "L'euro est la monnaie de la France depuis 2002.",
+    category: "institutions",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'i105',
+    text: "Qui élit les députés européens ?",
+    options: ["Les maires", "Les citoyens de l'Union européenne", "Les gouvernements des États membres", "Le président de la République"],
+    correctAnswer: 1,
+    explanation: "Les députés européens sont élus au suffrage universel direct par les citoyens de l'Union.",
+    category: "institutions",
+    type: 'multiple-choice'
   }
 ];
 
