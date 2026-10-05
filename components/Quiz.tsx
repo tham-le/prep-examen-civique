@@ -45,6 +45,7 @@ export const Quiz: React.FC<QuizProps> = ({ selectedTheme, onExit, onStatsUpdate
   const [xpGained, setXpGained] = useState(0);
   const [newBadges, setNewBadges] = useState<string[]>([]);
   const [leveledUp, setLeveledUp] = useState(false);
+  const [answers, setAnswers] = useState<{ question: Question; selected: number }[]>([]);
 
   // Function to load and shuffle questions
   const loadQuestions = useCallback(() => {
@@ -75,6 +76,7 @@ export const Quiz: React.FC<QuizProps> = ({ selectedTheme, onExit, onStatsUpdate
     setXpGained(0);
     setNewBadges([]);
     setLeveledUp(false);
+    setAnswers([]);
   }, [selectedTheme, userStats.questionMastery]);
 
   // Initial load - only run when selectedTheme changes, not when userStats changes
@@ -90,6 +92,7 @@ export const Quiz: React.FC<QuizProps> = ({ selectedTheme, onExit, onStatsUpdate
     const isCorrect = idx === currentQuestion.correctAnswer;
 
     if (isCorrect) setScore(s => s + 1);
+    setAnswers(prev => [...prev, { question: currentQuestion, selected: idx }]);
     // Saved per answer, so leaving the quiz early keeps what was answered
     onStatsUpdate({
       ...userStats,
@@ -141,7 +144,10 @@ export const Quiz: React.FC<QuizProps> = ({ selectedTheme, onExit, onStatsUpdate
     const finalScore = score;
     const percentage = Math.round((finalScore / questions.length) * 100);
 
+    const mistakes = answers.filter(a => a.selected !== a.question.correctAnswer);
+
     return (
+      <div className="space-y-6">
       <div className="max-w-md mx-auto bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-8 text-center space-y-6">
         {/* XP Gained */}
         {xpGained > 0 && (
@@ -217,6 +223,29 @@ export const Quiz: React.FC<QuizProps> = ({ selectedTheme, onExit, onStatsUpdate
             Retour à l'accueil
           </button>
         </div>
+      </div>
+
+      {mistakes.length > 0 && (
+        <div className="max-w-2xl mx-auto space-y-3">
+          <h3 className="text-lg font-bold text-slate-900 dark:text-white">
+            Correction ({mistakes.length} erreur{mistakes.length > 1 ? 's' : ''})
+          </h3>
+          {mistakes.map(({ question, selected: chosen }) => (
+            <div key={question.id} className="bg-white dark:bg-slate-800 rounded-xl border border-rose-200 dark:border-rose-800 p-4 space-y-3">
+              <p className="font-medium text-slate-900 dark:text-white">{question.text}</p>
+              <div className="p-3 rounded-lg bg-rose-50 dark:bg-rose-900/30 border border-rose-200 dark:border-rose-800 text-rose-800 dark:text-rose-300">
+                <span className="block text-xs uppercase tracking-wide mb-1">Votre réponse</span>
+                {question.options[chosen]}
+              </div>
+              <div className="p-3 rounded-lg bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300">
+                <span className="block text-xs uppercase tracking-wide mb-1">Bonne réponse</span>
+                {question.options[question.correctAnswer]}
+              </div>
+              <p className="text-sm text-slate-600 dark:text-slate-300">{question.explanation}</p>
+            </div>
+          ))}
+        </div>
+      )}
       </div>
     );
   }

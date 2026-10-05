@@ -65,3 +65,30 @@ describe('Quiz', () => {
     expect(Object.keys(latest.questionMastery)).toHaveLength(10);
   });
 });
+
+describe('Quiz corrections', () => {
+  beforeEach(() => localStorage.clear());
+
+  it('lists the wrong answers with the right one after the last question', async () => {
+    const container = document.createElement('div');
+    await act(async () => {
+      createRoot(container).render(<Harness />);
+    });
+    for (let i = 0; i < 10; i++) {
+      if (i < 4) {
+        // answer wrong on the first 4 questions: pick an option that is not the right one
+        const text = container.querySelector('h3')!.textContent;
+        const question = ALL_QUESTIONS.find(q => q.text === text)!;
+        const right = question.options[question.correctAnswer];
+        const wrong = Array.from(container.querySelectorAll('[role=group] button')).find(b => b.textContent?.trim() !== right);
+        await click(wrong);
+      } else {
+        await answerCorrectly(container);
+      }
+      await click(findButton(container, i === 9 ? 'Voir les résultats' : 'Suivant'));
+    }
+    expect(container.textContent).toContain('Correction (4 erreurs)');
+    expect(container.textContent).toContain('Votre réponse');
+    expect(container.textContent).toContain('Bonne réponse');
+  });
+});
