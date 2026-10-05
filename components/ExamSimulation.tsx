@@ -84,13 +84,7 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({ onStatsUpdate, u
 
     if (timerRef.current) clearInterval(timerRef.current);
     timerRef.current = window.setInterval(() => {
-      setTimeLeft(prev => {
-        if (prev <= 1) {
-          finishExam();
-          return 0;
-        }
-        return prev - 1;
-      });
+      setTimeLeft(prev => Math.max(prev - 1, 0));
     }, 1000);
   };
 
@@ -121,6 +115,12 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({ onStatsUpdate, u
 
     setFinished(true);
   };
+
+  // Runs in the render that sees timeLeft hit 0, so finishExam reads the
+  // current questions and answers (a callback stored in the interval would not).
+  useEffect(() => {
+    if (started && !finished && timeLeft === 0) finishExam();
+  }, [timeLeft]);
 
   const shareResult = (passed: boolean, score: number) => {
     const text = `J'ai passé l'examen civique blanc sur Objectif Citoyen !\n\nRésultat : ${passed ? 'ADMIS' : 'ÉCHEC'}\nScore : ${score}/40\nPréparez-vous aussi sur : ${window.location.origin}`;
