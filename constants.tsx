@@ -637,9 +637,9 @@ const VALEURS_QUESTIONS: Question[] = [
   {
     id: 'v70',
     text: "Que peut faire un usager du service public dans une mairie ?",
-    options: ["Exiger d'être reçu par un agent de sa religion", "Refuser de montrer son visage", "Exprimer ses convictions, par exemple en portant un signe religieux, sans perturber le service", "Demander que le service soit adapté à sa religion"],
+    options: ["Exiger d'être reçu par un agent de sa religion", "Refuser de montrer son visage", "Être traité de la même façon que les autres usagers, quelles que soient ses origines ou ses convictions", "Demander que le service soit adapté à sa religion"],
     correctAnswer: 2,
-    explanation: "La neutralité s'impose aux agents publics, pas aux usagers. Un usager garde sa liberté de conscience, mais il doit respecter la loi, par exemple le visage découvert.",
+    explanation: "Le service public repose sur l'égalité, la neutralité et la continuité. Chaque usager a droit à un traitement égal, et les agents publics traitent chaque demande de la même façon. En retour, l'usager ne peut pas choisir son agent, exiger d'être servi en premier, ni demander un traitement d'exception pour un motif religieux. Il doit respecter les règles de la mairie et faire preuve de civisme envers le personnel.",
     category: "valeurs",
     type: 'multiple-choice'
   },
@@ -1348,9 +1348,9 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
   {
     id: 'i67',
     text: "Le président de la République a commis un crime. Quelle proposition est correcte ?",
-    options: ["Il ne peut jamais être jugé", "Il est jugé uniquement par ses ministres", "Il est jugé uniquement par le maire de Paris", "Nul n'est au-dessus de la loi : il peut être jugé, selon une procédure particulière"],
+    options: ["Il ne peut jamais être jugé", "Il est jugé uniquement par ses ministres", "Il est jugé uniquement par le maire de Paris", "Il n'est pas au-dessus de la loi, mais il bénéficie d'une inviolabilité pendant son mandat (sauf destitution)"],
     correctAnswer: 3,
-    explanation: "Le président n'est pas au-dessus de la loi. Pendant son mandat il bénéficie d'une procédure spéciale, et il peut être destitué par le Parlement réuni en Haute Cour.",
+    explanation: "Le président n'a pas d'impunité totale. L'article 67 de la Constitution le protège pendant son mandat : il ne peut pas être arrêté, entendu ni poursuivi par les juridictions ordinaires, et les enquêtes sont suspendues. Elles peuvent reprendre un mois après la fin de ses fonctions, quand il redevient un justiciable ordinaire. Pendant le mandat, seul le Parlement réuni en Haute Cour peut le destituer, en cas de manquement à ses devoirs manifestement incompatible avec son mandat (article 68).",
     category: "institutions",
     type: 'multiple-choice'
   },
@@ -1377,7 +1377,7 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     text: "Une personne peut-elle voter à la place d'une autre ?",
     options: ["Non, c'est interdit dans tous les cas", "Oui, il suffit de présenter sa carte d'identité", "Oui, uniquement par procuration, établie à l'avance", "Oui, mais seulement pour les élections municipales"],
     correctAnswer: 2,
-    explanation: "Le vote est personnel. Un électeur absent peut toutefois donner une procuration à une personne de confiance inscrite sur les listes.",
+    explanation: "Le vote est personnel, mais un électeur absent peut donner une procuration. Celui qui la donne est le mandant, celui qui vote à sa place est le mandataire. Le mandataire doit être inscrit sur les listes électorales, mais pas forcément dans la même commune. Il ne peut recevoir qu'une seule procuration établie en France. Le jour du vote, il va au bureau de vote du mandant avec sa propre pièce d'identité, sans la carte électorale du mandant. La demande se fait sur maprocuration.gouv.fr, puis l'identité est confirmée avec une application ou dans un commissariat ou une gendarmerie.",
     category: "institutions",
     type: 'multiple-choice'
   },
@@ -2184,7 +2184,7 @@ const DROITS_QUESTIONS: Question[] = [
     text: "À quelle liberté la PMA fait-elle référence ?",
     options: ["La liberté de religion", "La liberté de la presse", "La liberté de circulation", "La liberté de fonder une famille"],
     correctAnswer: 3,
-    explanation: "La PMA (procréation médicalement assistée) aide un couple ou une femme à avoir un enfant. Elle est ouverte à toutes les femmes depuis la loi de 2021.",
+    explanation: "La PMA (procréation médicalement assistée) fait référence à la liberté de fonder une famille et de choisir de devenir parent. Depuis la loi de bioéthique de 2021, elle est ouverte aux couples formés d'un homme et d'une femme, aux couples de femmes et aux femmes non mariées. Son accès est encadré par la loi.",
     category: "droits",
     type: 'multiple-choice'
   },
@@ -3378,7 +3378,7 @@ const CULTURE_QUESTIONS: Question[] = [
     text: "Où se trouvent les principales activités économiques en France ?",
     options: ["Uniquement dans les villages de montagne", "Uniquement en Corse", "Principalement dans les grandes métropoles, dont l'Île-de-France", "Uniquement dans l'outre-mer"],
     correctAnswer: 2,
-    explanation: "L'activité économique est concentrée dans les grandes agglomérations, en premier lieu l'Île-de-France.",
+    explanation: "L'activité économique se concentre en Île-de-France, qui produit près de 30 % du PIB, avec Paris et le quartier d'affaires de La Défense (sièges d'entreprises, finance, recherche). Les grandes métropoles comptent aussi : Lyon (chimie, pharmacie, industrie), Toulouse (aéronautique et spatial), Marseille (grand port, commerce). Nantes, Bordeaux, Rennes et Lille se développent. L'industrie est présente autour de Lyon, dans le Grand Est, les Hauts-de-France et l'Ouest. L'agriculture est forte dans le Bassin parisien, en Bretagne et en Nouvelle-Aquitaine.",
     category: "culture",
     type: 'multiple-choice'
   },
@@ -3405,7 +3405,7 @@ const CULTURE_QUESTIONS: Question[] = [
     text: "Lequel de ces départements de France est le plus touristique ?",
     options: ["La Creuse", "Paris", "Le Cantal", "La Lozère"],
     correctAnswer: 1,
-    explanation: "Paris accueille le plus grand nombre de touristes, avec la tour Eiffel, le Louvre et Notre-Dame.",
+    explanation: "Paris est le département qui reçoit le plus de touristes, grâce à la tour Eiffel, au Louvre et à Notre-Dame. Viennent ensuite notamment la Seine-et-Marne (Disneyland Paris), les Alpes-Maritimes et les Bouches-du-Rhône, pour le tourisme du littoral et des villes du Sud. Par habitant, la Corse-du-Sud est souvent en tête.",
     category: "culture",
     type: 'multiple-choice'
   },
@@ -4255,9 +4255,9 @@ const SOCIETE_QUESTIONS: Question[] = [
   {
     id: 's56',
     text: "L'inscription à l'Assurance maladie est :",
-    options: ["Gratuite et ouverte à toute personne qui réside en France de façon stable et régulière", "Réservée aux salariés", "Payante, selon l'âge", "Réservée aux personnes de nationalité française"],
+    options: ["Obligatoire et gratuite pour toute personne qui réside en France de façon stable et régulière", "Réservée aux salariés", "Payante, selon l'âge", "Réservée aux personnes de nationalité française"],
     correctAnswer: 0,
-    explanation: "Toute personne qui travaille ou réside en France de manière stable et régulière a droit à la prise en charge de ses frais de santé.",
+    explanation: "Toute personne qui réside en France de manière stable et régulière doit être affiliée à l'Assurance maladie, et l'inscription est gratuite. À la naissance en France, l'immatriculation est automatique. Un salarié du privé est inscrit par son employeur. Sans employeur ou pour une première inscription, il faut envoyer à sa caisse (CPAM) le formulaire Cerfa 15763*02 avec les pièces justificatives (identité, domicile, RIB). Les étudiants étrangers s'inscrivent en ligne sur etudiant-etranger.ameli.fr.",
     category: "societe",
     type: 'multiple-choice'
   },
@@ -4266,7 +4266,7 @@ const SOCIETE_QUESTIONS: Question[] = [
     text: "Lorsqu'un employeur veut qu'un salarié travaille plus longtemps que la durée prévue dans le contrat de travail :",
     options: ["Le salarié travaille gratuitement", "Les heures supplémentaires doivent être payées plus cher ou compensées par du repos", "Le salarié doit payer l'employeur", "Le salarié perd ses congés"],
     correctAnswer: 1,
-    explanation: "Les heures supplémentaires donnent droit à une majoration de salaire ou à un repos compensateur.",
+    explanation: "Toute heure travaillée au-delà de la durée légale (35 heures par semaine) ou de celle du contrat est une heure supplémentaire (temps plein) ou complémentaire (temps partiel). Elle est payée avec une majoration ou compensée par du repos, selon les accords de l'entreprise. Pour un temps plein, l'employeur peut en principe demander des heures supplémentaires dans la limite du contingent annuel, et un refus injustifié peut être une faute. Il doit respecter les durées maximales (10 heures par jour, 48 heures par semaine) et les temps de repos obligatoires.",
     category: "societe",
     type: 'multiple-choice'
   },
