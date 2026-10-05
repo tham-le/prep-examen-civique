@@ -113,6 +113,13 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({ onStatsUpdate, u
     setFinished(true);
   };
 
+  const requestFinish = () => {
+    const unanswered = questions.filter((q, idx) => answers[`${q.id}_${idx}`] === undefined).length;
+    const warning = `${unanswered} question${unanswered > 1 ? 's' : ''} sans réponse. Terminer l'examen quand même ?`;
+    if (unanswered > 0 && !window.confirm(warning)) return;
+    finishExam();
+  };
+
   // Runs in the render that sees timeLeft hit 0, so finishExam reads the
   // current questions and answers (a callback stored in the interval would not).
   useEffect(() => {
@@ -470,7 +477,7 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({ onStatsUpdate, u
           </button>
 
           <button
-            onClick={() => currentIdx === 39 ? finishExam() : setCurrentIdx(i => i + 1)}
+            onClick={() => currentIdx === 39 ? requestFinish() : setCurrentIdx(i => i + 1)}
             className="bg-sapphire-600 text-white px-6 py-2.5 rounded-lg font-medium hover:bg-sapphire-700 transition flex items-center"
           >
             {currentIdx === 39 ? 'Valider' : 'Suivant'}
@@ -479,7 +486,34 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({ onStatsUpdate, u
         </div>
       </div>
 
-      <p className="text-center text-slate-400 dark:text-slate-600 text-xs">Objectif Citoyen</p>
+      <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4 space-y-3">
+        <div className="grid grid-cols-8 sm:grid-cols-10 gap-1.5" role="group" aria-label="Aller à une question">
+          {questions.map((q, idx) => {
+            const answered = answers[`${q.id}_${idx}`] !== undefined;
+            return (
+              <button
+                key={q.id}
+                onClick={() => setCurrentIdx(idx)}
+                aria-label={`Question ${idx + 1}${answered ? ', répondue' : ', sans réponse'}`}
+                aria-current={idx === currentIdx}
+                className={`h-10 rounded-md text-sm font-medium tabular-nums transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sapphire-500 ${
+                  idx === currentIdx
+                    ? 'bg-sapphire-600 text-white'
+                    : answered
+                      ? 'bg-sapphire-100 dark:bg-sapphire-900/40 text-sapphire-700 dark:text-sapphire-300'
+                      : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300'
+                }`}
+              >
+                {idx + 1}
+              </button>
+            );
+          })}
+        </div>
+        <button onClick={requestFinish} className="text-sm font-medium text-sapphire-600 dark:text-sapphire-400 hover:underline">
+          Terminer l'examen
+        </button>
+      </div>
+
     </div>
   );
 };
