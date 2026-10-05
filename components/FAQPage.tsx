@@ -46,7 +46,7 @@ export const FAQPage: React.FC = () => {
         <div className="w-20 h-20 bg-sapphire-100 dark:bg-sapphire-900/50 text-sapphire-600 dark:text-sapphire-400 rounded-3xl flex items-center justify-center mx-auto">
           <i className="fas fa-circle-question text-3xl"></i>
         </div>
-        <h1 className="text-4xl font-black brand-font text-slate-900 dark:text-white">Questions Fréquentes</h1>
+        <h1 className="text-4xl font-bold text-slate-900 dark:text-white">Questions Fréquentes</h1>
         <p className="text-slate-500 dark:text-slate-400 max-w-xl mx-auto">
           Tout ce que vous devez savoir sur l'examen civique 2026
         </p>

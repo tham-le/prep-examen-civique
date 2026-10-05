@@ -33,6 +33,7 @@ export const Header: React.FC<HeaderProps> = ({ userStats, darkMode, toggleDarkM
 
   return (
     <header className="sticky top-0 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700 z-50">
+      <div className="tricolore" aria-hidden="true"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -62,7 +63,7 @@ export const Header: React.FC<HeaderProps> = ({ userStats, darkMode, toggleDarkM
           <div className="flex items-center space-x-2">
             {/* Streak indicator */}
             {userStats.streak > 0 && (
-              <div className="hidden sm:flex items-center space-x-1 text-orange-600 dark:text-orange-400 px-2 py-1 text-sm">
+              <div className="hidden sm:flex items-center space-x-1 text-amber-600 dark:text-amber-400 px-2 py-1 text-sm">
                 <i className="fas fa-fire text-xs"></i>
                 <span className="font-medium">{userStats.streak}j</span>
               </div>
@@ -79,7 +80,7 @@ export const Header: React.FC<HeaderProps> = ({ userStats, darkMode, toggleDarkM
               href="https://en.tipeee.com/objectif-citoyen/"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-9 h-9 rounded-md bg-rose-50 dark:bg-rose-900/30 text-rose-500 dark:text-rose-400 hover:bg-rose-100 dark:hover:bg-rose-900/50 flex items-center justify-center transition-colors"
+              className="w-9 h-9 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 flex items-center justify-center transition-colors"
               title="Soutenir le projet"
               aria-label="Soutenir le projet sur Tipeee"
             >

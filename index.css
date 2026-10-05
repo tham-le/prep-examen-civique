@@ -20,26 +20,23 @@
   --color-sapphire-900: #172554;
 }
 
+html {
+  font-size: 17px;
+}
+
 body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.6;
   -webkit-tap-highlight-color: transparent;
 }
 
-h1, h2, h3, .brand-font {
-  font-family: 'Outfit', sans-serif;
+h1, h2, h3 {
+  letter-spacing: -0.015em;
+  line-height: 1.25;
 }
 
-.glass-card {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-@keyframes subtle-pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
-}
-
-.loading-pulse {
-  animation: subtle-pulse 2s infinite ease-in-out;
+/* Hard-edged blue, white and red bands */
+.tricolore {
+  height: 4px;
+  background: linear-gradient(to right, #1e40af 33.34%, #ffffff 33.34% 66.67%, #dc2626 66.67%);
 }

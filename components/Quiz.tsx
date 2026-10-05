@@ -270,7 +270,7 @@ export const Quiz: React.FC<QuizProps> = ({ selectedTheme, onExit, onStatsUpdate
             </div>
           )}
 
-          <h3 className="text-lg md:text-xl font-medium text-slate-900 dark:text-white leading-relaxed">{current.text}</h3>
+          <h3 className="text-xl md:text-2xl font-semibold text-slate-900 dark:text-white leading-snug">{current.text}</h3>
 
           <div className="grid gap-2" role="group" aria-label="Options de réponse">
             {current.options.map((opt, idx) => (
