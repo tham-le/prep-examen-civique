@@ -507,6 +507,240 @@ const VALEURS_QUESTIONS: Question[] = [
     explanation: "La Charte de l'environnement a été adossée à la Constitution en 2005, donnant valeur constitutionnelle à la protection de l'environnement.",
     category: "valeurs",
     type: 'multiple-choice'
+  },
+  {
+    id: 'v56',
+    text: "Parmi les propositions suivantes, laquelle constitue une participation citoyenne ?",
+    options: ["Voter aux élections", "Faire ses courses", "Prendre les transports en commun", "Regarder un match de football"],
+    correctAnswer: 0,
+    explanation: "Voter, être candidat, adhérer à une association ou être juré sont des formes de participation citoyenne à la vie du pays.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v57',
+    text: "À quoi sert un titre de séjour ?",
+    options: ["À voter aux élections", "À prouver qu'une personne étrangère a le droit de séjourner en France", "À obtenir la nationalité française automatiquement", "À voyager gratuitement en train"],
+    correctAnswer: 1,
+    explanation: "Le titre de séjour est le document qui autorise une personne étrangère à résider en France.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v58',
+    text: "La liberté de circulation permet à toute personne de :",
+    options: ["Entrer dans une propriété privée sans autorisation", "Voyager gratuitement dans les transports", "Se déplacer librement sur le territoire national", "Conduire sans permis"],
+    correctAnswer: 2,
+    explanation: "La liberté d'aller et venir est un droit fondamental. Elle s'exerce dans le respect de la loi et de la propriété privée.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v59',
+    text: "Sur quel site internet peut-on retrouver le symbole de la République française ?",
+    options: ["facebook.com", "amazon.fr", "wikipedia.org", "service-public.gouv.fr"],
+    correctAnswer: 3,
+    explanation: "Les sites officiels de l'État (adresse en .gouv.fr) affichent le bloc-marque « République française » avec Marianne et la devise.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v60',
+    text: "Complétez ces paroles de la Marseillaise : \"Aux armes […] ! Formez vos bataillons\"",
+    options: ["citoyens", "soldats", "Français", "enfants"],
+    correctAnswer: 0,
+    explanation: "Le refrain de la Marseillaise dit : « Aux armes, citoyens ! Formez vos bataillons ».",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v61',
+    text: "Complétez les paroles de la Marseillaise : \"Allons enfants de la patrie […]\"",
+    options: ["La liberté est arrivée", "Le jour de gloire est arrivé", "Le temps de paix est venu", "Le roi est parti"],
+    correctAnswer: 1,
+    explanation: "Le premier couplet de la Marseillaise commence par : « Allons enfants de la patrie, le jour de gloire est arrivé ! ».",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v62',
+    text: "En application de la liberté individuelle, quelle proposition est correcte ? Une personne peut :",
+    options: ["Faire tout ce qu'elle veut sans aucune limite", "Être détenue sans raison", "Choisir librement son mode de vie dans le respect de la loi", "Être obligée de pratiquer une religion"],
+    correctAnswer: 2,
+    explanation: "La liberté individuelle protège chacun contre l'arbitraire. Elle s'arrête là où commencent les droits des autres et où la loi l'interdit.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v63',
+    text: "Concernant la pratique de la religion, quelle proposition est correcte ?",
+    options: ["La religion catholique est obligatoire", "Il est interdit de pratiquer une religion en France", "Il faut déclarer sa religion à la mairie", "Chacun est libre de pratiquer la religion de son choix ou de n'en pratiquer aucune"],
+    correctAnswer: 3,
+    explanation: "La liberté de conscience et de culte est garantie, dans le respect de l'ordre public. Personne n'a à déclarer sa religion.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v64',
+    text: "En tant que parent, peut-on refuser que son enfant participe aux cours de sport à l'école car ils sont mixtes ?",
+    options: ["Non, la mixité est la règle à l'école et les cours de sport sont obligatoires", "Oui, pour des raisons religieuses", "Oui, si le parent écrit une lettre", "Oui, mais seulement pour les filles"],
+    correctAnswer: 0,
+    explanation: "L'école est mixte et l'éducation physique fait partie du programme. Seul un motif médical peut dispenser un élève.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v65',
+    text: "Qu'est-ce que la liberté ?",
+    options: ["Faire tout ce que l'on veut sans limite", "Pouvoir faire tout ce qui ne nuit pas à autrui", "Obéir sans discuter", "Ne pas payer d'impôts"],
+    correctAnswer: 1,
+    explanation: "Selon la Déclaration de 1789, la liberté consiste à pouvoir faire tout ce qui ne nuit pas à autrui.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v66',
+    text: "Quelle est la place de la langue française dans la République ?",
+    options: ["Le français et l'anglais sont tous deux officiels", "Il n'y a pas de langue officielle", "Le français est la langue de la République (article 2 de la Constitution)", "Le français est une langue régionale"],
+    correctAnswer: 2,
+    explanation: "L'article 2 de la Constitution dit : « La langue de la République est le français ».",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v67',
+    text: "Quels sont des symboles officiels de la République française ?",
+    options: ["La fleur de lys et le drapeau blanc", "L'aigle impérial et la Marche impériale", "La tour Eiffel et la baguette", "Le drapeau tricolore, la Marseillaise et Marianne"],
+    correctAnswer: 3,
+    explanation: "Le drapeau tricolore, l'hymne national, la devise et Marianne sont des symboles de la République.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v68',
+    text: "A-t-on le droit d'insulter publiquement quelqu'un parce qu'il est différent (handicap, apparence physique, sexe…) ?",
+    options: ["Non, l'injure publique à caractère discriminatoire est punie par la loi", "Oui, la liberté d'expression n'a aucune limite", "Oui, si la personne est étrangère", "Oui, si on est plusieurs"],
+    correctAnswer: 0,
+    explanation: "La liberté d'expression a des limites : l'injure, la diffamation et la haine envers une personne à cause de ce qu'elle est sont punies.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v69',
+    text: "Une personne a-t-elle le droit de ne pas croire en une religion ?",
+    options: ["Non, il faut avoir une religion", "Oui, la liberté de conscience permet de croire ou de ne pas croire", "Non, sauf à l'école", "Oui, mais seulement après 18 ans"],
+    correctAnswer: 1,
+    explanation: "La laïcité garantit la liberté de croire, de ne pas croire et de changer de conviction.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v70',
+    text: "Que peut faire un usager du service public dans une mairie ?",
+    options: ["Exiger d'être reçu par un agent de sa religion", "Refuser de montrer son visage", "Exprimer ses convictions, par exemple en portant un signe religieux, sans perturber le service", "Demander que le service soit adapté à sa religion"],
+    correctAnswer: 2,
+    explanation: "La neutralité s'impose aux agents publics, pas aux usagers. Un usager garde sa liberté de conscience, mais il doit respecter la loi, par exemple le visage découvert.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v71',
+    text: "Qui doit respecter le principe de neutralité religieuse dans une préfecture ?",
+    options: ["Les usagers qui viennent faire une démarche", "Uniquement le préfet", "Personne", "Les agents du service public"],
+    correctAnswer: 3,
+    explanation: "Tous les agents publics doivent rester neutres et ne pas montrer leurs convictions religieuses dans l'exercice de leurs fonctions.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v72',
+    text: "A-t-on le droit de changer de religion ?",
+    options: ["Oui, c'est une liberté garantie", "Non, on garde la religion de sa famille", "Oui, mais seulement avec l'accord de l'État", "Non, sauf avant 18 ans"],
+    correctAnswer: 0,
+    explanation: "La liberté de conscience inclut le droit de changer de religion ou de la quitter.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v73',
+    text: "Qu'est-ce qui est interdit par la Charte de la laïcité à l'école ?",
+    options: ["Croire en une religion", "Le port de signes ou de tenues par lesquels les élèves montrent ostensiblement une appartenance religieuse", "Parler de religion à la maison", "Prier en dehors de l'école"],
+    correctAnswer: 1,
+    explanation: "Dans les écoles, collèges et lycées publics, les élèves ne peuvent pas porter de signes ou de tenues qui manifestent ostensiblement une appartenance religieuse.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v74',
+    text: "Que dit l'article 1er de la Constitution française ?",
+    options: ["La France est une monarchie parlementaire", "La France est une République fédérale", "La France est une République indivisible, laïque, démocratique et sociale", "La France est un empire démocratique"],
+    correctAnswer: 2,
+    explanation: "L'article 1er ajoute que la France assure l'égalité devant la loi de tous les citoyens et respecte toutes les croyances.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v75',
+    text: "Où peut-on voir la devise de la République ?",
+    options: ["Sur les panneaux routiers", "Sur les billets de banque uniquement", "Sur les maillots de l'équipe de France", "Sur les frontons des mairies et des écoles"],
+    correctAnswer: 3,
+    explanation: "« Liberté, Égalité, Fraternité » est inscrite sur les bâtiments publics comme les mairies et les écoles.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v76',
+    text: "Quel est l'un des rôles des associations ?",
+    options: ["Réunir des personnes autour d'un but commun, sans chercher à partager des bénéfices", "Voter les lois", "Rendre la justice", "Collecter les impôts"],
+    correctAnswer: 0,
+    explanation: "Une association réunit des personnes pour un projet commun (sport, culture, entraide) dans un but non lucratif.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v77',
+    text: "Quel symbole de la République française est tricolore ?",
+    options: ["La Marseillaise", "Le drapeau", "La devise", "Le Code civil"],
+    correctAnswer: 1,
+    explanation: "Le drapeau bleu, blanc, rouge est l'emblème national.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v78',
+    text: "Qu'est-ce qui est traditionnellement organisé sur les Champs-Élysées le 14 juillet pour célébrer la fête nationale ?",
+    options: ["Un marathon", "Un marché de Noël", "Un défilé militaire", "Un carnaval"],
+    correctAnswer: 2,
+    explanation: "Chaque 14 juillet, un défilé militaire descend les Champs-Élysées à Paris devant le président de la République.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v79',
+    text: "Qui est Marianne ?",
+    options: ["Une reine de France", "Une chanteuse célèbre", "La première femme députée", "La figure féminine qui représente la République et ses valeurs"],
+    correctAnswer: 3,
+    explanation: "Marianne est la personnification de la République. Son buste est dans les mairies.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v80',
+    text: "Un enfant peut-il refuser d'aller à l'école pour une raison religieuse ?",
+    options: ["Non, l'instruction est obligatoire et l'école est laïque", "Oui, si ses parents l'écrivent", "Oui, si la religion est minoritaire", "Oui, un jour par semaine"],
+    correctAnswer: 0,
+    explanation: "L'instruction est obligatoire pour tous les enfants. Une raison religieuse ne permet pas de refuser l'école.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v81',
+    text: "Certains métiers peuvent-ils être réservés aux hommes ?",
+    options: ["Oui, les métiers physiques", "Non, la loi interdit en principe de réserver un métier à un sexe", "Oui, dans l'armée uniquement", "Oui, si l'employeur le décide"],
+    correctAnswer: 1,
+    explanation: "L'égalité entre les femmes et les hommes interdit la discrimination à l'embauche. Les exceptions sont très limitées.",
+    category: "valeurs",
+    type: 'multiple-choice'
   }
 ];
 
