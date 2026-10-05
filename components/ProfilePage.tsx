@@ -264,9 +264,9 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ userStats, onStatsUpda
       </div>
 
       {/* Support */}
-      <div className="bg-rose-50 dark:bg-rose-900/20 p-5 rounded-xl border border-rose-200 dark:border-rose-800">
+      <div className="bg-sapphire-50 dark:bg-sapphire-900/20 p-5 rounded-xl border border-sapphire-200 dark:border-sapphire-800">
         <div className="flex flex-col sm:flex-row items-center gap-4">
-          <div className="w-12 h-12 bg-rose-100 dark:bg-rose-900/50 text-rose-500 dark:text-rose-400 rounded-xl flex items-center justify-center flex-shrink-0">
+          <div className="w-12 h-12 bg-sapphire-100 dark:bg-sapphire-900/50 text-sapphire-600 dark:text-sapphire-400 rounded-xl flex items-center justify-center flex-shrink-0">
             <i className="fas fa-heart text-xl"></i>
           </div>
           <div className="text-center sm:text-left flex-1">
@@ -279,7 +279,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ userStats, onStatsUpda
             href="https://en.tipeee.com/objectif-citoyen/"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-rose-500 hover:bg-rose-600 text-white px-5 py-2.5 rounded-lg font-medium transition-colors flex items-center flex-shrink-0"
+            className="bg-sapphire-600 hover:bg-sapphire-700 text-white px-5 py-2.5 rounded-lg font-medium transition-colors flex items-center flex-shrink-0"
           >
             <i className="fas fa-hand-holding-heart mr-2"></i>
             Soutenir
