@@ -33,5 +33,7 @@ describe('ExamSimulation timeout', () => {
 
     expect(onStatsUpdate).toHaveBeenCalledTimes(1);
     expect(Object.keys(onStatsUpdate.mock.calls[0][0].questionMastery)).toHaveLength(40);
+    expect(container.textContent).toContain('Résultat par thème');
+    expect(container.textContent).toContain('Mises en situation');
   });
 });

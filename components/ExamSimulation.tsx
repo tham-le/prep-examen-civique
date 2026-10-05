@@ -1,8 +1,9 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Question, UserStats } from '../types';
-import { ALL_QUESTIONS } from '../constants';
-import { processExamResult, getBadgeInfo, addExamResult } from '../services/gamificationService';
+import { ALL_QUESTIONS, OFFICIAL_DB, THEMES } from '../constants';
+import { buildExam } from '../services/examComposition';
+import { processExamResult, getBadgeInfo, addExamResult, loadExamHistory } from '../services/gamificationService';
 
 // Shuffle an array using Fisher-Yates algorithm
 const shuffleArray = <T,>(array: T[]): T[] => {
@@ -59,17 +60,13 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({ onStatsUpdate, u
 
   const startSimulation = async () => {
     setLoading(true);
-    const pool = ALL_QUESTIONS;
-    let simulated: Question[] = [];
+    const exam = buildExam(
+      THEMES.map(t => OFFICIAL_DB[t.id].filter(q => q.type !== 'scenario')),
+      ALL_QUESTIONS.filter(q => q.type === 'scenario')
+    );
 
-    // Create a pool with enough questions by repeating if necessary
-    while (simulated.length < 40) {
-      const shuffled = [...pool].sort(() => 0.5 - Math.random());
-      simulated = [...simulated, ...shuffled];
-    }
-
-    // Shuffle questions and randomize answer order for each
-    setQuestions(simulated.slice(0, 40).map(shuffleQuestionOptions));
+    // Randomize answer order for each question
+    setQuestions(exam.map(shuffleQuestionOptions));
     setAnswers({});
     setCurrentIdx(0);
     setTimeLeft(2700);
@@ -157,6 +154,11 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({ onStatsUpdate, u
     </div>
   );
 
+  const recentExams = loadExamHistory().slice(-3);
+  const recentAverage = recentExams.length
+    ? Math.round(recentExams.reduce((sum, e) => sum + e.score, 0) / recentExams.length)
+    : 0;
+
   if (!started) return (
     <div className="max-w-xl mx-auto bg-white dark:bg-slate-800 p-8 rounded-xl border border-slate-200 dark:border-slate-700 text-center space-y-8">
       <div className="w-16 h-16 bg-sapphire-600 text-white rounded-xl flex items-center justify-center mx-auto">
@@ -180,6 +182,15 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({ onStatsUpdate, u
           </div>
         ))}
       </div>
+
+      <p className="text-sm text-slate-500 dark:text-slate-400">28 questions de connaissance et 12 mises en situation, comme à l'examen officiel.</p>
+
+      {recentExams.length > 0 && (
+        <p className="text-sm text-slate-700 dark:text-slate-300">
+          Moyenne de vos {recentExams.length} dernier{recentExams.length > 1 ? 's' : ''} examen{recentExams.length > 1 ? 's' : ''} blanc{recentExams.length > 1 ? 's' : ''} :{' '}
+          <span className="font-bold">{recentAverage}/40</span> (seuil : 32)
+        </p>
+      )}
 
       {/* User's exam history */}
       {userStats.examsPassed > 0 && (
@@ -207,6 +218,15 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({ onStatsUpdate, u
     const reviewQuestions = showOnlyMistakes
       ? questions.filter(q => wrongIds.includes(q.id))
       : questions;
+
+    const breakdown = [
+      ...THEMES.map(t => ({ label: t.title, items: questions.filter(q => q.category === t.id && q.type !== 'scenario') })),
+      { label: 'Mises en situation', items: questions.filter(q => q.type === 'scenario') },
+    ].map(({ label, items }) => ({
+      label,
+      total: items.length,
+      correct: items.filter(q => answers[`${q.id}_${questions.indexOf(q)}`] === q.correctAnswer).length,
+    }));
 
     const toggleReviewItem = (questionId: string) => {
       setExpandedReview(prev => {
@@ -281,6 +301,22 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({ onStatsUpdate, u
             <button onClick={resetExam} className="bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 px-6 py-3 rounded-lg font-medium hover:bg-slate-200 dark:hover:bg-slate-600 transition">Retour</button>
           </div>
         </div>
+      </div>
+
+      {/* Score per theme, to see where the points were lost */}
+      <div className="max-w-2xl mx-auto bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-5 space-y-3">
+        <h3 className="text-lg font-bold text-slate-900 dark:text-white">Résultat par thème</h3>
+        {breakdown.map(row => (
+          <div key={row.label}>
+            <div className="flex justify-between text-sm text-slate-700 dark:text-slate-300">
+              <span>{row.label}</span>
+              <span className="tabular-nums">{row.correct} / {row.total}</span>
+            </div>
+            <div className="h-1.5 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
+              <div className="h-full bg-sapphire-500 rounded-full" style={{ width: `${row.total ? (row.correct / row.total) * 100 : 0}%` }}></div>
+            </div>
+          </div>
+        ))}
       </div>
 
       {/* Correction: per-question review, fed back into spaced repetition */}

@@ -50,7 +50,7 @@ export const getItemStatus = (map: SRSMap, id: string, now: number = Date.now())
   return 'learning';
 };
 
-const shuffle = <T,>(items: T[]): T[] => {
+export const shuffle = <T,>(items: T[]): T[] => {
   const result = [...items];
   for (let i = result.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
