@@ -11,13 +11,6 @@ const CORE_ASSETS = [
   '/icons/apple-touch-icon.png'
 ];
 
-// External CDN assets to cache
-const CDN_ASSETS = [
-  'https://cdn.tailwindcss.com',
-  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
-  'https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap'
-];
-
 // Install event - cache core assets
 self.addEventListener('install', (event) => {
   event.waitUntil(
