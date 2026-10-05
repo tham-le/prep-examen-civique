@@ -1,9 +1,11 @@
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { THEMES, ALL_QUESTIONS, OFFICIAL_DB } from '../constants';
 import { Question, UserStats } from '../types';
 import { getItemStatus, ItemStatus } from '../services/spacedRepetition';
+
+const PAGE_SIZE = 30;
 
 type StatusFilter = 'all' | 'due' | 'mastered' | 'never-attempted';
 
@@ -48,6 +50,7 @@ export const RevisionMode: React.FC<RevisionModeProps> = ({ userStats }) => {
   const [shuffled, setShuffled] = useState(false);
   const [shuffledOrder, setShuffledOrder] = useState<string[]>([]);
   const [focusedIndex, setFocusedIndex] = useState<number>(-1);
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
   const mastery = userStats.questionMastery;
 
@@ -67,6 +70,7 @@ export const RevisionMode: React.FC<RevisionModeProps> = ({ userStats }) => {
 
   const goToNext = (index: number) => {
     if (index < filteredQuestions.length - 1) {
+      if (index + 1 >= visibleCount) setVisibleCount(count => count + PAGE_SIZE);
       const current = filteredQuestions[index];
       const next = filteredQuestions[index + 1];
       const newExpanded = new Set(expandedQuestions);
@@ -135,6 +139,11 @@ export const RevisionMode: React.FC<RevisionModeProps> = ({ userStats }) => {
 
   const themeInfo = THEMES.find(t => t.id === selectedTheme);
 
+  // Back to the first page when the list changes
+  useEffect(() => {
+    setVisibleCount(PAGE_SIZE);
+  }, [selectedTheme, statusFilter, searchQuery, shuffled]);
+
   // Keyboard navigation
   React.useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -142,7 +151,7 @@ export const RevisionMode: React.FC<RevisionModeProps> = ({ userStats }) => {
 
       if (e.key === 'ArrowDown' || e.key === 'j') {
         e.preventDefault();
-        setFocusedIndex(prev => Math.min(prev + 1, filteredQuestions.length - 1));
+        setFocusedIndex(prev => Math.min(prev + 1, Math.min(visibleCount, filteredQuestions.length) - 1));
       } else if (e.key === 'ArrowUp' || e.key === 'k') {
         e.preventDefault();
         setFocusedIndex(prev => Math.max(prev - 1, 0));
@@ -326,7 +335,7 @@ export const RevisionMode: React.FC<RevisionModeProps> = ({ userStats }) => {
 
       {/* Questions list */}
       <div className="space-y-3">
-        {filteredQuestions.map((question, index) => {
+        {filteredQuestions.slice(0, visibleCount).map((question, index) => {
           const isExpanded = expandedQuestions.has(question.id);
           const isFocused = focusedIndex === index;
           const status = getItemStatus(mastery, question.id);
@@ -406,6 +415,17 @@ export const RevisionMode: React.FC<RevisionModeProps> = ({ userStats }) => {
           );
         })}
       </div>
+
+      {filteredQuestions.length > visibleCount && (
+        <div className="text-center">
+          <button
+            onClick={() => setVisibleCount(count => count + PAGE_SIZE)}
+            className="px-5 py-2.5 rounded-lg bg-sapphire-600 text-white text-sm font-medium hover:bg-sapphire-700 transition-colors"
+          >
+            Afficher {Math.min(PAGE_SIZE, filteredQuestions.length - visibleCount)} de plus ({filteredQuestions.length - visibleCount} restantes)
+          </button>
+        </div>
+      )}
 
       {filteredQuestions.length === 0 && (
         <div className="text-center py-12">
