@@ -3273,6 +3273,483 @@ const CULTURE_QUESTIONS: Question[] = [
     explanation: "La Shoah désigne le génocide des Juifs d'Europe perpétré par le régime nazi et ses collaborateurs pendant la Seconde Guerre mondiale.",
     category: "culture",
     type: 'multiple-choice'
+  },
+  {
+    id: 'c79',
+    text: "Quel roi de France a été exécuté pendant la Révolution française ?",
+    options: ["Louis XIV", "Louis XV", "Henri IV", "Louis XVI"],
+    correctAnswer: 3,
+    explanation: "Louis XVI a été guillotiné le 21 janvier 1793.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c80',
+    text: "Lequel de ces personnages a un lien avec la République française ?",
+    options: ["Marianne", "Louis XIV", "Charlemagne", "Cléopâtre"],
+    correctAnswer: 0,
+    explanation: "Marianne est la figure qui symbolise la République française.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c81',
+    text: "De quand date l'appel à la résistance du général de Gaulle ?",
+    options: ["Du 8 mai 1945", "Du 18 juin 1940", "Du 11 novembre 1918", "Du 6 juin 1944"],
+    correctAnswer: 1,
+    explanation: "Le 18 juin 1940, depuis Londres, le général de Gaulle appelle les Français à continuer le combat.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c82',
+    text: "Quel pays a été colonisé par la France ?",
+    options: ["La Suède", "Le Japon", "L'Algérie", "L'Irlande"],
+    correctAnswer: 2,
+    explanation: "La France a colonisé l'Algérie à partir de 1830. Elle est devenue indépendante en 1962.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c83',
+    text: "Depuis quand les Français élisent-ils le président de la République au suffrage universel direct ?",
+    options: ["1958", "1946", "1981", "1962"],
+    correctAnswer: 3,
+    explanation: "Un référendum a adopté ce mode d'élection en 1962. La première élection a eu lieu en 1965.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c84',
+    text: "Quelle est la première étape de la construction européenne en 1951 ?",
+    options: ["La CECA (Communauté européenne du charbon et de l'acier)", "L'euro", "L'espace Schengen", "Le Parlement européen"],
+    correctAnswer: 0,
+    explanation: "Le traité de Paris de 1951 crée la CECA entre six pays, pour mettre en commun la production de charbon et d'acier.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c85',
+    text: "Durant le mandat de quel président la peine de mort a-t-elle été abolie ?",
+    options: ["Charles de Gaulle", "François Mitterrand", "Jacques Chirac", "Nicolas Sarkozy"],
+    correctAnswer: 1,
+    explanation: "La loi d'abolition a été votée en 1981 sous la présidence de François Mitterrand, sur proposition du garde des Sceaux Robert Badinter.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c86',
+    text: "En quelle année a commencé la Première Guerre mondiale ?",
+    options: ["1918", "1939", "1914", "1905"],
+    correctAnswer: 2,
+    explanation: "La Première Guerre mondiale a duré de 1914 à 1918.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c87',
+    text: "Quel continent a été le plus concerné par la décolonisation française après la Seconde Guerre mondiale ?",
+    options: ["L'Europe", "L'Amérique du Sud", "L'Océanie", "L'Afrique"],
+    correctAnswer: 3,
+    explanation: "La plupart des anciennes colonies françaises sont en Afrique. Beaucoup sont devenues indépendantes autour de 1960.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c88',
+    text: "Quelle mer ou océan borde la France métropolitaine ?",
+    options: ["L'océan Atlantique", "L'océan Pacifique", "La mer Baltique", "La mer Noire"],
+    correctAnswer: 0,
+    explanation: "La France métropolitaine est bordée par l'océan Atlantique, la Manche, la mer du Nord et la mer Méditerranée.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c89',
+    text: "Quelle ville française est un port maritime ?",
+    options: ["Limoges", "Marseille", "Clermont-Ferrand", "Dijon"],
+    correctAnswer: 1,
+    explanation: "Marseille est le premier port de France, sur la mer Méditerranée.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c90',
+    text: "Où se trouvent les principales activités économiques en France ?",
+    options: ["Uniquement dans les villages de montagne", "Uniquement en Corse", "Principalement dans les grandes métropoles, dont l'Île-de-France", "Uniquement dans l'outre-mer"],
+    correctAnswer: 2,
+    explanation: "L'activité économique est concentrée dans les grandes agglomérations, en premier lieu l'Île-de-France.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c91',
+    text: "Quelle région est la plus peuplée ?",
+    options: ["La Bretagne", "La Corse", "La Normandie", "L'Île-de-France"],
+    correctAnswer: 3,
+    explanation: "L'Île-de-France compte plus de 12 millions d'habitants, soit près d'un Français sur cinq.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c92',
+    text: "Quelle ville française fait partie des 10 plus grandes métropoles du pays ?",
+    options: ["Toulouse", "Cahors", "Aurillac", "Carcassonne"],
+    correctAnswer: 0,
+    explanation: "Paris, Lyon, Marseille, Toulouse, Lille, Bordeaux, Nice, Nantes, Strasbourg ou Montpellier sont parmi les plus grandes métropoles.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c93',
+    text: "Lequel de ces départements de France est le plus touristique ?",
+    options: ["La Creuse", "Paris", "Le Cantal", "La Lozère"],
+    correctAnswer: 1,
+    explanation: "Paris accueille le plus grand nombre de touristes, avec la tour Eiffel, le Louvre et Notre-Dame.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c94',
+    text: "Quel peintre est français ?",
+    options: ["Pablo Picasso", "Vincent van Gogh", "Claude Monet", "Salvador Dalí"],
+    correctAnswer: 2,
+    explanation: "Claude Monet est un peintre français, l'un des fondateurs de l'impressionnisme.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c95',
+    text: "Quel est le classement de la langue française parmi les langues les plus parlées dans le monde ?",
+    options: ["1re", "10e", "20e", "5e"],
+    correctAnswer: 3,
+    explanation: "Selon l'Organisation internationale de la Francophonie, le français est la 5e langue la plus parlée au monde, après l'anglais, le chinois, l'hindi et l'espagnol.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c96',
+    text: "Qui était une écrivaine française célèbre ?",
+    options: ["Marguerite Duras", "Agatha Christie", "Jane Austen", "Virginia Woolf"],
+    correctAnswer: 0,
+    explanation: "Marguerite Duras est une écrivaine française, auteure de L'Amant.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c97',
+    text: "Qui était un célèbre musicien français ?",
+    options: ["Ludwig van Beethoven", "Claude Debussy", "Wolfgang Amadeus Mozart", "Johann Sebastian Bach"],
+    correctAnswer: 1,
+    explanation: "Claude Debussy est un compositeur français, auteur de Clair de lune.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c98',
+    text: "Quelle fête est française ?",
+    options: ["Thanksgiving", "Oktoberfest", "Le 14 juillet", "Hanami"],
+    correctAnswer: 2,
+    explanation: "Le 14 juillet est la fête nationale française.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c99',
+    text: "Quel écrivain est français ?",
+    options: ["William Shakespeare", "Dante", "Cervantès", "Victor Hugo"],
+    correctAnswer: 3,
+    explanation: "Victor Hugo est un écrivain français, auteur des Misérables et de Notre-Dame de Paris.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c100',
+    text: "Lequel de ces personnages historiques est français ?",
+    options: ["Louis Pasteur", "Albert Einstein", "Isaac Newton", "Galilée"],
+    correctAnswer: 0,
+    explanation: "Louis Pasteur est un scientifique français, inventeur du vaccin contre la rage.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c101',
+    text: "Dans quelle République est-on aujourd'hui ?",
+    options: ["La Ire République", "La Ve République", "La IIIe République", "La IVe République"],
+    correctAnswer: 1,
+    explanation: "La France vit sous la Ve République depuis la Constitution de 1958.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c102',
+    text: "Qui a rendu l'école gratuite, laïque et obligatoire ?",
+    options: ["Napoléon Ier", "Charles de Gaulle", "Jules Ferry", "Louis XIV"],
+    correctAnswer: 2,
+    explanation: "Les lois de Jules Ferry, en 1881 et 1882, ont rendu l'école primaire gratuite, laïque et obligatoire.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c103',
+    text: "Quand a eu lieu la Seconde Guerre mondiale ?",
+    options: ["De 1914 à 1918", "De 1950 à 1955", "De 1870 à 1871", "De 1939 à 1945"],
+    correctAnswer: 3,
+    explanation: "La Seconde Guerre mondiale a duré de 1939 à 1945.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c104',
+    text: "Quand a eu lieu la Première Guerre mondiale ?",
+    options: ["De 1914 à 1918", "De 1939 à 1945", "De 1870 à 1871", "De 1789 à 1799"],
+    correctAnswer: 0,
+    explanation: "La Première Guerre mondiale a duré de 1914 à 1918.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c105',
+    text: "En quelle année l'esclavage a-t-il été aboli définitivement en France ?",
+    options: ["1789", "1848", "1905", "1946"],
+    correctAnswer: 1,
+    explanation: "L'esclavage a été aboli définitivement par le décret du 27 avril 1848, grâce notamment à Victor Schœlcher.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c106',
+    text: "Depuis quelle année l'école publique est-elle gratuite ?",
+    options: ["1789", "1946", "1881", "1958"],
+    correctAnswer: 2,
+    explanation: "La gratuité de l'école primaire publique date de la loi du 16 juin 1881.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c107',
+    text: "Combien y a-t-il eu de républiques en France ?",
+    options: ["3", "2", "7", "5"],
+    correctAnswer: 3,
+    explanation: "La France a connu cinq républiques. La première date de 1792 et la Ve République est en vigueur depuis 1958.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c108',
+    text: "Qui a fondé la Ve République ?",
+    options: ["Charles de Gaulle", "Napoléon III", "Georges Pompidou", "François Mitterrand"],
+    correctAnswer: 0,
+    explanation: "Charles de Gaulle a fait adopter la Constitution de 1958 et il a été le premier président de la Ve République.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c109',
+    text: "Pourquoi l'année 1958 est-elle importante pour la France ?",
+    options: ["La Révolution française commence", "La Constitution de la Ve République est adoptée", "La Première Guerre mondiale se termine", "L'euro est créé"],
+    correctAnswer: 1,
+    explanation: "La Constitution de la Ve République, toujours en vigueur, a été adoptée en 1958.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c110',
+    text: "Quelle ville est française ?",
+    options: ["Berlin", "Madrid", "Lyon", "Rome"],
+    correctAnswer: 2,
+    explanation: "Lyon est une grande ville du sud-est de la France.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c111',
+    text: "Quelle est la capitale de la France ?",
+    options: ["Lyon", "Marseille", "Bordeaux", "Paris"],
+    correctAnswer: 3,
+    explanation: "Paris est la capitale de la France.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c112',
+    text: "Qu'est-ce que Paris ?",
+    options: ["La capitale de la France", "Un département d'outre-mer", "Un fleuve", "Une région de montagne"],
+    correctAnswer: 0,
+    explanation: "Paris est la capitale de la France et la ville la plus peuplée du pays.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c113',
+    text: "Sur quel continent se situe la France métropolitaine ?",
+    options: ["En Afrique", "En Europe", "En Asie", "En Amérique"],
+    correctAnswer: 1,
+    explanation: "La France métropolitaine est située en Europe de l'Ouest.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c114',
+    text: "Quelle île est un département d'outre-mer français ?",
+    options: ["La Corse", "La Sardaigne", "La Martinique", "Majorque"],
+    correctAnswer: 2,
+    explanation: "La Martinique est un département d'outre-mer, comme la Guadeloupe, la Guyane, La Réunion et Mayotte.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c115',
+    text: "Quelle est la mer au sud de la France métropolitaine ?",
+    options: ["La mer du Nord", "La mer Baltique", "La mer Noire", "La Méditerranée"],
+    correctAnswer: 3,
+    explanation: "La mer Méditerranée borde le sud de la France.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c116',
+    text: "Quelle ville est située au bord de la mer Méditerranée ?",
+    options: ["Marseille", "Lyon", "Strasbourg", "Lille"],
+    correctAnswer: 0,
+    explanation: "Marseille et Nice sont des villes françaises au bord de la Méditerranée.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c117',
+    text: "Où se situe la Corse ?",
+    options: ["Dans l'océan Atlantique", "Dans la mer Méditerranée", "Dans la Manche", "Dans la mer du Nord"],
+    correctAnswer: 1,
+    explanation: "La Corse est une île française de la mer Méditerranée.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c118',
+    text: "Quelle chaîne de montagnes est située entre la France et l'Italie ?",
+    options: ["Les Pyrénées", "Le Massif central", "Les Alpes", "Les Vosges"],
+    correctAnswer: 2,
+    explanation: "Les Alpes séparent la France et l'Italie. Le Mont-Blanc en fait partie.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c119',
+    text: "Qui était Molière ?",
+    options: ["Un roi de France", "Un peintre impressionniste", "Un explorateur", "Un auteur et acteur de théâtre du XVIIe siècle"],
+    correctAnswer: 3,
+    explanation: "Molière est un dramaturge français, auteur de comédies comme Le Malade imaginaire et L'Avare.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c120',
+    text: "Qui était Charles Baudelaire ?",
+    options: ["Un poète français", "Un général", "Un peintre", "Un président"],
+    correctAnswer: 0,
+    explanation: "Charles Baudelaire est l'auteur du recueil de poèmes Les Fleurs du mal.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c121',
+    text: "Qui était George Sand ?",
+    options: ["Une reine de France", "Une femme de lettres française", "Une chanteuse", "Une scientifique"],
+    correctAnswer: 1,
+    explanation: "George Sand est le pseudonyme de l'écrivaine Aurore Dupin, auteure de La Mare au diable.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c122',
+    text: "Qui était Simone de Beauvoir ?",
+    options: ["Une championne de tennis", "Une actrice de cinéma", "Une écrivaine et philosophe féministe", "Une présidente de la République"],
+    correctAnswer: 2,
+    explanation: "Simone de Beauvoir est l'auteure du Deuxième Sexe, une œuvre majeure du féminisme.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c123',
+    text: "Qui était Albert Camus ?",
+    options: ["Un peintre", "Un général", "Un chanteur", "Un écrivain et philosophe, prix Nobel de littérature"],
+    correctAnswer: 3,
+    explanation: "Albert Camus est l'auteur de L'Étranger. Il a reçu le prix Nobel de littérature en 1957.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c124',
+    text: "Qui était Paul Cézanne ?",
+    options: ["Un peintre français", "Un écrivain", "Un musicien", "Un roi"],
+    correctAnswer: 0,
+    explanation: "Paul Cézanne est un peintre français né à Aix-en-Provence.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c125',
+    text: "Qui était Marc Chagall ?",
+    options: ["Un écrivain", "Un peintre", "Un compositeur", "Un chef d'État"],
+    correctAnswer: 1,
+    explanation: "Marc Chagall est un peintre né dans l'Empire russe, devenu français en 1937.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c126',
+    text: "Qui était Joséphine Baker ?",
+    options: ["Une reine", "Une scientifique", "Une chanteuse et danseuse, résistante pendant la Seconde Guerre mondiale", "Une championne olympique"],
+    correctAnswer: 2,
+    explanation: "Joséphine Baker, née aux États-Unis et devenue française, a été résistante. Elle est entrée au Panthéon en 2021.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c127',
+    text: "Qui était une chanteuse française célèbre ?",
+    options: ["Madonna", "Whitney Houston", "Adele", "Édith Piaf"],
+    correctAnswer: 3,
+    explanation: "Édith Piaf est une chanteuse française, auteure de La Vie en rose.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c128',
+    text: "Qu'est-ce que le Louvre ?",
+    options: ["Un musée situé à Paris", "Un château de la Loire", "Une cathédrale", "Une gare"],
+    correctAnswer: 0,
+    explanation: "Le musée du Louvre à Paris abrite notamment La Joconde.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c129',
+    text: "Qui était Jean de La Fontaine ?",
+    options: ["Un roi de France", "Un poète auteur de fables", "Un général", "Un peintre"],
+    correctAnswer: 1,
+    explanation: "Jean de La Fontaine est connu pour ses Fables, comme Le Corbeau et le Renard.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c130',
+    text: "Dans quelle ville se trouve la tour Eiffel ?",
+    options: ["Lyon", "Marseille", "Paris", "Lille"],
+    correctAnswer: 2,
+    explanation: "La tour Eiffel a été construite pour l'Exposition universelle de 1889 à Paris.",
+    category: "culture",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c131',
+    text: "Quand célèbre-t-on Noël ?",
+    options: ["Le 1er janvier", "Le 14 juillet", "Le 1er mai", "Le 25 décembre"],
+    correctAnswer: 3,
+    explanation: "Noël est célébré le 25 décembre. C'est un jour férié en France.",
+    category: "culture",
+    type: 'multiple-choice'
   }
 ];
 
