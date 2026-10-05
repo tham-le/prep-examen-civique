@@ -4206,6 +4206,276 @@ const SOCIETE_QUESTIONS: Question[] = [
     explanation: "La mutuelle est une assurance complémentaire santé qui rembourse tout ou partie des frais non pris en charge par la Sécurité sociale.",
     category: "societe",
     type: 'multiple-choice'
+  },
+  {
+    id: 's51',
+    text: "Auprès de quelle institution les parents peuvent-ils inscrire leur enfant à l'école publique ?",
+    options: ["La préfecture", "Le tribunal", "La caisse d'allocations familiales", "La mairie"],
+    correctAnswer: 3,
+    explanation: "Pour l'école maternelle et élémentaire, l'inscription se fait d'abord à la mairie, puis auprès de la directrice ou du directeur de l'école.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's52',
+    text: "Où faut-il déclarer la naissance d'un enfant ?",
+    options: ["À la mairie du lieu de naissance", "À la préfecture", "Au commissariat", "À la caisse d'allocations familiales"],
+    correctAnswer: 0,
+    explanation: "La naissance se déclare à l'état civil de la mairie du lieu de naissance, dans les 5 jours.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's53',
+    text: "Un bail locatif est valide s'il est :",
+    options: ["Uniquement oral", "Écrit et signé par le propriétaire et le locataire", "Signé par le maire", "Enregistré à la préfecture"],
+    correctAnswer: 1,
+    explanation: "Le contrat de location d'un logement doit être écrit et signé par le bailleur et le locataire.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's54',
+    text: "Concernant l'accès aux soins, quelle proposition est correcte ?",
+    options: ["Le médecin est imposé par l'État", "Les soins sont réservés aux Français", "Chaque personne est libre de choisir son médecin", "Il faut l'autorisation du maire pour consulter"],
+    correctAnswer: 2,
+    explanation: "Le libre choix du médecin est un principe du système de santé français.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's55',
+    text: "À qui est accessible la contraception ?",
+    options: ["Uniquement aux femmes mariées", "Uniquement aux majeures", "Uniquement aux Françaises", "À toute personne, y compris les mineures"],
+    correctAnswer: 3,
+    explanation: "La contraception est accessible à toutes et à tous. Pour les mineures, elle est confidentielle et gratuite.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's56',
+    text: "L'inscription à l'Assurance maladie est :",
+    options: ["Gratuite et ouverte à toute personne qui réside en France de façon stable et régulière", "Réservée aux salariés", "Payante, selon l'âge", "Réservée aux personnes de nationalité française"],
+    correctAnswer: 0,
+    explanation: "Toute personne qui travaille ou réside en France de manière stable et régulière a droit à la prise en charge de ses frais de santé.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's57',
+    text: "Lorsqu'un employeur veut qu'un salarié travaille plus longtemps que la durée prévue dans le contrat de travail :",
+    options: ["Le salarié travaille gratuitement", "Les heures supplémentaires doivent être payées plus cher ou compensées par du repos", "Le salarié doit payer l'employeur", "Le salarié perd ses congés"],
+    correctAnswer: 1,
+    explanation: "Les heures supplémentaires donnent droit à une majoration de salaire ou à un repos compensateur.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's58',
+    text: "Quelles sont les conditions pour toucher les allocations chômage ?",
+    options: ["Avoir démissionné sans raison", "Avoir plus de 70 ans", "Avoir perdu son emploi involontairement, avoir assez travaillé et être inscrit à France Travail", "Ne jamais avoir travaillé"],
+    correctAnswer: 2,
+    explanation: "Il faut avoir travaillé une durée minimale, être à la recherche d'un emploi et inscrit à France Travail, en général après une perte d'emploi involontaire.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's59',
+    text: "Les parents d'élève ont le droit de :",
+    options: ["Choisir les notes de leur enfant", "Renvoyer un enseignant", "Décider du programme scolaire", "Élire leurs représentants et participer à la vie de l'école"],
+    correctAnswer: 3,
+    explanation: "Les parents élisent leurs représentants au conseil d'école ou au conseil d'administration, et ils sont informés de la scolarité de leur enfant.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's60',
+    text: "À l'école, il est interdit aux parents de :",
+    options: ["Menacer ou insulter les enseignants", "Rencontrer l'enseignant", "Voter pour les représentants de parents", "Être informés des résultats de leur enfant"],
+    correctAnswer: 0,
+    explanation: "Les violences et les insultes envers le personnel de l'école sont punies par la loi.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's61',
+    text: "Quel motif d'absence est accepté par l'école ?",
+    options: ["Des vacances en famille", "La maladie de l'enfant", "Une grasse matinée", "Un anniversaire"],
+    correctAnswer: 1,
+    explanation: "Les motifs valables sont par exemple la maladie, le décès d'un proche ou une difficulté de transport imprévue. Les parents doivent prévenir l'école.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's62',
+    text: "Des parents ne respectent pas l'obligation d'instruction pour leurs enfants. Quelle sanction maximale risquent-ils ?",
+    options: ["Un avertissement oral du maire", "Une amende de 15 euros", "6 mois d'emprisonnement et 7 500 euros d'amende", "Aucune sanction"],
+    correctAnswer: 2,
+    explanation: "Refuser d'inscrire son enfant à l'école après une mise en demeure est puni de 6 mois d'emprisonnement et de 7 500 euros d'amende (article 227-17-1 du Code pénal).",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's63',
+    text: "Après avoir obtenu le permis de conduire, que faut-il faire pour pouvoir conduire sa voiture ?",
+    options: ["S'inscrire à la mairie", "Payer une taxe au préfet", "Rien de plus", "L'assurer et l'immatriculer (carte grise)"],
+    correctAnswer: 3,
+    explanation: "Un véhicule doit être assuré (assurance obligatoire) et immatriculé pour circuler.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's64',
+    text: "Le travail non déclaré est :",
+    options: ["Illégal et puni par la loi, pour l'employeur comme pour le salarié", "Autorisé pour les étrangers", "Autorisé pour de courtes périodes", "Un droit du salarié"],
+    correctAnswer: 0,
+    explanation: "Le travail non déclaré prive le salarié de protection sociale. Il est sanctionné.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's65',
+    text: "Que doit faire un employeur pour fixer un salaire ?",
+    options: ["Payer ce qu'il veut", "Respecter au moins le SMIC et les règles de sa convention collective", "Payer en fonction de la nationalité", "Demander l'avis du maire"],
+    correctAnswer: 1,
+    explanation: "Le salaire ne peut pas être inférieur au SMIC. Il doit être le même pour un travail de valeur égale, sans discrimination.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's66',
+    text: "Quelle est la première démarche à réaliser pour chercher un emploi ?",
+    options: ["S'inscrire à la mairie", "S'adresser au tribunal", "S'inscrire à France Travail", "Demander un visa"],
+    correctAnswer: 2,
+    explanation: "France Travail accompagne les demandeurs d'emploi, qui doivent s'y inscrire.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's67',
+    text: "Qui est aidé par France Travail ?",
+    options: ["Uniquement les retraités", "Uniquement les enfants", "Uniquement les élus", "Les personnes qui cherchent un emploi"],
+    correctAnswer: 3,
+    explanation: "France Travail aide les demandeurs d'emploi à trouver un travail et à être indemnisés.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's68',
+    text: "Une personne étrangère en situation régulière peut créer son entreprise :",
+    options: ["Oui, si son titre de séjour l'autorise à exercer une activité professionnelle", "Non, jamais", "Oui, sans aucun titre de séjour", "Oui, uniquement dans son pays d'origine"],
+    correctAnswer: 0,
+    explanation: "Une personne étrangère en situation régulière peut créer son entreprise si son titre de séjour l'autorise à travailler.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's69',
+    text: "Une femme peut-elle créer son entreprise ?",
+    options: ["Non, avec l'accord de son mari seulement", "Oui, comme un homme", "Non, jamais", "Oui, mais seulement après 40 ans"],
+    correctAnswer: 1,
+    explanation: "Les femmes et les hommes ont les mêmes droits pour créer une entreprise.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's70',
+    text: "Auprès de quel organisme faut-il demander le remboursement des frais de santé ?",
+    options: ["La préfecture", "La mairie", "L'Assurance maladie (la CPAM)", "France Travail"],
+    correctAnswer: 2,
+    explanation: "L'Assurance maladie rembourse une partie des frais de santé. Avec la carte Vitale, le remboursement est automatique.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's71',
+    text: "Qu'est-ce qu'un numéro d'urgence ?",
+    options: ["Un numéro payant pour les réclamations", "Un numéro de téléphone du maire", "Un numéro réservé aux entreprises", "Un numéro gratuit, joignable à tout moment, pour obtenir une aide rapide"],
+    correctAnswer: 3,
+    explanation: "Les numéros d'urgence comme le 15, le 17, le 18 et le 112 sont gratuits et joignables 24 heures sur 24.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's72',
+    text: "En cas de problème de santé non urgent, à qui faut-il s'adresser en premier ?",
+    options: ["Au médecin traitant", "Aux pompiers", "À la police", "À la mairie"],
+    correctAnswer: 0,
+    explanation: "Pour un problème de santé non urgent, on consulte d'abord son médecin traitant.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's73',
+    text: "Quel est le rôle du médecin traitant ?",
+    options: ["Rendre la justice", "Suivre le patient, coordonner ses soins et l'orienter vers un spécialiste", "Délivrer les titres de séjour", "Gérer la carte Vitale"],
+    correctAnswer: 1,
+    explanation: "Le médecin traitant est le médecin que l'on choisit pour assurer le suivi de sa santé.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's74',
+    text: "Dans quelles situations doit-on se rendre aux urgences de l'hôpital ?",
+    options: ["Pour un petit rhume", "Pour renouveler une ordonnance", "En cas de danger grave pour la santé, par exemple une forte douleur à la poitrine", "Pour un rendez-vous de routine"],
+    correctAnswer: 2,
+    explanation: "Les urgences sont réservées aux situations graves. En cas de doute, on peut appeler le 15 (SAMU) ou le 112.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's75',
+    text: "Quel est l'objectif des vaccinations obligatoires ?",
+    options: ["Faire payer les familles", "Limiter le nombre de médecins", "Contrôler les citoyens", "Protéger la personne vaccinée et la population contre des maladies graves"],
+    correctAnswer: 3,
+    explanation: "Les vaccinations obligatoires protègent chacun et évitent la propagation des maladies dans la population.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's76',
+    text: "L'autorité parentale prévoit l'obligation :",
+    options: ["De protéger, d'éduquer et de prendre soin de son enfant", "De choisir son métier", "De lui donner un salaire", "De le marier"],
+    correctAnswer: 0,
+    explanation: "L'autorité parentale est un ensemble de droits et de devoirs des parents, dans l'intérêt de l'enfant, jusqu'à sa majorité.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's77',
+    text: "Pour qui l'école est-elle obligatoire ?",
+    options: ["Uniquement pour les enfants français", "Pour tous les enfants de 3 à 16 ans, français ou étrangers", "Uniquement pour les garçons", "Uniquement pour les enfants de plus de 10 ans"],
+    correctAnswer: 1,
+    explanation: "L'instruction est obligatoire pour tous les enfants de 3 à 16 ans résidant en France, quelle que soit leur nationalité.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's78',
+    text: "Quel diplôme obtient-on à la fin du lycée ?",
+    options: ["Le brevet", "Le CAP uniquement", "Le baccalauréat", "Le permis de conduire"],
+    correctAnswer: 2,
+    explanation: "Le baccalauréat est le diplôme qui conclut les études au lycée.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's79',
+    text: "Dans quels établissements scolaires vont les élèves après l'école élémentaire ?",
+    options: ["À l'école maternelle", "À l'université", "À la crèche", "Au collège"],
+    correctAnswer: 3,
+    explanation: "Après l'école élémentaire, les élèves entrent au collège, puis vont au lycée.",
+    category: "societe",
+    type: 'multiple-choice'
+  },
+  {
+    id: 's80',
+    text: "Les enfants qui ne parlent pas français :",
+    options: ["Peuvent être inscrits à l'école, où des dispositifs les aident à apprendre le français", "Ne sont pas acceptés à l'école", "Doivent attendre d'avoir 18 ans", "Doivent passer un examen avant d'entrer"],
+    correctAnswer: 0,
+    explanation: "Tout enfant a droit à l'école. Des classes d'accueil aident les élèves allophones à apprendre le français.",
+    category: "societe",
+    type: 'multiple-choice'
   }
 ];
 
