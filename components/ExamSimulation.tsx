@@ -433,7 +433,7 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({ onStatsUpdate, u
 
       <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6 space-y-6">
         <div className="space-y-4">
-          <span className={`px-2 py-1 rounded text-xs ${current.type === 'scenario' ? 'bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-400' : 'bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-400'}`}>
+          <span className={`px-2 py-1 rounded text-xs ${current.type === 'scenario' ? 'bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-400' : 'bg-sapphire-100 dark:bg-sapphire-900/50 text-sapphire-700 dark:text-sapphire-300'}`}>
             {current.type === 'scenario' ? 'Mise en situation' : 'Question de cours'}
           </span>
           <h3 className="text-lg font-medium text-slate-900 dark:text-white leading-relaxed">{current.text}</h3>

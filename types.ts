@@ -56,7 +56,6 @@ export interface Badge {
   name: string;
   description: string;
   icon: string;
-  color: string;
   unlockedAt?: number;
 }
 
@@ -92,6 +91,5 @@ export interface FicheCategory {
   id: string;
   title: string;
   icon: string;
-  color: string;
   fiches: OfficialFiche[];
 }

@@ -6,29 +6,6 @@ interface LessonViewProps {
   onStartQuiz: (themeId: string) => void;
 }
 
-// Helper function for category colors
-const getCategoryColorClasses = (color: string) => {
-  switch (color) {
-    case 'sapphire': return 'bg-sapphire-100 dark:bg-sapphire-900/50 text-sapphire-600 dark:text-sapphire-400';
-    case 'blue': return 'bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400';
-    case 'emerald': return 'bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400';
-    case 'amber': return 'bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400';
-    case 'rose': return 'bg-rose-100 dark:bg-rose-900/50 text-rose-600 dark:text-rose-400';
-    default: return 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400';
-  }
-};
-
-const getButtonColorClasses = (color: string) => {
-  switch (color) {
-    case 'sapphire': return 'bg-sapphire-600 hover:bg-sapphire-700';
-    case 'blue': return 'bg-blue-600 hover:bg-blue-700';
-    case 'emerald': return 'bg-emerald-600 hover:bg-emerald-700';
-    case 'amber': return 'bg-amber-600 hover:bg-amber-700';
-    case 'rose': return 'bg-rose-600 hover:bg-rose-700';
-    default: return 'bg-slate-600 hover:bg-slate-700';
-  }
-};
-
 export const LessonView: React.FC<LessonViewProps> = ({ onStartQuiz }) => {
   return (
     <div className="space-y-8 max-w-4xl mx-auto">
@@ -54,7 +31,7 @@ export const LessonView: React.FC<LessonViewProps> = ({ onStartQuiz }) => {
             {/* Category Header */}
             <div className="p-4 border-b border-slate-200 dark:border-slate-700 flex items-center justify-between">
               <div className="flex items-center space-x-3">
-                <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${getCategoryColorClasses(category.color)}`}>
+                <div className={`w-10 h-10 rounded-lg flex items-center justify-center bg-sapphire-100 dark:bg-sapphire-900/50 text-sapphire-600 dark:text-sapphire-400`}>
                   <i className={`fas ${category.icon}`}></i>
                 </div>
                 <div>
@@ -64,7 +41,7 @@ export const LessonView: React.FC<LessonViewProps> = ({ onStartQuiz }) => {
               </div>
               <button
                 onClick={() => onStartQuiz(category.id)}
-                className={`px-3 py-1.5 rounded-lg text-white text-xs font-medium transition-colors flex items-center ${getButtonColorClasses(category.color)}`}
+                className={`px-3 py-1.5 rounded-lg text-white text-xs font-medium transition-colors flex items-center bg-sapphire-600 hover:bg-sapphire-700`}
               >
                 <i className="fas fa-play mr-1.5"></i>
                 Quiz

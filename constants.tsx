@@ -2,11 +2,11 @@
 import { Question, Lesson, Badge, FAQItem, FicheCategory, SRSMap } from './types';
 
 export const THEMES = [
-  { id: 'valeurs', title: 'Principes et valeurs', icon: 'fa-balance-scale', color: 'sapphire' },
-  { id: 'institutions', title: 'Système institutionnel', icon: 'fa-landmark', color: 'blue' },
-  { id: 'droits', title: 'Droits et devoirs', icon: 'fa-handshake-angle', color: 'emerald' },
-  { id: 'culture', title: 'Histoire et Culture', icon: 'fa-monument', color: 'amber' },
-  { id: 'societe', title: 'Vivre en société', icon: 'fa-house-user', color: 'rose' }
+  { id: 'valeurs', title: 'Principes et valeurs', icon: 'fa-balance-scale' },
+  { id: 'institutions', title: 'Système institutionnel', icon: 'fa-landmark' },
+  { id: 'droits', title: 'Droits et devoirs', icon: 'fa-handshake-angle' },
+  { id: 'culture', title: 'Histoire et Culture', icon: 'fa-monument' },
+  { id: 'societe', title: 'Vivre en société', icon: 'fa-house-user' }
 ];
 
 // ============================================================
@@ -4615,18 +4615,18 @@ export const OFFICIAL_DB: Record<string, Question[]> = {
 // GAMIFICATION: BADGES
 // ============================================================
 export const BADGES: Badge[] = [
-  { id: 'first_quiz', name: 'Premier Pas', description: 'Compléter votre premier quiz', icon: 'fa-shoe-prints', color: 'blue' },
-  { id: 'perfect_quiz', name: 'Sans Faute', description: 'Obtenir 100% à un quiz', icon: 'fa-bullseye', color: 'emerald' },
-  { id: 'streak_3', name: 'Régulier', description: 'Se connecter 3 jours consécutifs', icon: 'fa-fire', color: 'orange' },
-  { id: 'streak_7', name: 'Assidu', description: 'Se connecter 7 jours consécutifs', icon: 'fa-fire-flame-curved', color: 'red' },
-  { id: 'streak_30', name: 'Dévoué', description: 'Se connecter 30 jours consécutifs', icon: 'fa-meteor', color: 'purple' },
-  { id: 'all_themes', name: 'Explorateur', description: 'Compléter un quiz dans chaque thème', icon: 'fa-compass', color: 'teal' },
-  { id: 'exam_passed', name: 'Admis', description: 'Réussir un examen blanc (32/40)', icon: 'fa-award', color: 'amber' },
-  { id: 'exam_master', name: 'Expert', description: 'Réussir 3 examens blancs', icon: 'fa-crown', color: 'yellow' },
-  { id: 'quiz_10', name: 'Entraîné', description: 'Compléter 10 quiz', icon: 'fa-dumbbell', color: 'slate' },
-  { id: 'quiz_50', name: 'Champion', description: 'Compléter 50 quiz', icon: 'fa-trophy', color: 'sapphire' },
-  { id: 'score_80', name: 'Performant', description: 'Obtenir 80% de moyenne globale', icon: 'fa-chart-line', color: 'green' },
-  { id: 'fast_exam', name: 'Rapide', description: 'Terminer un examen en moins de 20 minutes', icon: 'fa-bolt', color: 'cyan' }
+  { id: 'first_quiz', name: 'Premier Pas', description: 'Compléter votre premier quiz', icon: 'fa-shoe-prints' },
+  { id: 'perfect_quiz', name: 'Sans Faute', description: 'Obtenir 100% à un quiz', icon: 'fa-bullseye' },
+  { id: 'streak_3', name: 'Régulier', description: 'Se connecter 3 jours consécutifs', icon: 'fa-fire' },
+  { id: 'streak_7', name: 'Assidu', description: 'Se connecter 7 jours consécutifs', icon: 'fa-fire-flame-curved' },
+  { id: 'streak_30', name: 'Dévoué', description: 'Se connecter 30 jours consécutifs', icon: 'fa-meteor' },
+  { id: 'all_themes', name: 'Explorateur', description: 'Compléter un quiz dans chaque thème', icon: 'fa-compass' },
+  { id: 'exam_passed', name: 'Admis', description: 'Réussir un examen blanc (32/40)', icon: 'fa-award' },
+  { id: 'exam_master', name: 'Expert', description: 'Réussir 3 examens blancs', icon: 'fa-crown' },
+  { id: 'quiz_10', name: 'Entraîné', description: 'Compléter 10 quiz', icon: 'fa-dumbbell' },
+  { id: 'quiz_50', name: 'Champion', description: 'Compléter 50 quiz', icon: 'fa-trophy' },
+  { id: 'score_80', name: 'Performant', description: 'Obtenir 80% de moyenne globale', icon: 'fa-chart-line' },
+  { id: 'fast_exam', name: 'Rapide', description: 'Terminer un examen en moins de 20 minutes', icon: 'fa-bolt' }
 ];
 
 // ============================================================
@@ -4785,7 +4785,6 @@ export const OFFICIAL_FICHES: FicheCategory[] = [
     id: 'valeurs',
     title: 'Principes et valeurs de la République',
     icon: 'fa-balance-scale',
-    color: 'sapphire',
     fiches: [
       { id: 'f1', title: 'La devise de la République', url: `${BASE_URL}/principes-et-valeurs-de-la-republique/devise-et-symboles-de-la-republique/` },
       { id: 'f2', title: 'Les symboles de la République', url: `${BASE_URL}/principes-et-valeurs-de-la-republique/les-symboles-de-la-republique/` },
@@ -4798,7 +4797,6 @@ export const OFFICIAL_FICHES: FicheCategory[] = [
     id: 'institutions',
     title: 'Système institutionnel et politique',
     icon: 'fa-landmark',
-    color: 'blue',
     fiches: [
       { id: 'f6', title: 'État de droit et séparation des pouvoirs', url: `${BASE_URL}/systeme-institutionnel-et-politique/etat-de-droit-et-separation-des-pouvoirs/` },
       { id: 'f7', title: 'Démocratie et droit de vote', url: `${BASE_URL}/systeme-institutionnel-et-politique/democratie-et-droit-de-vote/` },
@@ -4810,7 +4808,6 @@ export const OFFICIAL_FICHES: FicheCategory[] = [
     id: 'droits',
     title: 'Droits et devoirs',
     icon: 'fa-handshake-angle',
-    color: 'emerald',
     fiches: [
       { id: 'f10', title: 'Droits fondamentaux', url: `${BASE_URL}/droits-et-devoirs/droits-fondamentaux/` },
       { id: 'f11', title: 'Obligations et devoirs', url: `${BASE_URL}/droits-et-devoirs/obligations-et-devoirs-des-personnes-residant-en-france/` },
@@ -4820,7 +4817,6 @@ export const OFFICIAL_FICHES: FicheCategory[] = [
     id: 'culture',
     title: 'Histoire, géographie et culture',
     icon: 'fa-monument',
-    color: 'amber',
     fiches: [
       { id: 'f12', title: 'Les régimes politiques depuis 1789', url: `${BASE_URL}/histoire-geographie-et-culture/les-regimes-politiques-depuis-1789/` },
       { id: 'f13', title: 'La Vème République', url: `${BASE_URL}/histoire-geographie-et-culture/la-cinquieme-republique/` },
@@ -4835,7 +4831,6 @@ export const OFFICIAL_FICHES: FicheCategory[] = [
     id: 'societe',
     title: 'Vivre dans la société française',
     icon: 'fa-house-user',
-    color: 'rose',
     fiches: [
       { id: 'f19', title: 'Santé', url: `${BASE_URL}/vivre-dans-la-societe-fran%C3%A7aise/sante/` },
       { id: 'f20', title: 'Emploi', url: `${BASE_URL}/vivre-dans-la-societe-fran%C3%A7aise/emploi/` },

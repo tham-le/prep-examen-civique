@@ -153,12 +153,12 @@ const HomePage: React.FC<HomePageProps> = ({ userStats }) => {
 
         <Link
           to="/revision"
-          className="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-purple-300 dark:hover:border-purple-600 transition-colors text-left group"
+          className="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-sapphire-300 dark:hover:border-sapphire-600 transition-colors text-left group"
         >
-          <div className="w-10 h-10 bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400 rounded-lg flex items-center justify-center mb-3">
+          <div className="w-10 h-10 bg-sapphire-100 dark:bg-sapphire-900/50 text-sapphire-600 dark:text-sapphire-400 rounded-lg flex items-center justify-center mb-3">
             <i className="fas fa-list-check"></i>
           </div>
-          <h3 className="font-medium text-slate-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400">Mode Révision</h3>
+          <h3 className="font-medium text-slate-900 dark:text-white group-hover:text-sapphire-600 dark:group-hover:text-sapphire-400">Mode Révision</h3>
           <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Parcourez toutes les questions</p>
         </Link>
 
@@ -205,13 +205,7 @@ const HomePage: React.FC<HomePageProps> = ({ userStats }) => {
                 onClick={() => startQuiz(theme.id)}
                 className="bg-white dark:bg-slate-800 p-5 rounded-lg border border-slate-200 dark:border-slate-700 hover:border-sapphire-300 dark:hover:border-sapphire-600 transition-colors text-center flex flex-col items-center"
               >
-                <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-3 text-xl ${
-                  theme.color === 'sapphire' ? 'bg-sapphire-100 dark:bg-sapphire-900/50 text-sapphire-600 dark:text-sapphire-400' :
-                  theme.color === 'blue' ? 'bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400' :
-                  theme.color === 'emerald' ? 'bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400' :
-                  theme.color === 'amber' ? 'bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400' :
-                  'bg-rose-100 dark:bg-rose-900/50 text-rose-600 dark:text-rose-400'
-                }`}>
+                <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-3 text-xl bg-sapphire-100 dark:bg-sapphire-900/50 text-sapphire-600 dark:text-sapphire-400">
                   <i className={`fas ${theme.icon}`}></i>
                 </div>
                 <h3 className="font-medium text-slate-900 dark:text-white text-sm">{theme.title}</h3>

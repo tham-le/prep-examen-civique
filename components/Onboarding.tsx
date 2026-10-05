@@ -16,7 +16,7 @@ interface Step {
 const STEPS: Step[] = [
   {
     icon: 'fa-flag',
-    iconBg: 'bg-blue-700',
+    iconBg: 'bg-sapphire-700',
     title: 'Bienvenue sur Objectif Citoyen',
     description: 'Préparez l\'examen civique 2026 pour la naturalisation française. Près de 500 questions basées sur la liste officielle, 100% gratuit, 100% hors-ligne.',
     features: [
@@ -63,7 +63,7 @@ const STEPS: Step[] = [
   },
   {
     icon: 'fa-rocket',
-    iconBg: 'bg-purple-600',
+    iconBg: 'bg-sapphire-600',
     title: 'Prêt à Commencer ?',
     description: 'Vous êtes prêt à débuter votre préparation. Bonne chance !',
     features: [
@@ -210,7 +210,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
 
         {/* Decorative elements */}
         <div className="absolute -top-10 -left-10 w-32 h-32 bg-sapphire-500/10 rounded-full blur-2xl" />
-        <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl" />
+        <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-sapphire-500/10 rounded-full blur-2xl" />
       </div>
     </div>
   );

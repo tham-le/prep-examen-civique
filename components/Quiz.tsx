@@ -239,16 +239,7 @@ export const Quiz: React.FC<QuizProps> = ({ selectedTheme, onExit, onStatsUpdate
           </button>
           <span className="text-sm text-slate-600 dark:text-slate-400">{currentIdx + 1} / {questions.length}</span>
         </div>
-        <div className={`px-3 py-1 rounded text-xs ${
-          selectedTheme === 'weak' ? 'bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-400' :
-          themeInfo ? (
-            themeInfo.color === 'sapphire' ? 'bg-sapphire-100 dark:bg-sapphire-900/30 text-sapphire-600 dark:text-sapphire-400' :
-            themeInfo.color === 'blue' ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400' :
-            themeInfo.color === 'emerald' ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400' :
-            themeInfo.color === 'amber' ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400' :
-            'bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-400'
-          ) : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400'
-        }`}>
+        <div className="px-3 py-1 rounded text-xs bg-sapphire-100 dark:bg-sapphire-900/30 text-sapphire-700 dark:text-sapphire-300">
           {selectedTheme === 'weak' ? 'Points faibles' : themeInfo?.title || 'Révision Globale'}
         </div>
       </div>
