@@ -40,3 +40,10 @@ h1, h2, h3 {
   height: 4px;
   background: linear-gradient(to right, #1e40af 33.34%, #ffffff 33.34% 66.67%, #dc2626 66.67%);
 }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

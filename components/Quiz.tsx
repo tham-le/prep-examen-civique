@@ -324,6 +324,7 @@ export const Quiz: React.FC<QuizProps> = ({ selectedTheme, onExit, onStatsUpdate
             ))}
           </div>
 
+          <div role="status" aria-live="polite">
           {showExplanation && (
             <div className="p-4 bg-sapphire-50 dark:bg-sapphire-900/30 rounded-lg border border-sapphire-100 dark:border-sapphire-800">
               <div className="flex items-start space-x-3">
@@ -337,6 +338,7 @@ export const Quiz: React.FC<QuizProps> = ({ selectedTheme, onExit, onStatsUpdate
               </div>
             </div>
           )}
+          </div>
         </div>
 
         {selected !== null && (

@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { UserStats } from '../types';
-import { reviewItem, isMastered, countDue } from '../services/spacedRepetition';
+import { reviewItem, isMastered, countDue, selectSessionItems } from '../services/spacedRepetition';
 import { ALL_QUESTIONS, THEMES } from '../constants';
 
 interface Flashcard {
@@ -83,7 +83,7 @@ const THEME_OF_CATEGORY: Record<string, string> = {
 
 const themeTitle = (themeId: string | undefined) => THEMES.find(t => t.id === themeId)?.title ?? 'Examen';
 
-const FLASHCARDS: Flashcard[] = [
+export const FLASHCARDS: Flashcard[] = [
   ...CURATED_CARDS.map(card => ({ ...card, category: themeTitle(THEME_OF_CATEGORY[card.category]) })),
   ...ALL_QUESTIONS.map(q => ({
     id: `q-${q.id}`,
@@ -108,11 +108,13 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ userStats, onStatsUpdate
   const [hideMastered, setHideMastered] = useState(false);
 
   const mastery = userStats.flashcardMastery;
+  // New and due cards first; the order is fixed for the visit so cards do not jump after a review
+  const [ordered] = useState(() => selectSessionItems(FLASHCARDS, userStats.flashcardMastery, FLASHCARDS.length));
   const allIds = FLASHCARDS.map(c => c.id);
   const dueCount = countDue(mastery, allIds);
   const masteredCount = FLASHCARDS.filter(card => isMastered(mastery, card.id)).length;
 
-  const filteredCards = FLASHCARDS.filter(card => {
+  const filteredCards = ordered.filter(card => {
     const matchesCategory = category === 'Tous' || card.category === category;
     const matchesMastered = !hideMastered || !isMastered(mastery, card.id);
     return matchesCategory && matchesMastered;
@@ -269,6 +271,7 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ userStats, onStatsUpdate
         >
           {/* Front */}
           <div
+            aria-hidden={flipped}
             className="absolute inset-0 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-8 flex flex-col items-center justify-center backface-hidden"
             style={{ backfaceVisibility: 'hidden' }}
           >
@@ -285,6 +288,7 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ userStats, onStatsUpdate
 
           {/* Back */}
           <div
+            aria-hidden={!flipped}
             className="absolute inset-0 bg-sapphire-600 rounded-xl p-8 flex flex-col items-center overflow-y-auto"
             style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
           >
