@@ -2,15 +2,17 @@
 import React, { useState, useEffect } from 'react';
 import { UserStats } from '../types';
 import { reviewItem, isMastered, countDue } from '../services/spacedRepetition';
+import { ALL_QUESTIONS, THEMES } from '../constants';
 
 interface Flashcard {
   id: string;
   category: string;
   front: string;
   back: string;
+  detail?: string;
 }
 
-const FLASHCARDS: Flashcard[] = [
+const CURATED_CARDS: Flashcard[] = [
   // Symboles de la République
   { id: 'f1', category: 'Symboles', front: 'Quelle est la devise de la République française ?', back: 'Liberté, Égalité, Fraternité' },
   { id: 'f2', category: 'Symboles', front: 'Quelles sont les couleurs du drapeau français (dans l\'ordre) ?', back: 'Bleu, Blanc, Rouge' },
@@ -69,7 +71,30 @@ const FLASHCARDS: Flashcard[] = [
   { id: 'e4', category: 'Examen', front: 'Quelles sont les 5 thématiques de l\'examen ?', back: '1. Principes et valeurs\n2. Institutions\n3. Droits et devoirs\n4. Histoire/Géographie/Culture\n5. Vie en société' },
 ];
 
-const CATEGORIES = ['Tous', 'Symboles', 'Dates', 'Institutions', 'Valeurs', 'Droits', 'Vie quotidienne', 'Examen'];
+// Curated cards are filed under the exam themes; every question of the bank is a card too.
+const THEME_OF_CATEGORY: Record<string, string> = {
+  Symboles: 'valeurs',
+  Valeurs: 'valeurs',
+  Dates: 'culture',
+  Institutions: 'institutions',
+  Droits: 'droits',
+  'Vie quotidienne': 'societe',
+};
+
+const themeTitle = (themeId: string | undefined) => THEMES.find(t => t.id === themeId)?.title ?? 'Examen';
+
+const FLASHCARDS: Flashcard[] = [
+  ...CURATED_CARDS.map(card => ({ ...card, category: themeTitle(THEME_OF_CATEGORY[card.category]) })),
+  ...ALL_QUESTIONS.map(q => ({
+    id: `q-${q.id}`,
+    category: themeTitle(q.category),
+    front: q.text,
+    back: q.options[q.correctAnswer],
+    detail: q.explanation,
+  })),
+];
+
+const CATEGORIES = ['Tous', ...THEMES.map(t => t.title), 'Examen'];
 
 interface FlashcardsProps {
   userStats: UserStats;
@@ -234,7 +259,7 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ userStats, onStatsUpdate
         className="cursor-pointer perspective-1000"
       >
         <div
-          className={`relative w-full min-h-[280px] transition-transform duration-500 transform-style-3d ${
+          className={`relative w-full min-h-[320px] transition-transform duration-500 transform-style-3d ${
             flipped ? 'rotate-y-180' : ''
           }`}
           style={{
@@ -260,15 +285,20 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ userStats, onStatsUpdate
 
           {/* Back */}
           <div
-            className="absolute inset-0 bg-sapphire-600 rounded-xl p-8 flex flex-col items-center justify-center"
+            className="absolute inset-0 bg-sapphire-600 rounded-xl p-8 flex flex-col items-center overflow-y-auto"
             style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
           >
-            <p className="text-lg text-center text-white font-medium whitespace-pre-line">
-              {currentCard?.back}
-            </p>
-            <p className="text-xs text-sapphire-200 mt-6">
-              <i className="fas fa-hand-pointer mr-1"></i> Cliquez pour retourner
-            </p>
+            <div className="my-auto flex flex-col items-center">
+              <p className="text-lg text-center text-white font-medium whitespace-pre-line">
+                {currentCard?.back}
+              </p>
+              {currentCard?.detail && (
+                <p className="text-sm text-center text-sapphire-100 mt-4">{currentCard.detail}</p>
+              )}
+              <p className="text-xs text-sapphire-200 mt-6">
+                <i className="fas fa-hand-pointer mr-1"></i> Cliquez pour retourner
+              </p>
+            </div>
           </div>
         </div>
       </div>
