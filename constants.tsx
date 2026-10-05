@@ -4588,6 +4588,96 @@ const SCENARIO_QUESTIONS: Question[] = [
     explanation: "Acheter ou garder un objet volé est du recel, un délit puni par la loi.",
     category: "societe",
     type: 'scenario'
+  },
+  {
+    id: 'sc25',
+    text: "Vous ne pouvez pas aller voter le jour d'une élection. Que pouvez-vous faire ?",
+    options: ["Envoyer un ami voter avec ma carte d'identité", "Donner une procuration à une personne inscrite sur les listes électorales", "Voter plus tard, après la fermeture des bureaux", "Rien, un vote ne peut jamais être confié"],
+    correctAnswer: 1,
+    explanation: "Le vote par procuration est possible. La demande se fait sur maprocuration.gouv.fr, puis on confirme son identité avec une application ou dans un commissariat ou une gendarmerie. La personne choisie vote à votre place avec sa propre pièce d'identité.",
+    category: "societe",
+    type: 'scenario'
+  },
+  {
+    id: 'sc26',
+    text: "Une personne accepte de voter pour vous par procuration. Que doit-elle faire le jour du vote ?",
+    options: ["Présenter votre carte d'identité", "Voter dans son propre bureau de vote", "Aller dans votre bureau de vote avec sa propre pièce d'identité", "Envoyer une lettre à la mairie"],
+    correctAnswer: 2,
+    explanation: "Le mandataire vote dans le bureau de vote du mandant. Il présente seulement sa propre pièce d'identité et il n'a pas besoin de la carte électorale du mandant. Il ne peut recevoir qu'une seule procuration établie en France.",
+    category: "societe",
+    type: 'scenario'
+  },
+  {
+    id: 'sc27',
+    text: "À la mairie, un usager demande à être reçu par un agent de sa religion. Que répond l'agent ?",
+    options: ["Qu'il va chercher un agent de la même religion", "Qu'il doit d'abord dire quelle est sa religion", "Qu'il sera reçu en priorité", "Qu'il ne peut pas choisir son agent : tous les usagers sont traités de la même façon"],
+    correctAnswer: 3,
+    explanation: "Le service public est neutre et égal pour tous. Un usager ne peut pas choisir son agent selon ses convictions, et les agents traitent chaque demande de la même façon.",
+    category: "societe",
+    type: 'scenario'
+  },
+  {
+    id: 'sc28',
+    text: "Dans une mairie, une personne dit qu'elle doit être servie en premier parce qu'elle habite la commune depuis longtemps. Que dit le principe d'égalité ?",
+    options: ["Aucun usager n'a de priorité pour cette raison", "Les habitants les plus anciens passent en premier", "Les personnes les plus âgées passent toujours en premier", "L'agent choisit selon la personne"],
+    correctAnswer: 0,
+    explanation: "L'égalité devant le service public interdit les traitements de faveur. Chaque usager doit respecter les règles de fonctionnement de la mairie.",
+    category: "societe",
+    type: 'scenario'
+  },
+  {
+    id: 'sc29',
+    text: "Vous venez d'arriver en France et vous n'avez pas d'employeur. Comment vous inscrire à l'Assurance maladie ?",
+    options: ["Je n'ai aucune démarche à faire", "J'envoie le formulaire de demande d'ouverture des droits avec mes pièces justificatives à ma caisse", "Je m'adresse au tribunal", "Je m'inscris auprès de la mairie uniquement"],
+    correctAnswer: 1,
+    explanation: "Sans employeur ou pour une première inscription, on envoie sa demande à sa caisse d'Assurance maladie (CPAM) avec une pièce d'identité, un justificatif de domicile et un RIB. L'inscription est gratuite.",
+    category: "societe",
+    type: 'scenario'
+  },
+  {
+    id: 'sc30',
+    text: "Vous êtes étudiant étranger et vous arrivez en France. Comment vous inscrire à l'Assurance maladie ?",
+    options: ["En payant une assurance privée obligatoire", "En me rendant à la préfecture", "En ligne sur le site dédié aux étudiants étrangers", "Je ne peux pas m'inscrire"],
+    correctAnswer: 2,
+    explanation: "Les étudiants étrangers s'inscrivent entièrement en ligne sur etudiant-etranger.ameli.fr. L'inscription est gratuite.",
+    category: "societe",
+    type: 'scenario'
+  },
+  {
+    id: 'sc31',
+    text: "Votre employeur vous demande de rester 2 heures de plus que prévu dans votre contrat. Que dit la loi ?",
+    options: ["Ces heures ne sont jamais payées", "Ces heures sont payées moins cher", "Je peux refuser sans aucune raison", "Ces heures sont des heures supplémentaires, payées avec une majoration ou compensées par du repos"],
+    correctAnswer: 3,
+    explanation: "Toute heure travaillée au-delà de la durée légale ou de celle du contrat doit être payée avec une majoration ou récupérée. Pour un temps plein, un refus injustifié peut être une faute.",
+    category: "societe",
+    type: 'scenario'
+  },
+  {
+    id: 'sc32',
+    text: "Votre employeur vous fait travailler 12 heures par jour toute la semaine. Est-ce légal ?",
+    options: ["Non, la durée maximale est en principe de 10 heures par jour et 48 heures par semaine", "Oui, l'employeur décide", "Oui, si je suis étranger", "Oui, si c'est écrit dans le contrat"],
+    correctAnswer: 0,
+    explanation: "L'employeur doit respecter les durées maximales de travail (10 heures par jour, 48 heures par semaine) et les temps de repos obligatoires. Un contrat ne peut pas écarter ces règles.",
+    category: "societe",
+    type: 'scenario'
+  },
+  {
+    id: 'sc33',
+    text: "Un ami affirme que le président de la République ne pourra jamais être poursuivi en justice. Que lui répondez-vous ?",
+    options: ["Il peut être arrêté à tout moment", "Il n'est pas au-dessus de la loi, mais il est protégé pendant son mandat, et les poursuites peuvent reprendre un mois après la fin de ses fonctions", "Il ne peut jamais être jugé, même après son mandat", "Seul le maire peut le juger"],
+    correctAnswer: 1,
+    explanation: "L'article 67 de la Constitution protège temporairement le président pendant son mandat. Il peut seulement être destitué par le Parlement réuni en Haute Cour en cas de manquement à ses devoirs (article 68).",
+    category: "societe",
+    type: 'scenario'
+  },
+  {
+    id: 'sc34',
+    text: "Une femme seule souhaite avoir un enfant par procréation médicalement assistée (PMA). En a-t-elle le droit ?",
+    options: ["Non, la PMA est réservée aux couples mariés", "Non, la PMA est interdite en France", "Oui, depuis la loi de bioéthique de 2021, dans le cadre fixé par la loi", "Oui, mais seulement avec l'accord d'un homme"],
+    correctAnswer: 2,
+    explanation: "Depuis 2021, la PMA est ouverte aux couples formés d'un homme et d'une femme, aux couples de femmes et aux femmes non mariées. Son accès est encadré par la loi.",
+    category: "societe",
+    type: 'scenario'
   }
 ];
 
