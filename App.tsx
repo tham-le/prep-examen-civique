@@ -232,6 +232,7 @@ const App: React.FC = () => {
 
   const handleStatsUpdate = (newStats: UserStats) => {
     setUserStats(newStats);
+    saveUserStats(newStats);
   };
 
   return (
