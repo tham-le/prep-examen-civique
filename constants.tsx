@@ -1055,15 +1055,6 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     type: 'multiple-choice'
   },
   {
-    id: 'i35',
-    text: "Qui peut dissoudre l'Assemblée nationale ?",
-    options: ["Le Premier ministre", "Le Président de la République", "Le président du Sénat", "Le Conseil constitutionnel"],
-    correctAnswer: 1,
-    explanation: "Le Président de la République peut dissoudre l'Assemblée nationale, provoquant de nouvelles élections.",
-    category: "institutions",
-    type: 'multiple-choice'
-  },
-  {
     id: 'i36',
     text: "Quel État a quitté l'Union européenne en 2020 ?",
     options: ["La Grèce", "Le Royaume-Uni", "La Pologne", "La Suisse"],
@@ -1163,15 +1154,6 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     type: 'multiple-choice'
   },
   {
-    id: 'i47',
-    text: "Quel est le rôle du Défenseur des droits ?",
-    options: ["Juger les criminels", "Défendre les droits des citoyens face aux administrations", "Voter les lois", "Commander l'armée"],
-    correctAnswer: 1,
-    explanation: "Le Défenseur des droits est une autorité indépendante qui défend les droits des citoyens face aux administrations.",
-    category: "institutions",
-    type: 'multiple-choice'
-  },
-  {
     id: 'i48',
     text: "Depuis quand l'euro est-il la monnaie unique en France ?",
     options: ["1992", "1999", "2002", "2010"],
@@ -1217,29 +1199,11 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     type: 'multiple-choice'
   },
   {
-    id: 'i53',
-    text: "Combien de sénateurs siègent au Sénat ?",
-    options: ["348", "577", "150", "200"],
-    correctAnswer: 0,
-    explanation: "Le Sénat compte 348 sénateurs élus au suffrage universel indirect pour 6 ans.",
-    category: "institutions",
-    type: 'multiple-choice'
-  },
-  {
     id: 'i54',
     text: "Qu'est-ce que la navette parlementaire ?",
     options: ["Un transport pour les députés", "L'aller-retour d'un texte entre l'Assemblée et le Sénat", "Une commission d'enquête", "Un vote électronique"],
     correctAnswer: 1,
     explanation: "La navette parlementaire désigne les allers-retours d'un projet de loi entre les deux chambres jusqu'à l'adoption d'un texte identique.",
-    category: "institutions",
-    type: 'multiple-choice'
-  },
-  {
-    id: 'i55',
-    text: "Qui préside le Conseil des ministres ?",
-    options: ["Le Premier ministre", "Le président de la République", "Le président du Sénat", "Le ministre de l'Intérieur"],
-    correctAnswer: 1,
-    explanation: "Le président de la République préside le Conseil des ministres qui se réunit chaque semaine à l'Élysée.",
     category: "institutions",
     type: 'multiple-choice'
   },
@@ -1946,15 +1910,6 @@ const DROITS_QUESTIONS: Question[] = [
     type: 'multiple-choice'
   },
   {
-    id: 'd28',
-    text: "Qu'est-ce que la présomption d'innocence ?",
-    options: ["Être considéré coupable jusqu'à preuve du contraire", "Être considéré innocent jusqu'à condamnation définitive", "Avoir le droit de mentir", "Ne pas avoir besoin d'avocat"],
-    correctAnswer: 1,
-    explanation: "Toute personne est présumée innocente jusqu'à ce que sa culpabilité soit établie par un jugement définitif.",
-    category: "droits",
-    type: 'multiple-choice'
-  },
-  {
     id: 'd29',
     text: "Le travail des enfants est-il autorisé en France ?",
     options: ["Oui, sans restriction", "Non, interdit avant 16 ans avec quelques exceptions", "Seulement dans l'agriculture", "Oui, à partir de 12 ans"],
@@ -2582,15 +2537,6 @@ const CULTURE_QUESTIONS: Question[] = [
     type: 'multiple-choice'
   },
   {
-    id: 'c2',
-    text: "Quel fleuve traverse Paris ?",
-    options: ["La Loire", "Le Rhône", "La Seine", "La Garonne"],
-    correctAnswer: 2,
-    explanation: "La Seine traverse Paris et divise la ville en rive droite et rive gauche.",
-    category: "culture",
-    type: 'multiple-choice'
-  },
-  {
     id: 'c3',
     text: "Qui a été le premier Président de la Ve République ?",
     options: ["Georges Pompidou", "Charles de Gaulle", "François Mitterrand", "Vincent Auriol"],
@@ -2627,15 +2573,6 @@ const CULTURE_QUESTIONS: Question[] = [
     type: 'multiple-choice'
   },
   {
-    id: 'c7',
-    text: "Qui a écrit « Les Misérables » ?",
-    options: ["Émile Zola", "Victor Hugo", "Gustave Flaubert", "Albert Camus"],
-    correctAnswer: 1,
-    explanation: "Victor Hugo a écrit « Les Misérables » en 1862, un roman majeur de la littérature française.",
-    category: "culture",
-    type: 'multiple-choice'
-  },
-  {
     id: 'c8',
     text: "Le Mont-Blanc, point culminant de France, se trouve dans :",
     options: ["Les Pyrénées", "Les Vosges", "Les Alpes", "Le Massif central"],
@@ -2650,15 +2587,6 @@ const CULTURE_QUESTIONS: Question[] = [
     options: ["6 juin 1944", "8 mai 1945", "11 novembre 1918", "14 juillet 1944"],
     correctAnswer: 0,
     explanation: "Le 6 juin 1944, les forces alliées ont débarqué en Normandie pour libérer l'Europe du nazisme.",
-    category: "culture",
-    type: 'multiple-choice'
-  },
-  {
-    id: 'c10',
-    text: "Quel roi a fait construire le château de Versailles ?",
-    options: ["Louis XIV", "Louis XVI", "Napoléon Bonaparte", "François Ier"],
-    correctAnswer: 0,
-    explanation: "Louis XIV, le Roi-Soleil, a fait construire le château de Versailles au XVIIe siècle.",
     category: "culture",
     type: 'multiple-choice'
   },
@@ -2879,15 +2807,6 @@ const CULTURE_QUESTIONS: Question[] = [
     type: 'multiple-choice'
   },
   {
-    id: 'c35',
-    text: "Quel roi a fait construire le château de Versailles ?",
-    options: ["Louis XIII", "Louis XIV", "Louis XV", "Louis XVI"],
-    correctAnswer: 1,
-    explanation: "Louis XIV, le Roi-Soleil, a transformé Versailles en résidence royale au XVIIe siècle.",
-    category: "culture",
-    type: 'multiple-choice'
-  },
-  {
     id: 'c36',
     text: "Quel était le surnom de Louis XIV ?",
     options: ["Le Roi Soleil", "Le Bien-Aimé", "Le Grand", "Le Prudent"],
@@ -2947,15 +2866,6 @@ const CULTURE_QUESTIONS: Question[] = [
     options: ["45 millions", "55 millions", "68 millions", "80 millions"],
     correctAnswer: 2,
     explanation: "La France compte environ 68 millions d'habitants (métropole et outre-mer).",
-    category: "culture",
-    type: 'multiple-choice'
-  },
-  {
-    id: 'c43',
-    text: "Quel fleuve traverse Paris ?",
-    options: ["La Loire", "Le Rhône", "La Seine", "La Garonne"],
-    correctAnswer: 2,
-    explanation: "La Seine traverse Paris, divisant la ville en Rive Gauche et Rive Droite.",
     category: "culture",
     type: 'multiple-choice'
   },
@@ -3911,15 +3821,6 @@ const SOCIETE_QUESTIONS: Question[] = [
     type: 'multiple-choice'
   },
   {
-    id: 's18',
-    text: "Le SMIC est :",
-    options: ["Un impôt", "Le salaire minimum légal", "Une allocation chômage", "Une taxe locale"],
-    correctAnswer: 1,
-    explanation: "Le SMIC (Salaire Minimum Interprofessionnel de Croissance) est le salaire horaire minimum légal.",
-    category: "societe",
-    type: 'multiple-choice'
-  },
-  {
     id: 's19',
     text: "Les transports en commun sont gratuits pour qui ?",
     options: ["Tout le monde", "Les moins de 4 ans", "Les retraités", "Les étudiants"],
@@ -4177,15 +4078,6 @@ const SOCIETE_QUESTIONS: Question[] = [
     options: ["Un contrat à durée déterminée", "Un contrat à durée indéterminée", "Un contrat d'intérim", "Un stage"],
     correctAnswer: 1,
     explanation: "Le CDI (Contrat à Durée Indéterminée) est un contrat de travail sans date de fin prévue.",
-    category: "societe",
-    type: 'multiple-choice'
-  },
-  {
-    id: 's48',
-    text: "Qu'est-ce que le compte personnel de formation (CPF) ?",
-    options: ["Un compte bancaire", "Un droit à la formation professionnelle tout au long de la vie", "Un réseau social", "Un diplôme"],
-    correctAnswer: 1,
-    explanation: "Le CPF permet à chaque actif de cumuler des droits à la formation utilisables tout au long de sa carrière.",
     category: "societe",
     type: 'multiple-choice'
   },
