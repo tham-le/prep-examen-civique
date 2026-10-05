@@ -3,7 +3,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { OFFICIAL_DB, THEMES, ALL_QUESTIONS } from '../constants';
 import { Question, UserStats } from '../types';
 import { processQuizResult, getBadgeInfo } from '../services/gamificationService';
-import { getDueIds, selectSessionItems } from '../services/spacedRepetition';
+import { getDueIds, reviewItem, selectSessionItems } from '../services/spacedRepetition';
 
 // Shuffle an array using Fisher-Yates algorithm
 const shuffleArray = <T,>(array: T[]): T[] => {
@@ -42,8 +42,6 @@ export const Quiz: React.FC<QuizProps> = ({ selectedTheme, onExit, onStatsUpdate
   const [score, setScore] = useState(0);
   const [finished, setFinished] = useState(false);
   const [showExplanation, setShowExplanation] = useState(false);
-  const [answeredQuestions, setAnsweredQuestions] = useState<string[]>([]);
-  const [correctQuestions, setCorrectQuestions] = useState<string[]>([]);
   const [xpGained, setXpGained] = useState(0);
   const [newBadges, setNewBadges] = useState<string[]>([]);
   const [leveledUp, setLeveledUp] = useState(false);
@@ -74,8 +72,6 @@ export const Quiz: React.FC<QuizProps> = ({ selectedTheme, onExit, onStatsUpdate
     setScore(0);
     setFinished(false);
     setShowExplanation(false);
-    setAnsweredQuestions([]);
-    setCorrectQuestions([]);
     setXpGained(0);
     setNewBadges([]);
     setLeveledUp(false);
@@ -93,12 +89,12 @@ export const Quiz: React.FC<QuizProps> = ({ selectedTheme, onExit, onStatsUpdate
     const currentQuestion = questions[currentIdx];
     const isCorrect = idx === currentQuestion.correctAnswer;
 
-    setAnsweredQuestions(prev => [...prev, currentQuestion.id]);
-
-    if (isCorrect) {
-      setScore(s => s + 1);
-      setCorrectQuestions(prev => [...prev, currentQuestion.id]);
-    }
+    if (isCorrect) setScore(s => s + 1);
+    // Saved per answer, so leaving the quiz early keeps what was answered
+    onStatsUpdate({
+      ...userStats,
+      questionMastery: reviewItem(userStats.questionMastery, currentQuestion.id, isCorrect),
+    });
     setShowExplanation(true);
   };
 
@@ -111,11 +107,9 @@ export const Quiz: React.FC<QuizProps> = ({ selectedTheme, onExit, onStatsUpdate
       // Quiz finished - process results
       const result = processQuizResult(
         userStats,
-        score + (selected === questions[currentIdx].correctAnswer ? 1 : 0),
+        score,
         questions.length,
-        selectedTheme !== 'weak' ? selectedTheme : undefined,
-        answeredQuestions,
-        correctQuestions
+        selectedTheme !== 'weak' ? selectedTheme : undefined
       );
 
       setXpGained(result.xpGained);
@@ -320,7 +314,7 @@ export const Quiz: React.FC<QuizProps> = ({ selectedTheme, onExit, onStatsUpdate
           <div className="bg-slate-50 dark:bg-slate-700/50 p-4 border-t border-slate-200 dark:border-slate-700 flex justify-between items-center">
             <div className="text-sm text-slate-500 dark:text-slate-400">
               <i className="fas fa-check-circle text-emerald-500 mr-1"></i>
-              {score + (selected === current.correctAnswer ? 1 : 0)} bonnes réponses
+              {score} bonnes réponses
             </div>
             <button
               onClick={nextQuestion}
