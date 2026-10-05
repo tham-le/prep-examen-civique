@@ -4462,6 +4462,132 @@ const SCENARIO_QUESTIONS: Question[] = [
     explanation: "Signaler les problèmes sur la voie publique est un acte civique qui contribue au bien commun.",
     category: "societe",
     type: 'scenario'
+  },
+  {
+    id: 'sc11',
+    text: "Vous apprenez qu'un élève de la classe de votre enfant est harcelé. Que faites-vous ?",
+    options: ["Je n'interviens pas, ce n'est pas mon enfant", "Je poste l'information sur les réseaux sociaux", "Je punis moi-même les harceleurs", "J'alerte l'école (enseignant, directeur ou conseiller d'éducation)"],
+    correctAnswer: 3,
+    explanation: "Le harcèlement scolaire est interdit. On le signale à l'école, et le numéro 3020 peut aider les familles.",
+    category: "societe",
+    type: 'scenario'
+  },
+  {
+    id: 'sc12',
+    text: "Vous recevez un SMS qui vous demande vos coordonnées bancaires au nom de l'Assurance maladie. Que faites-vous ?",
+    options: ["Je ne réponds pas et je signale le message", "J'envoie mes coordonnées bancaires", "Je réponds avec mon mot de passe", "Je transfère le message à tous mes amis"],
+    correctAnswer: 0,
+    explanation: "Un organisme public ne demande jamais ses coordonnées bancaires par message. C'est une tentative d'escroquerie (hameçonnage). On peut la signaler sur la plateforme officielle de signalement.",
+    category: "societe",
+    type: 'scenario'
+  },
+  {
+    id: 'sc13',
+    text: "Votre propriétaire entre dans votre logement sans vous prévenir. Que dit la loi ?",
+    options: ["Il en a le droit car il est propriétaire", "Il n'en a pas le droit : le domicile du locataire est protégé", "Il en a le droit une fois par semaine", "Il en a le droit s'il a la clé"],
+    correctAnswer: 1,
+    explanation: "Le propriétaire ne peut pas entrer chez le locataire sans son accord. Le logement loué est le domicile du locataire.",
+    category: "societe",
+    type: 'scenario'
+  },
+  {
+    id: 'sc14',
+    text: "Un policier vous demande votre pièce d'identité lors d'un contrôle. Que faites-vous ?",
+    options: ["Je m'enfuis", "Je refuse de répondre", "Je la montre calmement", "Je réponds que je n'ai pas à obéir"],
+    correctAnswer: 2,
+    explanation: "Les forces de l'ordre peuvent contrôler l'identité d'une personne. On présente son document et on peut contester ensuite si le contrôle est abusif.",
+    category: "societe",
+    type: 'scenario'
+  },
+  {
+    id: 'sc15',
+    text: "Vous êtes témoin d'un accident de la route. Que faites-vous en premier ?",
+    options: ["Je prends une photo pour la partager", "Je continue ma route", "J'attends que quelqu'un d'autre agisse", "Je protège la zone et j'appelle les secours (112, 15 ou 18)"],
+    correctAnswer: 3,
+    explanation: "Porter assistance à une personne en danger est une obligation. On protège, on alerte, puis on secourt si on le peut sans risque.",
+    category: "societe",
+    type: 'scenario'
+  },
+  {
+    id: 'sc16',
+    text: "Vous venez de perdre votre emploi. Quelle est la première démarche ?",
+    options: ["Je m'inscris à France Travail", "Je vais à la préfecture", "Je m'adresse au tribunal", "Je quitte la France"],
+    correctAnswer: 0,
+    explanation: "L'inscription à France Travail permet de chercher un emploi et, selon les conditions, de toucher l'allocation chômage.",
+    category: "societe",
+    type: 'scenario'
+  },
+  {
+    id: 'sc17',
+    text: "Votre enfant de 8 ans ne veut pas aller à l'école. Que faites-vous ?",
+    options: ["Je le garde à la maison, c'est son choix", "Je parle avec lui et avec l'enseignant, car l'école est obligatoire", "Je l'inscris au travail", "Je ne dis rien à l'école"],
+    correctAnswer: 1,
+    explanation: "L'instruction est obligatoire de 3 à 16 ans. En cas de difficulté, il faut contacter l'école.",
+    category: "societe",
+    type: 'scenario'
+  },
+  {
+    id: 'sc18',
+    text: "Un collègue vous harcèle sexuellement au travail. Que faites-vous ?",
+    options: ["Je ne dis rien", "Je démissionne sans en parler", "J'en parle à ma hiérarchie ou aux représentants du personnel et je garde des preuves", "Je réponds par des insultes"],
+    correctAnswer: 2,
+    explanation: "Le harcèlement sexuel est un délit. On peut alerter l'employeur, les représentants du personnel, l'inspection du travail ou porter plainte.",
+    category: "societe",
+    type: 'scenario'
+  },
+  {
+    id: 'sc19',
+    text: "Vous recevez une convocation du tribunal pour être témoin. Que faites-vous ?",
+    options: ["Je ne réponds pas", "Je donne une fausse version", "J'envoie quelqu'un à ma place", "Je me présente et je dis ce que je sais"],
+    correctAnswer: 3,
+    explanation: "Un témoin convoqué doit se présenter et dire la vérité. Le faux témoignage est puni par la loi.",
+    category: "societe",
+    type: 'scenario'
+  },
+  {
+    id: 'sc20',
+    text: "Vous entendez des cris de violence chez un voisin. Que faites-vous ?",
+    options: ["J'appelle la police (17) ou le 112", "Je mets de la musique", "Je tape sur la porte avec un objet", "Je ne fais rien"],
+    correctAnswer: 0,
+    explanation: "On alerte la police ou la gendarmerie. En cas de violences conjugales, le 3919 est aussi disponible.",
+    category: "societe",
+    type: 'scenario'
+  },
+  {
+    id: 'sc21',
+    text: "Votre employeur refuse de payer vos heures supplémentaires. Que faites-vous ?",
+    options: ["Je ne dis rien", "J'en parle à l'employeur, aux représentants du personnel ou à l'inspection du travail", "Je cesse de venir sans prévenir", "Je dégrade le matériel de l'entreprise"],
+    correctAnswer: 1,
+    explanation: "Les heures supplémentaires doivent être payées ou récupérées. En dernier recours, on peut saisir le conseil de prud'hommes.",
+    category: "societe",
+    type: 'scenario'
+  },
+  {
+    id: 'sc22',
+    text: "Vous souhaitez créer une association. Quelle démarche faut-il faire ?",
+    options: ["Demander l'accord du ministre", "Rien, c'est interdit", "Déclarer l'association à la préfecture", "S'inscrire au tribunal de commerce"],
+    correctAnswer: 2,
+    explanation: "Une association est libre de se créer. Pour avoir une existence légale, on la déclare à la préfecture ou à la sous-préfecture.",
+    category: "societe",
+    type: 'scenario'
+  },
+  {
+    id: 'sc23',
+    text: "Vous voyez un sac abandonné dans une gare. Que faites-vous ?",
+    options: ["Je l'ouvre pour voir ce qu'il contient", "Je le ramène chez moi", "Je le déplace", "Je m'éloigne et je préviens le personnel ou la police"],
+    correctAnswer: 3,
+    explanation: "Un colis suspect peut être dangereux. On ne le touche pas et on alerte les autorités.",
+    category: "societe",
+    type: 'scenario'
+  },
+  {
+    id: 'sc24',
+    text: "Un ami vous propose d'acheter à bas prix un téléphone dont il dit qu'il est volé. Que faites-vous ?",
+    options: ["Je refuse, car acheter un objet volé est un délit", "J'achète, c'est une bonne affaire", "J'achète et je le revends", "J'achète si personne ne le sait"],
+    correctAnswer: 0,
+    explanation: "Acheter ou garder un objet volé est du recel, un délit puni par la loi.",
+    category: "societe",
+    type: 'scenario'
   }
 ];
 
