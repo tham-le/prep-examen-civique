@@ -2178,6 +2178,393 @@ const DROITS_QUESTIONS: Question[] = [
     explanation: "Tout salarié a droit à 2,5 jours ouvrables de congés payés par mois travaillé, soit 5 semaines (25 jours ouvrés) par an.",
     category: "droits",
     type: 'multiple-choice'
+  },
+  {
+    id: 'd55',
+    text: "À quelle liberté la PMA fait-elle référence ?",
+    options: ["La liberté de religion", "La liberté de la presse", "La liberté de circulation", "La liberté de fonder une famille"],
+    correctAnswer: 3,
+    explanation: "La PMA (procréation médicalement assistée) aide un couple ou une femme à avoir un enfant. Elle est ouverte à toutes les femmes depuis la loi de 2021.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd56',
+    text: "Au nom de quoi l'État justifie-t-il la restriction des droits ?",
+    options: ["De l'intérêt général et de l'ordre public", "Des intérêts du président", "De la religion majoritaire", "Des opinions politiques du moment"],
+    correctAnswer: 0,
+    explanation: "Une liberté peut être limitée par la loi pour protéger l'ordre public, la sécurité ou les droits des autres.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd57',
+    text: "Concernant le droit de se marier, quelle proposition est correcte ?",
+    options: ["Les parents peuvent choisir le conjoint de leur enfant majeur", "Le mariage nécessite le consentement libre des deux époux", "Le mariage est interdit entre deux personnes de même sexe", "Seul le mariage religieux est reconnu par l'État"],
+    correctAnswer: 1,
+    explanation: "Le mariage forcé est interdit. Les deux époux doivent consentir librement. Le mariage civil à la mairie est le seul reconnu par l'État, et il est ouvert aux couples de même sexe depuis 2013.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd58',
+    text: "Est-il toujours possible de divorcer ?",
+    options: ["Non, seul le mari peut le demander", "Non, il faut l'accord du maire", "Oui, chaque époux peut demander le divorce", "Non, sauf après 20 ans de mariage"],
+    correctAnswer: 2,
+    explanation: "Personne ne peut être obligé de rester marié. Chaque époux peut demander le divorce.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd59',
+    text: "La peine de mort est :",
+    options: ["Autorisée pour les crimes graves", "Autorisée en temps de guerre", "Décidée par le président", "Interdite en France"],
+    correctAnswer: 3,
+    explanation: "La peine de mort est abolie depuis 1981. La Constitution précise depuis 2007 que nul ne peut être condamné à la peine de mort.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd60',
+    text: "Laquelle de ces citations est inscrite dans la Déclaration des Droits de l'homme et du Citoyen de 1789 ?",
+    options: ["« Les hommes naissent et demeurent libres et égaux en droits »", "« L'État, c'est moi »", "« Travail, famille, patrie »", "« Du passé faisons table rase »"],
+    correctAnswer: 0,
+    explanation: "C'est la première phrase de l'article 1er de la Déclaration de 1789.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd61',
+    text: "Le recours à l'avortement est-il autorisé ?",
+    options: ["Non, il est interdit", "Oui, l'IVG est autorisée par la loi", "Oui, mais seulement avec l'accord du conjoint", "Oui, mais seulement pour les majeures"],
+    correctAnswer: 1,
+    explanation: "L'IVG est autorisée en France depuis la loi Veil de 1975. Elle est possible jusqu'à 14 semaines de grossesse et la liberté d'y recourir est inscrite dans la Constitution depuis 2024.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd62',
+    text: "Que contient la Constitution ?",
+    options: ["La liste de tous les impôts", "Le Code de la route", "Les règles d'organisation des pouvoirs publics et les principes fondamentaux de la République", "Le règlement des écoles"],
+    correctAnswer: 2,
+    explanation: "La Constitution organise les institutions et affirme les droits et libertés fondamentaux.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd63',
+    text: "Quel texte est le plus difficile à modifier ?",
+    options: ["Un arrêté municipal", "Un décret", "Une loi ordinaire", "La Constitution"],
+    correctAnswer: 3,
+    explanation: "La Constitution est la norme la plus élevée. Sa révision demande une procédure particulière : un vote du Parlement réuni en Congrès à la majorité des 3/5, ou un référendum.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd64',
+    text: "Quelle liberté permet à une personne de croire en la religion de son choix ?",
+    options: ["La liberté de conscience", "La liberté de circulation", "La liberté d'association", "La liberté de la presse"],
+    correctAnswer: 0,
+    explanation: "La liberté de conscience garantit le droit de croire, de ne pas croire ou de changer de religion.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd65',
+    text: "Qu'est-ce que la Constitution ?",
+    options: ["Un code de règles de la vie privée", "La loi suprême qui organise les pouvoirs publics et garantit les droits fondamentaux", "Un règlement de l'Assemblée", "Un traité avec l'Union européenne"],
+    correctAnswer: 1,
+    explanation: "La Constitution est le texte fondamental de la République. Toutes les autres lois doivent la respecter. L'actuelle date de 1958.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd66',
+    text: "Qui peut demander à avorter ?",
+    options: ["Seulement une femme mariée", "Seulement une femme de plus de 25 ans", "Toute femme enceinte qui ne souhaite pas poursuivre sa grossesse", "Seulement une femme sur décision du médecin"],
+    correctAnswer: 2,
+    explanation: "C'est la femme enceinte qui décide, majeure ou mineure. Elle fait la demande elle-même.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd67',
+    text: "Une femme majeure de nationalité française a-t-elle le droit de voter aux élections ?",
+    options: ["Non, seulement avec l'accord de son mari", "Non, seulement aux élections municipales", "Oui, mais seulement si elle travaille", "Oui, comme tout citoyen français majeur inscrit sur les listes électorales"],
+    correctAnswer: 3,
+    explanation: "Les femmes votent en France depuis 1944. Elles ont voté pour la première fois en 1945.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd68',
+    text: "Parmi ces actions, laquelle permet d'adopter une attitude respectueuse de l'environnement ?",
+    options: ["Trier ses déchets", "Jeter ses piles à la poubelle", "Laisser les lumières allumées", "Jeter ses déchets dans la nature"],
+    correctAnswer: 0,
+    explanation: "Trier ses déchets permet leur recyclage et protège l'environnement.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd69',
+    text: "Quelle proposition constitue une obligation ?",
+    options: ["Voter à chaque élection", "Payer ses impôts", "Adhérer à un syndicat", "Participer à une association"],
+    correctAnswer: 1,
+    explanation: "Payer ses impôts selon ses revenus est une obligation. Voter est un droit, pas une obligation.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd70',
+    text: "Quelle obligation concerne toutes les personnes résidant en France quelle que soit leur nationalité ?",
+    options: ["Effectuer la Journée défense et citoyenneté", "Voter", "Respecter les lois françaises", "Faire un service militaire"],
+    correctAnswer: 2,
+    explanation: "Toute personne présente sur le territoire doit respecter la loi. La JDC et le vote concernent les citoyens français.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd71',
+    text: "Pour quel motif peut-on limiter la liberté d'expression ?",
+    options: ["Parce que le gouvernement n'est pas d'accord", "Parce que l'opinion est minoritaire", "Pour protéger la popularité du président", "Pour interdire la haine, l'injure, la diffamation ou l'incitation à la violence"],
+    correctAnswer: 3,
+    explanation: "La loi punit l'injure, la diffamation, l'incitation à la haine, la discrimination et l'apologie du terrorisme.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd72',
+    text: "Que doit faire une victime de violences ?",
+    options: ["Alerter la police ou la gendarmerie et porter plainte", "Rester silencieuse", "Se venger elle-même", "Attendre que cela s'arrête"],
+    correctAnswer: 0,
+    explanation: "Une victime peut appeler le 17, porter plainte et demander de l'aide à une association. Le 3919 aide les femmes victimes de violences.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd73',
+    text: "Quelle est l'attitude à avoir lorsqu'on est témoin de violences ?",
+    options: ["Filmer et publier la vidéo en ligne", "Prévenir la police ou les secours sans se mettre en danger", "Passer son chemin sans rien faire", "Intervenir violemment"],
+    correctAnswer: 1,
+    explanation: "Chacun doit porter assistance à une personne en danger, en alertant les secours quand on ne peut pas intervenir sans risque.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd74',
+    text: "Que doit-on faire face aux ordres des policiers ou gendarmes ?",
+    options: ["S'enfuir", "Refuser de répondre dans tous les cas", "Se conformer à leurs instructions et accepter les contrôles d'identité", "Les insulter pour se défendre"],
+    correctAnswer: 2,
+    explanation: "Les forces de l'ordre agissent au nom de la loi. On doit leur obéir, et on peut contester ensuite une décision injuste.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd75',
+    text: "Quel est le rôle de la police ?",
+    options: ["Rendre la justice", "Voter les lois", "Gérer les écoles", "Protéger les personnes et les biens et faire respecter la loi"],
+    correctAnswer: 3,
+    explanation: "La police assure la sécurité, l'ordre public et la recherche des auteurs d'infractions.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd76',
+    text: "Quel exemple illustre une limitation de liberté pour protéger l'intérêt général ?",
+    options: ["L'interdiction de fumer dans les lieux publics fermés", "L'interdiction de changer de religion", "L'obligation de voter", "L'interdiction d'avoir un compte bancaire"],
+    correctAnswer: 0,
+    explanation: "Interdire de fumer dans les lieux publics protège la santé de tous.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd77',
+    text: "Qui veille au maintien de l'ordre public ?",
+    options: ["Les pompiers", "La police et la gendarmerie", "Les enseignants", "Les associations"],
+    correctAnswer: 1,
+    explanation: "La police nationale et la gendarmerie nationale assurent la sécurité et l'ordre public.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd78',
+    text: "Quelle est l'infraction la plus grave ?",
+    options: ["Le délit", "La contravention", "Le crime", "L'amende"],
+    correctAnswer: 2,
+    explanation: "Les infractions sont classées en trois niveaux : la contravention, le délit et le crime, qui est le plus grave.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd79',
+    text: "Quelle proposition représente un exemple de crime ?",
+    options: ["Le vol simple", "Un excès de vitesse", "Le tapage nocturne", "Le meurtre"],
+    correctAnswer: 3,
+    explanation: "Le meurtre et le viol sont des crimes, jugés par la cour d'assises. Le vol est un délit.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd80',
+    text: "Quelle proposition représente un exemple de délit ?",
+    options: ["Le vol", "Le meurtre", "Le stationnement gênant", "Le tapage nocturne"],
+    correctAnswer: 0,
+    explanation: "Le vol est un délit, jugé par le tribunal correctionnel. Le stationnement gênant et le tapage nocturne sont des contraventions.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd81',
+    text: "S'agissant des déchets, quelle proposition est correcte ?",
+    options: ["Chacun peut jeter ses déchets où il veut", "Abandonner ses déchets dans la nature est interdit et puni d'une amende", "Le tri des déchets est interdit", "Seul le maire doit trier ses déchets"],
+    correctAnswer: 1,
+    explanation: "Le dépôt sauvage de déchets est puni d'une amende. Le tri protège l'environnement.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd82',
+    text: "Comment s'appelle la Constitution actuelle de la France ?",
+    options: ["La Constitution de la IVe République", "La Constitution de 1791", "La Constitution de la Ve République", "La Constitution de l'Empire"],
+    correctAnswer: 2,
+    explanation: "La Constitution de la Ve République date de 1958.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd83',
+    text: "Parmi ces textes, lequel garantit les droits et libertés en France ?",
+    options: ["Le Code de la route", "Un règlement de supermarché", "Un règlement de copropriété", "La Constitution"],
+    correctAnswer: 3,
+    explanation: "La Constitution de 1958 garantit les droits et libertés, avec la Déclaration de 1789 et le préambule de 1946 auxquels elle renvoie.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd84',
+    text: "Concernant les droits individuels, quelle proposition est correcte ?",
+    options: ["Chacun a des droits garantis, dans le respect des droits des autres et de la loi", "Les droits sont réservés aux Français", "Les droits dépendent de la religion", "Chacun peut faire ce qu'il veut sans limite"],
+    correctAnswer: 0,
+    explanation: "Les droits individuels s'accompagnent de devoirs. Ma liberté s'arrête là où commence celle des autres.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd85',
+    text: "Lequel de ces droits est un droit fondamental ?",
+    options: ["Le droit de ne pas payer d'impôts", "La liberté d'expression", "Le droit de ne pas respecter la loi", "Le droit de conduire sans permis"],
+    correctAnswer: 1,
+    explanation: "La liberté d'expression est un droit fondamental garanti par la Déclaration de 1789.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd86',
+    text: "Quel droit permet à une personne de se défendre devant la justice ?",
+    options: ["Le droit de grève", "Le droit de vote", "Le droit à la défense", "Le droit de propriété"],
+    correctAnswer: 2,
+    explanation: "Toute personne accusée peut être assistée par un avocat et se défendre. C'est le droit à la défense.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd87',
+    text: "De quelle année date la Déclaration des droits de l'homme et du citoyen ?",
+    options: ["1848", "1905", "1958", "1789"],
+    correctAnswer: 3,
+    explanation: "La Déclaration des droits de l'homme et du citoyen a été adoptée en août 1789, pendant la Révolution française.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd88',
+    text: "Quel texte a été adopté pendant la Révolution française ?",
+    options: ["La Déclaration des droits de l'homme et du citoyen", "La Charte de l'environnement", "Le Code de la route", "La loi de 1905"],
+    correctAnswer: 0,
+    explanation: "La Déclaration des droits de l'homme et du citoyen date de 1789.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd89',
+    text: "En France, est-ce légal d'être marié à plusieurs personnes en même temps ?",
+    options: ["Oui, si tout le monde est d'accord", "Non, la polygamie est interdite", "Oui, pour les hommes", "Oui, après 40 ans"],
+    correctAnswer: 1,
+    explanation: "On ne peut être marié qu'avec une seule personne à la fois. La bigamie est un délit.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd90',
+    text: "Faut-il réduire ses déchets ?",
+    options: ["Non, c'est inutile", "Non, c'est le rôle du maire seul", "Oui, pour protéger l'environnement", "Oui, mais seulement les entreprises"],
+    correctAnswer: 2,
+    explanation: "Réduire ses déchets protège l'environnement. C'est un devoir de chaque citoyen.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd91',
+    text: "Comment peut-on réduire ses déchets ?",
+    options: ["En brûlant les déchets", "En jetant plus", "En achetant plus d'emballages", "En évitant le gaspillage et en réutilisant les objets"],
+    correctAnswer: 3,
+    explanation: "On réduit ses déchets en évitant le gaspillage, en réparant, en réutilisant et en triant.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd92',
+    text: "Que doit faire une personne en cas d'accident ?",
+    options: ["Protéger, alerter les secours (112, 15 ou 18) et secourir si possible", "Partir rapidement", "Filmer la scène", "Attendre sans rien faire"],
+    correctAnswer: 0,
+    explanation: "Porter assistance à une personne en danger est une obligation. On protège les lieux, on alerte les secours et on aide sans se mettre en danger.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd93',
+    text: "Que permet la citoyenneté française ?",
+    options: ["Ne pas payer d'impôts", "Voter, se présenter aux élections et participer à la vie politique", "Ne pas respecter certaines lois", "Voyager gratuitement"],
+    correctAnswer: 1,
+    explanation: "Les citoyens français ont des droits civiques comme voter et être élus. Ils ont aussi des devoirs.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd94',
+    text: "Que risque une personne qui ne respecte pas la loi ?",
+    options: ["Rien du tout", "Une récompense", "Une sanction : une amende, voire de la prison", "Un simple avertissement du maire"],
+    correctAnswer: 2,
+    explanation: "Celui qui enfreint la loi risque une sanction décidée par un juge.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd95',
+    text: "Quel est le rôle de la gendarmerie ?",
+    options: ["Rendre la justice", "Voter les lois", "Gérer les hôpitaux", "Assurer la sécurité des personnes et des biens et faire respecter la loi"],
+    correctAnswer: 3,
+    explanation: "La gendarmerie nationale est une force de sécurité. Elle intervient surtout dans les petites villes et les campagnes.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd96',
+    text: "Qu'est-ce qu'une infraction ?",
+    options: ["Un acte interdit par la loi et puni d'une sanction", "Un droit", "Un impôt", "Un contrat"],
+    correctAnswer: 0,
+    explanation: "Il existe trois sortes d'infractions : la contravention, le délit et le crime.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd97',
+    text: "En quoi consiste la traite des êtres humains ?",
+    options: ["À commercer entre pays", "À exploiter des personnes, par exemple par le travail forcé ou la prostitution", "À organiser des voyages", "À employer des travailleurs étrangers en règle"],
+    correctAnswer: 1,
+    explanation: "La traite des êtres humains est un crime. Elle consiste à recruter, transporter ou héberger des personnes pour les exploiter.",
+    category: "droits",
+    type: 'multiple-choice'
   }
 ];
 
