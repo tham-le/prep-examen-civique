@@ -17,15 +17,15 @@ export const Header: React.FC<HeaderProps> = ({ userStats, darkMode, toggleDarkM
   const navItems = [
     { path: '/', label: 'Accueil', icon: 'fa-home' },
     { path: '/quiz', label: 'Quiz', icon: 'fa-brain' },
-    { path: '/fiches', label: 'Fiches', icon: 'fa-book-open' },
+    { path: '/fiches', label: 'Fiches', icon: 'fa-book-open', desktopOnly: true },
     { path: '/flashcards', label: 'Flashcards', icon: 'fa-clone' },
     { path: '/revision', label: 'Révision', icon: 'fa-list-check' },
     { path: '/examen-blanc', label: 'Examen', icon: 'fa-file-alt' },
-    { path: '/faq', label: 'FAQ', icon: 'fa-circle-question' },
+    { path: '/faq', label: 'FAQ', icon: 'fa-circle-question', desktopOnly: true },
   ];
 
   const navLinkClass = (isActive: boolean) =>
-    `px-3 py-2 rounded-md font-medium text-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sapphire-500 ${
+    `px-3 py-2 rounded-md font-medium text-sm whitespace-nowrap transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sapphire-500 ${
       isActive
         ? 'bg-sapphire-50 dark:bg-sapphire-900/50 text-sapphire-600 dark:text-sapphire-400'
         : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'
@@ -53,7 +53,6 @@ export const Header: React.FC<HeaderProps> = ({ userStats, darkMode, toggleDarkM
                 end={item.path === '/'}
                 className={({ isActive }) => navLinkClass(isActive)}
               >
-                <i className={`fas ${item.icon} mr-2 text-xs`} aria-hidden="true"></i>
                 {item.label}
               </NavLink>
             ))}
@@ -63,14 +62,14 @@ export const Header: React.FC<HeaderProps> = ({ userStats, darkMode, toggleDarkM
           <div className="flex items-center space-x-2">
             {/* Streak indicator */}
             {userStats.streak > 0 && (
-              <div className="hidden sm:flex items-center space-x-1 text-amber-600 dark:text-amber-400 px-2 py-1 text-sm">
+              <div className="hidden sm:flex items-center space-x-1 whitespace-nowrap text-amber-600 dark:text-amber-400 px-2 py-1 text-sm">
                 <i className="fas fa-fire text-xs"></i>
                 <span className="font-medium">{userStats.streak}j</span>
               </div>
             )}
 
             {/* XP indicator */}
-            <div className="hidden sm:flex items-center space-x-1 text-sapphire-600 dark:text-sapphire-400 px-2 py-1 text-sm">
+            <div className="hidden sm:flex items-center space-x-1 whitespace-nowrap text-sapphire-600 dark:text-sapphire-400 px-2 py-1 text-sm">
               <i className="fas fa-star text-xs"></i>
               <span className="font-medium">{userStats.xp} XP</span>
             </div>
@@ -110,7 +109,7 @@ export const Header: React.FC<HeaderProps> = ({ userStats, darkMode, toggleDarkM
               }
             >
               <i className={`fas ${levelInfo.icon} text-sm`}></i>
-              <span className="font-medium text-sm hidden md:block">Niv. {userStats.level}</span>
+              <span className="font-medium text-sm whitespace-nowrap hidden md:block">Niv. {userStats.level}</span>
             </NavLink>
           </div>
         </div>
@@ -119,7 +118,7 @@ export const Header: React.FC<HeaderProps> = ({ userStats, darkMode, toggleDarkM
       {/* Mobile Navigation */}
       <nav className="lg:hidden border-t border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900" role="navigation" aria-label="Navigation mobile">
         <div className="flex justify-around py-1">
-          {navItems.map(item => (
+          {navItems.filter(item => !item.desktopOnly).map(item => (
             <NavLink
               key={item.path}
               to={item.path}

@@ -8,7 +8,7 @@ import { getLevelInfo, getXPProgress, getNextLevelInfo, loadExamHistory } from '
 const getBadgeColorClasses = (isUnlocked: boolean) =>
   isUnlocked
     ? 'bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400'
-    : 'bg-slate-200 dark:bg-slate-700 text-slate-400 dark:text-slate-500';
+    : 'bg-slate-200 dark:bg-slate-700 text-slate-500 dark:text-slate-400';
 
 interface ProfilePageProps {
   userStats: UserStats;
@@ -196,7 +196,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ userStats, onStatsUpda
             ))}
           </div>
           {examHistory.length > 10 && (
-            <p className="text-xs text-slate-400 dark:text-slate-500 text-center mt-3">
+            <p className="text-xs text-slate-500 dark:text-slate-400 text-center mt-3">
               Affichage des 10 derniers examens
             </p>
           )}
@@ -224,7 +224,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ userStats, onStatsUpda
                 <div className={`w-10 h-10 rounded-lg flex items-center justify-center mx-auto mb-2 ${getBadgeColorClasses(isUnlocked)}`}>
                   <i className={`fas ${badge.icon}`}></i>
                 </div>
-                <h4 className={`text-sm ${isUnlocked ? 'text-slate-900 dark:text-white' : 'text-slate-400 dark:text-slate-500'}`}>
+                <h4 className={`text-sm ${isUnlocked ? 'text-slate-900 dark:text-white' : 'text-slate-500 dark:text-slate-400'}`}>
                   {badge.name}
                 </h4>
                 <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{badge.description}</p>
@@ -252,7 +252,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ userStats, onStatsUpda
                     ? 'bg-sapphire-600 text-white border-sapphire-600'
                     : isCurrentOrBelow
                     ? 'bg-sapphire-50 dark:bg-sapphire-900/50 text-sapphire-600 dark:text-sapphire-400 border-sapphire-200 dark:border-sapphire-700'
-                    : 'bg-slate-50 dark:bg-slate-700 text-slate-400 dark:text-slate-500 border-slate-200 dark:border-slate-600'
+                    : 'bg-slate-50 dark:bg-slate-700 text-slate-500 dark:text-slate-400 border-slate-200 dark:border-slate-600'
                 }`}
               >
                 <i className={`fas ${level.icon} text-xs`}></i>
@@ -300,7 +300,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ userStats, onStatsUpda
         )}
         <button
           onClick={resetStats}
-          className="text-sm text-slate-400 dark:text-slate-500 hover:text-rose-500 dark:hover:text-rose-400 transition-colors"
+          className="text-sm text-slate-500 dark:text-slate-400 hover:text-rose-500 dark:hover:text-rose-400 transition-colors"
         >
           <i className="fas fa-trash-alt mr-2"></i>
           Réinitialiser mes statistiques

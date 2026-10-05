@@ -61,7 +61,7 @@ export const LessonView: React.FC<LessonViewProps> = ({ onStartQuiz }) => {
                   <span className="text-slate-700 dark:text-slate-300 text-sm group-hover:text-sapphire-600 dark:group-hover:text-sapphire-400">
                     {fiche.title}
                   </span>
-                  <i className="fas fa-external-link-alt text-xs text-slate-400 dark:text-slate-500 group-hover:text-sapphire-500"></i>
+                  <i className="fas fa-external-link-alt text-xs text-slate-500 dark:text-slate-400 group-hover:text-sapphire-500"></i>
                 </a>
               ))}
             </div>
@@ -70,7 +70,7 @@ export const LessonView: React.FC<LessonViewProps> = ({ onStartQuiz }) => {
       </div>
 
       {/* Attribution */}
-      <div className="text-center text-xs text-slate-400 dark:text-slate-500 space-y-1">
+      <div className="text-center text-xs text-slate-500 dark:text-slate-400 space-y-1">
         <p>Source : Ministère de l'Intérieur</p>
         <a
           href="https://formation-civique.interieur.gouv.fr/"

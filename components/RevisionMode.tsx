@@ -15,7 +15,7 @@ const STATUS_LABEL: Record<ItemStatus, string> = {
 };
 
 const STATUS_BADGE_CLASS: Record<ItemStatus, string> = {
-  'never-attempted': 'bg-slate-100 dark:bg-slate-700 text-slate-400 dark:text-slate-500',
+  'never-attempted': 'bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400',
   due: 'bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-400',
   learning: 'bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400',
   mastered: 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400',
@@ -199,7 +199,7 @@ export const RevisionMode: React.FC<RevisionModeProps> = ({ userStats }) => {
             style={{ width: `${searchedQuestions.length > 0 ? (masteredCount / searchedQuestions.length) * 100 : 0}%` }}
           ></div>
         </div>
-        <p className="text-xs text-slate-400 dark:text-slate-500 mt-2">
+        <p className="text-xs text-slate-500 dark:text-slate-400 mt-2">
           La maîtrise vient de vos réponses en Quiz et en Examen Blanc, pas d'une simple lecture.
         </p>
       </div>
@@ -267,7 +267,7 @@ export const RevisionMode: React.FC<RevisionModeProps> = ({ userStats }) => {
       {/* Search and controls */}
       <div className="flex flex-col sm:flex-row gap-3">
         <div className="flex-1 relative">
-          <i className="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500"></i>
+          <i className="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400"></i>
           <input
             type="text"
             placeholder="Rechercher une question..."
@@ -318,7 +318,7 @@ export const RevisionMode: React.FC<RevisionModeProps> = ({ userStats }) => {
       </div>
 
       {/* Keyboard hint */}
-      <p className="text-center text-xs text-slate-400 dark:text-slate-500">
+      <p className="text-center text-xs text-slate-500 dark:text-slate-400">
         <kbd className="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded">↑</kbd>{' '}
         <kbd className="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded">↓</kbd> naviguer ·{' '}
         <kbd className="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded">Entrée</kbd> ouvrir
@@ -355,7 +355,7 @@ export const RevisionMode: React.FC<RevisionModeProps> = ({ userStats }) => {
                   </span>
                   <span className="text-slate-900 dark:text-white">{question.text}</span>
                 </div>
-                <i className={`fas fa-chevron-${isExpanded ? 'up' : 'down'} text-slate-400 dark:text-slate-500 mt-1`}></i>
+                <i className={`fas fa-chevron-${isExpanded ? 'up' : 'down'} text-slate-500 dark:text-slate-400 mt-1`}></i>
               </button>
 
               {/* Expanded content - simplified: just answer + explanation */}

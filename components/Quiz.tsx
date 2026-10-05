@@ -135,7 +135,7 @@ export const Quiz: React.FC<QuizProps> = ({ selectedTheme, onExit, onStatsUpdate
 
   if (questions.length === 0) return (
     <div className="text-center py-16">
-      <div className="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center mx-auto mb-4 text-slate-400 dark:text-slate-500">
+      <div className="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center mx-auto mb-4 text-slate-500 dark:text-slate-400">
         <i className="fas fa-database"></i>
       </div>
       <p className="text-slate-500 dark:text-slate-400">Pas de questions disponibles pour ce thème.</p>
@@ -175,7 +175,7 @@ export const Quiz: React.FC<QuizProps> = ({ selectedTheme, onExit, onStatsUpdate
           <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Session terminée</h2>
           <p className="text-slate-500 dark:text-slate-400">
             Score : <span className="text-sapphire-600 dark:text-sapphire-400 font-bold text-lg">{finalScore} / {questions.length}</span>
-            <span className="text-slate-400 dark:text-slate-500 ml-2">({percentage}%)</span>
+            <span className="text-slate-500 dark:text-slate-400 ml-2">({percentage}%)</span>
           </p>
           <div className="pt-2">
             {percentage >= 80 ? (
@@ -234,7 +234,7 @@ export const Quiz: React.FC<QuizProps> = ({ selectedTheme, onExit, onStatsUpdate
     <div className="max-w-2xl mx-auto space-y-4">
       <div className="flex justify-between items-center">
         <div className="flex items-center space-x-3">
-          <button onClick={onExit} className="w-8 h-8 rounded-md bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 flex items-center justify-center text-slate-400 dark:text-slate-500 transition-colors">
+          <button onClick={onExit} className="w-8 h-8 rounded-md bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 flex items-center justify-center text-slate-500 dark:text-slate-400 transition-colors">
             <i className="fas fa-chevron-left text-xs"></i>
           </button>
           <span className="text-sm text-slate-600 dark:text-slate-400">{currentIdx + 1} / {questions.length}</span>

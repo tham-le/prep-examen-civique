@@ -253,7 +253,7 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ userStats, onStatsUpdate
             <p className="text-lg text-center text-slate-900 dark:text-white font-medium">
               {currentCard?.front}
             </p>
-            <p className="text-xs text-slate-400 dark:text-slate-500 mt-6">
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-6">
               <i className="fas fa-hand-pointer mr-1"></i> Cliquez pour voir la réponse
             </p>
           </div>
@@ -312,7 +312,7 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ userStats, onStatsUpdate
       </div>
 
       {/* Keyboard hint */}
-      <p className="text-center text-xs text-slate-400 dark:text-slate-500">
+      <p className="text-center text-xs text-slate-500 dark:text-slate-400">
         <kbd className="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded">←</kbd> <kbd className="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded">→</kbd> naviguer · <kbd className="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded">Espace</kbd> retourner · <kbd className="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded">K</kbd> je savais · <kbd className="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded">J</kbd> à revoir
       </p>
 
@@ -321,7 +321,7 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ userStats, onStatsUpdate
         <div className="text-center">
           <button
             onClick={resetProgress}
-            className="text-xs text-slate-400 dark:text-slate-500 hover:text-rose-500 dark:hover:text-rose-400"
+            className="text-xs text-slate-500 dark:text-slate-400 hover:text-rose-500 dark:hover:text-rose-400"
           >
             <i className="fas fa-redo mr-1"></i> Réinitialiser la progression
           </button>

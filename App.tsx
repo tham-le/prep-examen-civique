@@ -8,7 +8,7 @@ import { Logo } from './components/Logo';
 import { usePageMeta } from './hooks/usePageMeta';
 import { THEMES, ALL_QUESTIONS } from './constants';
 import { UserStats } from './types';
-import { loadUserStats, saveUserStats, checkAndUpdateStreak, getLevelInfo, getXPProgress } from './services/gamificationService';
+import { loadUserStats, saveUserStats, checkAndUpdateStreak, loadExamHistory } from './services/gamificationService';
 import { countDue } from './services/spacedRepetition';
 
 // Code split per route: only the home page ships eagerly, everything else
@@ -31,226 +31,111 @@ interface HomePageProps {
   userStats: UserStats;
 }
 
+const TILE = 'block bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 text-left transition-colors hover:border-sapphire-400 dark:hover:border-sapphire-500';
+const ICON_BOX = 'w-11 h-11 rounded-xl flex items-center justify-center bg-sapphire-100 dark:bg-sapphire-900/50 text-sapphire-600 dark:text-sapphire-400';
+
+const MODES = [
+  { to: '/quiz', icon: 'fa-brain', title: 'Quiz', text: '10 questions, corrigées au fur et à mesure' },
+  { to: '/flashcards', icon: 'fa-clone', title: 'Flashcards', text: 'Mémorisez les notions clés' },
+  { to: '/revision', icon: 'fa-list-check', title: 'Révision', text: 'Parcourez toutes les questions' },
+  { to: '/fiches', icon: 'fa-book-open', title: 'Fiches officielles', text: 'Les cours du ministère' },
+];
+
 const HomePage: React.FC<HomePageProps> = ({ userStats }) => {
   const navigate = useNavigate();
-  const levelInfo = getLevelInfo(userStats.level);
-  const xpProgress = getXPProgress(userStats.xp, userStats.level);
   const dueCount = countDue(userStats.questionMastery, ALL_QUESTIONS.map(q => q.id));
+  const recentExams = loadExamHistory().slice(-3);
+  const average = recentExams.length
+    ? Math.round(recentExams.reduce((sum, e) => sum + e.score, 0) / recentExams.length)
+    : null;
 
   const startQuiz = (themeId?: string) => {
     navigate(themeId ? `/quiz?theme=${themeId}` : '/quiz');
   };
 
   return (
-    <div className="space-y-10">
-      {/* User Progress Banner */}
-      <div className="bg-sapphire-600 p-5 rounded-xl text-white">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
-              <i className={`fas ${levelInfo.icon} text-xl`}></i>
-            </div>
-            <div>
-              <p className="text-xs text-sapphire-200">Niveau {userStats.level}</p>
-              <p className="text-lg font-bold">{levelInfo.name}</p>
-            </div>
-          </div>
-          <div className="flex-1 max-w-sm w-full">
-            <div className="flex justify-between text-xs mb-1">
-              <span>{userStats.xp} XP</span>
-              <span>Niveau {userStats.level + 1}</span>
-            </div>
-            <div className="h-2 bg-white/20 rounded-full overflow-hidden">
-              <div
-                className="h-full bg-amber-400 rounded-full"
-                style={{ width: `${xpProgress}%` }}
-              ></div>
-            </div>
-          </div>
-          <div className="flex items-center space-x-4 text-center text-sm">
-            <div>
-              <p className="text-xl font-bold">{userStats.streak}</p>
-              <p className="text-xs text-sapphire-200">Jours</p>
-            </div>
-            <div className="h-6 w-px bg-white/20"></div>
-            <div>
-              <p className="text-xl font-bold">{userStats.badges.length}</p>
-              <p className="text-xs text-sapphire-200">Badges</p>
-            </div>
-            <div className="h-6 w-px bg-white/20"></div>
-            <div>
-              <p className="text-xl font-bold">{userStats.totalQuizzes}</p>
-              <p className="text-xs text-sapphire-200">Quiz</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Bannière Info */}
-      <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 p-4 rounded-lg flex items-center space-x-3">
-        <div className="bg-amber-500 p-2 rounded-md text-white">
-          <i className="fas fa-bullhorn text-sm"></i>
-        </div>
-        <div className="flex-1">
-          <p className="text-amber-900 dark:text-amber-300 text-sm font-medium">Réforme Civique 2026</p>
-          <p className="text-amber-700 dark:text-amber-400 text-xs">Le barème officiel impose désormais 32 bonnes réponses sur 40.</p>
-        </div>
-        {userStats.totalQuizzes > 0 && (
-          <div className="hidden md:block text-right">
-            <p className="text-xs text-slate-500 dark:text-slate-400">Taux de réussite</p>
-            <p className="text-lg font-bold text-sapphire-600 dark:text-sapphire-400">
-              {userStats.totalQuestions > 0
-                ? Math.round((userStats.totalCorrect / userStats.totalQuestions) * 100)
-                : 0}%
-            </p>
-          </div>
-        )}
-      </div>
-
-      {/* Hero Section */}
-      <section className="bg-slate-900 rounded-xl p-8 md:p-12 text-white">
-        <div className="grid lg:grid-cols-5 gap-8 items-center">
-          <div className="lg:col-span-3 space-y-6">
-            <div className="inline-flex items-center space-x-2 bg-white/10 px-3 py-1 rounded text-xs text-sapphire-200">
-              <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
-              <span>{ALL_QUESTIONS.length} questions disponibles</span>
-            </div>
-            <h1 className="text-3xl md:text-4xl font-bold leading-tight">
-              Réussissez votre <span className="text-amber-400">Intégration</span>
-            </h1>
-            <p className="text-slate-300 max-w-xl">
-              Préparez l'examen civique 2026 en toute sérénité avec des outils conçus pour votre réussite.
-            </p>
-            <div className="flex flex-wrap gap-3 pt-2">
-              <button onClick={() => startQuiz()} className="bg-white text-slate-900 px-6 py-3 rounded-lg font-medium hover:bg-slate-100 transition flex items-center">
-                Quiz Aléatoire <i className="fas fa-random ml-2 text-slate-400"></i>
-              </button>
-              <button onClick={() => navigate('/examen-blanc')} className="bg-sapphire-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-sapphire-700 transition">
-                Lancer un Examen Blanc
-              </button>
-            </div>
-          </div>
-          <div className="lg:col-span-2 hidden lg:flex justify-center">
-            <div className="bg-white/5 p-6 rounded-lg border border-white/10">
-              <Logo className="w-40 h-40" />
-            </div>
-          </div>
+    <div className="space-y-12">
+      <section className="space-y-6 max-w-2xl">
+        <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white">
+          Préparez l'examen civique
+        </h1>
+        <p className="text-lg text-slate-600 dark:text-slate-300">
+          {ALL_QUESTIONS.length} questions sur les 5 thèmes officiels. L'examen compte 40 questions, dure 45 minutes et demande 32 bonnes réponses.
+        </p>
+        <div className="flex flex-wrap gap-3">
+          {dueCount > 0 ? (
+            <button onClick={() => startQuiz('weak')} className="bg-sapphire-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-sapphire-700 transition-colors">
+              Réviser {dueCount} question{dueCount > 1 ? 's' : ''} à revoir
+            </button>
+          ) : (
+            <button onClick={() => startQuiz()} className="bg-sapphire-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-sapphire-700 transition-colors">
+              Commencer un quiz
+            </button>
+          )}
+          <button onClick={() => navigate('/examen-blanc')} className="bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-white px-6 py-3 rounded-xl font-semibold hover:border-sapphire-400 transition-colors">
+            Examen blanc
+          </button>
         </div>
       </section>
 
-      {/* Modes d'apprentissage */}
-      <section className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <Link
-          to="/flashcards"
-          className="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-amber-300 dark:hover:border-amber-600 transition-colors text-left group"
-        >
-          <div className="w-10 h-10 bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400 rounded-lg flex items-center justify-center mb-3">
-            <i className="fas fa-clone"></i>
-          </div>
-          <h3 className="font-medium text-slate-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400">Flashcards</h3>
-          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Mémorisez les notions clés</p>
-        </Link>
-
-        <Link
-          to="/revision"
-          className="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-sapphire-300 dark:hover:border-sapphire-600 transition-colors text-left group"
-        >
-          <div className="w-10 h-10 bg-sapphire-100 dark:bg-sapphire-900/50 text-sapphire-600 dark:text-sapphire-400 rounded-lg flex items-center justify-center mb-3">
-            <i className="fas fa-list-check"></i>
-          </div>
-          <h3 className="font-medium text-slate-900 dark:text-white group-hover:text-sapphire-600 dark:group-hover:text-sapphire-400">Mode Révision</h3>
-          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Parcourez toutes les questions</p>
-        </Link>
-
-        <button
-          onClick={() => startQuiz()}
-          className="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-emerald-300 dark:hover:border-emerald-600 transition-colors text-left group"
-        >
-          <div className="w-10 h-10 bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 rounded-lg flex items-center justify-center mb-3">
-            <i className="fas fa-brain"></i>
-          </div>
-          <h3 className="font-medium text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400">Quiz Pratique</h3>
-          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Testez vos connaissances</p>
-        </button>
-
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <Link
           to="/examen-blanc"
-          className="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-sapphire-300 dark:hover:border-sapphire-600 transition-colors text-left group"
+          className="sm:col-span-2 lg:row-span-2 bg-sapphire-600 text-white rounded-2xl p-6 flex flex-col justify-between gap-8 hover:bg-sapphire-700 transition-colors"
         >
-          <div className="w-10 h-10 bg-sapphire-100 dark:bg-sapphire-900/50 text-sapphire-600 dark:text-sapphire-400 rounded-lg flex items-center justify-center mb-3">
-            <i className="fas fa-file-alt"></i>
+          <div className="w-11 h-11 rounded-xl bg-white/15 flex items-center justify-center">
+            <i className="fas fa-file-lines"></i>
           </div>
-          <h3 className="font-medium text-slate-900 dark:text-white group-hover:text-sapphire-600 dark:group-hover:text-sapphire-400">Examen Blanc</h3>
-          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Conditions réelles (45 min)</p>
+          <div className="space-y-2">
+            <h2 className="text-2xl font-bold">Examen blanc</h2>
+            <p className="text-sapphire-100">28 questions de connaissance et 12 mises en situation, 45 minutes.</p>
+            {average !== null && (
+              <p className="font-semibold">
+                Moyenne de vos {recentExams.length} dernier{recentExams.length > 1 ? 's' : ''} : {average}/40 (seuil : 32)
+              </p>
+            )}
+          </div>
         </Link>
+
+        {MODES.map(mode => (
+          <Link key={mode.to} to={mode.to} className={TILE}>
+            <div className={`${ICON_BOX} mb-4`}>
+              <i className={`fas ${mode.icon}`}></i>
+            </div>
+            <h2 className="font-semibold text-slate-900 dark:text-white">{mode.title}</h2>
+            <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">{mode.text}</p>
+          </Link>
+        ))}
       </section>
 
-      {/* Thématiques */}
-      <section className="space-y-6">
-        <div className="flex flex-col md:flex-row justify-between items-end gap-4 border-b border-slate-200 dark:border-slate-700 pb-4">
-          <div>
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Révisez par Thématique</h2>
-            <p className="text-slate-500 dark:text-slate-400 text-sm">Entraînement ciblé pour une progression constante.</p>
-          </div>
-        </div>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+      <section className="space-y-4">
+        <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Révisez par thème</h2>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
           {THEMES.map((theme) => {
             const progress = userStats.themeProgress[theme.id];
             const percentage = progress ? Math.round((progress.correct / progress.total) * 100) : 0;
 
             return (
-              <button
-                key={theme.id}
-                onClick={() => startQuiz(theme.id)}
-                className="bg-white dark:bg-slate-800 p-5 rounded-lg border border-slate-200 dark:border-slate-700 hover:border-sapphire-300 dark:hover:border-sapphire-600 transition-colors text-center flex flex-col items-center"
-              >
-                <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-3 text-xl bg-sapphire-100 dark:bg-sapphire-900/50 text-sapphire-600 dark:text-sapphire-400">
+              <button key={theme.id} onClick={() => startQuiz(theme.id)} className={TILE}>
+                <div className={`${ICON_BOX} mb-4`}>
                   <i className={`fas ${theme.icon}`}></i>
                 </div>
-                <h3 className="font-medium text-slate-900 dark:text-white text-sm">{theme.title}</h3>
-                {progress && (
-                  <div className="w-full mt-2">
-                    <div className="h-1 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
-                      <div
-                        className="h-full bg-sapphire-500 rounded-full"
-                        style={{ width: `${percentage}%` }}
-                      ></div>
+                <h3 className="font-semibold text-slate-900 dark:text-white text-sm">{theme.title}</h3>
+                {progress ? (
+                  <div className="mt-3">
+                    <div className="h-1.5 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
+                      <div className="h-full bg-sapphire-500 rounded-full" style={{ width: `${percentage}%` }}></div>
                     </div>
-                    <p className="text-xs text-slate-400 dark:text-slate-500 mt-1">{percentage}%</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 tabular-nums">{percentage}%</p>
                   </div>
-                )}
-                {!progress && (
-                  <p className="text-xs text-slate-400 dark:text-slate-500 mt-2">Commencer</p>
+                ) : (
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-3">Pas encore commencé</p>
                 )}
               </button>
             );
           })}
         </div>
       </section>
-
-      {/* Due for Review Section */}
-      {dueCount > 0 && (
-        <section className="bg-rose-50 dark:bg-rose-900/20 border border-rose-200 dark:border-rose-700 p-5 rounded-lg">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-rose-500 rounded-lg flex items-center justify-center text-white">
-                <i className="fas fa-target"></i>
-              </div>
-              <div>
-                <h3 className="font-medium text-rose-900 dark:text-rose-300">Points à améliorer</h3>
-                <p className="text-sm text-rose-600 dark:text-rose-400">{dueCount} question{dueCount > 1 ? 's' : ''} à revoir aujourd'hui</p>
-              </div>
-            </div>
-            <button
-              onClick={() => navigate('/quiz?theme=weak')}
-              className="bg-rose-500 text-white px-4 py-2 rounded-lg font-medium hover:bg-rose-600 transition"
-            >
-              Réviser mes points faibles
-            </button>
-          </div>
-        </section>
-      )}
     </div>
   );
 };

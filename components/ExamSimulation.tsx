@@ -150,7 +150,7 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({ onStatsUpdate, u
     <div className="flex flex-col items-center justify-center py-20">
       <div className="w-12 h-12 border-3 border-sapphire-600 border-t-transparent rounded-full animate-spin"></div>
       <h2 className="mt-6 text-lg font-medium text-slate-800 dark:text-slate-200">Préparation de l'examen...</h2>
-      <p className="text-slate-400 dark:text-slate-500 text-sm mt-1">Mélange des questions</p>
+      <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">Mélange des questions</p>
     </div>
   );
 
@@ -178,7 +178,7 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({ onStatsUpdate, u
           <div key={i} className="p-4 bg-slate-50 dark:bg-slate-700/50 rounded-lg border border-slate-100 dark:border-slate-600">
             <i className={`fas ${item.icon} text-sapphire-500 mb-2 text-sm`}></i>
             <div className="text-slate-900 dark:text-white font-bold text-lg">{item.value}</div>
-            <div className="text-xs text-slate-400 dark:text-slate-500">{item.label}</div>
+            <div className="text-xs text-slate-500 dark:text-slate-400">{item.label}</div>
           </div>
         ))}
       </div>
@@ -376,7 +376,7 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({ onStatsUpdate, u
                     </span>
                     <span className="text-slate-900 dark:text-white">{q.text}</span>
                   </div>
-                  <i className={`fas fa-chevron-${isExpanded ? 'up' : 'down'} text-slate-400 dark:text-slate-500 mt-1`}></i>
+                  <i className={`fas fa-chevron-${isExpanded ? 'up' : 'down'} text-slate-500 dark:text-slate-400 mt-1`}></i>
                 </button>
 
                 {isExpanded && (
@@ -417,12 +417,12 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({ onStatsUpdate, u
       <div className="flex items-center justify-between bg-white dark:bg-slate-800 px-5 py-3 rounded-lg border border-slate-200 dark:border-slate-700 sticky top-20 z-30">
         <div className="flex items-center space-x-6">
           <div className="text-center">
-            <p className="text-xs text-slate-400 dark:text-slate-500">Temps</p>
+            <p className="text-xs text-slate-500 dark:text-slate-400">Temps</p>
             <p className={`text-lg font-bold tabular-nums ${timeLeft < 300 ? 'text-rose-600' : 'text-sapphire-600 dark:text-sapphire-400'}`}>{formatTime(timeLeft)}</p>
           </div>
           <div className="h-8 w-px bg-slate-200 dark:bg-slate-700"></div>
           <div className="text-center">
-            <p className="text-xs text-slate-400 dark:text-slate-500">Question</p>
+            <p className="text-xs text-slate-500 dark:text-slate-400">Question</p>
             <p className="text-lg font-bold text-slate-900 dark:text-white">{currentIdx + 1} / 40</p>
           </div>
         </div>
@@ -463,7 +463,7 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({ onStatsUpdate, u
           <button
             disabled={currentIdx === 0}
             onClick={() => setCurrentIdx(i => i - 1)}
-            className="text-slate-400 dark:text-slate-500 hover:text-sapphire-600 dark:hover:text-sapphire-400 disabled:opacity-0 transition-colors flex items-center space-x-2"
+            className="text-slate-500 dark:text-slate-400 hover:text-sapphire-600 dark:hover:text-sapphire-400 disabled:opacity-0 transition-colors flex items-center space-x-2"
           >
             <i className="fas fa-arrow-left text-xs"></i>
             <span>Précédent</span>

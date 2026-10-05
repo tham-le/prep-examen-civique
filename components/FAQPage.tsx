@@ -86,7 +86,7 @@ export const FAQPage: React.FC = () => {
                 </div>
                 <span className="font-bold text-slate-900 dark:text-white">{item.question}</span>
               </div>
-              <i className={`fas fa-chevron-down text-slate-400 dark:text-slate-500 transition-transform duration-300 ${
+              <i className={`fas fa-chevron-down text-slate-500 dark:text-slate-400 transition-transform duration-300 ${
                 openIndex === index ? 'rotate-180' : ''
               }`}></i>
             </button>
