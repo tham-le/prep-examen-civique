@@ -43,12 +43,12 @@ describe('reviewItem', () => {
     expect(map.q1.dueAt).toBe(NOW + 1 * DAY_MS);
   });
 
-  it('sets dueAt to Infinity once an item reaches MAX_BOX (mastered, never due again)', () => {
+  it('sets dueAt 30 days out once an item reaches MAX_BOX (mastered, checked once more later)', () => {
     let map: Record<string, { box: number; dueAt: number }> = {};
     for (let i = 0; i <= MAX_BOX; i++) {
       map = reviewItem(map, 'q1', true, NOW);
     }
-    expect(map.q1.dueAt).toBe(Infinity);
+    expect(map.q1.dueAt).toBe(NOW + 30 * DAY_MS);
   });
 
   it('does not mutate the input map', () => {
@@ -76,10 +76,10 @@ describe('isMastered', () => {
   it('is false below MAX_BOX and true once it reaches MAX_BOX', () => {
     let map: Record<string, { box: number; dueAt: number }> = {};
     for (let i = 0; i < MAX_BOX; i++) {
-      expect(isMastered(map, 'q1')).toBe(false);
+      expect(isMastered(map, 'q1', NOW)).toBe(false);
       map = reviewItem(map, 'q1', true, NOW);
     }
-    expect(isMastered(map, 'q1')).toBe(true);
+    expect(isMastered(map, 'q1', NOW)).toBe(true);
   });
 });
 
@@ -127,12 +127,23 @@ describe('getItemStatus', () => {
     expect(getItemStatus(map, 'q1', NOW)).toBe('learning');
   });
 
-  it('classifies an item that reached MAX_BOX as mastered, even if its dueAt is in the past', () => {
+  it('classifies an item that reached MAX_BOX as mastered until its recheck is due', () => {
     let map: Record<string, { box: number; dueAt: number }> = {};
     for (let i = 0; i <= MAX_BOX; i++) {
       map = reviewItem(map, 'q1', true, NOW);
     }
-    expect(getItemStatus(map, 'q1', NOW + 999 * DAY_MS)).toBe('mastered');
+    expect(getItemStatus(map, 'q1', NOW + 29 * DAY_MS)).toBe('mastered');
+    expect(getItemStatus(map, 'q1', NOW + 31 * DAY_MS)).toBe('due');
+  });
+
+  it('keeps a rechecked item mastered after a correct answer and drops it to box 0 after a wrong one', () => {
+    let map: Record<string, { box: number; dueAt: number }> = {};
+    for (let i = 0; i <= MAX_BOX; i++) {
+      map = reviewItem(map, 'q1', true, NOW);
+    }
+    const later = NOW + 31 * DAY_MS;
+    expect(getItemStatus(reviewItem(map, 'q1', true, later), 'q1', later)).toBe('mastered');
+    expect(reviewItem(map, 'q1', false, later).q1.box).toBe(0);
   });
 });
 
