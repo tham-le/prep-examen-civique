@@ -41,6 +41,17 @@ describe('getXPProgress', () => {
   });
 });
 
+describe('checkBadges for the daily game', () => {
+  it('awards badges for goals, combo, missions and arcade scores', () => {
+    const stats = { ...freshStats(), goalsMet: 7, combo: 10, missionsCompleted: 10, bestBlitz: 20, bestSurvival: 15 };
+    expect(checkBadges(stats)).toEqual(expect.arrayContaining(['first_goal', 'goals_7', 'combo_10', 'missions_10', 'blitz_20', 'survival_15']));
+  });
+
+  it('awards nothing on stats saved before these fields existed', () => {
+    expect(checkBadges(freshStats())).toEqual([]);
+  });
+});
+
 describe('checkBadges', () => {
   it('awards first_quiz after the first quiz', () => {
     const stats = { ...freshStats(), totalQuizzes: 1 };

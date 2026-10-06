@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
-import { applyAnswer, dayKey, diffStats, missionsFor, rollDaily, themeMedal, GOAL_BONUS_XP, XP_PER_CORRECT } from './progress';
+import { applyAnswer, dayKey, diffStats, missionsFor, rollDaily, themeMedal, withNewBadges, GOAL_BONUS_XP, XP_PER_CORRECT } from './progress';
 import { reviewItem, MAX_BOX } from './spacedRepetition';
-import { DEFAULT_USER_STATS, OFFICIAL_DB } from '../constants';
+import { DEFAULT_USER_STATS, OFFICIAL_DB, THEMES } from '../constants';
 import { Question, UserStats } from '../types';
 
 const at = (y: number, m: number, d: number, h = 12) => new Date(y, m - 1, d, h).getTime();
@@ -159,5 +159,26 @@ describe('diffStats', () => {
   it('reports nothing when nothing changed', () => {
     const s = rollDaily(base(), NOW);
     expect(diffStats(s, s, NOW)).toEqual([]);
+  });
+});
+
+describe('withNewBadges', () => {
+  const masteredTheme = (themeId: string) =>
+    Object.fromEntries(OFFICIAL_DB[themeId].map(x => [x.id, { box: MAX_BOX, dueAt: NOW + 30 * 86_400_000 }]));
+
+  it('awards the first medal once a theme earns one', () => {
+    const s = withNewBadges(base({ questionMastery: masteredTheme('valeurs') }), NOW);
+    expect(s.badges).toContain('first_medal');
+    expect(s.badges).not.toContain('all_bronze');
+  });
+
+  it('awards the five medals badge when every theme has one', () => {
+    const questionMastery = Object.assign({}, ...THEMES.map(t => masteredTheme(t.id)));
+    expect(withNewBadges(base({ questionMastery }), NOW).badges).toEqual(expect.arrayContaining(['first_medal', 'all_bronze']));
+  });
+
+  it('keeps the same object when there is nothing new', () => {
+    const s = base();
+    expect(withNewBadges(s, NOW)).toBe(s);
   });
 });

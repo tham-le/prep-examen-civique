@@ -88,6 +88,14 @@ export const checkBadges = (stats: UserStats): string[] => {
     newBadges.push('quiz_50');
   }
 
+  // Daily goals, combos, missions and arcade scores
+  if ((stats.goalsMet ?? 0) >= 1 && !stats.badges.includes('first_goal')) newBadges.push('first_goal');
+  if ((stats.goalsMet ?? 0) >= 7 && !stats.badges.includes('goals_7')) newBadges.push('goals_7');
+  if ((stats.combo ?? 0) >= 10 && !stats.badges.includes('combo_10')) newBadges.push('combo_10');
+  if ((stats.missionsCompleted ?? 0) >= 10 && !stats.badges.includes('missions_10')) newBadges.push('missions_10');
+  if ((stats.bestBlitz ?? 0) >= 20 && !stats.badges.includes('blitz_20')) newBadges.push('blitz_20');
+  if ((stats.bestSurvival ?? 0) >= 15 && !stats.badges.includes('survival_15')) newBadges.push('survival_15');
+
   // Exam passed
   if (stats.examsPassed >= 1 && !stats.badges.includes('exam_passed')) {
     newBadges.push('exam_passed');

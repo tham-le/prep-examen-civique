@@ -4912,16 +4912,24 @@ export const OFFICIAL_DB: Record<string, Question[]> = {
 export const BADGES: Badge[] = [
   { id: 'first_quiz', name: 'Premier Pas', description: 'Compléter votre premier quiz', icon: 'fa-shoe-prints' },
   { id: 'perfect_quiz', name: 'Sans Faute', description: 'Obtenir 100% à un quiz', icon: 'fa-bullseye' },
-  { id: 'streak_3', name: 'Régulier', description: 'Se connecter 3 jours consécutifs', icon: 'fa-fire' },
-  { id: 'streak_7', name: 'Assidu', description: 'Se connecter 7 jours consécutifs', icon: 'fa-fire-flame-curved' },
-  { id: 'streak_30', name: 'Dévoué', description: 'Se connecter 30 jours consécutifs', icon: 'fa-meteor' },
+  { id: 'streak_3', name: 'Régulier', description: 'Atteindre son objectif 3 jours de suite', icon: 'fa-fire' },
+  { id: 'streak_7', name: 'Assidu', description: 'Atteindre son objectif 7 jours de suite', icon: 'fa-fire-flame-curved' },
+  { id: 'streak_30', name: 'Dévoué', description: 'Atteindre son objectif 30 jours de suite', icon: 'fa-meteor' },
   { id: 'all_themes', name: 'Explorateur', description: 'Compléter un quiz dans chaque thème', icon: 'fa-compass' },
   { id: 'exam_passed', name: 'Admis', description: 'Réussir un examen blanc (32/40)', icon: 'fa-award' },
   { id: 'exam_master', name: 'Expert', description: 'Réussir 3 examens blancs', icon: 'fa-crown' },
   { id: 'quiz_10', name: 'Entraîné', description: 'Compléter 10 quiz', icon: 'fa-dumbbell' },
   { id: 'quiz_50', name: 'Champion', description: 'Compléter 50 quiz', icon: 'fa-trophy' },
   { id: 'score_80', name: 'Performant', description: 'Obtenir 80% de moyenne globale', icon: 'fa-chart-line' },
-  { id: 'fast_exam', name: 'Rapide', description: 'Terminer un examen en moins de 20 minutes', icon: 'fa-bolt' }
+  { id: 'fast_exam', name: 'Rapide', description: 'Terminer un examen en moins de 20 minutes', icon: 'fa-bolt' },
+  { id: 'first_goal', name: 'Objectif atteint', description: "Atteindre l'objectif du jour", icon: 'fa-bullseye' },
+  { id: 'goals_7', name: 'Une semaine', description: "Atteindre l'objectif du jour 7 fois", icon: 'fa-calendar-check' },
+  { id: 'combo_10', name: 'En série', description: '10 bonnes réponses d\'affilée', icon: 'fa-link' },
+  { id: 'missions_10', name: 'Missionnaire', description: 'Réussir 10 missions du jour', icon: 'fa-list-check' },
+  { id: 'first_medal', name: 'Première médaille', description: 'Gagner une médaille dans un thème', icon: 'fa-medal' },
+  { id: 'all_bronze', name: 'Cinq médailles', description: 'Gagner une médaille dans chaque thème', icon: 'fa-ranking-star' },
+  { id: 'blitz_20', name: 'Éclair', description: '20 bonnes réponses en 60 secondes', icon: 'fa-stopwatch' },
+  { id: 'survival_15', name: 'Increvable', description: '15 bonnes réponses d\'affilée en mode Survie', icon: 'fa-heart-pulse' }
 ];
 
 // ============================================================

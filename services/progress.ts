@@ -69,6 +69,15 @@ export const rollDaily = (stats: UserStats, now: number = Date.now()): UserStats
   return next;
 };
 
+// Adds the badges that the state now earns, including the medal ones
+export const withNewBadges = (stats: UserStats, now: number = Date.now()): UserStats => {
+  const earned = [...checkBadges(stats)];
+  const tiers = THEMES.map(theme => themeMedal(stats, theme.id, now).tier);
+  if (tiers.some(t => t >= 1) && !stats.badges.includes('first_medal')) earned.push('first_medal');
+  if (tiers.every(t => t >= 1) && !stats.badges.includes('all_bronze')) earned.push('all_bronze');
+  return earned.length > 0 ? { ...stats, badges: [...stats.badges, ...earned] } : stats;
+};
+
 export const applyAnswer = (
   stats: UserStats,
   question: Question,
@@ -112,9 +121,7 @@ export const applyAnswer = (
     xp: next.xp + xp,
   };
   next.level = calculateLevel(next.xp);
-  const newBadges = checkBadges(next);
-  if (newBadges.length > 0) next.badges = [...next.badges, ...newBadges];
-  return next;
+  return withNewBadges(next, now);
 };
 
 export type MedalTier = 0 | 1 | 2 | 3 | 4;
