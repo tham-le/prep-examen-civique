@@ -81,4 +81,16 @@ describe('App', () => {
     expect(container.textContent).toContain('100 % maîtrisé');
     expect(container.textContent).toContain('Pas encore commencé');
   });
+
+  it('still opens with damaged saved stats', async () => {
+    localStorage.setItem('objectif_citoyen_stats', JSON.stringify({ xp: 'many', questionMastery: null, badges: 'x', daily: 5 }));
+    localStorage.setItem('objectif_citoyen_exam_history', '{"not":"a list"}');
+    window.history.pushState({}, '', '/');
+    const container = document.createElement('div');
+    await act(async () => {
+      createRoot(container).render(<App />);
+    });
+    expect(container.textContent).toContain("Préparez l'examen civique");
+    expect(container.textContent).not.toContain('Une erreur est survenue');
+  });
 });

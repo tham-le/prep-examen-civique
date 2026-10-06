@@ -1,16 +1,84 @@
 
-import { UserStats, Badge, ExamResult } from '../types';
+import { UserStats, Badge, ExamResult, DailyProgress, ExamLevel, SRSMap } from '../types';
 import { BADGES, LEVELS, DEFAULT_USER_STATS } from '../constants';
 import { reviewItems } from './spacedRepetition';
 
 const STORAGE_KEY = 'objectif_citoyen_stats';
 const EXAM_HISTORY_KEY = 'objectif_citoyen_exam_history';
 
+const isRecord = (v: unknown): v is Record<string, unknown> => typeof v === 'object' && v !== null && !Array.isArray(v);
+const finite = (v: unknown): v is number => typeof v === 'number' && Number.isFinite(v);
+const numberOr = (v: unknown, fallback: number): number => (finite(v) ? v : fallback);
+const strings = (v: unknown): string[] => (Array.isArray(v) ? v.filter((x): x is string => typeof x === 'string') : []);
+
+// Entries saved before mastered items got a recheck date have dueAt null (Infinity does not survive JSON)
+const srsMap = (v: unknown): SRSMap =>
+  isRecord(v)
+    ? Object.fromEntries(
+        Object.entries(v).flatMap(([id, entry]) =>
+          isRecord(entry) && finite(entry.box) ? [[id, { box: entry.box, dueAt: numberOr(entry.dueAt, 0) }]] : []
+        )
+      )
+    : {};
+
+const dailyProgress = (v: unknown): DailyProgress | undefined => {
+  if (!isRecord(v) || typeof v.date !== 'string') return undefined;
+  const qod = v.questionOfDay;
+  const questionOfDay = isRecord(qod) && typeof qod.id === 'string' && finite(qod.choice) ? { id: qod.id, choice: qod.choice } : undefined;
+  return {
+    date: v.date,
+    answered: numberOr(v.answered, 0),
+    correct: numberOr(v.correct, 0),
+    scenario: numberOr(v.scenario, 0),
+    bestCombo: numberOr(v.bestCombo, 0),
+    goalReached: v.goalReached === true,
+    missionsDone: strings(v.missionsDone),
+    ...(questionOfDay && { questionOfDay }),
+  };
+};
+
+// Keeps each saved field only if it has the right type, so one damaged value
+// cannot make every page crash. Unknown fields are dropped.
+export const sanitizeStats = (raw: unknown): UserStats => {
+  if (!isRecord(raw)) return { ...DEFAULT_USER_STATS };
+  const d = DEFAULT_USER_STATS;
+  const themeProgress = isRecord(raw.themeProgress)
+    ? Object.fromEntries(
+        Object.entries(raw.themeProgress).flatMap(([id, p]) =>
+          isRecord(p) && finite(p.correct) && finite(p.total) ? [[id, { correct: p.correct, total: p.total }]] : []
+        )
+      )
+    : {};
+  const optionalNumbers = ['combo', 'goalsMet', 'missionsCompleted', 'bestBlitz', 'bestSurvival', 'dailyGoal'] as const;
+  const daily = dailyProgress(raw.daily);
+  return {
+    xp: numberOr(raw.xp, d.xp),
+    level: numberOr(raw.level, d.level),
+    streak: numberOr(raw.streak, d.streak),
+    lastLoginDate: typeof raw.lastLoginDate === 'string' ? raw.lastLoginDate : d.lastLoginDate,
+    totalQuizzes: numberOr(raw.totalQuizzes, d.totalQuizzes),
+    totalCorrect: numberOr(raw.totalCorrect, d.totalCorrect),
+    totalQuestions: numberOr(raw.totalQuestions, d.totalQuestions),
+    perfectScores: numberOr(raw.perfectScores, d.perfectScores),
+    examsPassed: numberOr(raw.examsPassed, d.examsPassed),
+    badges: strings(raw.badges),
+    questionMastery: srsMap(raw.questionMastery),
+    flashcardMastery: srsMap(raw.flashcardMastery),
+    themeProgress,
+    ...(raw.examLevel === 'cr' || raw.examLevel === 'csp' ? { examLevel: raw.examLevel as ExamLevel } : {}),
+    ...(typeof raw.examDate === 'string' ? { examDate: raw.examDate } : {}),
+    ...(Array.isArray(raw.seenQuestions) ? { seenQuestions: strings(raw.seenQuestions) } : {}),
+    ...(Array.isArray(raw.recentExamQuestions) ? { recentExamQuestions: strings(raw.recentExamQuestions) } : {}),
+    ...(daily ? { daily } : {}),
+    ...Object.fromEntries(optionalNumbers.filter(key => finite(raw[key])).map(key => [key, raw[key]])),
+  };
+};
+
 export const loadUserStats = (): UserStats => {
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
-      return { ...DEFAULT_USER_STATS, ...JSON.parse(saved) };
+      return sanitizeStats(JSON.parse(saved));
     }
   } catch (e) {
     console.warn('Error loading stats:', e);
@@ -229,10 +297,14 @@ export const getBadgeInfo = (badgeId: string): Badge | undefined => {
 // Exam History functions
 export const loadExamHistory = (): ExamResult[] => {
   try {
-    const saved = localStorage.getItem(EXAM_HISTORY_KEY);
-    if (saved) {
-      return JSON.parse(saved);
-    }
+    const saved = JSON.parse(localStorage.getItem(EXAM_HISTORY_KEY) ?? '[]');
+    return Array.isArray(saved)
+      ? saved.filter(
+          (e): e is ExamResult =>
+            isRecord(e) && typeof e.id === 'string' && typeof e.date === 'string' &&
+            finite(e.score) && typeof e.passed === 'boolean' && finite(e.duration)
+        )
+      : [];
   } catch (e) {
     console.warn('Error loading exam history:', e);
   }

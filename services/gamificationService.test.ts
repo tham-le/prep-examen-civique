@@ -5,6 +5,10 @@ import {
   checkBadges,
   processQuizResult,
   processExamResult,
+  loadUserStats,
+  loadExamHistory,
+  saveUserStats,
+  sanitizeStats,
 } from './gamificationService';
 import { DEFAULT_USER_STATS } from '../constants';
 import { UserStats } from '../types';
@@ -152,5 +156,81 @@ describe('processExamResult', () => {
 
     const failedFast = processExamResult(freshStats(), 20, false, 1500).stats;
     expect(failedFast.badges).not.toContain('fast_exam');
+  });
+});
+
+describe('loadUserStats with damaged saved data', () => {
+  const load = (value: string) => {
+    localStorage.setItem('objectif_citoyen_stats', value);
+    return loadUserStats();
+  };
+
+  it('uses the defaults for a value of the wrong type and keeps the valid ones', () => {
+    const stats = load(JSON.stringify({ xp: 250, streak: 'x', badges: 'x', questionMastery: null, flashcardMastery: [], themeProgress: 5, level: 3 }));
+    expect(stats.xp).toBe(250);
+    expect(stats.level).toBe(3);
+    expect(stats.streak).toBe(0);
+    expect(stats.badges).toEqual([]);
+    expect(stats.questionMastery).toEqual({});
+    expect(stats.flashcardMastery).toEqual({});
+    expect(stats.themeProgress).toEqual({});
+  });
+
+  it('falls back to the defaults for data that is not an object or not JSON', () => {
+    for (const value of ['null', '5', '"text"', '[]', '{not json']) {
+      expect(load(value)).toEqual(DEFAULT_USER_STATS);
+    }
+  });
+
+  it('drops broken entries and keeps the good ones in the question maps', () => {
+    const stats = load(JSON.stringify({ questionMastery: { a: { box: 2, dueAt: 5 }, b: 'x', c: { box: 'no' }, d: { box: 1, dueAt: null } } }));
+    expect(stats.questionMastery).toEqual({ a: { box: 2, dueAt: 5 }, d: { box: 1, dueAt: 0 } });
+  });
+
+  it('does not let a __proto__ key change the object it builds', () => {
+    const stats = load('{"questionMastery":{"__proto__":{"box":1,"dueAt":1}},"xp":10}');
+    expect(Object.getPrototypeOf(stats.questionMastery)).toBe(Object.prototype);
+    expect(({} as Record<string, unknown>).box).toBeUndefined();
+    expect(stats.xp).toBe(10);
+  });
+
+  it('drops fields it does not know', () => {
+    expect(load(JSON.stringify({ xp: 1, injected: { a: 1 } }))).not.toHaveProperty('injected');
+  });
+
+  it('loads a full state saved by the current version unchanged', () => {
+    const full: UserStats = {
+      ...DEFAULT_USER_STATS,
+      xp: 340, level: 3, streak: 4, lastLoginDate: '2026-10-05', badges: ['first_quiz'],
+      questionMastery: { v1: { box: 2, dueAt: 123 } }, flashcardMastery: { f1: { box: 1, dueAt: 9 } },
+      themeProgress: { valeurs: { correct: 3, total: 4 } },
+      examLevel: 'csp', examDate: '2026-11-20', seenQuestions: ['v1'], recentExamQuestions: ['v2'],
+      dailyGoal: 20, combo: 2, goalsMet: 3, missionsCompleted: 5, bestBlitz: 12, bestSurvival: 7,
+      daily: { date: '2026-10-06', answered: 4, correct: 3, scenario: 1, bestCombo: 2, goalReached: false, missionsDone: ['answer10'], questionOfDay: { id: 'v3', choice: 1 } },
+    };
+    saveUserStats(full);
+    expect(loadUserStats()).toEqual(full);
+  });
+
+  it('ignores an invalid level, exam date type and a daily block without a date', () => {
+    const stats = sanitizeStats({ examLevel: 'other', examDate: 5, daily: { answered: 3 } });
+    expect(stats).not.toHaveProperty('examLevel');
+    expect(stats).not.toHaveProperty('examDate');
+    expect(stats).not.toHaveProperty('daily');
+  });
+});
+
+describe('loadExamHistory with damaged saved data', () => {
+  it('returns an empty list for something that is not a list', () => {
+    for (const value of ['null', '{"a":1}', '5', '{bad']) {
+      localStorage.setItem('objectif_citoyen_exam_history', value);
+      expect(loadExamHistory()).toEqual([]);
+    }
+  });
+
+  it('keeps only complete results', () => {
+    const good = { id: '1', date: '2026-10-05', score: 30, passed: false, duration: 100 };
+    localStorage.setItem('objectif_citoyen_exam_history', JSON.stringify([good, { id: '2' }, null, { ...good, score: 'x' }]));
+    expect(loadExamHistory()).toEqual([good]);
   });
 });
