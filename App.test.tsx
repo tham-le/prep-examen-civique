@@ -2,7 +2,8 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import React, { act } from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
-import { ALL_QUESTIONS, DEFAULT_USER_STATS } from './constants';
+import { ALL_QUESTIONS, DEFAULT_USER_STATS, OFFICIAL_DB } from './constants';
+import { MAX_BOX } from './services/spacedRepetition';
 import { forLevel } from './services/examLevel';
 
 (globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true;
@@ -66,5 +67,18 @@ describe('App', () => {
     });
     expect(container.textContent).toContain('Niveau 2');
     expect(container.textContent).toContain('Objectif du jour atteint');
+  });
+
+  it('shows a medal and the mastered share on a theme tile', async () => {
+    const mastery = Object.fromEntries(OFFICIAL_DB.valeurs.map(q => [q.id, { box: MAX_BOX, dueAt: Date.now() + 30 * 86_400_000 }]));
+    localStorage.setItem('objectif_citoyen_stats', JSON.stringify({ ...DEFAULT_USER_STATS, questionMastery: mastery }));
+    window.history.pushState({}, '', '/');
+    const container = document.createElement('div');
+    await act(async () => {
+      createRoot(container).render(<App />);
+    });
+    expect(container.textContent).toContain('Médaille platine');
+    expect(container.textContent).toContain('100 % maîtrisé');
+    expect(container.textContent).toContain('Pas encore commencé');
   });
 });

@@ -1,6 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { UserStats, ExamResult } from '../types';
+import { MEDAL_NAMES, MEDAL_THRESHOLDS, themeMedal } from '../services/progress';
+import { Medal } from './Medal';
 import { BADGES, LEVELS, THEMES } from '../constants';
 import { getLevelInfo, getXPProgress, getNextLevelInfo, loadExamHistory } from '../services/gamificationService';
 
@@ -123,9 +125,9 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ userStats, onStatsUpda
         </h2>
         <div className="space-y-3">
           {THEMES.map(theme => {
-            const progress = userStats.themeProgress[theme.id];
-            const percentage = progress ? Math.round((progress.correct / progress.total) * 100) : 0;
-            const total = progress?.total || 0;
+            const { tier, ratio } = themeMedal(userStats, theme.id);
+            const percentage = Math.round(ratio * 100);
+            const nextThreshold = MEDAL_THRESHOLDS[tier];
 
             return (
               <div key={theme.id} className="flex items-center space-x-3">
@@ -134,9 +136,12 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ userStats, onStatsUpda
                 </div>
                 <div className="flex-1">
                   <div className="flex justify-between mb-1">
-                    <span className="text-sm text-slate-700 dark:text-slate-300">{theme.title}</span>
-                    <span className="text-xs text-slate-500 dark:text-slate-400">
-                      {total > 0 ? `${percentage}%` : '-'}
+                    <span className="text-sm text-slate-700 dark:text-slate-300">
+                      {theme.title} <Medal tier={tier} />
+                    </span>
+                    <span className="text-xs text-slate-500 dark:text-slate-400 tabular-nums">
+                      {percentage} % maîtrisé
+                      {nextThreshold !== undefined && ` · ${MEDAL_NAMES[tier + 1].toLowerCase()} à ${Math.round(nextThreshold * 100)} %`}
                     </span>
                   </div>
                   <div className="h-1.5 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">

@@ -9,7 +9,8 @@ import { usePageMeta } from './hooks/usePageMeta';
 import { THEMES, ALL_QUESTIONS } from './constants';
 import { ExamLevel, UserStats } from './types';
 import { loadUserStats, saveUserStats, loadExamHistory } from './services/gamificationService';
-import { diffStats, rollDaily } from './services/progress';
+import { diffStats, rollDaily, themeMedal } from './services/progress';
+import { Medal } from './components/Medal';
 import { Toast, Toasts, describeEvent } from './components/Toasts';
 import { DailyCard } from './components/DailyCard';
 import { countDue } from './services/spacedRepetition';
@@ -182,21 +183,25 @@ const HomePage: React.FC<HomePageProps> = ({ userStats, onStatsUpdate }) => {
         <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Révisez par thème</h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
           {THEMES.map((theme) => {
-            const progress = userStats.themeProgress[theme.id];
-            const percentage = progress ? Math.round((progress.correct / progress.total) * 100) : 0;
+            const { tier, ratio } = themeMedal(userStats, theme.id);
+            const percentage = Math.round(ratio * 100);
+            const started = userStats.themeProgress[theme.id] || ratio > 0;
 
             return (
               <button key={theme.id} onClick={() => startQuiz(theme.id)} className={TILE}>
-                <div className={`${ICON_BOX} mb-4`}>
-                  <i className={`fas ${theme.icon}`}></i>
+                <div className="flex items-start justify-between mb-4">
+                  <div className={ICON_BOX}>
+                    <i className={`fas ${theme.icon}`}></i>
+                  </div>
+                  <Medal tier={tier} />
                 </div>
                 <h3 className="font-semibold text-slate-900 dark:text-white text-sm">{theme.title}</h3>
-                {progress ? (
+                {started ? (
                   <div className="mt-3">
                     <div className="h-1.5 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
                       <div className="h-full bg-sapphire-500 rounded-full" style={{ width: `${percentage}%` }}></div>
                     </div>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 tabular-nums">{percentage}%</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 tabular-nums">{percentage} % maîtrisé</p>
                   </div>
                 ) : (
                   <p className="text-xs text-slate-500 dark:text-slate-400 mt-3">Pas encore commencé</p>
