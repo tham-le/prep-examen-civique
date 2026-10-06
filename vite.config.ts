@@ -7,7 +7,8 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   server: {
     port: 3000,
-    host: '0.0.0.0',
+    // Local only; use `npm run dev -- --host` to test on a phone
+    host: 'localhost',
   },
   plugins: [react(), tailwindcss()],
   resolve: {
