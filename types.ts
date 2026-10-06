@@ -78,6 +78,7 @@ export interface UserStats {
   flashcardMastery: SRSMap;
   themeProgress: Record<string, { correct: number; total: number }>;
   examLevel?: ExamLevel;
+  seenQuestions?: string[];
   examDate?: string;
 }
 

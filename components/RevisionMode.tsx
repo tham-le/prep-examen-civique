@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { THEMES, ALL_QUESTIONS as BANK, OFFICIAL_DB } from '../constants';
 import { forLevel } from '../services/examLevel';
@@ -8,31 +8,37 @@ import { getItemStatus, ItemStatus } from '../services/spacedRepetition';
 
 const PAGE_SIZE = 30;
 
-type StatusFilter = 'all' | 'due' | 'mastered' | 'never-attempted';
+// 'seen' is a question opened in Révision that was never answered in a quiz or exam
+type Status = ItemStatus | 'seen';
+type StatusFilter = 'all' | 'due' | 'mastered' | 'seen' | 'never-attempted';
 
-const STATUS_LABEL: Record<ItemStatus, string> = {
+const STATUS_LABEL: Record<Status, string> = {
   'never-attempted': 'Jamais vue',
+  seen: 'Vue',
   due: 'À revoir',
   learning: 'En cours',
   mastered: 'Maîtrisée',
 };
 
-const STATUS_BADGE_CLASS: Record<ItemStatus, string> = {
+const STATUS_BADGE_CLASS: Record<Status, string> = {
   'never-attempted': 'bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400',
+  seen: 'bg-sapphire-100 dark:bg-sapphire-900/30 text-sapphire-700 dark:text-sapphire-300',
   due: 'bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-400',
   learning: 'bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400',
   mastered: 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400',
 };
 
-const STATUS_BORDER_CLASS: Record<ItemStatus, string> = {
+const STATUS_BORDER_CLASS: Record<Status, string> = {
   'never-attempted': 'border-slate-200 dark:border-slate-700',
+  seen: 'border-sapphire-200 dark:border-sapphire-800',
   due: 'border-rose-200 dark:border-rose-800',
   learning: 'border-amber-200 dark:border-amber-800',
   mastered: 'border-emerald-200 dark:border-emerald-800',
 };
 
-const STATUS_ICON: Record<ItemStatus, string> = {
+const STATUS_ICON: Record<Status, string> = {
   'never-attempted': 'fa-circle',
+  seen: 'fa-eye',
   due: 'fa-rotate-left',
   learning: 'fa-hourglass-half',
   mastered: 'fa-check',
@@ -40,9 +46,10 @@ const STATUS_ICON: Record<ItemStatus, string> = {
 
 interface RevisionModeProps {
   userStats: UserStats;
+  onStatsUpdate: (stats: UserStats) => void;
 }
 
-export const RevisionMode: React.FC<RevisionModeProps> = ({ userStats }) => {
+export const RevisionMode: React.FC<RevisionModeProps> = ({ userStats, onStatsUpdate }) => {
   const navigate = useNavigate();
   const [selectedTheme, setSelectedTheme] = useState<string | null>(null);
   const [statusFilter, setStatusFilter] = useState<StatusFilter>('all');
@@ -54,6 +61,18 @@ export const RevisionMode: React.FC<RevisionModeProps> = ({ userStats }) => {
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
   const mastery = userStats.questionMastery;
+  const seen = new Set(userStats.seenQuestions ?? []);
+  const alignTop = useRef(false);
+
+  const statusOf = (id: string): Status => {
+    const status = getItemStatus(mastery, id);
+    return status === 'never-attempted' && seen.has(id) ? 'seen' : status;
+  };
+
+  const markSeen = (ids: string[]) => {
+    const fresh = ids.filter(id => !seen.has(id));
+    if (fresh.length > 0) onStatsUpdate({ ...userStats, seenQuestions: [...seen, ...fresh] });
+  };
   const ALL_QUESTIONS = forLevel(BANK, userStats.examLevel);
 
   const getQuestionsForTheme = (themeId: string): Question[] => {
@@ -66,6 +85,7 @@ export const RevisionMode: React.FC<RevisionModeProps> = ({ userStats }) => {
       newExpanded.delete(questionId);
     } else {
       newExpanded.add(questionId);
+      markSeen([questionId]);
     }
     setExpandedQuestions(newExpanded);
   };
@@ -80,11 +100,14 @@ export const RevisionMode: React.FC<RevisionModeProps> = ({ userStats }) => {
       newExpanded.add(next.id);
       setExpandedQuestions(newExpanded);
       setFocusedIndex(index + 1);
+      alignTop.current = true;
+      markSeen([next.id]);
     }
   };
 
   const expandAll = () => {
     setExpandedQuestions(new Set(filteredQuestions.map(q => q.id)));
+    markSeen(filteredQuestions.slice(0, visibleCount).map(q => q.id));
   };
 
   const collapseAll = () => {
@@ -131,13 +154,14 @@ export const RevisionMode: React.FC<RevisionModeProps> = ({ userStats }) => {
 
   // Status counts computed before the status filter itself is applied, so the
   // filter chips always show how many questions each filter would reveal.
-  const masteredCount = searchedQuestions.filter(q => getItemStatus(mastery, q.id) === 'mastered').length;
-  const dueCount = searchedQuestions.filter(q => getItemStatus(mastery, q.id) === 'due').length;
-  const neverCount = searchedQuestions.filter(q => getItemStatus(mastery, q.id) === 'never-attempted').length;
+  const masteredCount = searchedQuestions.filter(q => statusOf(q.id) === 'mastered').length;
+  const dueCount = searchedQuestions.filter(q => statusOf(q.id) === 'due').length;
+  const seenCount = searchedQuestions.filter(q => statusOf(q.id) === 'seen').length;
+  const neverCount = searchedQuestions.filter(q => statusOf(q.id) === 'never-attempted').length;
 
   const filteredQuestions = statusFilter === 'all'
     ? searchedQuestions
-    : searchedQuestions.filter(q => getItemStatus(mastery, q.id) === statusFilter);
+    : searchedQuestions.filter(q => statusOf(q.id) === statusFilter);
 
   const themeInfo = THEMES.find(t => t.id === selectedTheme);
 
@@ -173,7 +197,8 @@ export const RevisionMode: React.FC<RevisionModeProps> = ({ userStats }) => {
   React.useEffect(() => {
     if (focusedIndex >= 0) {
       const element = document.getElementById(`revision-q-${focusedIndex}`);
-      element?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      element?.scrollIntoView({ behavior: 'smooth', block: alignTop.current ? 'start' : 'nearest' });
+      alignTop.current = false;
     }
   }, [focusedIndex]);
 
@@ -181,6 +206,7 @@ export const RevisionMode: React.FC<RevisionModeProps> = ({ userStats }) => {
     { id: 'all', label: `Toutes (${searchedQuestions.length})`, count: searchedQuestions.length },
     { id: 'due', label: `À revoir (${dueCount})`, count: dueCount },
     { id: 'mastered', label: `Maîtrisées (${masteredCount})`, count: masteredCount },
+    { id: 'seen', label: `Vues (${seenCount})`, count: seenCount },
     { id: 'never-attempted', label: `Jamais vues (${neverCount})`, count: neverCount },
   ];
 
@@ -340,13 +366,13 @@ export const RevisionMode: React.FC<RevisionModeProps> = ({ userStats }) => {
         {filteredQuestions.slice(0, visibleCount).map((question, index) => {
           const isExpanded = expandedQuestions.has(question.id);
           const isFocused = focusedIndex === index;
-          const status = getItemStatus(mastery, question.id);
+          const status = statusOf(question.id);
 
           return (
             <div
               key={question.id}
               id={`revision-q-${index}`}
-              className={`bg-white dark:bg-slate-800 rounded-xl border overflow-hidden transition-all ${
+              className={`bg-white dark:bg-slate-800 rounded-xl border overflow-hidden transition-all scroll-mt-40 lg:scroll-mt-24 ${
                 isFocused
                   ? 'border-sapphire-500 ring-2 ring-sapphire-200 dark:ring-sapphire-800'
                   : STATUS_BORDER_CLASS[status]
@@ -402,10 +428,10 @@ export const RevisionMode: React.FC<RevisionModeProps> = ({ userStats }) => {
 
                   {/* Navigation */}
                   {index < filteredQuestions.length - 1 && (
-                    <div className="flex justify-end pt-2">
+                    <div className="flex sm:justify-end pt-2">
                       <button
                         onClick={() => goToNext(index)}
-                        className="px-4 py-2 rounded-lg bg-sapphire-600 text-white text-sm font-medium hover:bg-sapphire-700 transition-colors"
+                        className="w-full sm:w-auto px-4 py-3 sm:py-2 rounded-lg bg-sapphire-600 text-white text-sm font-medium hover:bg-sapphire-700 transition-colors"
                       >
                         Suivante <i className="fas fa-arrow-right ml-2"></i>
                       </button>
