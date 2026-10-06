@@ -11,6 +11,7 @@ import { ExamLevel, UserStats } from './types';
 import { loadUserStats, saveUserStats, loadExamHistory } from './services/gamificationService';
 import { diffStats, rollDaily } from './services/progress';
 import { Toast, Toasts, describeEvent } from './components/Toasts';
+import { DailyCard } from './components/DailyCard';
 import { countDue } from './services/spacedRepetition';
 import { forLevel } from './services/examLevel';
 import { daysUntil, masteredCount } from './services/readiness';
@@ -144,6 +145,8 @@ const HomePage: React.FC<HomePageProps> = ({ userStats, onStatsUpdate }) => {
         </div>
         </div>
       </section>
+
+      <DailyCard userStats={userStats} onStatsUpdate={onStatsUpdate} />
 
       <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <Link

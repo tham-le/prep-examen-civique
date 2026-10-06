@@ -104,7 +104,8 @@ describe('Quiz live feedback', () => {
     expect(container.textContent).toContain('Objectif du jour : 0 / 10');
 
     await answerCorrectly(container);
-    expect(container.textContent).toContain('+10 XP');
+    // 10 XP, or more when the answer also finishes a mission
+    expect(container.textContent).toMatch(/\+\d+ XP/);
     expect(container.textContent).toContain('Objectif du jour : 1 / 10');
     await click(findButton(container, 'Suivant'));
 
