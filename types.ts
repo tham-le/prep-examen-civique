@@ -80,6 +80,25 @@ export interface UserStats {
   examLevel?: ExamLevel;
   seenQuestions?: string[];
   examDate?: string;
+  dailyGoal?: number;
+  daily?: DailyProgress;
+  combo?: number;
+  goalsMet?: number;
+  missionsCompleted?: number;
+  bestBlitz?: number;
+  bestSurvival?: number;
+}
+
+// What was done on one local day; replaced when the day changes
+export interface DailyProgress {
+  date: string;
+  answered: number;
+  correct: number;
+  scenario: number;
+  bestCombo: number;
+  goalReached: boolean;
+  missionsDone: string[];
+  questionOfDayDone?: boolean;
 }
 
 export interface FAQItem {
