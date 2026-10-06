@@ -47,6 +47,8 @@ const hash = (text: string): number => {
 export const missionsFor = (date: string): Mission[] =>
   [...MISSIONS].sort((a, b) => hash(date + a.id) - hash(date + b.id)).slice(0, 3);
 
+export const missionById = (id: string): Mission | undefined => MISSIONS.find(m => m.id === id);
+
 export const goalOf = (stats: UserStats): number => stats.dailyGoal ?? DEFAULT_GOAL;
 
 export const answeredToday = (stats: UserStats, now: number = Date.now()): number =>

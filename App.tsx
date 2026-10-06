@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, Suspense, lazy } from 'react';
+import React, { useState, useEffect, useRef, Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route, Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { Header } from './components/Header';
 import { InstallPrompt } from './components/InstallPrompt';
@@ -8,7 +8,9 @@ import { Logo } from './components/Logo';
 import { usePageMeta } from './hooks/usePageMeta';
 import { THEMES, ALL_QUESTIONS } from './constants';
 import { ExamLevel, UserStats } from './types';
-import { loadUserStats, saveUserStats, checkAndUpdateStreak, loadExamHistory } from './services/gamificationService';
+import { loadUserStats, saveUserStats, loadExamHistory } from './services/gamificationService';
+import { diffStats, rollDaily } from './services/progress';
+import { Toast, Toasts, describeEvent } from './components/Toasts';
 import { countDue } from './services/spacedRepetition';
 import { forLevel } from './services/examLevel';
 import { daysUntil, masteredCount } from './services/readiness';
@@ -266,6 +268,9 @@ const AppRoutes: React.FC<AppRoutesProps> = ({ userStats, onStatsUpdate, onShowT
 
 const App: React.FC = () => {
   const [userStats, setUserStats] = useState<UserStats>(loadUserStats());
+  const statsRef = useRef(userStats);
+  const nextToastId = useRef(1);
+  const [toasts, setToasts] = useState<Toast[]>([]);
   const [darkMode, setDarkMode] = useState(() => {
     return localStorage.getItem('darkMode') === 'true';
   });
@@ -285,17 +290,23 @@ const App: React.FC = () => {
     }
   };
 
-  // Load stats and update streak on mount
+  // Start today's block and end a streak that missed a day
   useEffect(() => {
-    const stats = loadUserStats();
-    const updatedStats = checkAndUpdateStreak(stats);
-    if (updatedStats !== stats) {
-      saveUserStats(updatedStats);
-    }
-    setUserStats(updatedStats);
+    const stats = rollDaily(loadUserStats());
+    statsRef.current = stats;
+    saveUserStats(stats);
+    setUserStats(stats);
   }, []);
 
+  const showToasts = (messages: Omit<Toast, 'id'>[]) => {
+    const added = messages.map(message => ({ ...message, id: nextToastId.current++ }));
+    setToasts(current => [...current, ...added].slice(-3));
+    added.forEach(toast => window.setTimeout(() => setToasts(current => current.filter(t => t.id !== toast.id)), 4500));
+  };
+
   const handleStatsUpdate = (newStats: UserStats) => {
+    showToasts(diffStats(statsRef.current, newStats).map(event => describeEvent(event, newStats)));
+    statsRef.current = newStats;
     setUserStats(newStats);
     saveUserStats(newStats);
   };
@@ -386,6 +397,8 @@ const App: React.FC = () => {
             </div>
           </div>
         </footer>
+
+        <Toasts toasts={toasts} />
 
         <InstallPrompt />
 

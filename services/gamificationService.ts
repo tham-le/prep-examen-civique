@@ -56,27 +56,6 @@ export const getXPProgress = (xp: number, level: number): number => {
   return Math.min(100, Math.round((xpInCurrentLevel / xpNeededForNext) * 100));
 };
 
-export const checkAndUpdateStreak = (stats: UserStats): UserStats => {
-  const today = new Date().toISOString().split('T')[0];
-  const lastLogin = stats.lastLoginDate;
-
-  if (!lastLogin) {
-    return { ...stats, streak: 1, lastLoginDate: today };
-  }
-
-  const lastDate = new Date(lastLogin);
-  const todayDate = new Date(today);
-  const diffDays = Math.floor((todayDate.getTime() - lastDate.getTime()) / (1000 * 60 * 60 * 24));
-
-  if (diffDays === 0) {
-    return stats; // Same day, no change
-  } else if (diffDays === 1) {
-    return { ...stats, streak: stats.streak + 1, lastLoginDate: today };
-  } else {
-    return { ...stats, streak: 1, lastLoginDate: today }; // Reset streak
-  }
-};
-
 export const checkBadges = (stats: UserStats): string[] => {
   const newBadges: string[] = [];
 

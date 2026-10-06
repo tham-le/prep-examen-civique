@@ -2,7 +2,6 @@ import { describe, it, expect, beforeEach } from 'vitest';
 import {
   calculateLevel,
   getXPProgress,
-  checkAndUpdateStreak,
   checkBadges,
   processQuizResult,
   processExamResult,
@@ -39,35 +38,6 @@ describe('getXPProgress', () => {
 
   it('returns 100 at the max level regardless of XP', () => {
     expect(getXPProgress(999999, 8)).toBe(100);
-  });
-});
-
-describe('checkAndUpdateStreak', () => {
-  it('starts the streak at 1 on first login', () => {
-    const stats = { ...freshStats(), lastLoginDate: '' };
-    const result = checkAndUpdateStreak(stats);
-    expect(result.streak).toBe(1);
-  });
-
-  it('leaves the streak unchanged on the same day', () => {
-    const today = new Date().toISOString().split('T')[0];
-    const stats = { ...freshStats(), streak: 5, lastLoginDate: today };
-    const result = checkAndUpdateStreak(stats);
-    expect(result.streak).toBe(5);
-  });
-
-  it('increments the streak on the following consecutive day', () => {
-    const yesterday = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString().split('T')[0];
-    const stats = { ...freshStats(), streak: 5, lastLoginDate: yesterday };
-    const result = checkAndUpdateStreak(stats);
-    expect(result.streak).toBe(6);
-  });
-
-  it('resets the streak to 1 after a gap of more than one day', () => {
-    const threeDaysAgo = new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
-    const stats = { ...freshStats(), streak: 5, lastLoginDate: threeDaysAgo };
-    const result = checkAndUpdateStreak(stats);
-    expect(result.streak).toBe(1);
   });
 });
 
