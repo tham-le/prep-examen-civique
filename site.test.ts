@@ -47,3 +47,28 @@ describe('hosting security headers', () => {
     expect(rule.headers[0]).toEqual({ key: 'Cache-Control', value: 'no-cache' });
   });
 });
+
+describe('hosting routes', () => {
+  const hosting = JSON.parse(readFileSync('firebase.json', 'utf-8')).hosting;
+
+  it('serves each page file at its clean address and answers unknown addresses with the 404 page', () => {
+    expect(hosting.cleanUrls).toBe(true);
+    expect(hosting.trailingSlash).toBe(false);
+    // a catch-all rewrite would turn every unknown address into a 200 page
+    expect(hosting.rewrites).toBeUndefined();
+  });
+
+  it('keeps the profile page out of search results', () => {
+    const rule = hosting.headers.find((h: { source: string }) => h.source === '/profil');
+    expect(rule.headers).toContainEqual({ key: 'X-Robots-Tag', value: 'noindex' });
+  });
+});
+
+describe('service worker', () => {
+  const sw = readFileSync('public/sw.js', 'utf-8');
+
+  it('does not store /index.html, which the hosting redirects to /', () => {
+    expect(sw).not.toContain('/index.html');
+    expect(sw).toContain("caches.match('/')");
+  });
+});

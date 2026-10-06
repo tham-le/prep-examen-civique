@@ -14,6 +14,7 @@ import { Medal } from './components/Medal';
 import { Toast, Toasts, describeEvent } from './components/Toasts';
 import { DailyCard } from './components/DailyCard';
 import { QuestionOfDay } from './components/QuestionOfDay';
+import { NotFound } from './components/NotFound';
 import { countDue } from './services/spacedRepetition';
 import { forLevel } from './services/examLevel';
 import { daysUntil, masteredCount } from './services/readiness';
@@ -272,6 +273,7 @@ const AppRoutes: React.FC<AppRoutesProps> = ({ userStats, onStatsUpdate, onShowT
         <Route path="/quiz" element={<QuizPage userStats={userStats} onStatsUpdate={onStatsUpdate} />} />
         <Route path="/examen-blanc" element={<ExamSimulation onStatsUpdate={onStatsUpdate} userStats={userStats} />} />
         <Route path="/faq" element={<FAQPage />} />
+        <Route path="*" element={<NotFound />} />
         <Route
           path="/profil"
           element={

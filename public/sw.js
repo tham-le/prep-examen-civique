@@ -1,9 +1,8 @@
-const CACHE_NAME = 'objectif-citoyen-v2';
+const CACHE_NAME = 'objectif-citoyen-v3';
 
 // Core assets to cache immediately on install
 const CORE_ASSETS = [
   '/',
-  '/index.html',
   '/manifest.json',
   '/icons/icon.svg',
   '/icons/icon-192.png',
@@ -57,7 +56,7 @@ self.addEventListener('fetch', (event) => {
           }
           return response;
         })
-        .catch(() => caches.match('/index.html'))
+        .catch(() => caches.match('/'))
     );
     return;
   }
