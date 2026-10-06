@@ -98,7 +98,7 @@ export interface DailyProgress {
   bestCombo: number;
   goalReached: boolean;
   missionsDone: string[];
-  questionOfDayDone?: boolean;
+  questionOfDay?: { id: string; choice: number };
 }
 
 export interface FAQItem {

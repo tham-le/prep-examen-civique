@@ -13,6 +13,7 @@ import { diffStats, rollDaily, themeMedal } from './services/progress';
 import { Medal } from './components/Medal';
 import { Toast, Toasts, describeEvent } from './components/Toasts';
 import { DailyCard } from './components/DailyCard';
+import { QuestionOfDay } from './components/QuestionOfDay';
 import { countDue } from './services/spacedRepetition';
 import { forLevel } from './services/examLevel';
 import { daysUntil, masteredCount } from './services/readiness';
@@ -151,6 +152,8 @@ const HomePage: React.FC<HomePageProps> = ({ userStats, onStatsUpdate }) => {
       </section>
 
       <DailyCard userStats={userStats} onStatsUpdate={onStatsUpdate} />
+
+      <QuestionOfDay userStats={userStats} onStatsUpdate={onStatsUpdate} />
 
       <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <Link

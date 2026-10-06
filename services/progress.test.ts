@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { applyAnswer, dayKey, diffStats, missionsFor, rollDaily, themeMedal, withNewBadges, GOAL_BONUS_XP, XP_PER_CORRECT } from './progress';
+import { answerQuestionOfDay, applyAnswer, dayKey, diffStats, missionsFor, questionOfDay, rollDaily, themeMedal, withNewBadges, GOAL_BONUS_XP, QUESTION_OF_DAY_BONUS_XP, XP_PER_CORRECT } from './progress';
 import { reviewItem, MAX_BOX } from './spacedRepetition';
 import { DEFAULT_USER_STATS, OFFICIAL_DB, THEMES } from '../constants';
 import { Question, UserStats } from '../types';
@@ -180,5 +180,44 @@ describe('withNewBadges', () => {
   it('keeps the same object when there is nothing new', () => {
     const s = base();
     expect(withNewBadges(s, NOW)).toBe(s);
+  });
+});
+
+describe('question of the day', () => {
+  const pool = ['a', 'b', 'c', 'd', 'e', 'f', 'g'].map(id => q(id));
+
+  it('is the same all day and changes from one day to the next', () => {
+    expect(questionOfDay('2026-10-06', pool)).toBe(questionOfDay('2026-10-06', pool));
+    const picks = new Set(['2026-10-06', '2026-10-07', '2026-10-08', '2026-10-09', '2026-10-10'].map(d => questionOfDay(d, pool)!.id));
+    expect(picks.size).toBeGreaterThan(1);
+  });
+
+  it('has no question when the pool is empty', () => {
+    expect(questionOfDay('2026-10-06', [])).toBeUndefined();
+  });
+
+  it('pays the bonus on a correct answer and remembers the choice', () => {
+    const s = answerQuestionOfDay(base(), pool[0], 0, NOW);
+    expect(s.xp).toBe(XP_PER_CORRECT + QUESTION_OF_DAY_BONUS_XP);
+    expect(s.daily?.questionOfDay).toEqual({ id: 'a', choice: 0 });
+    expect(s.daily?.answered).toBe(1);
+  });
+
+  it('pays no bonus on a wrong answer', () => {
+    const s = answerQuestionOfDay(base(), pool[0], 2, NOW);
+    expect(s.xp).toBe(0);
+    expect(s.daily?.questionOfDay).toEqual({ id: 'a', choice: 2 });
+  });
+
+  it('counts only the first answer of the day', () => {
+    const once = answerQuestionOfDay(base(), pool[0], 2, NOW);
+    const twice = answerQuestionOfDay(once, pool[0], 0, NOW);
+    expect(twice).toBe(once);
+  });
+
+  it('can be answered again the next day', () => {
+    const once = answerQuestionOfDay(base(), pool[0], 0, NOW);
+    const next = answerQuestionOfDay(once, pool[1], 0, at(2026, 10, 7));
+    expect(next.daily?.questionOfDay?.id).toBe('b');
   });
 });

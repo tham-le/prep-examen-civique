@@ -8,6 +8,7 @@ import { reviewItem } from './spacedRepetition';
 export const DEFAULT_GOAL = 10;
 export const XP_PER_CORRECT = 10;
 export const GOAL_BONUS_XP = 20;
+export const QUESTION_OF_DAY_BONUS_XP = 20;
 const COMBO_BONUS_XP: Record<number, number> = { 3: 5, 5: 10, 10: 20 };
 
 export type Metric = 'answered' | 'correct' | 'scenario' | 'bestCombo';
@@ -48,6 +49,10 @@ export const missionsFor = (date: string): Mission[] =>
   [...MISSIONS].sort((a, b) => hash(date + a.id) - hash(date + b.id)).slice(0, 3);
 
 export const missionById = (id: string): Mission | undefined => MISSIONS.find(m => m.id === id);
+
+// One question for everybody each day, picked from the given pool
+export const questionOfDay = (date: string, pool: Question[]): Question | undefined =>
+  pool.length > 0 ? pool[hash(date) % pool.length] : undefined;
 
 export const goalOf = (stats: UserStats): number => stats.dailyGoal ?? DEFAULT_GOAL;
 
@@ -121,6 +126,25 @@ export const applyAnswer = (
     xp: next.xp + xp,
   };
   next.level = calculateLevel(next.xp);
+  return withNewBadges(next, now);
+};
+
+// The first answer of the day to the question of the day; later calls change nothing
+export const answerQuestionOfDay = (
+  stats: UserStats,
+  question: Question,
+  choice: number,
+  now: number = Date.now()
+): UserStats => {
+  const rolled = rollDaily(stats, now);
+  if (rolled.daily?.questionOfDay) return rolled;
+  const isCorrect = choice === question.correctAnswer;
+  let next = applyAnswer(rolled, question, isCorrect, now);
+  next = { ...next, daily: { ...next.daily!, questionOfDay: { id: question.id, choice } } };
+  if (isCorrect) {
+    next.xp += QUESTION_OF_DAY_BONUS_XP;
+    next.level = calculateLevel(next.xp);
+  }
   return withNewBadges(next, now);
 };
 
