@@ -24,6 +24,7 @@ const LessonView = lazy(() => import('./components/LessonView').then(m => ({ def
 const ExamSimulation = lazy(() => import('./components/ExamSimulation').then(m => ({ default: m.ExamSimulation })));
 const FAQPage = lazy(() => import('./components/FAQPage').then(m => ({ default: m.FAQPage })));
 const ProfilePage = lazy(() => import('./components/ProfilePage').then(m => ({ default: m.ProfilePage })));
+const Arcade = lazy(() => import('./components/Arcade').then(m => ({ default: m.Arcade })));
 const Flashcards = lazy(() => import('./components/Flashcards').then(m => ({ default: m.Flashcards })));
 const RevisionMode = lazy(() => import('./components/RevisionMode').then(m => ({ default: m.RevisionMode })));
 
@@ -52,6 +53,8 @@ const MODES = [
   { to: '/flashcards', icon: 'fa-clone', title: 'Flashcards', text: 'Mémorisez les notions clés' },
   { to: '/revision', icon: 'fa-list-check', title: 'Révision', text: 'Parcourez toutes les questions' },
   { to: '/fiches', icon: 'fa-book-open', title: 'Fiches officielles', text: 'Les cours du ministère' },
+  { to: '/defi', icon: 'fa-bolt', title: 'Défi éclair', text: '60 secondes, un maximum de bonnes réponses', wide: true },
+  { to: '/survie', icon: 'fa-heart-pulse', title: 'Survie', text: "3 vies, jusqu'où irez-vous ?", wide: true },
 ];
 
 const HomePage: React.FC<HomePageProps> = ({ userStats, onStatsUpdate }) => {
@@ -169,7 +172,7 @@ const HomePage: React.FC<HomePageProps> = ({ userStats, onStatsUpdate }) => {
         </Link>
 
         {MODES.map(mode => (
-          <Link key={mode.to} to={mode.to} className={TILE}>
+          <Link key={mode.to} to={mode.to} className={`${TILE}${mode.wide ? ' lg:col-span-2' : ''}`}>
             <div className={`${ICON_BOX} mb-4`}>
               <i className={`fas ${mode.icon}`}></i>
             </div>
@@ -235,6 +238,11 @@ const QuizPage: React.FC<QuizPageProps> = ({ userStats, onStatsUpdate }) => {
   );
 };
 
+const ArcadePage: React.FC<{ mode: 'blitz' | 'survival'; userStats: UserStats; onStatsUpdate: (stats: UserStats) => void }> = ({ mode, userStats, onStatsUpdate }) => {
+  const navigate = useNavigate();
+  return <Arcade key={mode} mode={mode} userStats={userStats} onStatsUpdate={onStatsUpdate} onExit={() => navigate('/')} />;
+};
+
 const LessonPage: React.FC = () => {
   const navigate = useNavigate();
   return <LessonView onStartQuiz={(themeId) => navigate(`/quiz?theme=${themeId}`)} />;
@@ -255,6 +263,8 @@ const AppRoutes: React.FC<AppRoutesProps> = ({ userStats, onStatsUpdate, onShowT
         <Route path="/" element={<HomePage userStats={userStats} onStatsUpdate={onStatsUpdate} />} />
         <Route path="/fiches" element={<LessonPage />} />
         <Route path="/flashcards" element={<Flashcards userStats={userStats} onStatsUpdate={onStatsUpdate} />} />
+        <Route path="/defi" element={<ArcadePage mode="blitz" userStats={userStats} onStatsUpdate={onStatsUpdate} />} />
+        <Route path="/survie" element={<ArcadePage mode="survival" userStats={userStats} onStatsUpdate={onStatsUpdate} />} />
         <Route path="/revision" element={<RevisionMode userStats={userStats} onStatsUpdate={onStatsUpdate} />} />
         <Route path="/quiz" element={<QuizPage userStats={userStats} onStatsUpdate={onStatsUpdate} />} />
         <Route path="/examen-blanc" element={<ExamSimulation onStatsUpdate={onStatsUpdate} userStats={userStats} />} />

@@ -4929,7 +4929,7 @@ export const BADGES: Badge[] = [
   { id: 'first_medal', name: 'Première médaille', description: 'Gagner une médaille dans un thème', icon: 'fa-medal' },
   { id: 'all_bronze', name: 'Cinq médailles', description: 'Gagner une médaille dans chaque thème', icon: 'fa-ranking-star' },
   { id: 'blitz_20', name: 'Éclair', description: '20 bonnes réponses en 60 secondes', icon: 'fa-stopwatch' },
-  { id: 'survival_15', name: 'Increvable', description: '15 bonnes réponses d\'affilée en mode Survie', icon: 'fa-heart-pulse' }
+  { id: 'survival_15', name: 'Increvable', description: 'Atteindre 15 bonnes réponses en mode Survie', icon: 'fa-heart-pulse' }
 ];
 
 // ============================================================
