@@ -112,19 +112,19 @@ describe('checkBadges', () => {
 });
 
 describe('processQuizResult', () => {
-  it('awards 10 XP per correct answer with no perfect bonus on a partial score', () => {
+  it('pays nothing at the end on a partial score (correct answers are paid one by one)', () => {
     const { xpGained } = processQuizResult(freshStats(), 7, 10);
-    expect(xpGained).toBe(70);
+    expect(xpGained).toBe(0);
   });
 
-  it('adds a 50 XP perfect bonus when score equals total', () => {
+  it('pays a 50 XP perfect bonus when score equals total', () => {
     const { xpGained } = processQuizResult(freshStats(), 10, 10);
-    expect(xpGained).toBe(150); // 10 * 10 + 50
+    expect(xpGained).toBe(50);
   });
 
   it('reports leveledUp when XP crosses a level threshold', () => {
     const stats = { ...freshStats(), xp: 90 };
-    const { leveledUp, stats: updated } = processQuizResult(stats, 10, 10); // +150 XP -> 240, crosses the 100 XP level 2 threshold
+    const { leveledUp, stats: updated } = processQuizResult(stats, 10, 10); // +50 XP -> 140, crosses the 100 XP level 2 threshold
     expect(leveledUp).toBe(true);
     expect(updated.level).toBe(2);
   });

@@ -1,9 +1,10 @@
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { OFFICIAL_DB, THEMES, ALL_QUESTIONS } from '../constants';
 import { Question, UserStats } from '../types';
 import { processQuizResult, getBadgeInfo } from '../services/gamificationService';
-import { getDueIds, reviewItem, selectSessionItems } from '../services/spacedRepetition';
+import { getDueIds, selectSessionItems } from '../services/spacedRepetition';
+import { answeredToday, applyAnswer, goalOf } from '../services/progress';
 import { forLevel } from '../services/examLevel';
 
 // Shuffle an array using Fisher-Yates algorithm
@@ -46,6 +47,9 @@ export const Quiz: React.FC<QuizProps> = ({ selectedTheme, onExit, onStatsUpdate
   const [xpGained, setXpGained] = useState(0);
   const [newBadges, setNewBadges] = useState<string[]>([]);
   const [leveledUp, setLeveledUp] = useState(false);
+  const [sessionXp, setSessionXp] = useState(0);
+  const [lastGain, setLastGain] = useState(0);
+  const start = useRef({ level: userStats.level, badges: userStats.badges });
   const [answers, setAnswers] = useState<{ question: Question; selected: number }[]>([]);
 
   // Function to load and shuffle questions
@@ -78,6 +82,9 @@ export const Quiz: React.FC<QuizProps> = ({ selectedTheme, onExit, onStatsUpdate
     setXpGained(0);
     setNewBadges([]);
     setLeveledUp(false);
+    setSessionXp(0);
+    setLastGain(0);
+    start.current = { level: userStats.level, badges: userStats.badges };
     setAnswers([]);
   }, [selectedTheme, userStats.questionMastery]);
 
@@ -96,10 +103,11 @@ export const Quiz: React.FC<QuizProps> = ({ selectedTheme, onExit, onStatsUpdate
     if (isCorrect) setScore(s => s + 1);
     setAnswers(prev => [...prev, { question: currentQuestion, selected: idx }]);
     // Saved per answer, so leaving the quiz early keeps what was answered
-    onStatsUpdate({
-      ...userStats,
-      questionMastery: reviewItem(userStats.questionMastery, currentQuestion.id, isCorrect),
-    });
+    const next = applyAnswer(userStats, currentQuestion, isCorrect);
+    onStatsUpdate(next);
+    setSessionXp(xp => xp + next.xp - userStats.xp);
+    setLastGain(next.xp - userStats.xp);
+    if (isCorrect && 'vibrate' in navigator) navigator.vibrate(30);
     setShowExplanation(true);
   };
 
@@ -117,9 +125,9 @@ export const Quiz: React.FC<QuizProps> = ({ selectedTheme, onExit, onStatsUpdate
         selectedTheme !== 'weak' ? selectedTheme : undefined
       );
 
-      setXpGained(result.xpGained);
-      setNewBadges(result.newBadges);
-      setLeveledUp(result.leveledUp);
+      setXpGained(sessionXp + result.xpGained);
+      setNewBadges(result.stats.badges.filter(id => !start.current.badges.includes(id)));
+      setLeveledUp(result.stats.level > start.current.level);
       onStatsUpdate(result.stats);
       setFinished(true);
     }
@@ -277,6 +285,17 @@ export const Quiz: React.FC<QuizProps> = ({ selectedTheme, onExit, onStatsUpdate
         ></div>
       </div>
 
+      <div className="flex items-center justify-between text-xs text-slate-600 dark:text-slate-400">
+        <span className="tabular-nums">
+          Objectif du jour : {Math.min(answeredToday(userStats), goalOf(userStats))} / {goalOf(userStats)}
+        </span>
+        {(userStats.combo ?? 0) >= 2 && (
+          <span className="px-2 py-0.5 rounded-full bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300 font-semibold">
+            Série ×{userStats.combo}
+          </span>
+        )}
+      </div>
+
       <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
         <div className="p-6 space-y-6">
           {/* Question type indicator */}
@@ -348,6 +367,9 @@ export const Quiz: React.FC<QuizProps> = ({ selectedTheme, onExit, onStatsUpdate
             <div className="text-sm text-slate-500 dark:text-slate-400">
               <i className="fas fa-check-circle text-emerald-500 mr-1"></i>
               {score} bonnes réponses
+              {lastGain > 0 && (
+                <span key={currentIdx} className="xp-pop ml-3 font-semibold text-amber-600 dark:text-amber-400">+{lastGain} XP</span>
+              )}
             </div>
             <button
               onClick={nextQuestion}

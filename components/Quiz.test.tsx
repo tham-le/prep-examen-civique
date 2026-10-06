@@ -92,3 +92,36 @@ describe('Quiz corrections', () => {
     expect(container.textContent).toContain('Bonne réponse');
   });
 });
+
+describe('Quiz live feedback', () => {
+  beforeEach(() => localStorage.clear());
+
+  it('shows the XP of an answer, the daily goal and the combo as you go', async () => {
+    const container = document.createElement('div');
+    await act(async () => {
+      createRoot(container).render(<Harness />);
+    });
+    expect(container.textContent).toContain('Objectif du jour : 0 / 10');
+
+    await answerCorrectly(container);
+    expect(container.textContent).toContain('+10 XP');
+    expect(container.textContent).toContain('Objectif du jour : 1 / 10');
+    await click(findButton(container, 'Suivant'));
+
+    await answerCorrectly(container);
+    expect(container.textContent).toContain('Série ×2');
+  });
+
+  it('adds up everything earned in the session on the result screen', async () => {
+    const container = document.createElement('div');
+    await act(async () => {
+      createRoot(container).render(<Harness />);
+    });
+    for (let i = 0; i < 10; i++) {
+      await answerCorrectly(container);
+      await click(findButton(container, i === 9 ? 'Voir les résultats' : 'Suivant'));
+    }
+    expect(latest.xp).toBeGreaterThan(100);
+    expect(container.textContent).toContain(`+${latest.xp} XP`);
+  });
+});

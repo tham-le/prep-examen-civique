@@ -143,9 +143,8 @@ export const processQuizResult = (
   questionIds?: string[],
   correctIds?: string[]
 ): { stats: UserStats; newBadges: string[]; xpGained: number; leveledUp: boolean } => {
-  const xpPerCorrect = 10;
-  const perfectBonus = score === total ? 50 : 0;
-  const xpGained = (score * xpPerCorrect) + perfectBonus;
+  // Correct answers were paid one by one (see applyAnswer); only the perfect bonus is left
+  const xpGained = score === total ? 50 : 0;
 
   const oldLevel = stats.level;
 

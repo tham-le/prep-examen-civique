@@ -49,6 +49,9 @@ export const missionsFor = (date: string): Mission[] =>
 
 export const goalOf = (stats: UserStats): number => stats.dailyGoal ?? DEFAULT_GOAL;
 
+export const answeredToday = (stats: UserStats, now: number = Date.now()): number =>
+  stats.daily?.date === dayKey(now) ? stats.daily.answered : 0;
+
 const emptyDay = (date: string): DailyProgress => ({
   date, answered: 0, correct: 0, scenario: 0, bestCombo: 0, goalReached: false, missionsDone: [],
 });

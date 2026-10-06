@@ -47,3 +47,13 @@ h1, h2, h3 {
     transition-duration: 0.01ms !important;
   }
 }
+
+@keyframes xp-pop {
+  from { opacity: 0; transform: translateY(6px) scale(0.9); }
+  to { opacity: 1; transform: none; }
+}
+
+.xp-pop {
+  display: inline-block;
+  animation: xp-pop 0.35s ease-out;
+}
