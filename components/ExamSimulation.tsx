@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Question, UserStats } from '../types';
 import { ALL_QUESTIONS, OFFICIAL_DB, THEMES } from '../constants';
-import { buildExam } from '../services/examComposition';
+import { buildExam, RECENT_LIMIT } from '../services/examComposition';
 import { forLevel } from '../services/examLevel';
 import { processExamResult, getBadgeInfo, addExamResult, loadExamHistory } from '../services/gamificationService';
 
@@ -61,10 +61,16 @@ export const ExamSimulation: React.FC<ExamSimulationProps> = ({ onStatsUpdate, u
 
   const startSimulation = async () => {
     setLoading(true);
+    const available = THEMES.map(t => forLevel(OFFICIAL_DB[t.id], userStats.examLevel));
     const exam = buildExam(
-      THEMES.map(t => forLevel(OFFICIAL_DB[t.id], userStats.examLevel).filter(q => q.type !== 'scenario')),
-      forLevel(ALL_QUESTIONS, userStats.examLevel).filter(q => q.type === 'scenario')
+      available.map(pool => pool.filter(q => q.type !== 'scenario')),
+      available.map(pool => pool.filter(q => q.type === 'scenario')),
+      new Set(userStats.recentExamQuestions)
     );
+    onStatsUpdate({
+      ...userStats,
+      recentExamQuestions: [...exam.map(q => q.id), ...(userStats.recentExamQuestions ?? [])].slice(0, RECENT_LIMIT),
+    });
 
     // Randomize answer order for each question
     setQuestions(exam.map(shuffleQuestionOptions));

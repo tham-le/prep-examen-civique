@@ -31,8 +31,11 @@ describe('ExamSimulation timeout', () => {
       vi.advanceTimersByTime(2700 * 1000);
     });
 
-    expect(onStatsUpdate).toHaveBeenCalledTimes(1);
-    expect(Object.keys(onStatsUpdate.mock.calls[0][0].questionMastery)).toHaveLength(40);
+    // one call when the exam starts (recent questions), one when it ends (results)
+    expect(onStatsUpdate).toHaveBeenCalledTimes(2);
+    const results = onStatsUpdate.mock.calls[1][0];
+    expect(Object.keys(results.questionMastery)).toHaveLength(40);
+    expect(onStatsUpdate.mock.calls[0][0].recentExamQuestions).toHaveLength(40);
     expect(container.textContent).toContain('Résultat par thème');
     expect(container.textContent).toContain('Mises en situation');
   });

@@ -79,6 +79,7 @@ export interface UserStats {
   themeProgress: Record<string, { correct: number; total: number }>;
   examLevel?: ExamLevel;
   seenQuestions?: string[];
+  recentExamQuestions?: string[];
   examDate?: string;
   dailyGoal?: number;
   daily?: DailyProgress;

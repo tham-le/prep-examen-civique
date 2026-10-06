@@ -321,7 +321,7 @@ const App: React.FC = () => {
 
   const showToasts = (messages: Omit<Toast, 'id'>[]) => {
     const added = messages.map(message => ({ ...message, id: nextToastId.current++ }));
-    setToasts(current => [...current, ...added].slice(-3));
+    setToasts(current => [...current, ...added].slice(-5));
     added.forEach(toast => window.setTimeout(() => setToasts(current => current.filter(t => t.id !== toast.id)), 4500));
   };
 

@@ -4331,7 +4331,7 @@ const SCENARIO_QUESTIONS: Question[] = [
     options: ["Continuer mon chemin car je suis pressé", "Porter secours et appeler les urgences (15 ou 112) si nécessaire", "Attendre que quelqu'un d'autre intervienne", "Prendre une photo pour les réseaux sociaux"],
     correctAnswer: 1,
     explanation: "En France, la non-assistance à personne en danger est punie par la loi. Porter secours est un devoir civique.",
-    category: "societe",
+    category: "droits",
     type: 'scenario'
   },
   {
@@ -4349,7 +4349,7 @@ const SCENARIO_QUESTIONS: Question[] = [
     options: ["Je ne fais rien, ce n'est pas mon problème", "Je préviens le personnel du magasin ou les forces de l'ordre", "J'interpelle moi-même le voleur physiquement", "Je filme et je publie sur les réseaux sociaux"],
     correctAnswer: 1,
     explanation: "Prévenir les autorités ou le personnel est le comportement civique approprié. Ne pas intervenir physiquement pour éviter tout danger.",
-    category: "societe",
+    category: "droits",
     type: 'scenario'
   },
   {
@@ -4358,7 +4358,7 @@ const SCENARIO_QUESTIONS: Question[] = [
     options: ["Rire avec lui pour ne pas créer de tensions", "Signaler ces propos à la hiérarchie ou aux ressources humaines", "Ignorer complètement la situation", "Répondre par d'autres insultes"],
     correctAnswer: 1,
     explanation: "Les propos racistes sont interdits par la loi. Il faut les signaler aux responsables ou aux autorités compétentes.",
-    category: "societe",
+    category: "valeurs",
     type: 'scenario'
   },
   {
@@ -4367,7 +4367,7 @@ const SCENARIO_QUESTIONS: Question[] = [
     options: ["Je garde l'argent et je jette le reste", "Je le rapporte au commissariat ou à la mairie", "Je le laisse où il est", "Je contacte la personne pour demander une récompense"],
     correctAnswer: 1,
     explanation: "La loi impose de rapporter les objets trouvés aux autorités. Garder le contenu constitue un vol.",
-    category: "societe",
+    category: "droits",
     type: 'scenario'
   },
   {
@@ -4376,7 +4376,7 @@ const SCENARIO_QUESTIONS: Question[] = [
     options: ["J'accepte car c'est de l'argent facile", "Je refuse et je signale cette tentative de corruption", "Je négocie un montant plus élevé", "J'accepte l'argent mais je vote pour qui je veux"],
     correctAnswer: 1,
     explanation: "L'achat de votes est un délit grave. Il faut refuser et signaler cette tentative de corruption électorale.",
-    category: "societe",
+    category: "institutions",
     type: 'scenario'
   },
   {
@@ -4385,7 +4385,7 @@ const SCENARIO_QUESTIONS: Question[] = [
     options: ["Je manifeste où et quand je veux", "Je participe à une manifestation déclarée en préfecture", "Je bloque les routes sans prévenir", "Les manifestations sont interdites en France"],
     correctAnswer: 1,
     explanation: "Le droit de manifester existe mais les manifestations doivent être déclarées en préfecture au préalable.",
-    category: "societe",
+    category: "droits",
     type: 'scenario'
   },
   {
@@ -4394,7 +4394,7 @@ const SCENARIO_QUESTIONS: Question[] = [
     options: ["J'accepte par amitié", "Je refuse car le faux témoignage est un délit", "J'accepte si personne ne peut vérifier", "Je demande de l'argent en échange"],
     correctAnswer: 1,
     explanation: "Le faux témoignage est un délit puni par la loi. La justice repose sur la vérité des témoignages.",
-    category: "societe",
+    category: "droits",
     type: 'scenario'
   },
   {
@@ -4439,7 +4439,7 @@ const SCENARIO_QUESTIONS: Question[] = [
     options: ["Il en a le droit car il est propriétaire", "Il n'en a pas le droit : le domicile du locataire est protégé", "Il en a le droit une fois par semaine", "Il en a le droit s'il a la clé"],
     correctAnswer: 1,
     explanation: "Le propriétaire ne peut pas entrer chez le locataire sans son accord. Le logement loué est le domicile du locataire.",
-    category: "societe",
+    category: "droits",
     type: 'scenario'
   },
   {
@@ -4448,7 +4448,7 @@ const SCENARIO_QUESTIONS: Question[] = [
     options: ["Je m'enfuis", "Je refuse de répondre", "Je la montre calmement", "Je réponds que je n'ai pas à obéir"],
     correctAnswer: 2,
     explanation: "Les forces de l'ordre peuvent contrôler l'identité d'une personne. On présente son document et on peut contester ensuite si le contrôle est abusif.",
-    category: "societe",
+    category: "droits",
     type: 'scenario'
   },
   {
@@ -4457,7 +4457,7 @@ const SCENARIO_QUESTIONS: Question[] = [
     options: ["Je prends une photo pour la partager", "Je continue ma route", "J'attends que quelqu'un d'autre agisse", "Je protège la zone et j'appelle les secours (112, 15 ou 18)"],
     correctAnswer: 3,
     explanation: "Porter assistance à une personne en danger est une obligation. On protège, on alerte, puis on secourt si on le peut sans risque.",
-    category: "societe",
+    category: "droits",
     type: 'scenario'
   },
   {
@@ -4484,7 +4484,7 @@ const SCENARIO_QUESTIONS: Question[] = [
     options: ["Je ne dis rien", "Je démissionne sans en parler", "J'en parle à ma hiérarchie ou aux représentants du personnel et je garde des preuves", "Je réponds par des insultes"],
     correctAnswer: 2,
     explanation: "Le harcèlement sexuel est un délit. On peut alerter l'employeur, les représentants du personnel, l'inspection du travail ou porter plainte.",
-    category: "societe",
+    category: "valeurs",
     type: 'scenario'
   },
   {
@@ -4493,7 +4493,7 @@ const SCENARIO_QUESTIONS: Question[] = [
     options: ["Je ne réponds pas", "Je donne une fausse version", "J'envoie quelqu'un à ma place", "Je me présente et je dis ce que je sais"],
     correctAnswer: 3,
     explanation: "Un témoin convoqué doit se présenter et dire la vérité. Le faux témoignage est puni par la loi.",
-    category: "societe",
+    category: "institutions",
     type: 'scenario'
   },
   {
@@ -4502,7 +4502,7 @@ const SCENARIO_QUESTIONS: Question[] = [
     options: ["J'appelle la police (17) ou le 112", "Je mets de la musique", "Je tape sur la porte avec un objet", "Je ne fais rien"],
     correctAnswer: 0,
     explanation: "On alerte la police ou la gendarmerie. En cas de violences conjugales, le 3919 est aussi disponible.",
-    category: "societe",
+    category: "droits",
     type: 'scenario'
   },
   {
@@ -4520,7 +4520,7 @@ const SCENARIO_QUESTIONS: Question[] = [
     options: ["Demander l'accord du ministre", "Rien, c'est interdit", "Déclarer l'association à la préfecture", "S'inscrire au tribunal de commerce"],
     correctAnswer: 2,
     explanation: "Une association est libre de se créer. Pour avoir une existence légale, on la déclare à la préfecture ou à la sous-préfecture.",
-    category: "societe",
+    category: "valeurs",
     type: 'scenario'
   },
   {
@@ -4538,7 +4538,7 @@ const SCENARIO_QUESTIONS: Question[] = [
     options: ["Je refuse, car acheter un objet volé est un délit", "J'achète, c'est une bonne affaire", "J'achète et je le revends", "J'achète si personne ne le sait"],
     correctAnswer: 0,
     explanation: "Acheter ou garder un objet volé est du recel, un délit puni par la loi.",
-    category: "societe",
+    category: "droits",
     type: 'scenario'
   },
   {
@@ -4547,7 +4547,7 @@ const SCENARIO_QUESTIONS: Question[] = [
     options: ["Envoyer un ami voter avec ma carte d'identité", "Donner une procuration à une personne inscrite sur les listes électorales", "Voter plus tard, après la fermeture des bureaux", "Rien, un vote ne peut jamais être confié"],
     correctAnswer: 1,
     explanation: "Le vote par procuration est possible. La demande se fait sur maprocuration.gouv.fr, puis on confirme son identité avec une application ou dans un commissariat ou une gendarmerie. La personne choisie vote à votre place avec sa propre pièce d'identité.",
-    category: "societe",
+    category: "institutions",
     type: 'scenario'
   },
   {
@@ -4556,7 +4556,7 @@ const SCENARIO_QUESTIONS: Question[] = [
     options: ["Présenter votre carte d'identité", "Voter dans son propre bureau de vote", "Aller dans votre bureau de vote avec sa propre pièce d'identité", "Envoyer une lettre à la mairie"],
     correctAnswer: 2,
     explanation: "Le mandataire vote dans le bureau de vote du mandant. Il présente seulement sa propre pièce d'identité et il n'a pas besoin de la carte électorale du mandant. Il ne peut recevoir qu'une seule procuration établie en France.",
-    category: "societe",
+    category: "institutions",
     type: 'scenario'
   },
   {
@@ -4565,7 +4565,7 @@ const SCENARIO_QUESTIONS: Question[] = [
     options: ["Qu'il va chercher un agent de la même religion", "Qu'il doit d'abord dire quelle est sa religion", "Qu'il sera reçu en priorité", "Qu'il ne peut pas choisir son agent : tous les usagers sont traités de la même façon"],
     correctAnswer: 3,
     explanation: "Le service public est neutre et égal pour tous. Un usager ne peut pas choisir son agent selon ses convictions, et les agents traitent chaque demande de la même façon.",
-    category: "societe",
+    category: "valeurs",
     type: 'scenario'
   },
   {
@@ -4574,7 +4574,7 @@ const SCENARIO_QUESTIONS: Question[] = [
     options: ["Aucun usager n'a de priorité pour cette raison", "Les habitants les plus anciens passent en premier", "Les personnes les plus âgées passent toujours en premier", "L'agent choisit selon la personne"],
     correctAnswer: 0,
     explanation: "L'égalité devant le service public interdit les traitements de faveur. Chaque usager doit respecter les règles de fonctionnement de la mairie.",
-    category: "societe",
+    category: "valeurs",
     type: 'scenario'
   },
   {
@@ -4619,7 +4619,7 @@ const SCENARIO_QUESTIONS: Question[] = [
     options: ["Il peut être arrêté à tout moment", "Il n'est pas au-dessus de la loi, mais il est protégé pendant son mandat, et les poursuites peuvent reprendre un mois après la fin de ses fonctions", "Il ne peut jamais être jugé, même après son mandat", "Seul le maire peut le juger"],
     correctAnswer: 1,
     explanation: "L'article 67 de la Constitution protège temporairement le président pendant son mandat. Il peut seulement être destitué par le Parlement réuni en Haute Cour en cas de manquement à ses devoirs (article 68).",
-    category: "societe",
+    category: "institutions",
     type: 'scenario'
   },
   {
@@ -4628,7 +4628,43 @@ const SCENARIO_QUESTIONS: Question[] = [
     options: ["Non, la PMA est réservée aux couples mariés", "Non, la PMA est interdite en France", "Oui, depuis la loi de bioéthique de 2021, dans le cadre fixé par la loi", "Oui, mais seulement avec l'accord d'un homme"],
     correctAnswer: 2,
     explanation: "Depuis 2021, la PMA est ouverte aux couples formés d'un homme et d'une femme, aux couples de femmes et aux femmes non mariées. Son accès est encadré par la loi.",
-    category: "societe",
+    category: "droits",
+    type: 'scenario'
+  },
+  {
+    id: 'sc35',
+    text: "Un collègue vous dit que les administrations sont fermées le 11 novembre. Que commémore-t-on ce jour-là ?",
+    options: ["La prise de la Bastille", "La fin de la Seconde Guerre mondiale", "La fête du Travail", "L'armistice de 1918, la fin de la Première Guerre mondiale"],
+    correctAnswer: 3,
+    explanation: "Le 11 novembre est un jour férié. Il commémore l'armistice de 1918 qui met fin aux combats de la Première Guerre mondiale.",
+    category: "culture",
+    type: 'scenario'
+  },
+  {
+    id: 'sc36',
+    text: "Un ami vous dit que le 8 mai est un jour férié. Qu'est-ce qui est commémoré ce jour-là ?",
+    options: ["La victoire de 1945 et la fin de la Seconde Guerre mondiale en Europe", "L'armistice de 1918", "La fin de la guerre d'Algérie", "La proclamation de la République"],
+    correctAnswer: 0,
+    explanation: "Le 8 mai 1945 marque la fin de la Seconde Guerre mondiale en Europe. C'est un jour férié en France.",
+    category: "culture",
+    type: 'scenario'
+  },
+  {
+    id: 'sc37',
+    text: "Vous assistez à un défilé militaire sur les Champs-Élysées le 14 juillet. Que fête-t-on ?",
+    options: ["La fin de la Seconde Guerre mondiale", "La fête nationale, qui rappelle la prise de la Bastille en 1789", "L'armistice de 1918", "L'abolition de l'esclavage"],
+    correctAnswer: 1,
+    explanation: "Le 14 juillet est la fête nationale française. Elle rappelle la prise de la Bastille en 1789 et la fête de la Fédération de 1790.",
+    category: "culture",
+    type: 'scenario'
+  },
+  {
+    id: 'sc38',
+    text: "Des amis étrangers veulent voir La Joconde pendant leur séjour à Paris. Où les envoyez-vous ?",
+    options: ["Au château de Versailles", "À la cathédrale Notre-Dame", "Au musée du Louvre", "À la tour Eiffel"],
+    correctAnswer: 2,
+    explanation: "La Joconde de Léonard de Vinci est exposée au musée du Louvre, à Paris.",
+    category: "culture",
     type: 'scenario'
   }
 ];
@@ -4645,13 +4681,10 @@ export const ALL_QUESTIONS: Question[] = [
   ...SCENARIO_QUESTIONS
 ];
 
-export const OFFICIAL_DB: Record<string, Question[]> = {
-  valeurs: VALEURS_QUESTIONS,
-  institutions: INSTITUTIONS_QUESTIONS,
-  droits: DROITS_QUESTIONS,
-  culture: CULTURE_QUESTIONS,
-  societe: [...SOCIETE_QUESTIONS, ...SCENARIO_QUESTIONS]
-};
+// Every theme, situation questions included, grouped by their category
+export const OFFICIAL_DB: Record<string, Question[]> = Object.fromEntries(
+  THEMES.map(theme => [theme.id, ALL_QUESTIONS.filter(q => q.category === theme.id)])
+);
 
 // ============================================================
 // GAMIFICATION: BADGES
