@@ -106,15 +106,6 @@ const VALEURS_QUESTIONS: Question[] = [
     type: 'multiple-choice'
   },
   {
-    id: 'v11',
-    text: "La liberté d'expression permet de :",
-    options: ["S'exprimer sans aucune restriction légale", "Exprimer ses opinions dans le respect de la loi", "Critiquer le gouvernement anonymement", "Publier des informations sans vérification"],
-    correctAnswer: 1,
-    explanation: "La liberté d'expression est un droit fondamental, mais elle est encadrée par la loi (interdiction de la diffamation, de l'injure, de l'incitation à la haine).",
-    category: "valeurs",
-    type: 'multiple-choice'
-  },
-  {
     id: 'v12',
     text: "Le 14 juillet commémore :",
     options: ["La naissance de Napoléon", "La prise de la Bastille en 1789", "La fin de la Seconde Guerre mondiale", "La signature de la Constitution"],
@@ -246,15 +237,6 @@ const VALEURS_QUESTIONS: Question[] = [
     options: ["La liberté", "L'égalité", "La fraternité", "La solidarité"],
     correctAnswer: 1,
     explanation: "L'égalité devant la loi signifie que tous les citoyens ont les mêmes droits et devoirs.",
-    category: "valeurs",
-    type: 'multiple-choice'
-  },
-  {
-    id: 'v27',
-    text: "La devise 'Liberté, Égalité, Fraternité' date de quelle période ?",
-    options: ["Le Moyen Âge", "La Renaissance", "La Révolution française", "La Cinquième République"],
-    correctAnswer: 2,
-    explanation: "Cette devise est née pendant la Révolution française de 1789.",
     category: "valeurs",
     type: 'multiple-choice'
   },
@@ -888,15 +870,6 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     type: 'multiple-choice'
   },
   {
-    id: 'i13',
-    text: "Le Défenseur des droits a pour mission de :",
-    options: ["Voter les lois", "Défendre les droits des citoyens face aux administrations", "Juger les criminels", "Diriger la police"],
-    correctAnswer: 1,
-    explanation: "Le Défenseur des droits est une autorité indépendante qui veille au respect des droits et libertés.",
-    category: "institutions",
-    type: 'multiple-choice'
-  },
-  {
     id: 'i14',
     text: "En France, la justice est rendue au nom :",
     options: ["Du Président de la République", "Du peuple français", "Du Premier ministre", "De l'Union européenne"],
@@ -1005,29 +978,11 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     type: 'multiple-choice'
   },
   {
-    id: 'i26',
-    text: "Combien de sénateurs composent le Sénat ?",
-    options: ["348", "577", "150", "250"],
-    correctAnswer: 0,
-    explanation: "Le Sénat compte 348 sénateurs élus au suffrage universel indirect.",
-    category: "institutions",
-    type: 'multiple-choice'
-  },
-  {
     id: 'i27',
     text: "Quelle est la durée du mandat d'un sénateur ?",
     options: ["5 ans", "6 ans", "7 ans", "4 ans"],
     correctAnswer: 1,
     explanation: "Les sénateurs sont élus pour un mandat de 6 ans, renouvelé par moitié tous les 3 ans.",
-    category: "institutions",
-    type: 'multiple-choice'
-  },
-  {
-    id: 'i28',
-    text: "Où siège le Sénat ?",
-    options: ["À l'Élysée", "Au Palais Bourbon", "Au Palais du Luxembourg", "À Matignon"],
-    correctAnswer: 2,
-    explanation: "Le Sénat siège au Palais du Luxembourg à Paris.",
     category: "institutions",
     type: 'multiple-choice'
   },
@@ -1263,24 +1218,6 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     options: ["Le tribunal correctionnel", "La cour d'assises", "Le tribunal de commerce", "Le conseil de prud'hommes"],
     correctAnswer: 1,
     explanation: "La cour d'assises juge les crimes (meurtres, viols, etc.). Elle est composée de magistrats professionnels et de jurés populaires.",
-    category: "institutions",
-    type: 'multiple-choice'
-  },
-  {
-    id: 'i58',
-    text: "Qu'est-ce que le Défenseur des droits ?",
-    options: ["Un avocat gratuit", "Une autorité indépendante protégeant les droits des citoyens", "Un juge spécialisé", "Un ministre"],
-    correctAnswer: 1,
-    explanation: "Le Défenseur des droits est une autorité constitutionnelle indépendante chargée de défendre les droits des citoyens face aux administrations.",
-    category: "institutions",
-    type: 'multiple-choice'
-  },
-  {
-    id: 'i59',
-    text: "Combien de régions compte la France métropolitaine ?",
-    options: ["22", "13", "18", "10"],
-    correctAnswer: 1,
-    explanation: "Depuis 2016, la France métropolitaine compte 13 régions, auxquelles s'ajoutent 5 régions d'outre-mer.",
     category: "institutions",
     type: 'multiple-choice'
   },
@@ -1686,15 +1623,6 @@ const INSTITUTIONS_QUESTIONS: Question[] = [
     type: 'multiple-choice'
   },
   {
-    id: 'i102',
-    text: "Quel est le rôle du Parlement ?",
-    options: ["Appliquer les lois", "Juger les crimes", "Voter les lois et contrôler le Gouvernement", "Diriger les écoles"],
-    correctAnswer: 2,
-    explanation: "Le Parlement, composé de l'Assemblée nationale et du Sénat, vote la loi et contrôle l'action du Gouvernement.",
-    category: "institutions",
-    type: 'multiple-choice'
-  },
-  {
     id: 'i103',
     text: "Combien d'États font partie de l'Union européenne au 1er janvier 2025 ?",
     options: ["28", "15", "35", "27"],
@@ -1857,15 +1785,6 @@ const DROITS_QUESTIONS: Question[] = [
     type: 'multiple-choice'
   },
   {
-    id: 'd15',
-    text: "Le droit d'asile permet à une personne persécutée de :",
-    options: ["Obtenir automatiquement la nationalité française", "Demander protection en France", "Voter aux élections", "Travailler sans papiers"],
-    correctAnswer: 1,
-    explanation: "Le droit d'asile permet aux personnes persécutées de demander la protection de la France.",
-    category: "droits",
-    type: 'multiple-choice'
-  },
-  {
     id: 'd16',
     text: "La sécurité sociale en France couvre :",
     options: ["Uniquement les accidents du travail", "La maladie, la maternité, la vieillesse et les accidents", "Uniquement les retraites", "Seulement les fonctionnaires"],
@@ -1893,15 +1812,6 @@ const DROITS_QUESTIONS: Question[] = [
     type: 'multiple-choice'
   },
   {
-    id: 'd19',
-    text: "La présomption d'innocence signifie que :",
-    options: ["Tout le monde est coupable jusqu'à preuve du contraire", "Toute personne est considérée innocente tant qu'elle n'a pas été jugée coupable", "Les juges décident seuls de la culpabilité", "Les aveux suffisent à condamner"],
-    correctAnswer: 1,
-    explanation: "La présomption d'innocence est un principe fondamental du droit : on est innocent jusqu'à preuve du contraire.",
-    category: "droits",
-    type: 'multiple-choice'
-  },
-  {
     id: 'd20',
     text: "Le droit à l'éducation en France est :",
     options: ["Réservé aux citoyens français", "Garanti à tous les enfants présents sur le territoire", "Limité aux zones urbaines", "Facultatif pour les familles"],
@@ -1916,15 +1826,6 @@ const DROITS_QUESTIONS: Question[] = [
     options: ["Aboli en France", "Un droit fondamental protégé", "Réservé aux entreprises", "Limité aux biens immobiliers"],
     correctAnswer: 1,
     explanation: "Le droit de propriété est un droit naturel et imprescriptible, protégé par la Déclaration de 1789.",
-    category: "droits",
-    type: 'multiple-choice'
-  },
-  {
-    id: 'd22',
-    text: "L'aide juridictionnelle permet :",
-    options: ["D'éviter les procès", "Aux personnes à faibles revenus d'accéder à la justice", "De devenir avocat", "De porter plainte anonymement"],
-    correctAnswer: 1,
-    explanation: "L'aide juridictionnelle prend en charge les frais de justice pour les personnes aux revenus modestes.",
     category: "droits",
     type: 'multiple-choice'
   },
@@ -1961,24 +1862,6 @@ const DROITS_QUESTIONS: Question[] = [
     options: ["16 ans", "18 ans", "21 ans", "25 ans"],
     correctAnswer: 1,
     explanation: "Le mariage est autorisé à partir de 18 ans, la majorité civile.",
-    category: "droits",
-    type: 'multiple-choice'
-  },
-  {
-    id: 'd27',
-    text: "Le droit de grève est-il reconnu en France ?",
-    options: ["Non, il est interdit", "Oui, c'est un droit constitutionnel", "Seulement dans le privé", "Seulement pour les syndicats"],
-    correctAnswer: 1,
-    explanation: "Le droit de grève est un droit constitutionnel reconnu depuis 1946.",
-    category: "droits",
-    type: 'multiple-choice'
-  },
-  {
-    id: 'd29',
-    text: "Le travail des enfants est-il autorisé en France ?",
-    options: ["Oui, sans restriction", "Non, interdit avant 16 ans avec quelques exceptions", "Seulement dans l'agriculture", "Oui, à partir de 12 ans"],
-    correctAnswer: 1,
-    explanation: "Le travail des enfants est interdit avant 16 ans, sauf dérogations pour certaines activités encadrées.",
     category: "droits",
     type: 'multiple-choice'
   },
@@ -2125,15 +2008,6 @@ const DROITS_QUESTIONS: Question[] = [
     explanation: "L'assistance à personne en danger est une obligation légale : ne pas aider quelqu'un en péril est un délit.",
     category: "droits",
     level: 'cr',
-    type: 'multiple-choice'
-  },
-  {
-    id: 'd46',
-    text: "Quel est le salaire minimum légal en France ?",
-    options: ["Le RSA", "Le SMIC", "Le salaire médian", "Il n'y en a pas"],
-    correctAnswer: 1,
-    explanation: "Le SMIC (Salaire Minimum Interprofessionnel de Croissance) est le salaire minimum légal en France, réévalué chaque année.",
-    category: "droits",
     type: 'multiple-choice'
   },
   {
@@ -2725,24 +2599,6 @@ const CULTURE_QUESTIONS: Question[] = [
     type: 'multiple-choice'
   },
   {
-    id: 'c14',
-    text: "Le musée du Louvre abrite notamment :",
-    options: ["Les Nymphéas de Monet", "La Joconde de Léonard de Vinci", "La Nuit étoilée de Van Gogh", "Le Cri de Munch"],
-    correctAnswer: 1,
-    explanation: "La Joconde (Mona Lisa) de Léonard de Vinci est l'œuvre la plus célèbre du musée du Louvre.",
-    category: "culture",
-    type: 'multiple-choice'
-  },
-  {
-    id: 'c15',
-    text: "Jeanne d'Arc a joué un rôle majeur pendant :",
-    options: ["La Révolution française", "La guerre de Cent Ans", "La Première Guerre mondiale", "Les guerres de Religion"],
-    correctAnswer: 1,
-    explanation: "Jeanne d'Arc a conduit les armées françaises pendant la guerre de Cent Ans au XVe siècle.",
-    category: "culture",
-    type: 'multiple-choice'
-  },
-  {
     id: 'c16',
     text: "Le 11 novembre commémore :",
     options: ["La fin de la Seconde Guerre mondiale", "L'armistice de 1918 (fin de la Première Guerre mondiale)", "La prise de la Bastille", "La naissance de la République"],
@@ -2843,15 +2699,6 @@ const CULTURE_QUESTIONS: Question[] = [
     type: 'multiple-choice'
   },
   {
-    id: 'c27',
-    text: "Quelle est la plus longue chaîne de montagnes de France ?",
-    options: ["Les Pyrénées", "Les Alpes", "Le Massif central", "Les Vosges"],
-    correctAnswer: 1,
-    explanation: "Les Alpes françaises s'étendent sur environ 450 km le long de la frontière avec l'Italie et la Suisse.",
-    category: "culture",
-    type: 'multiple-choice'
-  },
-  {
     id: 'c28',
     text: "Napoléon Bonaparte est devenu empereur en quelle année ?",
     options: ["1789", "1799", "1804", "1815"],
@@ -2884,24 +2731,6 @@ const CULTURE_QUESTIONS: Question[] = [
     options: ["Le musée d'Orsay", "Le Centre Pompidou", "Le Louvre", "Le musée du Quai Branly"],
     correctAnswer: 2,
     explanation: "Le musée du Louvre est le plus grand musée d'art au monde.",
-    category: "culture",
-    type: 'multiple-choice'
-  },
-  {
-    id: 'c32',
-    text: "La Seconde Guerre mondiale s'est terminée en Europe en quelle année ?",
-    options: ["1943", "1944", "1945", "1946"],
-    correctAnswer: 2,
-    explanation: "La capitulation de l'Allemagne nazie le 8 mai 1945 a mis fin à la guerre en Europe.",
-    category: "culture",
-    type: 'multiple-choice'
-  },
-  {
-    id: 'c33',
-    text: "Quel écrivain français a écrit 'Les Misérables' ?",
-    options: ["Émile Zola", "Victor Hugo", "Gustave Flaubert", "Alexandre Dumas"],
-    correctAnswer: 1,
-    explanation: "Victor Hugo a écrit Les Misérables, publié en 1862.",
     category: "culture",
     type: 'multiple-choice'
   },
@@ -3104,15 +2933,6 @@ const CULTURE_QUESTIONS: Question[] = [
     type: 'multiple-choice'
   },
   {
-    id: 'c56',
-    text: "Quel événement commémore-t-on le 11 novembre ?",
-    options: ["La Révolution française", "L'armistice de 1918", "La Libération de Paris", "La fête du Travail"],
-    correctAnswer: 1,
-    explanation: "Le 11 novembre commémore l'armistice de 1918 qui a mis fin à la Première Guerre mondiale.",
-    category: "culture",
-    type: 'multiple-choice'
-  },
-  {
     id: 'c57',
     text: "Qu'est-ce que le Panthéon ?",
     options: ["Un stade", "Un monument où reposent les grands personnages de l'histoire de France", "Un musée d'art moderne", "Une église"],
@@ -3181,15 +3001,6 @@ const CULTURE_QUESTIONS: Question[] = [
     options: ["L'armée officielle française", "Les mouvements de lutte contre l'occupation allemande", "Un parti politique", "Une entreprise"],
     correctAnswer: 1,
     explanation: "La Résistance désigne l'ensemble des mouvements et réseaux qui ont lutté contre l'occupation allemande de 1940 à 1944.",
-    category: "culture",
-    type: 'multiple-choice'
-  },
-  {
-    id: 'c65',
-    text: "Quel événement a eu lieu le 8 mai 1945 ?",
-    options: ["Le début de la Seconde Guerre mondiale", "La fin de la Seconde Guerre mondiale en Europe", "La Révolution française", "La création de l'Union européenne"],
-    correctAnswer: 1,
-    explanation: "Le 8 mai 1945 marque la victoire des Alliés et la fin de la Seconde Guerre mondiale en Europe.",
     category: "culture",
     type: 'multiple-choice'
   },
@@ -3590,16 +3401,6 @@ const CULTURE_QUESTIONS: Question[] = [
     type: 'multiple-choice'
   },
   {
-    id: 'c108',
-    text: "Qui a fondé la Ve République ?",
-    options: ["Charles de Gaulle", "Napoléon III", "Georges Pompidou", "François Mitterrand"],
-    correctAnswer: 0,
-    explanation: "Charles de Gaulle a fait adopter la Constitution de 1958 et il a été le premier président de la Ve République.",
-    category: "culture",
-    level: 'csp',
-    type: 'multiple-choice'
-  },
-  {
     id: 'c109',
     text: "Pourquoi l'année 1958 est-elle importante pour la France ?",
     options: ["La Révolution française commence", "La Constitution de la Ve République est adoptée", "La Première Guerre mondiale se termine", "L'euro est créé"],
@@ -3901,47 +3702,11 @@ const SOCIETE_QUESTIONS: Question[] = [
     type: 'multiple-choice'
   },
   {
-    id: 's9',
-    text: "Le PACS (Pacte Civil de Solidarité) est :",
-    options: ["Un engagement de cohabitation informel", "Une union civile entre deux personnes", "Un certificat de vie maritale", "Une déclaration de concubinage"],
-    correctAnswer: 1,
-    explanation: "Le PACS est un contrat entre deux personnes majeures pour organiser leur vie commune.",
-    category: "societe",
-    type: 'multiple-choice'
-  },
-  {
-    id: 's10',
-    text: "Le tri sélectif des déchets est :",
-    options: ["Facultatif", "Obligatoire dans la plupart des communes", "Interdit", "Réservé aux entreprises"],
-    correctAnswer: 1,
-    explanation: "Le tri sélectif est obligatoire et contribue à la protection de l'environnement.",
-    category: "societe",
-    type: 'multiple-choice'
-  },
-  {
-    id: 's11',
-    text: "La durée légale du travail en France est de :",
-    options: ["32 heures par semaine", "35 heures par semaine", "40 heures par semaine", "45 heures par semaine"],
-    correctAnswer: 1,
-    explanation: "La durée légale du travail est de 35 heures par semaine depuis les lois Aubry de 1998-2000.",
-    category: "societe",
-    type: 'multiple-choice'
-  },
-  {
     id: 's12',
     text: "Le RSA (Revenu de Solidarité Active) est :",
     options: ["Un impôt", "Une aide sociale pour les personnes sans ressources suffisantes", "Une amende", "Un prêt bancaire"],
     correctAnswer: 1,
     explanation: "Le RSA assure un revenu minimum aux personnes sans ressources ou avec des revenus modestes.",
-    category: "societe",
-    type: 'multiple-choice'
-  },
-  {
-    id: 's13',
-    text: "Pôle emploi est :",
-    options: ["Une entreprise privée", "Le service public de l'emploi", "Un syndicat", "Une banque"],
-    correctAnswer: 1,
-    explanation: "France Travail (ex-Pôle emploi) accompagne les demandeurs d'emploi et les aide à retrouver un travail.",
     category: "societe",
     type: 'multiple-choice'
   },
@@ -3969,15 +3734,6 @@ const SOCIETE_QUESTIONS: Question[] = [
     options: ["17 ans avec conduite supervisée", "18 ans", "16 ans avec autorisation parentale", "17 ans après formation accélérée"],
     correctAnswer: 1,
     explanation: "Le permis B s'obtient à 18 ans. La conduite accompagnée permet de conduire dès 17 ans mais le permis définitif reste délivré à 18 ans.",
-    category: "societe",
-    type: 'multiple-choice'
-  },
-  {
-    id: 's17',
-    text: "Quelle est la durée légale du travail en France ?",
-    options: ["32 heures", "35 heures", "39 heures", "40 heures"],
-    correctAnswer: 1,
-    explanation: "La durée légale du travail en France est de 35 heures par semaine depuis 2000.",
     category: "societe",
     type: 'multiple-choice'
   },
@@ -4032,15 +3788,6 @@ const SOCIETE_QUESTIONS: Question[] = [
     options: ["L'âge uniquement", "Les revenus du foyer", "La nationalité", "Le lieu de naissance"],
     correctAnswer: 1,
     explanation: "Les logements sociaux sont attribués en fonction des revenus et de la composition du foyer.",
-    category: "societe",
-    type: 'multiple-choice'
-  },
-  {
-    id: 's25',
-    text: "En France, fumer est interdit dans :",
-    options: ["Les parcs uniquement", "Les lieux publics fermés", "Nulle part", "Les restaurants seulement"],
-    correctAnswer: 1,
-    explanation: "Il est interdit de fumer dans tous les lieux publics fermés et couverts depuis 2007.",
     category: "societe",
     type: 'multiple-choice'
   },
