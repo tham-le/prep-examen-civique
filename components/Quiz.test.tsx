@@ -14,6 +14,11 @@ const Harness = () => {
   return <Quiz onExit={() => {}} onStatsUpdate={setStats} userStats={stats} />;
 };
 
+const ThemeHarness = ({ theme }: { theme: string }) => {
+  const [stats, setStats] = useState<UserStats>(DEFAULT_USER_STATS);
+  return <Quiz selectedTheme={theme} onExit={() => {}} onStatsUpdate={setStats} userStats={stats} />;
+};
+
 const click = async (el: Element | undefined) => {
   await act(async () => {
     (el as HTMLElement).click();
@@ -124,5 +129,17 @@ describe('Quiz live feedback', () => {
     }
     expect(latest.xp).toBeGreaterThan(100);
     expect(container.textContent).toContain(`+${latest.xp} XP`);
+  });
+});
+
+describe('Quiz with a theme from the URL', () => {
+  beforeEach(() => localStorage.clear());
+
+  it.each(['constructor', '__proto__', 'toString', 'unknown'])('shows the empty message for "%s"', async name => {
+    const container = document.createElement('div');
+    await act(async () => {
+      createRoot(container).render(<ThemeHarness theme={name} />);
+    });
+    expect(container.textContent).toContain('Pas de questions disponibles');
   });
 });

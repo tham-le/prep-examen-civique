@@ -4686,6 +4686,10 @@ export const OFFICIAL_DB: Record<string, Question[]> = Object.fromEntries(
   THEMES.map(theme => [theme.id, ALL_QUESTIONS.filter(q => q.category === theme.id)])
 );
 
+// For ids that come from the URL: a name like "constructor" must not find an object method
+export const themeQuestions = (themeId: string): Question[] =>
+  Object.hasOwn(OFFICIAL_DB, themeId) ? OFFICIAL_DB[themeId] : [];
+
 // ============================================================
 // GAMIFICATION: BADGES
 // ============================================================

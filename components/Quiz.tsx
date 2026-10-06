@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { OFFICIAL_DB, THEMES, ALL_QUESTIONS } from '../constants';
+import { themeQuestions, THEMES, ALL_QUESTIONS } from '../constants';
 import { Question, UserStats } from '../types';
 import { processQuizResult, getBadgeInfo } from '../services/gamificationService';
 import { getDueIds, selectSessionItems } from '../services/spacedRepetition';
@@ -62,7 +62,7 @@ export const Quiz: React.FC<QuizProps> = ({ selectedTheme, onExit, onStatsUpdate
       const dueIds = getDueIds(userStats.questionMastery, available.map(q => q.id));
       pool = available.filter(q => dueIds.includes(q.id));
     } else if (selectedTheme) {
-      pool = forLevel(OFFICIAL_DB[selectedTheme] || [], userStats.examLevel);
+      pool = forLevel(themeQuestions(selectedTheme), userStats.examLevel);
     } else {
       // Mix from all categories for global review
       pool = forLevel(ALL_QUESTIONS, userStats.examLevel);
