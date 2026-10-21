@@ -36,8 +36,8 @@ describe('page table', () => {
   });
 
   it('keeps the question count claims true', () => {
-    expect(ALL_QUESTIONS.length).toBeGreaterThan(450);
-    expect(ALL_QUESTIONS.length).toBeLessThan(500);
+    expect(ALL_QUESTIONS.length).toBeGreaterThan(500);
+    expect(ALL_QUESTIONS.length).toBeLessThan(600);
   });
 
   it('treats object method names as unknown pages', () => {

@@ -753,6 +753,42 @@ const VALEURS_QUESTIONS: Question[] = [
     category: "valeurs",
     level: 'csp',
     type: 'multiple-choice'
+  },
+  {
+    id: 'v82',
+    text: "Un restaurant peut-il refuser de servir une personne parce qu'elle est transgenre ?",
+    options: ["Oui, c'est un commerce privé et le patron décide", "Oui, s'il affiche une règle à l'entrée", "Non, c'est une discrimination interdite par la loi", "Oui, si d'autres clients sont gênés"],
+    correctAnswer: 2,
+    explanation: "Refuser un service à cause de l'identité de genre est une discrimination. La loi la punit de 3 ans de prison et 45 000 euros d'amende au maximum. Une règle affichée ou la gêne d'autres clients ne change rien.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v83',
+    text: "Une association peut-elle refuser un service à une personne parce qu'elle est homosexuelle ?",
+    options: ["Oui, une association fait ce qu'elle veut", "Oui, si ses statuts le prévoient", "Oui, si le président est d'accord", "Non, c'est une discrimination interdite par la loi"],
+    correctAnswer: 3,
+    explanation: "Refuser un service à cause de l'orientation sexuelle est interdit, pour une association comme pour un commerce. Ni les statuts ni l'accord du président ne le permettent.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v84',
+    text: "Une société peut-elle refuser de vendre un produit ou un service à une personne à cause de son handicap ?",
+    options: ["Oui, c'est la liberté du commerce", "Non, c'est une discrimination interdite par la loi", "Oui, si l'entreprise est petite", "Oui, si le client n'a pas de rendez-vous"],
+    correctAnswer: 1,
+    explanation: "La loi interdit de refuser un bien ou un service à cause d'un handicap, quelle que soit la taille de l'entreprise. La peine peut aller jusqu'à 3 ans de prison et 45 000 euros d'amende. La victime peut saisir le Défenseur des droits.",
+    category: "valeurs",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'v85',
+    text: "Peut-on donner son opinion sur un conflit à l'étranger ?",
+    options: ["Non, c'est interdit en France", "Oui, mais seulement si on est de nationalité française", "Oui, sans aucune limite", "Oui, c'est la liberté d'expression, dans le respect de la loi"],
+    correctAnswer: 3,
+    explanation: "La liberté d'opinion et d'expression permet de donner son avis sur un conflit, même à l'étranger. La loi pose des limites : on ne peut pas insulter, diffamer, appeler à la haine ou à la violence.",
+    category: "valeurs",
+    type: 'multiple-choice'
   }
 ];
 
@@ -2501,6 +2537,51 @@ const DROITS_QUESTIONS: Question[] = [
     category: "droits",
     level: 'csp',
     type: 'multiple-choice'
+  },
+  {
+    id: 'd98',
+    text: "Être juré d'assises, c'est :",
+    options: ["Un choix libre pour chaque citoyen", "Un devoir civique : des citoyens sont tirés au sort sur les listes électorales", "Un métier réservé aux avocats", "Une fonction réservée aux policiers"],
+    correctAnswer: 1,
+    explanation: "Le juré est un citoyen tiré au sort sur les listes électorales pour juger les crimes avec les magistrats. Il faut être de nationalité française, avoir plus de 23 ans et savoir lire et écrire le français. On peut être dispensé pour un motif sérieux, par exemple avoir plus de 70 ans. Refuser sans motif valable peut coûter 3 750 euros d'amende.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd99',
+    text: "Peut-on acheter une arme à feu sur internet ?",
+    options: ["Oui, si c'est pour se défendre", "Oui, si je connais le maire", "Non, c'est interdit", "Oui, avec des conditions"],
+    correctAnswer: 3,
+    explanation: "L'achat d'une arme à feu est encadré par la loi, sur internet comme en magasin. Pour les catégories B et C, il faut être majeur, avoir un casier judiciaire sans certaines condamnations et un certificat médical. Ensuite, la règle dépend de la catégorie : interdite pour la A, autorisation pour la B, déclaration pour la C. Vouloir se défendre ne suffit pas, et connaître le maire ne sert à rien.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd100',
+    text: "Un particulier peut-il acheter une arme de guerre (catégorie A) ?",
+    options: ["Oui, avec une déclaration à la préfecture", "Oui, avec un permis de chasser", "Non, elles sont interdites, sauf pour la défense nationale et la sécurité publique", "Oui, avec une licence de tir"],
+    correctAnswer: 2,
+    explanation: "Les armes de catégorie A sont interdites aux particuliers. Elles sont réservées à la défense nationale et à la sécurité publique. Seuls quelques cas précis peuvent être autorisés.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd101',
+    text: "Que faut-il pour acquérir une arme de catégorie C ?",
+    options: ["Rien, la vente est libre pour les majeurs", "Une déclaration, et un permis de chasser, une licence de tir ou une carte de collectionneur", "Une autorisation du maire", "Une autorisation du ministre de l'Intérieur"],
+    correctAnswer: 1,
+    explanation: "Une arme de catégorie C est soumise à déclaration, faite par l'armurier ou par l'acheteur. L'acheteur doit être majeur, avoir un certificat médical et un casier judiciaire sans certaines condamnations. Il doit aussi prouver son activité : permis de chasser, licence d'une fédération de tir ou carte de collectionneur. La carte de collectionneur ne permet pas d'acheter des munitions actives.",
+    category: "droits",
+    type: 'multiple-choice'
+  },
+  {
+    id: 'd102',
+    text: "Que faut-il pour acquérir une arme de catégorie B ?",
+    options: ["Une autorisation de la préfecture", "Une simple déclaration à l'armurier", "Rien, c'est libre pour les majeurs", "L'accord du maire"],
+    correctAnswer: 0,
+    explanation: "Une arme de catégorie B est soumise à autorisation, demandée à la préfecture du domicile. Pour le tir sportif, il faut une licence de tir valide. Il faut aussi être majeur, avoir un certificat médical de moins d'un mois et un casier judiciaire sans certaines condamnations. L'autorisation dure 5 ans. Elle peut être refusée ou retirée pour un motif d'ordre public.",
+    category: "droits",
+    type: 'multiple-choice'
   }
 ];
 
@@ -3621,6 +3702,15 @@ const CULTURE_QUESTIONS: Question[] = [
     explanation: "Noël est célébré le 25 décembre. C'est un jour férié en France.",
     category: "culture",
     level: 'csp',
+    type: 'multiple-choice'
+  },
+  {
+    id: 'c132',
+    text: "Qu'est-ce qu'Ariane ?",
+    options: ["Un satellite météo", "Une fusée européenne lancée depuis la Guyane", "Une station spatiale", "Un avion de ligne"],
+    correctAnswer: 1,
+    explanation: "Ariane est une famille de fusées européennes qui mettent des satellites en orbite. Elles sont lancées depuis Kourou, en Guyane française.",
+    category: "culture",
     type: 'multiple-choice'
   }
 ];

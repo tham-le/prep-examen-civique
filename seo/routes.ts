@@ -13,10 +13,10 @@ export interface PageSeo {
 export const PAGES: Record<string, PageSeo> = {
   '/': {
     title: "Objectif Citoyen : préparer l'examen civique 2026",
-    description: "Préparez gratuitement l'examen civique : près de 500 questions sur les 5 thèmes, examen blanc de 40 questions en 45 minutes, flashcards et révision.",
+    description: "Préparez gratuitement l'examen civique : plus de 500 questions sur les 5 thèmes, examen blanc de 40 questions en 45 minutes, flashcards et révision.",
     label: 'Accueil',
     heading: "Préparez l'examen civique",
-    intro: "Près de 500 questions sur les 5 thèmes de l'examen civique : principes et valeurs de la République, système institutionnel et politique, droits et devoirs, histoire, géographie et culture, vie dans la société française. L'examen compte 40 questions, dure 45 minutes et demande 32 bonnes réponses.",
+    intro: "Plus de 500 questions sur les 5 thèmes de l'examen civique : principes et valeurs de la République, système institutionnel et politique, droits et devoirs, histoire, géographie et culture, vie dans la société française. L'examen compte 40 questions, dure 45 minutes et demande 32 bonnes réponses.",
     indexed: true,
   },
   '/quiz': {
@@ -53,7 +53,7 @@ export const PAGES: Record<string, PageSeo> = {
   },
   '/revision': {
     title: 'Réviser toutes les questions civiques | Objectif Citoyen',
-    description: "Parcourez près de 500 questions de l'examen civique avec la réponse et l'explication, et filtrez par thème, statut ou mot clé.",
+    description: "Parcourez plus de 500 questions de l'examen civique avec la réponse et l'explication, et filtrez par thème, statut ou mot clé.",
     label: 'Révision',
     heading: "Réviser les questions de l'examen civique",
     intro: "Toutes les questions avec leur réponse et leur explication. Filtrez par thème, par statut (vue, à revoir, maîtrisée) ou cherchez un mot clé.",
