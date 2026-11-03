@@ -28,6 +28,7 @@ const FAQPage = lazy(() => import('./components/FAQPage').then(m => ({ default: 
 const ProfilePage = lazy(() => import('./components/ProfilePage').then(m => ({ default: m.ProfilePage })));
 const Arcade = lazy(() => import('./components/Arcade').then(m => ({ default: m.Arcade })));
 const Flashcards = lazy(() => import('./components/Flashcards').then(m => ({ default: m.Flashcards })));
+const Entretien = lazy(() => import('./components/Entretien').then(m => ({ default: m.Entretien })));
 const RevisionMode = lazy(() => import('./components/RevisionMode').then(m => ({ default: m.RevisionMode })));
 
 const RouteLoadingFallback: React.FC = () => (
@@ -55,8 +56,9 @@ const MODES = [
   { to: '/flashcards', icon: 'fa-clone', title: 'Flashcards', text: 'Mémorisez les notions clés' },
   { to: '/revision', icon: 'fa-list-check', title: 'Révision', text: 'Parcourez toutes les questions' },
   { to: '/fiches', icon: 'fa-book-open', title: 'Fiches officielles', text: 'Les cours du ministère' },
-  { to: '/defi', icon: 'fa-bolt', title: 'Défi éclair', text: '60 secondes, un maximum de bonnes réponses', wide: true },
-  { to: '/survie', icon: 'fa-heart-pulse', title: 'Survie', text: "3 vies, jusqu'où irez-vous ?", wide: true },
+  { to: '/defi', icon: 'fa-bolt', title: 'Défi éclair', text: '60 secondes, un maximum de bonnes réponses', span: 'lg:col-span-2' },
+  { to: '/survie', icon: 'fa-heart-pulse', title: 'Survie', text: "3 vies, jusqu'où irez-vous ?", span: 'lg:col-span-2' },
+  { to: '/entretien', icon: 'fa-comments', title: 'Entretien de naturalisation', text: "Les questions de l'entretien en préfecture, vos réponses et une simulation orale", span: 'lg:col-span-4' },
 ];
 
 const HomePage: React.FC<HomePageProps> = ({ userStats, onStatsUpdate }) => {
@@ -176,7 +178,7 @@ const HomePage: React.FC<HomePageProps> = ({ userStats, onStatsUpdate }) => {
         </Link>
 
         {MODES.map(mode => (
-          <Link key={mode.to} to={mode.to} className={`${TILE}${mode.wide ? ' lg:col-span-2' : ''}`}>
+          <Link key={mode.to} to={mode.to} className={`${TILE}${mode.span ? ` ${mode.span}` : ''}`}>
             <div className={`${ICON_BOX} mb-4`}>
               <i className={`fas ${mode.icon}`}></i>
             </div>
@@ -270,6 +272,7 @@ const AppRoutes: React.FC<AppRoutesProps> = ({ userStats, onStatsUpdate, onShowT
         <Route path="/defi" element={<ArcadePage mode="blitz" userStats={userStats} onStatsUpdate={onStatsUpdate} />} />
         <Route path="/survie" element={<ArcadePage mode="survival" userStats={userStats} onStatsUpdate={onStatsUpdate} />} />
         <Route path="/revision" element={<RevisionMode userStats={userStats} onStatsUpdate={onStatsUpdate} />} />
+        <Route path="/entretien" element={<Entretien userStats={userStats} onStatsUpdate={onStatsUpdate} />} />
         <Route path="/quiz" element={<QuizPage userStats={userStats} onStatsUpdate={onStatsUpdate} />} />
         <Route path="/examen-blanc" element={<ExamSimulation onStatsUpdate={onStatsUpdate} userStats={userStats} />} />
         <Route path="/faq" element={<FAQPage />} />

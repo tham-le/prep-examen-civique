@@ -21,6 +21,7 @@ export const Header: React.FC<HeaderProps> = ({ userStats, darkMode, toggleDarkM
     { path: '/flashcards', label: 'Flashcards', icon: 'fa-clone' },
     { path: '/revision', label: 'Révision', icon: 'fa-list-check' },
     { path: '/examen-blanc', label: 'Examen', icon: 'fa-file-alt' },
+    { path: '/entretien', label: 'Entretien', icon: 'fa-comments', desktopOnly: true },
     { path: '/faq', label: 'FAQ', icon: 'fa-circle-question', desktopOnly: true },
   ];
 

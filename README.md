@@ -8,6 +8,7 @@ Une plateforme gratuite et open source pour préparer le nouvel examen civique f
 - **Examen blanc** en conditions réelles (40 questions, 45 minutes)
 - **Système de gamification** (XP, niveaux, 12 badges)
 - **Révision intelligente** (spaced repetition des points faibles)
+- **Entretien de naturalisation** : les questions souvent posées en préfecture, vos réponses gardées sur l'appareil, une simulation orale
 - **100% hors ligne** - toutes les données stockées localement
 - **Aucune collecte de données** personnelles
 

@@ -76,6 +76,9 @@ export interface UserStats {
   badges: string[];
   questionMastery: SRSMap;
   flashcardMastery: SRSMap;
+  entretienMastery?: SRSMap;
+  // Answers written for the naturalisation interview, by question id
+  entretienNotes?: Record<string, string>;
   themeProgress: Record<string, { correct: number; total: number }>;
   examLevel?: ExamLevel;
   seenQuestions?: string[];

@@ -67,6 +67,10 @@ export const sanitizeStats = (raw: unknown): UserStats => {
     themeProgress,
     ...(raw.examLevel === 'cr' || raw.examLevel === 'csp' ? { examLevel: raw.examLevel as ExamLevel } : {}),
     ...(typeof raw.examDate === 'string' ? { examDate: raw.examDate } : {}),
+    ...(isRecord(raw.entretienMastery) ? { entretienMastery: srsMap(raw.entretienMastery) } : {}),
+    ...(isRecord(raw.entretienNotes)
+      ? { entretienNotes: Object.fromEntries(Object.entries(raw.entretienNotes).filter((e): e is [string, string] => typeof e[1] === 'string')) }
+      : {}),
     ...(Array.isArray(raw.seenQuestions) ? { seenQuestions: strings(raw.seenQuestions) } : {}),
     ...(Array.isArray(raw.recentExamQuestions) ? { recentExamQuestions: strings(raw.recentExamQuestions) } : {}),
     ...(daily ? { daily } : {}),

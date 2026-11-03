@@ -75,6 +75,14 @@ export const PAGES: Record<string, PageSeo> = {
     intro: "Vous avez 3 vies. Chaque erreur en coûte une. Jusqu'où irez-vous ?",
     indexed: true,
   },
+  '/entretien': {
+    title: 'Entretien de naturalisation : questions | Objectif Citoyen',
+    description: "Préparez l'entretien de naturalisation en préfecture : les questions souvent posées sur votre parcours, vos motivations et les valeurs de la République.",
+    label: 'Entretien',
+    heading: "Préparer l'entretien de naturalisation",
+    intro: "Les questions souvent posées à l'entretien en préfecture, classées par thème, avec les points à dire et un carnet pour écrire vos propres réponses. Une simulation orale tire dix questions au hasard.",
+    indexed: true,
+  },
   '/faq': {
     title: 'FAQ examen civique 2026 | Objectif Citoyen',
     description: "Réponses aux questions fréquentes sur l'examen civique : format, durée, seuil de réussite et thèmes de l'examen.",
