@@ -11,7 +11,7 @@ export interface EntretienQuestion {
   points: string[];
 }
 
-export const ENTRETIEN_THEMES = ['Parcours', 'Motivation', 'Intégration', 'Valeurs', 'Histoire', 'Institutions', 'Culture'];
+export const ENTRETIEN_THEMES = ['Parcours', 'Motivation', 'Intégration', 'Actualité', 'Valeurs', 'Mises en situation', 'Histoire', 'Institutions', 'Culture'];
 
 export const ENTRETIEN_QUESTIONS: EntretienQuestion[] = [
   // Parcours
@@ -133,7 +133,7 @@ export const ENTRETIEN_QUESTIONS: EntretienQuestion[] = [
   { id: 'i5', theme: 'Intégration', question: "Suivez-vous l'actualité française ? Par quels médias ?", points: [
     "Journaux, radio, télé, sites d'information : citez-en deux",
     'Une loi ou un sujet récent qui vous a marqué, en une phrase',
-    "Sachez le nom du Président, du Premier ministre, du ministre de l'Intérieur, de votre maire et de votre préfet : vérifiez-les la semaine de l'entretien",
+    "Les noms et les sujets du moment sont dans le thème Actualité : préparez-les la semaine de l'entretien",
   ] },
   { id: 'i6', theme: 'Intégration', question: 'Avez-vous déjà voté dans votre pays ? Voterez-vous en France ?', points: [
     'Si vous avez voté dans votre pays, dites-le ; sinon, dites pourquoi',
@@ -253,6 +253,54 @@ export const ENTRETIEN_QUESTIONS: EntretienQuestion[] = [
     'Oui dans la rue et les lieux ouverts au public : la liberté de religion est garantie',
     'Interdits aux élèves des écoles, collèges et lycées publics (loi de 2004) et aux agents publics en service',
     "Le visage ne peut pas être dissimulé dans l'espace public (loi de 2010)",
+  ] },
+  { id: 'v16', theme: 'Valeurs', question: "Qu'est-ce que la charte des droits et devoirs du citoyen français ?", points: [
+    "Le texte que vous signez à la fin de l'entretien : vous vous engagez à respecter les principes et les valeurs de la République",
+    'Elle rappelle les symboles, la devise, la laïcité, et les droits : libertés, égalité devant la loi, vote',
+    "Et les devoirs : respecter les lois, payer ses impôts, participer à la défense et aux jurys, instruire ses enfants, respecter les autres",
+    "Lisez-la avant l'entretien : elle est en ligne sur le site du ministère de l'Intérieur, avec le livret du citoyen",
+  ] },
+
+  // Mises en situation : l'agent décrit un cas et demande ce que vous feriez
+  { id: 's1', theme: 'Mises en situation', question: 'Un employeur vous propose de travailler sans être déclaré. Que faites-vous ?', points: [
+    "Vous refusez : le travail dissimulé est illégal, pour l'employeur comme pour le salarié",
+    'Sans déclaration, pas de droits : maladie, retraite, chômage, accident du travail',
+    "Vous pouvez le signaler à l'inspection du travail",
+  ] },
+  { id: 's2', theme: 'Mises en situation', question: 'Un membre de votre famille veut marier sa fille contre son gré. Que dites-vous ?', points: [
+    'Le mariage forcé est interdit en France : le consentement libre des deux époux est obligatoire',
+    'Vous vous y opposez et vous aidez la jeune fille : procureur, association, le 3919',
+    'Contraindre quelqu\'un au mariage est puni par la loi',
+  ] },
+  { id: 's3', theme: 'Mises en situation', question: 'Un collègue est traité différemment à cause de son origine ou de sa religion. Que faites-vous ?', points: [
+    'La discrimination est interdite par la loi : origine, religion, sexe, handicap, âge, orientation sexuelle',
+    "Vous soutenez le collègue et vous alertez : employeur, syndicat, inspection du travail",
+    'Le Défenseur des droits peut être saisi gratuitement',
+  ] },
+  { id: 's4', theme: 'Mises en situation', question: 'Vous entendez des coups et des cris chez vos voisins. Que faites-vous ?', points: [
+    "Vous appelez le 17 ou le 112 : les violences conjugales sont un délit, pas une affaire privée",
+    "Le 3919 pour les violences faites aux femmes, le 119 pour un enfant en danger",
+    "Pas d'intervention physique si c'est dangereux : alerter suffit",
+  ] },
+  { id: 's5', theme: 'Mises en situation', question: "Votre enfant refuse d'aller à la piscine ou au cours de sciences pour des raisons religieuses. Que faites-vous ?", points: [
+    'Les cours sont obligatoires pour tous, filles et garçons : vous l\'expliquez à votre enfant',
+    "L'école publique est laïque et mixte ; le programme ne s'adapte pas aux convictions",
+    "Vous en parlez avec l'enseignant si besoin, sans demander de dispense",
+  ] },
+  { id: 's6', theme: 'Mises en situation', question: "Votre employeur refuse que vous priiez pendant les heures de travail. Est-ce légal ?", points: [
+    "Dans une entreprise privée, le règlement intérieur peut encadrer la pratique religieuse si c'est justifié : sécurité, bon fonctionnement",
+    "Dans la fonction publique, l'agent doit rester neutre pendant le service",
+    'La pratique reste libre hors du travail ; vous respectez les règles de votre employeur',
+  ] },
+  { id: 's7', theme: 'Mises en situation', question: "Un voisin vous dit que voter ne sert à rien. Que répondez-vous ?", points: [
+    "Le vote est le premier droit du citoyen : il n'est pas obligatoire, mais c'est ainsi qu'on choisit et qu'on change ses dirigeants",
+    "Chaque voix compte ; on peut aussi s'engager autrement : association, syndicat, conseil de quartier",
+    'Vous dites que vous voterez',
+  ] },
+  { id: 's8', theme: 'Mises en situation', question: "On vous propose un faux document pour votre dossier. Que faites-vous ?", points: [
+    'Vous refusez : la fraude est punie, et le décret de naturalisation peut être retiré même après la signature',
+    'Dites la vérité sur votre parcours, même sur un point gênant',
+    "Un dossier honnête avec une faiblesse vaut mieux qu'un mensonge",
   ] },
 
   // Histoire
@@ -517,12 +565,65 @@ export const ENTRETIEN_QUESTIONS: EntretienQuestion[] = [
     'Par région : choucroute, cassoulet, bouillabaisse, tartiflette, crêpes, quiche lorraine',
     "Fromages et vins ; la baguette est au patrimoine de l'UNESCO depuis 2022",
   ] },
+
+  // Actualité : les noms et les sujets changent, écrivez ceux du moment dans votre réponse
+  { id: 'a1', theme: 'Actualité', question: 'Qui est le Président de la République ? Et le précédent ?', points: [
+    "Écrivez le nom, l'année d'élection et le parti ; le prédécesseur aussi",
+    'Un fait marquant de son mandat, en une phrase',
+    "À vérifier sur elysee.fr la semaine de l'entretien",
+  ] },
+  { id: 'a2', theme: 'Actualité', question: 'Qui est le Premier ministre ? Citez quelques ministres.', points: [
+    "Le Premier ministre, le ministre de l'Intérieur (chargé des naturalisations), ceux de l'Économie, des Affaires étrangères, de la Justice",
+    'Les gouvernements changent souvent : notez la date de nomination',
+    "À vérifier sur gouvernement.fr la semaine de l'entretien",
+  ] },
+  { id: 'a3', theme: 'Actualité', question: 'Qui est le maire de votre commune ? Depuis quand ?', points: [
+    "Le nom, l'étiquette politique, l'année d'élection ; les dernières municipales ont eu lieu en mars 2026",
+    'Un projet ou un sujet local récent : travaux, école, transports',
+    'Le site de la mairie et le journal municipal donnent tout cela',
+  ] },
+  { id: 'a4', theme: 'Actualité', question: 'Qui sont votre préfet et votre député ?', points: [
+    "Le préfet est nommé par l'État ; son nom est sur le site de la préfecture",
+    'Votre député et le numéro de votre circonscription : assemblee-nationale.fr',
+    'Si vous le savez : le président du conseil départemental et celui du conseil régional',
+  ] },
+  { id: 'a5', theme: 'Actualité', question: "Qui préside l'Assemblée nationale et le Sénat ?", points: [
+    'Les deux noms, à vérifier sur assemblee-nationale.fr et senat.fr',
+    "Rappel : le président du Sénat remplace le Président de la République en cas de vacance",
+    "Sachez aussi quel parti ou quelle coalition a la majorité à l'Assemblée",
+  ] },
+  { id: 'a6', theme: 'Actualité', question: "Quelle est l'actualité en France en ce moment ?", points: [
+    'Trois sujets récents : un politique, un de société, un économique ou international',
+    'Une phrase par sujet, factuelle, sans prendre parti',
+    'Lisez un journal chaque jour la semaine précédente et notez les sujets ici',
+  ] },
+  { id: 'a7', theme: 'Actualité', question: 'Quelle loi récente a fait débat ?', points: [
+    'Une loi dont les journaux ont parlé : son sujet et ce qu\'elle change, en une phrase',
+    'vie-publique.fr résume les lois votées et en discussion',
+    "Dites ce qu'elle change, pas votre opinion ; si on vous la demande, restez mesuré",
+  ] },
+  { id: 'a8', theme: 'Actualité', question: 'Que se passe-t-il dans le monde ?', points: [
+    'Un ou deux sujets internationaux, en restant neutre et factuel',
+    "Si on vous demande votre avis sur un conflit : la paix, le droit international, la position de la France",
+    'Ne vous laissez pas entraîner dans un débat',
+  ] },
+  { id: 'a9', theme: 'Actualité', question: 'Quelles sont les prochaines élections ?', points: [
+    "La prochaine présidentielle a lieu en avril et mai 2027 ; les législatives suivent",
+    "Dites que vous vous inscrirez sur les listes électorales dès le décret",
+    'Sachez la date des dernières élections et qui les a gagnées',
+  ] },
+  { id: 'a10', theme: 'Actualité', question: "Quel est le montant du SMIC ? Le prix d'une baguette ?", points: [
+    'Le SMIC net mensuel du moment : service-public.fr',
+    "Ce que vous payez vous-même : une baguette, un ticket de transport, un loyer moyen dans votre ville",
+    'Ces questions vérifient que vous vivez vraiment ici',
+  ] },
 ];
 
-// These themes ask about you: there is no right answer, only hints
-const PERSONAL_THEMES = ['Parcours', 'Motivation', 'Intégration'];
+// These themes ask about you or about today: there is no fixed answer, only hints
+const PERSONAL_THEMES = ['Parcours', 'Motivation', 'Intégration', 'Actualité'];
 const isPersonal = (q: EntretienQuestion) => PERSONAL_THEMES.includes(q.theme);
-const bulletsTitle = (q: EntretienQuestion) => (isPersonal(q) ? 'Pistes pour construire votre réponse' : 'Points clés');
+const bulletsTitle = (q: EntretienQuestion) =>
+  q.theme === 'Actualité' ? "À vérifier la semaine de l'entretien" : isPersonal(q) ? 'Pistes pour construire votre réponse' : 'Points clés';
 
 const SESSION_SIZE = 10;
 
@@ -628,10 +729,26 @@ export const Entretien: React.FC<EntretienProps> = ({ userStats, onStatsUpdate }
       <div className="space-y-3">
         <h1 className="text-3xl font-bold text-slate-900 dark:text-white">Entretien de naturalisation</h1>
         <p className="text-slate-600 dark:text-slate-300">
-          Après l'examen civique, la préfecture vous reçoit pour un entretien. L'agent évalue votre parcours, votre adhésion aux valeurs de la République et votre connaissance de la France. Il n'existe pas de liste officielle de questions : celles-ci reprennent ce qui revient le plus souvent.
+          Après l'examen civique, la préfecture vous reçoit pour un entretien. Depuis 2026, l'examen atteste vos connaissances ; à l'entretien, l'agent vérifie surtout votre parcours, votre vie en France et votre adhésion aux valeurs de la République, mais peut encore poser des questions d'histoire et de société. Il n'existe pas de liste officielle de questions : celles-ci reprennent ce qui revient le plus souvent.
         </p>
+        <div className={`${CARD} p-5 text-sm text-slate-700 dark:text-slate-300 space-y-2`}>
+          <p className="font-semibold text-slate-900 dark:text-white">Le jour de l'entretien</p>
+          <ul className="list-disc pl-5 space-y-1">
+            <li>Apportez les originaux listés sur votre convocation. Une absence sans raison légitime peut classer la demande sans suite.</li>
+            <li>L'agent vérifie le dossier, puis vous interroge sur votre parcours, votre vie en France et les valeurs de la République. Comptez 15 à 45 minutes.</li>
+            <li>À la fin, vous signez la charte des droits et devoirs du citoyen français.</li>
+            <li>La réponse arrive dans un délai de 18 mois au plus (12 mois après dix ans de résidence), puis le décret paraît au Journal officiel.</li>
+          </ul>
+          <p>
+            Préparez-vous avec le{' '}
+            <a href="https://www.immigration.interieur.gouv.fr/sites/dgef/files/medias/documents/2026-07/LIVRET-DU-CITOYEN-2026.pdf" target="_blank" rel="noopener" className="text-sapphire-600 dark:text-sapphire-400 hover:underline">
+              livret du citoyen 2026 (PDF, ministère de l'Intérieur)
+            </a>
+            , la référence officielle de l'examen et de l'entretien.
+          </p>
+        </div>
         <p className="text-slate-600 dark:text-slate-300">
-          Les questions sur vous (parcours, motivation, intégration) n'ont pas de bonne réponse : des pistes vous aident à construire la vôtre. Écrivez vos réponses sous chaque question : elles restent sur votre appareil. Pour les dates et les institutions, les <Link to="/flashcards" className="text-sapphire-600 dark:text-sapphire-400 hover:underline">flashcards</Link> et les <Link to="/fiches" className="text-sapphire-600 dark:text-sapphire-400 hover:underline">fiches</Link> restent le meilleur entraînement.
+          Les questions sur vous (parcours, motivation, intégration) n'ont pas de bonne réponse : des pistes vous aident à construire la vôtre. Pour l'actualité, les noms et les sujets changent : notez ceux du moment la semaine de l'entretien. Écrivez vos réponses sous chaque question : elles restent sur votre appareil. Pour les dates et les institutions, les <Link to="/flashcards" className="text-sapphire-600 dark:text-sapphire-400 hover:underline">flashcards</Link> et les <Link to="/fiches" className="text-sapphire-600 dark:text-sapphire-400 hover:underline">fiches</Link> restent le meilleur entraînement.
         </p>
         <p className="text-sm text-slate-500 dark:text-slate-400 tabular-nums">
           {writtenCount} / {allIds.length} réponses écrites · {masteredCount} maîtrisées{dueCount > 0 ? ` · ${dueCount} à revoir` : ''}
